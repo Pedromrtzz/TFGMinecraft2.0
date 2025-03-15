@@ -1,4 +1,6 @@
 {
   "item.tfgmod.ejemplo": "Ejemplo Item",
-  "block.tfgmod.ejemploblock": "Ejemplo Block"
+  "block.tfgmod.ejemploblock": "Ejemplo Block",
+
+  "creativetab.tfgmod.ejemplo": "Ejemplo Tab"
 }

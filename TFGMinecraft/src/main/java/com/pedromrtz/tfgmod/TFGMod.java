@@ -2,6 +2,7 @@ package com.pedromrtz.tfgmod;
 
 import com.mojang.logging.LogUtils;
 import com.pedromrtz.tfgmod.Block.ModBlocks;
+import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,8 +32,11 @@ public class TFGMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
 
 
         // Register the item to a creative tab
