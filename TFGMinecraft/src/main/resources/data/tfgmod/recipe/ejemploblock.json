@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tfgmod:ejemplo"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:ejemploblock"
+  }
+}
