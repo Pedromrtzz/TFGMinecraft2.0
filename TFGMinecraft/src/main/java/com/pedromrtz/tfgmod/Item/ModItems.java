@@ -19,4 +19,7 @@ public class ModItems {
     public static final RegistryObject<Item> EJEMPLO = ITEMS.register("ejemplo",
             () -> new Item(new Item.Properties()));
 
+
+    public static final RegistryObject<Item> RAMEN = ITEMS.register("ramen",
+            () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN)));
 }

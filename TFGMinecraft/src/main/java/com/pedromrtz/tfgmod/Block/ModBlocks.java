@@ -1,11 +1,13 @@
 package com.pedromrtz.tfgmod.Block;
 
+import com.pedromrtz.tfgmod.Block.custom.SillaBlock;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.TFGMod;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,6 +39,9 @@ public class ModBlocks {
             () -> new Block(Block.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)
             ));
+
+    public static final RegistryObject<Block> SILLA = registerBlock("silla",
+            () -> new SillaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
 
 }

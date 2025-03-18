@@ -4,6 +4,10 @@ import com.mojang.logging.LogUtils;
 import com.pedromrtz.tfgmod.Block.ModBlocks;
 import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
+import com.pedromrtz.tfgmod.entity.ModEntities;
+import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +18,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -36,6 +41,7 @@ public class TFGMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
 
 
 
@@ -69,5 +75,11 @@ public class TFGMod {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+
+            EntityRenderers.register(ModEntities.SILLA.get(), SillaRenderer::new);
+
+        }
     }
 }

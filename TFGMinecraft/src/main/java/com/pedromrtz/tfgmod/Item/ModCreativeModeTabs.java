@@ -1,5 +1,6 @@
 package com.pedromrtz.tfgmod.Item;
 
+import com.pedromrtz.tfgmod.Block.ModBlocks;
 import com.pedromrtz.tfgmod.TFGMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -23,6 +24,8 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.tfgmod.ejemplo"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.EJEMPLO.get());
+                        output.accept(ModBlocks.SILLA.get());
+                        output.accept(ModItems.RAMEN.get());
 
                     }).build());
 
