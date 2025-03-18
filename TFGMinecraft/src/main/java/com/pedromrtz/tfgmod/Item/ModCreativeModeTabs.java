@@ -29,6 +29,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.VITROCERAMICA.get());
 
                         output.accept(ModItems.MORTERO.get());
+                        output.accept(ModItems.HARINA.get());
 
                     }).build());
 
