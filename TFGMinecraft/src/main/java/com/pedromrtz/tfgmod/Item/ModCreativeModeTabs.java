@@ -28,6 +28,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAMEN.get());
                         output.accept(ModBlocks.VITROCERAMICA.get());
 
+                        output.accept(ModItems.MORTERO.get());
+
                     }).build());
 
 }

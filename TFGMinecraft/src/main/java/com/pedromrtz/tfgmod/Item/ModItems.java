@@ -17,9 +17,21 @@ public class ModItems {
     }
 
     public static final RegistryObject<Item> EJEMPLO = ITEMS.register("ejemplo",
-            () -> new Item(new Item.Properties()));
-
+            () -> new Item(new Item.Properties())
+    );
 
     public static final RegistryObject<Item> RAMEN = ITEMS.register("ramen",
-            () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN)));
+            () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN))
+    );
+
+    // RAMEN STALL
+
+        // RAMEN
+
+            public static final RegistryObject<Item> MORTERO = ITEMS.register("mortero",
+                    () -> new Item(new Item.Properties())
+            );
+
+
+
 }
