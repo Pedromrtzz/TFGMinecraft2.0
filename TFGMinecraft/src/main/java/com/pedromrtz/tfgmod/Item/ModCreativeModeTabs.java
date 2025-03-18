@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.EJEMPLO.get());
                         output.accept(ModBlocks.SILLA.get());
                         output.accept(ModItems.RAMEN.get());
+                        output.accept(ModBlocks.VITROCERAMICA.get());
 
                     }).build());
 

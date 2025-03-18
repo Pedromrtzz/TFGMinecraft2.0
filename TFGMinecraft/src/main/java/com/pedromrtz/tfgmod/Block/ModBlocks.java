@@ -1,6 +1,7 @@
 package com.pedromrtz.tfgmod.Block;
 
 import com.pedromrtz.tfgmod.Block.custom.SillaBlock;
+import com.pedromrtz.tfgmod.Block.custom.VitroceramicaBlock;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.TFGMod;
 import net.minecraft.world.item.BlockItem;
@@ -42,6 +43,11 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SILLA = registerBlock("silla",
             () -> new SillaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+    public static final RegistryObject<Block> VITROCERAMICA = registerBlock("vitroceramica",
+            () -> new VitroceramicaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+
 
 
 }

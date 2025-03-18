@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/vitroceramica" },
+    "facing=south": { "model": "tfgmod:block/vitroceramica", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/vitroceramica", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/vitroceramica", "y": 270 }
+  }
+}
