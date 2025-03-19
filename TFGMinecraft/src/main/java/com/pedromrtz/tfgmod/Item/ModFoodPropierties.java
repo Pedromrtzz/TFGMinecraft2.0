@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class ModFoodPropierties {
 
-    public static final FoodProperties RAMEN = new FoodProperties.Builder().nutrition(3).saturationModifier(0.2F)
+    public static final FoodProperties RAMEN = new FoodProperties.Builder().nutrition(4).saturationModifier(0.2F)
             .effect(new MobEffectInstance(MobEffects.JUMP, 400), 0.20f).build();
 
     public static final FoodProperties CALDO = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
