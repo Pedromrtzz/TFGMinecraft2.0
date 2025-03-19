@@ -32,6 +32,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.HARINA.get());
                         output.accept(ModItems.SAL.get());
                         output.accept(ModItems.PASTA.get());
+                        output.accept(ModItems.FIDEOS.get());
 
                     }).build());
 

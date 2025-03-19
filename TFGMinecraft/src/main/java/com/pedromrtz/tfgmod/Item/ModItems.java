@@ -44,6 +44,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties())
             );
 
+            public static final RegistryObject<Item> FIDEOS = ITEMS.register("fideos",
+                    () -> new Item(new Item.Properties())
+            );
+
 
 
 }
