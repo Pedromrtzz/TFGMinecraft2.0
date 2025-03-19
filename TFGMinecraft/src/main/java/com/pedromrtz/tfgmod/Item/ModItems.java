@@ -40,6 +40,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties())
             );
 
+            public static final RegistryObject<Item> PASTA = ITEMS.register("pasta",
+                    () -> new Item(new Item.Properties())
+            );
+
 
 
 }

@@ -31,6 +31,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());
                         output.accept(ModItems.SAL.get());
+                        output.accept(ModItems.PASTA.get());
 
                     }).build());
 
