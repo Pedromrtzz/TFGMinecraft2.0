@@ -48,6 +48,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties())
             );
 
+            public static final RegistryObject<Item> CALDO = ITEMS.register("caldo",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.CALDO))
+            );
+
 
 
 }

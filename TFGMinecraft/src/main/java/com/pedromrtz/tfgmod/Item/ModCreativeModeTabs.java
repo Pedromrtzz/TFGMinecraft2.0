@@ -33,6 +33,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SAL.get());
                         output.accept(ModItems.PASTA.get());
                         output.accept(ModItems.FIDEOS.get());
+                        output.accept(ModItems.CALDO.get());
 
                     }).build());
 
