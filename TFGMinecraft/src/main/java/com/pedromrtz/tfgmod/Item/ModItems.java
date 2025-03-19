@@ -36,6 +36,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties())
             );
 
+            public static final RegistryObject<Item> SAL = ITEMS.register("sal",
+                    () -> new Item(new Item.Properties())
+            );
+
 
 
 }
