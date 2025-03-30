@@ -36,6 +36,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CALDO.get());
 
                         output.accept(ModItems.CALDO_POLLO.get());
+                        output.accept(ModItems.RAMEN_POLLO.get());
 
                     }).build());
 
