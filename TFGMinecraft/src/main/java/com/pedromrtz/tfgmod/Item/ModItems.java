@@ -52,7 +52,7 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.CALDO))
             );
 
-    // RAMEN DE POLLO
+        // RAMEN DE POLLO
 
             public static final RegistryObject<Item> CALDO_POLLO = ITEMS.register("caldo_pollo",
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.CALDO_POLLO))
@@ -61,6 +61,15 @@ public class ModItems {
             public static final RegistryObject<Item> RAMEN_POLLO = ITEMS.register("ramen_pollo",
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN_POLLO))
             );
+
+        // RAMEN DE CARNE
+
+            public static final RegistryObject<Item> CALDO_CARNE = ITEMS.register("caldo_carne",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.CALDO_CARNE))
+            );
+
+
+
 
 
 
