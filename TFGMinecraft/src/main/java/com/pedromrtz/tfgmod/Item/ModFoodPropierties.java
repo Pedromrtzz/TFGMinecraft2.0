@@ -19,4 +19,9 @@ public class ModFoodPropierties {
     public static final FoodProperties RAMEN_POLLO = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
             .build();
 
+
+    public static final FoodProperties CALDO_CARNE = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
+            .build();
+
+
 }
