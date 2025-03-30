@@ -12,4 +12,7 @@ public class ModFoodPropierties {
     public static final FoodProperties CALDO = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
             .build();
 
+    public static final FoodProperties CALDO_POLLO = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
+            .build();
+
 }
