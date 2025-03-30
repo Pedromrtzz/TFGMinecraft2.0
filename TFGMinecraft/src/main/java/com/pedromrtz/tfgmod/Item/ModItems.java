@@ -68,6 +68,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.CALDO_CARNE))
             );
 
+            public static final RegistryObject<Item> RAMEN_CARNE = ITEMS.register("ramen_carne",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN_CARNE))
+            );
+
 
 
 
