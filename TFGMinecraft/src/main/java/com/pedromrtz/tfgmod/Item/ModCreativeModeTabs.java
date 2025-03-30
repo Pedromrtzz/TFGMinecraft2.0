@@ -42,6 +42,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAMEN_CARNE.get());
 
                         output.accept(ModItems.CALDO_PESCADO.get());
+                        output.accept(ModItems.RAMEN_PESCADO.get());
 
                     }).build());
 
