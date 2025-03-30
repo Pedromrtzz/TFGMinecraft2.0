@@ -35,6 +35,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.FIDEOS.get());
                         output.accept(ModItems.CALDO.get());
 
+                        output.accept(ModItems.CALDO_POLLO.get());
+
                     }).build());
 
 }
