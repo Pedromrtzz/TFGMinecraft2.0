@@ -124,7 +124,11 @@ public class ModItems {
 
         // TE MATCHA
 
-            public static final RegistryObject<Item>  TAZA = ITEMS.register("taza",
+            public static final RegistryObject<Item> TAZA = ITEMS.register("taza",
+                    () -> new Item(new Item.Properties())
+            );
+
+            public static final RegistryObject<Item> TE = ITEMS.register("te",
                     () -> new Item(new Item.Properties())
             );
 
