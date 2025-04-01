@@ -136,6 +136,14 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.TE_MATCHA))
             );
 
+        // MOCHI
+
+            public static final RegistryObject<Item> PASTA_ARROZ = ITEMS.register("pasta_arroz",
+                    () -> new Item(new Item.Properties())
+            );
+
+
+
 
 
 
