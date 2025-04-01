@@ -110,6 +110,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties())
             );
 
+            public static final RegistryObject<Item> DUMPLING = ITEMS.register("dumpling",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.DUMPLING))
+            );
+
 
 
 

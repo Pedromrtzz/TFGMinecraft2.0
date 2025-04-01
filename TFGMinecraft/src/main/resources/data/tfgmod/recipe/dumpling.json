@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "OP#"
+  ],
+  "key": {
+    "O": {
+      "item": "tfgmod:masa"
+    },
+    "#": {
+      "item": "minecraft:water_bucket"
+    },
+    "P": {
+      "item": "minecraft:beef"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:dumpling"
+  }
+}
