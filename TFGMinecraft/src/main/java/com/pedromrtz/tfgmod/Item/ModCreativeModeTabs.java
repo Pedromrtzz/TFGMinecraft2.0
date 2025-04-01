@@ -55,6 +55,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.TAZA.get());
                         output.accept(ModItems.TE.get());
+                        output.accept(ModItems.TE_MATCHA.get());
 
                     }).build());
 

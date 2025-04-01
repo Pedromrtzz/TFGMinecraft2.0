@@ -132,6 +132,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties())
             );
 
+            public static final RegistryObject<Item> TE_MATCHA = ITEMS.register("te_matcha",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.TE_MATCHA))
+            );
+
 
 
 
