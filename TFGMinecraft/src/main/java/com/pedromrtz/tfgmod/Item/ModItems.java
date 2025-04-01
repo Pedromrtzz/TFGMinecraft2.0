@@ -164,6 +164,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.CHOCOLATE))
             );
 
+            public static final RegistryObject<Item> MOCHI_CHOCOLATE = ITEMS.register("mochi_chocolate",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.MOCHI_CHOCOLATE))
+            );
+
 
 
 

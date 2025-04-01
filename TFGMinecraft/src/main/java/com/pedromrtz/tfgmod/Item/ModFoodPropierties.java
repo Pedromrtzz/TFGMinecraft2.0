@@ -66,4 +66,7 @@ public class ModFoodPropierties {
 
     public static final FoodProperties CHOCOLATE = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
             .build();
+
+    public static final FoodProperties MOCHI_CHOCOLATE = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
+            .build();
 }
