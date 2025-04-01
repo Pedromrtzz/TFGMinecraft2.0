@@ -2,6 +2,7 @@ package com.pedromrtz.tfgmod.Item;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodData;
 import net.minecraft.world.food.FoodProperties;
 
 public class ModFoodPropierties {
@@ -47,5 +48,9 @@ public class ModFoodPropierties {
             .build();
 
     public static final FoodProperties SUSHI = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
+            .build();
+
+
+    public static final FoodProperties TE_MATCHA = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
             .build();
 }
