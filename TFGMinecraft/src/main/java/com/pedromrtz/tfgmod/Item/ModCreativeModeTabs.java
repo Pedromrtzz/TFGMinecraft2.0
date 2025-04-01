@@ -46,6 +46,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.OKONOMIYAKI_POLLO.get());
                         output.accept(ModItems.OKONOMIYAKI_CARNE.get());
+                        output.accept(ModItems.OKONOMIYAKI_VERDURAS.get());
 
                     }).build());
 
