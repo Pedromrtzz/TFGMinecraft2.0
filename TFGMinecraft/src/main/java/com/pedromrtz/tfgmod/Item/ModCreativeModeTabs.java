@@ -54,6 +54,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SUSHI.get());
 
                         output.accept(ModItems.TAZA.get());
+                        output.accept(ModItems.TE.get());
 
                     }).build());
 
