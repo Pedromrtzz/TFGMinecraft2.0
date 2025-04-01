@@ -49,6 +49,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.OKONOMIYAKI_VERDURAS.get());
 
                         output.accept(ModItems.MASA.get());
+                        output.accept(ModItems.DUMPLING.get());
 
                     }).build());
 
