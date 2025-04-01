@@ -45,6 +45,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAMEN_PESCADO.get());
 
                         output.accept(ModItems.OKONOMIYAKI_POLLO.get());
+                        output.accept(ModItems.OKONOMIYAKI_CARNE.get());
 
                     }).build());
 
