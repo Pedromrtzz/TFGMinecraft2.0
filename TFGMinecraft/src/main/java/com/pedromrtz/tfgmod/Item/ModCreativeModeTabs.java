@@ -20,10 +20,9 @@ public class ModCreativeModeTabs {
     }
 
     public static final RegistryObject<CreativeModeTab> ALEXANDRITE_ITEMS_TAB = CREATIVE_MODE_TABS.register("alexanderite_items_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.EJEMPLO.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ARROZ.get()))
                     .title(Component.translatable("creativetab.tfgmod.ejemplo"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.EJEMPLO.get());
                         output.accept(ModBlocks.SILLA.get());
                         output.accept(ModItems.RAMEN.get());
                         output.accept(ModBlocks.VITROCERAMICA.get());
@@ -50,6 +49,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.MASA.get());
                         output.accept(ModItems.DUMPLING.get());
+
+                        output.accept(ModItems.ARROZ.get());
 
                     }).build());
 
