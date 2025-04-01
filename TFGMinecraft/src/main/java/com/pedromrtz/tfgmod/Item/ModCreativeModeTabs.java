@@ -58,6 +58,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TE_MATCHA.get());
 
                         output.accept(ModItems.PASTA_ARROZ.get());
+                        output.accept(ModItems.MOCHI_VERDE.get());
 
                     }).build());
 
