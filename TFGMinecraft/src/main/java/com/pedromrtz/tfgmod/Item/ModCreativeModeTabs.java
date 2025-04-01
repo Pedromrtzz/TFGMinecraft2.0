@@ -51,6 +51,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DUMPLING.get());
 
                         output.accept(ModItems.ARROZ.get());
+                        output.accept(ModItems.SUSHI.get());
 
                     }).build());
 
