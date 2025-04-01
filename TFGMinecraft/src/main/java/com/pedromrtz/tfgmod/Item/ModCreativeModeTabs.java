@@ -57,6 +57,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TE.get());
                         output.accept(ModItems.TE_MATCHA.get());
 
+                        output.accept(ModItems.PASTA_ARROZ.get());
+
                     }).build());
 
 }
