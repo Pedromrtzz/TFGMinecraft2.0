@@ -53,6 +53,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ARROZ.get());
                         output.accept(ModItems.SUSHI.get());
 
+                        output.accept(ModItems.TAZA.get());
+
                     }).build());
 
 }
