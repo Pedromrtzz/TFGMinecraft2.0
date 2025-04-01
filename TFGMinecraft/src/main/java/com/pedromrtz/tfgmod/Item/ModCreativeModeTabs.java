@@ -62,6 +62,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.FRESA.get());
                         output.accept(ModItems.MOCHI_FRESA.get());
                         output.accept(ModItems.CHOCOLATE.get());
+                        output.accept(ModItems.MOCHI_CHOCOLATE.get());
 
                     }).build());
 
