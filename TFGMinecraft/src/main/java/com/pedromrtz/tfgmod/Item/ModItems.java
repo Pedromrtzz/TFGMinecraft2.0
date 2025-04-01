@@ -16,10 +16,6 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
 
-    public static final RegistryObject<Item> EJEMPLO = ITEMS.register("ejemplo",
-            () -> new Item(new Item.Properties())
-    );
-
     public static final RegistryObject<Item> RAMEN = ITEMS.register("ramen",
             () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN))
     );
@@ -114,8 +110,12 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.DUMPLING))
             );
 
+        // SUSHI
 
 
+            public static final RegistryObject<Item> ARROZ = ITEMS.register("arroz",
+                        () -> new Item(new Item.Properties())
+            );
 
 
 

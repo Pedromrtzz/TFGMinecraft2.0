@@ -1,5 +1,4 @@
 {
-  "item.tfgmod.ejemplo": "Ejemplo Item",
   "block.tfgmod.ejemploblock": "Ejemplo Block",
 
   "block.tfgmod.silla": "Silla",
@@ -28,6 +27,9 @@
 
   "item.tfgmod.masa": "Masa",
   "item.tfgmod.dumpling": "Dumpling",
+
+  "item.tfgmod.arroz": "Arroz",
+
 
   "creativetab.tfgmod.ejemplo": "Ejemplo Tab"
 }
