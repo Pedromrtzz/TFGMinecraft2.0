@@ -35,4 +35,7 @@ public class ModFoodPropierties {
 
     public static final FoodProperties OKONOMIYAKI_POLLO = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
             .build();
+
+    public static final FoodProperties OKONOMIYAKI_CARNE = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
+            .build();
 }
