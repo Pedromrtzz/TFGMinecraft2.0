@@ -96,6 +96,13 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.OKONOMIYAKI_CARNE))
             );
 
+        // OKONOMIYAKI VERDURAS
+
+            public static final RegistryObject<Item> OKONOMIYAKI_VERDURAS = ITEMS.register("okonomiyaki_verduras",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.OKONOMIYAKI_VERDURAS))
+            );
+
+
 
 
 
