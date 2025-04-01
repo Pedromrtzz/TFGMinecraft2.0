@@ -120,6 +120,15 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.SUSHI))
             );
 
+    // GREEN TEA SHOP
+
+        // TE MATCHA
+
+            public static final RegistryObject<Item>  TAZA = ITEMS.register("taza",
+                    () -> new Item(new Item.Properties())
+            );
+
+
 
 
 
