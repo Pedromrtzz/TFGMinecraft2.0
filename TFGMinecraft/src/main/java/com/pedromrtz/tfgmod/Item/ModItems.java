@@ -112,9 +112,12 @@ public class ModItems {
 
         // SUSHI
 
-
             public static final RegistryObject<Item> ARROZ = ITEMS.register("arroz",
                         () -> new Item(new Item.Properties())
+            );
+
+            public static final RegistryObject<Item> SUSHI = ITEMS.register("sushi",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.SUSHI))
             );
 
 

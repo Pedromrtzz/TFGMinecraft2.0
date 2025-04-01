@@ -45,4 +45,7 @@ public class ModFoodPropierties {
 
     public static final FoodProperties DUMPLING = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
             .build();
+
+    public static final FoodProperties SUSHI = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F)
+            .build();
 }
