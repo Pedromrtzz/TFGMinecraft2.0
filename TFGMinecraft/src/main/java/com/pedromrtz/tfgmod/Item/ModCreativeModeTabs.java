@@ -61,6 +61,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOCHI_VERDE.get());
                         output.accept(ModItems.FRESA.get());
                         output.accept(ModItems.MOCHI_FRESA.get());
+                        output.accept(ModItems.CHOCOLATE.get());
 
                     }).build());
 
