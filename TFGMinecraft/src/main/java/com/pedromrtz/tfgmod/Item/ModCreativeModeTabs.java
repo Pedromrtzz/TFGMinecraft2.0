@@ -48,6 +48,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.OKONOMIYAKI_CARNE.get());
                         output.accept(ModItems.OKONOMIYAKI_VERDURAS.get());
 
+                        output.accept(ModItems.MASA.get());
+
                     }).build());
 
 }

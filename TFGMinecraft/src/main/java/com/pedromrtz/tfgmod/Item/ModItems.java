@@ -102,6 +102,14 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.OKONOMIYAKI_VERDURAS))
             );
 
+    // SUSHI BAR
+
+        // DUMPLING
+
+            public static final RegistryObject<Item> MASA = ITEMS.register("masa",
+                    () -> new Item(new Item.Properties())
+            );
+
 
 
 
