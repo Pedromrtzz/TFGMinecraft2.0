@@ -59,6 +59,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.PASTA_ARROZ.get());
                         output.accept(ModItems.MOCHI_VERDE.get());
+                        output.accept(ModItems.FRESA.get());
 
                     }).build());
 
