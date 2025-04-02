@@ -79,4 +79,7 @@ public class ModFoodPropierties {
 
     public static final FoodProperties TERIYAKI = new FoodProperties.Builder().nutrition(1).saturationModifier(0.2F)
             .build();
+
+    public static final FoodProperties CEBOLLA = new FoodProperties.Builder().nutrition(1).saturationModifier(0.2F)
+            .build();
 }

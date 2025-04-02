@@ -67,6 +67,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOCHI_PLATANO.get());
 
                         output.accept(ModItems.TERIYAKI.get());
+                        output.accept(ModItems.CEBOLLA.get());
 
                     }).build());
 
