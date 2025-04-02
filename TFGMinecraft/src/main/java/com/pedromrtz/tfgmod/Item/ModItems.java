@@ -200,13 +200,25 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.ARROZ_POLLO))
             );
 
+        // ARROZ CON VERDURAS
+
             public static final RegistryObject<Item> ARROZ_VERDURAS = ITEMS.register("arroz_verduras",
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.ARROZ_VERDURAS))
             );
 
+        // ARROZ FRITO
+
             public static final RegistryObject<Item> ARROZ_FRITO = ITEMS.register("arroz_frito",
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.ARROZ_FRITO))
             );
+
+        // ONIGIRI
+
+            public static final RegistryObject<Item> ONIGIRI = ITEMS.register("onigiri",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.ONIGIRI))
+            );
+
+
 
 
 
