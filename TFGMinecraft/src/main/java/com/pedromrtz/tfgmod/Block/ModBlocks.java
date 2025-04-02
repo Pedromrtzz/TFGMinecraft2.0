@@ -1,5 +1,6 @@
 package com.pedromrtz.tfgmod.Block;
 
+import com.pedromrtz.tfgmod.Block.custom.FresaCropBlock;
 import com.pedromrtz.tfgmod.Block.custom.OnionCropBlock;
 import com.pedromrtz.tfgmod.Block.custom.SillaBlock;
 import com.pedromrtz.tfgmod.Block.custom.VitroceramicaBlock;
@@ -54,6 +55,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> CEBOLLA_CULTIVO = BLOCKS.register("cebolla_cultivo",
             () -> new OnionCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
     );
+
+    public static final RegistryObject<Block> FRESA_CULTIVO = BLOCKS.register("fresa_cultivo",
+            () -> new FresaCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
+    );
+
 
 
 }
