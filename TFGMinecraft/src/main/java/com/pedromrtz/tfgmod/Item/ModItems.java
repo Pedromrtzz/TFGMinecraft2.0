@@ -204,6 +204,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.ARROZ_VERDURAS))
             );
 
+            public static final RegistryObject<Item> ARROZ_FRITO = ITEMS.register("arroz_frito",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.ARROZ_FRITO))
+            );
+
 
 
 

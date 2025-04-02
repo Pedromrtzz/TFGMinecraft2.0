@@ -72,6 +72,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.ARROZ_POLLO.get());
                         output.accept(ModItems.ARROZ_VERDURAS.get());
+                        output.accept(ModItems.ARROZ_FRITO.get());
 
                     }).build());
 

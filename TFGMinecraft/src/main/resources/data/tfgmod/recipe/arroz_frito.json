@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "#PB",
+    "OA "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:bowl"
+    },
+    "#": {
+      "item": "tfgmod:arroz"
+    },
+    "P": {
+      "item": "minecraft:chicken"
+    },
+    "B": {
+      "item": "tfgmod:sal"
+    },
+    "A": {
+      "item": "minecraft:flint_and_steel"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:arroz_frito"
+  }
+}
