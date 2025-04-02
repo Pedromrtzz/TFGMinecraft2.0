@@ -184,6 +184,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.TERIYAKI))
             );
 
+            public static final RegistryObject<Item> CEBOLLA = ITEMS.register("cebolla",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.CEBOLLA))
+            );
+
 
 
 
