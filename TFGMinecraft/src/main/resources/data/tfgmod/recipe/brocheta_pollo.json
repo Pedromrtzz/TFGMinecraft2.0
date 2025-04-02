@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "B#P",
+    "O  "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "tfgmod:teriyaki"
+    },
+    "P": {
+      "item": "minecraft:chicken"
+    },
+    "B": {
+      "item": "tfgmod:cebolla"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:brocheta_pollo"
+  }
+}
