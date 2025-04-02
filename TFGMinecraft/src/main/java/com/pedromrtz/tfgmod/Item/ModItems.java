@@ -188,6 +188,10 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.CEBOLLA))
             );
 
+            public static final RegistryObject<Item> BROCHETA_POLLO = ITEMS.register("brocheta_pollo",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.BROCHETA_POLLO))
+            );
+
 
 
 
