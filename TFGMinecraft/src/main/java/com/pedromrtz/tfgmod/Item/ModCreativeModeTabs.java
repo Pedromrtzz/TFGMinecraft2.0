@@ -70,6 +70,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CEBOLLA.get());
                         output.accept(ModItems.BROCHETA_POLLO.get());
 
+                        output.accept(ModItems.ARROZ_POLLO.get());
+
                     }).build());
 
 }
