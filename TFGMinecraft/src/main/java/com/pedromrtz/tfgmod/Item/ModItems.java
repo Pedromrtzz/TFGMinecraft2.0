@@ -192,6 +192,17 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.BROCHETA_POLLO))
             );
 
+    // JAPANESE POT RICE
+
+        // ARROZ CON POLLO
+
+            public static final RegistryObject<Item> ARROZ_POLLO = ITEMS.register("arroz_pollo",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.ARROZ_POLLO))
+            );
+
+
+
+
 
 
 
