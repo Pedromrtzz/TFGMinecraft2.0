@@ -1,5 +1,6 @@
 package com.pedromrtz.tfgmod.Block;
 
+import com.pedromrtz.tfgmod.Block.custom.OnionCropBlock;
 import com.pedromrtz.tfgmod.Block.custom.SillaBlock;
 import com.pedromrtz.tfgmod.Block.custom.VitroceramicaBlock;
 import com.pedromrtz.tfgmod.Item.ModItems;
@@ -7,6 +8,7 @@ import com.pedromrtz.tfgmod.TFGMod;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -48,6 +50,10 @@ public class ModBlocks {
             () -> new VitroceramicaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
 
+
+    public static final RegistryObject<Block> CEBOLLA_CULTIVO = BLOCKS.register("cebolla_cultivo",
+            () -> new OnionCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
+    );
 
 
 }

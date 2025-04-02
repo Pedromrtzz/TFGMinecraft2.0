@@ -75,6 +75,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ARROZ_FRITO.get());
                         output.accept(ModItems.ONIGIRI.get());
 
+                        output.accept(ModItems.CEBOLLA_SEMILLA.get());
+
                     }).build());
 
 }
