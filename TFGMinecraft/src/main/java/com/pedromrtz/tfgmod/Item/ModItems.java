@@ -178,6 +178,11 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.MOCHI_PLATANO))
             );
 
+    // YAKITORY SHOP
+
+            public static final RegistryObject<Item> TERIYAKI = ITEMS.register("teriyaki",
+                    () -> new Item(new Item.Properties().food(ModFoodPropierties.TERIYAKI))
+            );
 
 
 
