@@ -6,6 +6,8 @@ import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.entity.ModEntities;
 import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -79,6 +81,8 @@ public class TFGMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             EntityRenderers.register(ModEntities.SILLA.get(), SillaRenderer::new);
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CEBOLLA_CULTIVO.get(), RenderType.cutout());
+
 
         }
     }
