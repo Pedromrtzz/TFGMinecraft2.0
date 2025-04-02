@@ -82,6 +82,7 @@ public class TFGMod {
 
             EntityRenderers.register(ModEntities.SILLA.get(), SillaRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CEBOLLA_CULTIVO.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRESA_CULTIVO.get(), RenderType.cutout());
 
 
         }

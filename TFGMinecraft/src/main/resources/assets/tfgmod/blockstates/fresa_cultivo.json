@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "age=0": { "model": "tfgmod:block/fresa_stage0" },
+    "age=1": { "model": "tfgmod:block/fresa_stage1" },
+    "age=2": { "model": "tfgmod:block/fresa_stage2" },
+    "age=3": { "model": "tfgmod:block/fresa_stage3" }
+  }
+}
