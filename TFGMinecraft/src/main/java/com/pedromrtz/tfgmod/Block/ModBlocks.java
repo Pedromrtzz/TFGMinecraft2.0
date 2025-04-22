@@ -50,6 +50,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> OLLA = registerBlock("olla",
             () -> new OllaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
+            () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
     public static final RegistryObject<Block> CEBOLLA_CULTIVO = BLOCKS.register("cebolla_cultivo",
