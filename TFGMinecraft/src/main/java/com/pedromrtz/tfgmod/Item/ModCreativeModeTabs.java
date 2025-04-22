@@ -79,6 +79,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.FRESA_SEMILLA.get());
                         output.accept(ModItems.ARROZ_SEMILLA.get());
                         output.accept(ModItems.TEVERDE_SEMILLA.get());
+                        output.accept(ModItems.CHOCOLATE_POLVO.get());
 
                     }).build());
 
