@@ -23,9 +23,11 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ARROZ.get()))
                     .title(Component.translatable("creativetab.tfgmod.ejemplo"))
                     .displayItems((itemDisplayParameters, output) -> {
+
                         output.accept(ModBlocks.SILLA.get());
                         output.accept(ModItems.RAMEN.get());
                         output.accept(ModBlocks.VITROCERAMICA.get());
+                        output.accept(ModBlocks.OLLA.get());
 
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());

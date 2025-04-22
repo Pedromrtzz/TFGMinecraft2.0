@@ -47,6 +47,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> VITROCERAMICA = registerBlock("vitroceramica",
             () -> new VitroceramicaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> OLLA = registerBlock("olla",
+            () -> new OllaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
     public static final RegistryObject<Block> CEBOLLA_CULTIVO = BLOCKS.register("cebolla_cultivo",

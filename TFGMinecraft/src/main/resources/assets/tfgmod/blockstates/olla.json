@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/olla" },
+    "facing=south": { "model": "tfgmod:block/olla", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/olla", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/olla", "y": 270 }
+  }
+}
