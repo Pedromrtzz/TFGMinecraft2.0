@@ -61,6 +61,10 @@ public class ModBlocks {
             () -> new ArrozCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
     );
 
+    public static final RegistryObject<Block> TEVERDE_CULTIVO = BLOCKS.register("teverde_cultivo",
+            () -> new TeVerdeCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
+    );
+
 
 
 }
