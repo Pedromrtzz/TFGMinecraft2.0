@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "tfgmod:block/teverde_stage3"
+  }
+}

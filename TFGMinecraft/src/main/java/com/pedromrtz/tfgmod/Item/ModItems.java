@@ -234,6 +234,10 @@ public class ModItems {
                 () -> new BlockItem(ModBlocks.ARROZ_CULTIVO.get(), new Item.Properties())
         );
 
+        public static final RegistryObject<Item> TEVERDE_SEMILLA = ITEMS.register("teverde_semilla",
+                () -> new BlockItem(ModBlocks.TEVERDE_CULTIVO.get(), new Item.Properties())
+        );
+
 
 
 
