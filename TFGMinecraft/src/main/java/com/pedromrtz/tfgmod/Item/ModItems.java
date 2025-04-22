@@ -238,6 +238,12 @@ public class ModItems {
                 () -> new BlockItem(ModBlocks.TEVERDE_CULTIVO.get(), new Item.Properties())
         );
 
+        public static final RegistryObject<Item> CHOCOLATE_POLVO = ITEMS.register("chocolate_polvo",
+                () -> new Item(new Item.Properties())
+        );
+
+
+
 
 
 
