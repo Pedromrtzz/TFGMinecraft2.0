@@ -1,9 +1,6 @@
 package com.pedromrtz.tfgmod.Block;
 
-import com.pedromrtz.tfgmod.Block.custom.FresaCropBlock;
-import com.pedromrtz.tfgmod.Block.custom.OnionCropBlock;
-import com.pedromrtz.tfgmod.Block.custom.SillaBlock;
-import com.pedromrtz.tfgmod.Block.custom.VitroceramicaBlock;
+import com.pedromrtz.tfgmod.Block.custom.*;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.TFGMod;
 import net.minecraft.world.item.BlockItem;
@@ -58,6 +55,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> FRESA_CULTIVO = BLOCKS.register("fresa_cultivo",
             () -> new FresaCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
+    );
+
+    public static final RegistryObject<Block> ARROZ_CULTIVO = BLOCKS.register("arroz_cultivo",
+            () -> new ArrozCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
     );
 
 

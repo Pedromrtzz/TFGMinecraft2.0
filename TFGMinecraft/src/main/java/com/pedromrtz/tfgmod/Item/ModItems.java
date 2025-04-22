@@ -230,6 +230,10 @@ public class ModItems {
                 () -> new BlockItem(ModBlocks.FRESA_CULTIVO.get(), new Item.Properties())
         );
 
+        public static final RegistryObject<Item> ARROZ_SEMILLA = ITEMS.register("arroz_semilla",
+                () -> new BlockItem(ModBlocks.ARROZ_CULTIVO.get(), new Item.Properties())
+        );
+
 
 
 

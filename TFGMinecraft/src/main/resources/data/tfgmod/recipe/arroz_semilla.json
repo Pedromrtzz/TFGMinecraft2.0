@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "O  "
+  ],
+  "key": {
+    "O": {
+      "item": "tfgmod:arroz"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:arroz_semilla"
+  }
+}
