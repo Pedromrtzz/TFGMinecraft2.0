@@ -120,7 +120,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> SUSHI = ITEMS.register("sushi",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.SUSHI))
+                    () -> new BlockItem(ModBlocks.SUSHI.get(), new Item.Properties()
+                            .food(ModFoodPropierties.SUSHI))
             );
 
     // GREEN TEA SHOP
