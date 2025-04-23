@@ -13,12 +13,12 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class EspeciasBlock extends Block {
+public class BaldaBlock extends Block {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 32.0, 16.0);
+    public static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
 
-    public EspeciasBlock(Properties properties) {
+    public BaldaBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }

@@ -31,6 +31,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SARTEN.get());
                         output.accept(ModBlocks.ARMARIO.get());
                         output.accept(ModBlocks.ESPECIAS.get());
+                        output.accept(ModBlocks.BALDA.get());
 
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());
