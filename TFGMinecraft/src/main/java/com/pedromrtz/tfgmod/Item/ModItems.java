@@ -1,6 +1,7 @@
 package com.pedromrtz.tfgmod.Item;
 
 import com.pedromrtz.tfgmod.Block.ModBlocks;
+import com.pedromrtz.tfgmod.Block.custom.GalletaSuerteItem;
 import com.pedromrtz.tfgmod.TFGMod;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -243,8 +244,9 @@ public class ModItems {
                 () -> new Item(new Item.Properties())
         );
 
-
-
+        public static final RegistryObject<Item> GALLETA_SUERTE = ITEMS.register("galleta_suerte",
+                () -> new GalletaSuerteItem(new Item.Properties())
+        );
 
 
 
