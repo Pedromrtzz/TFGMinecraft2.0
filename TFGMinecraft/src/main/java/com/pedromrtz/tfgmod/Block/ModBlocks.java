@@ -60,6 +60,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> ARMARIO = registerBlock("armario",
             () -> new ArmarioBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> ESPECIAS = registerBlock("especias",
+            () -> new EspeciasBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
