@@ -28,6 +28,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAMEN.get());
                         output.accept(ModBlocks.VITROCERAMICA.get());
                         output.accept(ModBlocks.OLLA.get());
+                        output.accept(ModBlocks.SARTEN.get());
 
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());
