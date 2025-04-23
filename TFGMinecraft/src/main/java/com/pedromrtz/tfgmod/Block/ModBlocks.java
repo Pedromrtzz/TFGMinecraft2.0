@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -55,6 +56,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SARTEN = registerBlock("sarten",
             () -> new SartenBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+    public static final RegistryObject<Block> ARMARIO = registerBlock("armario",
+            () -> new ArmarioBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
