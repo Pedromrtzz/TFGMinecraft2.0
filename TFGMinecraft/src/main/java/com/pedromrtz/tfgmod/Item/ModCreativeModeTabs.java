@@ -87,6 +87,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TEVERDE_SEMILLA.get());
                         output.accept(ModItems.CHOCOLATE_POLVO.get());
 
+                        output.accept(ModItems.GALLETA_SUERTE.get());
+
                     }).build());
 
 }
