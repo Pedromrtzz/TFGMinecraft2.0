@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/mesa" },
+    "facing=south": { "model": "tfgmod:block/mesa", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/mesa", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/mesa", "y": 270 }
+  }
+}

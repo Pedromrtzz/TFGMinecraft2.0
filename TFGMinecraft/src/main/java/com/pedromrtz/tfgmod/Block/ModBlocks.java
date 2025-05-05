@@ -84,6 +84,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> MICROONDAS = registerBlock("microondas",
             () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> MESA = registerBlock("mesa",
+            () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
