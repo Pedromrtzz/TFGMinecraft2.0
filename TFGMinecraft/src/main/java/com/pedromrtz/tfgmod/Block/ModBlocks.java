@@ -78,6 +78,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> NEVERA = registerBlock("nevera",
             () -> new NeveraBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> EXTRACTOR = registerBlock("extractor",
+            () -> new ExtractorBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
