@@ -34,6 +34,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BALDA.get());
                         output.accept(ModBlocks.BASURA.get());
                         output.accept(ModBlocks.ENCIMERA.get());
+                        output.accept(ModBlocks.FREGADERO.get());
 
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());
