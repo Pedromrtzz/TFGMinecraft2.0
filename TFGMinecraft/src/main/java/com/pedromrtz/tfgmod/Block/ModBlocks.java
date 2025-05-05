@@ -54,6 +54,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
             () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> RAMEN = registerBlock("ramen_bloque",
+            () -> new RamenBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
     public static final RegistryObject<Block> SARTEN = registerBlock("sarten",
             () -> new SartenBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
