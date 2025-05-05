@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/nevera" },
+    "facing=south": { "model": "tfgmod:block/nevera", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/nevera", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/nevera", "y": 270 }
+  }
+}

@@ -75,6 +75,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> FREGADERO = registerBlock("fregadero",
             () -> new FregaderoBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> NEVERA = registerBlock("nevera",
+            () -> new NeveraBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
