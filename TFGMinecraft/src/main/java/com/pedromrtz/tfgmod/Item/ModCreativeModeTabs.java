@@ -39,6 +39,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.EXTRACTOR.get());
                         output.accept(ModBlocks.MICROONDAS.get());
                         output.accept(ModBlocks.MESA.get());
+                        output.accept(ModBlocks.BOTE.get());
 
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());

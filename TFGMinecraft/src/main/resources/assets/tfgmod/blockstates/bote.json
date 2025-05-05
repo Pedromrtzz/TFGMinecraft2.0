@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/bote" },
+    "facing=south": { "model": "tfgmod:block/bote", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/bote", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/bote", "y": 270 }
+  }
+}
