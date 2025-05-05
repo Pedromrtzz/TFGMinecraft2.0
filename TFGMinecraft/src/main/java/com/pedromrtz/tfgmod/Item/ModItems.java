@@ -20,9 +20,10 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
 
-    public static final RegistryObject<Item> RAMEN = ITEMS.register("ramen",
-            () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN))
-    );
+        public static final RegistryObject<Item> RAMEN = ITEMS.register("ramen",
+                () -> new BlockItem(ModBlocks.RAMEN.get(), new Item.Properties()
+                        .food(ModFoodPropierties.RAMEN))
+        );
 
     // RAMEN STALL
 
