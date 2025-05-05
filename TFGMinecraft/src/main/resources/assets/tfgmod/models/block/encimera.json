@@ -1,0 +1,51 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "tfgmod:block/color_abajo",
+		"1": "tfgmod:block/parte_arriba",
+		"particle": "tfgmod:block/color_abajo"
+	},
+	"elements": [
+		{
+			"name": "Parte de abajo",
+			"from": [0, 0, 1],
+			"to": [16, 14, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 1]},
+			"faces": {
+				"north": {"uv": [4, 0, 8, 3.5], "texture": "#0"},
+				"east": {"uv": [4, 7, 7.75, 10.5], "texture": "#0"},
+				"south": {"uv": [4, 3.5, 8, 7], "texture": "#0"},
+				"west": {"uv": [0, 7.5, 3.75, 11], "texture": "#0"},
+				"up": {"uv": [4, 3.75, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 3.75, 0, 7.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Parte de Arriba",
+			"from": [0, 14, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 14, 0]},
+			"faces": {
+				"north": {"uv": [8, 0, 16, 0.5], "texture": "#1"},
+				"east": {"uv": [8, 0.5, 16, 1], "texture": "#1"},
+				"south": {"uv": [8, 1, 16, 1.5], "texture": "#1"},
+				"west": {"uv": [8, 1.5, 16, 2], "texture": "#1"},
+				"up": {"uv": [8, 8, 0, 0], "texture": "#1"},
+				"down": {"uv": [8, 8, 0, 16], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.4, 0.4, 0.41]
+		},
+		"ground": {
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [0, 180, 0],
+			"scale": [0.7, 0.7, 0.7]
+		}
+	}
+}
