@@ -1,0 +1,86 @@
+{
+  "block.tfgmod.ejemploblock": "Ejemplo Block",
+
+  "block.tfgmod.silla": "Silla",
+  "block.tfgmod.vitroceramica": "Vitroceramica",
+  "block.tfgmod.olla": "Olla",
+  "block.tfgmod.sarten": "Sarten",
+  "block.tfgmod.armario": "Armario",
+  "block.tfgmod.especias": "Estanteria de Especias",
+  "block.tfgmod.balda": "Balda",
+  "block.tfgmod.basura": "Basura",
+  "block.tfgmod.encimera": "Encimera",
+  "block.tfgmod.fregadero": "Fregadero",
+  "block.tfgmod.nevera": "Nevera",
+  "block.tfgmod.extractor": "Extractor",
+  "block.tfgmod.microondas": "Microondas",
+  "block.tfgmod.mesa": "Mesa",
+  "block.tfgmod.bote": "Soporte de Utensilios",
+
+
+  "block.tfgmod.sushi_bloque": "Sushi",
+  "block.tfgmod.ramen_bloque": "Ramen",
+  "block.tfgmod.dumpling_bloque": "Dumpling",
+
+  "item.tfgmod.mortero": "Mortero",
+  "item.tfgmod.harina": "Harina",
+  "item.tfgmod.sal": "Sal",
+  "item.tfgmod.pasta": "Pasta",
+  "item.tfgmod.fideos": "Fideos Crudos",
+  "item.tfgmod.caldo": "Caldo",
+  "item.tfgmod.ramen": "Ramen",
+
+  "item.tfgmod.caldo_pollo": "Caldo de Pollo",
+  "item.tfgmod.ramen_pollo": "Ramen de Pollo",
+
+  "item.tfgmod.caldo_carne": "Caldo de Carne",
+  "item.tfgmod.ramen_carne": "Ramen de Carne",
+
+  "item.tfgmod.caldo_pescado": "Caldo de Pescado",
+  "item.tfgmod.ramen_pescado": "Ramen de Pescado",
+
+  "item.tfgmod.okonomiyaki_pollo": "Okonomiyaki de Pollo",
+  "item.tfgmod.okonomiyaki_carne": "Okonomiyaki de Carne",
+  "item.tfgmod.okonomiyaki_verduras": "Okonomiyaki de Verduras",
+
+  "item.tfgmod.masa": "Masa",
+  "item.tfgmod.dumpling": "Dumpling",
+
+  "item.tfgmod.arroz": "Arroz",
+  "item.tfgmod.sushi": "Sushi",
+
+  "item.tfgmod.taza": "Taza",
+  "item.tfgmod.te": "Té Verde",
+  "item.tfgmod.te_matcha": "Té Matcha",
+
+  "item.tfgmod.pasta_arroz": "Pasta de Arroz",
+  "item.tfgmod.mochi_verde": "Mochi de Té Verde",
+  "item.tfgmod.fresa": "Fresa",
+  "item.tfgmod.mochi_fresa": "Mochi de Fresa",
+  "item.tfgmod.chocolate": "Chocolate",
+  "item.tfgmod.mochi_chocolate": "Mochi de Chocolate",
+  "item.tfgmod.platano": "Plátano",
+  "item.tfgmod.mochi_platano": "Mochi de Plátano",
+
+  "item.tfgmod.teriyaki": "Salsa Teriyaki",
+  "item.tfgmod.cebolla": "Cebolla",
+  "item.tfgmod.brocheta_pollo": "Brocheta de Pollo",
+
+  "item.tfgmod.arroz_pollo": "Arroz con Pollo",
+  "item.tfgmod.arroz_verduras": "Arroz con Verduras",
+  "item.tfgmod.arroz_frito": "Arroz Frito",
+  "item.tfgmod.onigiri": "Onigiri",
+
+  "block.tfgmod.cebolla_cultivo": "Semilla de Cebolla",
+  "block.tfgmod.fresa_cultivo": "Semilla de Fresa",
+  "block.tfgmod.arroz_cultivo": "Semilla de Arroz",
+  "block.tfgmod.teverde_cultivo": "Semilla de Te Verde",
+  "item.tfgmod.chocolate_polvo": "Chocolate en Polvo",
+
+  "item.tfgmod.galleta_suerte": "Galleta de la Suerte",
+
+
+
+
+  "creativetab.tfgmod.ejemplo": "Ejemplo Tab"
+}
