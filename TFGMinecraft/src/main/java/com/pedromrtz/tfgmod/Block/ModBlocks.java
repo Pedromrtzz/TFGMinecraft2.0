@@ -51,12 +51,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> OLLA = registerBlock("olla",
             () -> new OllaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
-    public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
-            () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion()));
-
-    public static final RegistryObject<Block> RAMEN = registerBlock("ramen_bloque",
-            () -> new RamenBlock(BlockBehaviour.Properties.of().noOcclusion()));
-
     public static final RegistryObject<Block> SARTEN = registerBlock("sarten",
             () -> new SartenBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
@@ -92,6 +86,18 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BOTE = registerBlock("bote",
             () -> new BoteBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+
+
+
+    public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
+            () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+    public static final RegistryObject<Block> RAMEN = registerBlock("ramen_bloque",
+            () -> new RamenBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+    public static final RegistryObject<Block> DUMPLING = registerBlock("dumpling_bloque",
+            () -> new DumplingBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
 
 
