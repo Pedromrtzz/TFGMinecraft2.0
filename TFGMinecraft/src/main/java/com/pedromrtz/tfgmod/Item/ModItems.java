@@ -70,7 +70,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> RAMEN_CARNE = ITEMS.register("ramen_carne",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN_CARNE))
+                    () -> new BlockItem(ModBlocks.RAMEN_CARNE.get(), new Item.Properties()
+                            .food(ModFoodPropierties.RAMEN_CARNE))
             );
 
 

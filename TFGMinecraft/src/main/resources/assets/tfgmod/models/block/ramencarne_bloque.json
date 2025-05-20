@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [8, 8],
 	"textures": {
-		"0": "texture",
-		"1": "complementos",
-		"particle": "texture"
+		"0": "tfgmod:block/texture_carne",
+		"1": "tfgmod:block/complementos_carne",
+		"particle": "tfgmod:block/texture_carne"
 	},
 	"elements": [
 		{

@@ -1,8 +1,8 @@
 {
   "variants": {
-    "facing=north": { "model": "tfgmod:block/ramenpesacado_bloque" },
-    "facing=south": { "model": "tfgmod:block/ramenpesacado_bloque", "y": 180 },
-    "facing=east":  { "model": "tfgmod:block/ramenpesacado_bloque", "y": 90 },
-    "facing=west":  { "model": "tfgmod:block/ramenpesacado_bloque", "y": 270 }
+    "facing=north": { "model": "tfgmod:block/ramencarne_bloque" },
+    "facing=south": { "model": "tfgmod:block/ramencarne_bloque", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/ramencarne_bloque", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/ramencarne_bloque", "y": 270 }
   }
 }
