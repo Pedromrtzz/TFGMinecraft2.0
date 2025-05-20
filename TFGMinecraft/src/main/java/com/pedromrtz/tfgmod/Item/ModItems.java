@@ -73,6 +73,8 @@ public class ModItems {
                     () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN_CARNE))
             );
 
+
+
         // RAMEN DE PESCADO
 
             public static final RegistryObject<Item> CALDO_PESCADO = ITEMS.register("caldo_pescado",
@@ -80,7 +82,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> RAMEN_PESCADO = ITEMS.register("ramen_pescado",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN_PESCADO))
+                    () -> new BlockItem(ModBlocks.RAMEN_PESCADO.get(), new Item.Properties()
+                            .food(ModFoodPropierties.RAMEN_PESCADO))
             );
 
     // OKONOMIYAKI
