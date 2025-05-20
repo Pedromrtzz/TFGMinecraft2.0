@@ -117,6 +117,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOCHI_CHOCOLATE = registerBlock("mochichocolate_bloque",
             () -> new MochiChocolateBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> MOCHI_PLATANO = registerBlock("mochiplatano_bloque",
+            () -> new MochiPlatanoBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
