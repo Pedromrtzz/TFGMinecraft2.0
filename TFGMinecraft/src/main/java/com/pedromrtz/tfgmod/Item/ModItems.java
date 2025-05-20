@@ -170,7 +170,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> MOCHI_FRESA = ITEMS.register("mochi_fresa",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.MOCHI_FRESA))
+                    () -> new BlockItem(ModBlocks.MOCHI_FRESA.get(), new Item.Properties()
+                            .food(ModFoodPropierties.MOCHI_FRESA))
             );
 
         // MOCHI CHOCOLATE
