@@ -102,6 +102,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> RAMEN_CARNE = registerBlock("ramencarne_bloque",
             () -> new RamenCarneBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> RAMEN_POLLO = registerBlock("ramenpollo_bloque",
+            () -> new RamenPolloBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+
     public static final RegistryObject<Block> DUMPLING = registerBlock("dumpling_bloque",
             () -> new DumplingBlock(BlockBehaviour.Properties.of().noOcclusion()));
 

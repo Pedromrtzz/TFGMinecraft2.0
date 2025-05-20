@@ -60,7 +60,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> RAMEN_POLLO = ITEMS.register("ramen_pollo",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.RAMEN_POLLO))
+                    () -> new BlockItem(ModBlocks.RAMEN_POLLO.get(), new Item.Properties()
+                            .food(ModFoodPropierties.RAMEN_POLLO))
             );
 
         // RAMEN DE CARNE
