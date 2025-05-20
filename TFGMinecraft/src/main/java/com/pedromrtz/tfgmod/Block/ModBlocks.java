@@ -111,6 +111,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> TE_MATCHA = registerBlock("tematcha_bloque",
             () -> new TeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> MOCHI_FRESA = registerBlock("mochifresa_bloque",
+            () -> new MochiFresaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
