@@ -147,7 +147,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> TE_MATCHA = ITEMS.register("te_matcha",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.TE_MATCHA))
+                    () -> new BlockItem(ModBlocks.TE_MATCHA.get(), new Item.Properties()
+                            .food(ModFoodPropierties.TE_MATCHA))
             );
 
         // MOCHI
