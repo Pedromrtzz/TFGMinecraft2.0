@@ -192,7 +192,8 @@ public class ModItems {
             );
 
             public static final RegistryObject<Item> MOCHI_PLATANO = ITEMS.register("mochi_platano",
-                    () -> new Item(new Item.Properties().food(ModFoodPropierties.MOCHI_PLATANO))
+                    () -> new BlockItem(ModBlocks.MOCHI_PLATANO.get(), new Item.Properties()
+                            .food(ModFoodPropierties.MOCHI_PLATANO))
             );
 
     // YAKITORY SHOP
