@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/paredtatami_bloque" },
+    "facing=south": { "model": "tfgmod:block/paredtatami_bloque", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/paredtatami_bloque", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/paredtatami_bloque", "y": 270 }
+  }
+}

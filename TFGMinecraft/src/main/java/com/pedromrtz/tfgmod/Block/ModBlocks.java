@@ -123,6 +123,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOCHI_MATCHA = registerBlock("mochimatcha_bloque",
             () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> PARED_TATAMI = registerBlock("paredtatami_bloque",
+            () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
