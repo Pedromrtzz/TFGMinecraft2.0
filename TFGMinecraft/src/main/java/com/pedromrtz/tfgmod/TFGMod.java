@@ -85,6 +85,8 @@ public class TFGMod {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARROZ_CULTIVO.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.TEVERDE_CULTIVO.get(), RenderType.cutout());
 
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUELO_TATAMIARRIBA.get(), RenderType.cutout());
+
 
         }
     }

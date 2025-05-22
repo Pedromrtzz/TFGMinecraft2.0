@@ -16,7 +16,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class ParedTatamiBlock extends Block {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
+    public static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 0.5, 16.0, 16.0);
 
     public ParedTatamiBlock(Properties properties) {
         super(properties);
