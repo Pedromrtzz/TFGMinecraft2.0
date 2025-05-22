@@ -124,7 +124,10 @@ public class ModBlocks {
             () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
     public static final RegistryObject<Block> PARED_TATAMI = registerBlock("paredtatami_bloque",
-            () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new ParedTatamiBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
+    public static final RegistryObject<Block> SUELO_TATAMIARRIBA = registerBlock("suelotatamiarriba_bloque",
+            () -> new SueloTatamiArribaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
 
 
