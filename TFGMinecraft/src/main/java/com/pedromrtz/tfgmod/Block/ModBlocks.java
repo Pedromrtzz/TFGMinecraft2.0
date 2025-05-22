@@ -73,7 +73,7 @@ public class ModBlocks {
             () -> new FregaderoBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> NEVERA = registerBlock("nevera",
-            () -> new NeveraBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new NeveraBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> EXTRACTOR = registerBlock("extractor",
             () -> new ExtractorBlock(BlockBehaviour.Properties.of().noOcclusion()));
