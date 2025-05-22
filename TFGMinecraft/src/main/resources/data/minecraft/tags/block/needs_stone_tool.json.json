@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tfgmod:ejemploblock",
-    "tfgmod:vitroceramica"
+    "tfgmod:vitroceramica",
+    "tfgmod:encimera"
   ]
 }

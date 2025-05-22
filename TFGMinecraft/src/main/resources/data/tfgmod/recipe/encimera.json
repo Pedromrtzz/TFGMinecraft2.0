@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WIW",
+    "RQR",
+    "SIS"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "Q": {
+      "item": "minecraft:quartz_block"
+    },
+    "S": {
+      "item": "minecraft:stone_slab"
+    }
+  },
+  "result": {
+    "id": "tfgmod:encimera",
+    "count": 1
+  }
+}
