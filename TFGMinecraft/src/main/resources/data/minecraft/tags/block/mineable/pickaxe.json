@@ -3,6 +3,7 @@
   "values": [
     "tfgmod:ejemploblock",
     "tfgmod:vitroceramica",
-    "tfgmod:encimera"
+    "tfgmod:encimera",
+    "tfgmod:fregadero"
   ]
 }

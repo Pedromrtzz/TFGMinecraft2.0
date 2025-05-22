@@ -70,7 +70,7 @@ public class ModBlocks {
             () -> new EncimeraBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> FREGADERO = registerBlock("fregadero",
-            () -> new FregaderoBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new FregaderoBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> NEVERA = registerBlock("nevera",
             () -> new NeveraBlock(BlockBehaviour.Properties.of().noOcclusion()));
