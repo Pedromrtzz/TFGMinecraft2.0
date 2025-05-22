@@ -42,6 +42,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BOTE.get());
 
                         output.accept(ModBlocks.PARED_TATAMI.get());
+                        output.accept(ModBlocks.SUELO_TATAMIARRIBA.get());
 
                         output.accept(ModItems.MORTERO.get());
                         output.accept(ModItems.HARINA.get());
