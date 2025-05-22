@@ -16,7 +16,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class SueloTatamiArribaBlock extends Block {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
+    public static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 0.2, 16.0);
 
     public SueloTatamiArribaBlock(Properties properties) {
         super(properties);
