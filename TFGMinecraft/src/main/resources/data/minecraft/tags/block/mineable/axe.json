@@ -4,7 +4,8 @@
     "tfgmod:ejemploblock",
     "tfgmod:especias",
     "tfgmod:mesa",
-    "tfgmod:silla"
+    "tfgmod:silla",
+    "tfgmod:armario"
 
   ]
 }

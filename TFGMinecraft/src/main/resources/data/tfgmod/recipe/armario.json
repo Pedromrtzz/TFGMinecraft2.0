@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TWT",
+    "WCW",
+    "TWT"
+  ],
+  "key": {
+    "T": { "item": "minecraft:oak_trapdoor" },
+    "W": { "item": "minecraft:oak_planks" },
+    "C": { "item": "minecraft:chest" }
+  },
+  "result": {
+    "id": "tfgmod:armario",
+    "count": 1
+  }
+}

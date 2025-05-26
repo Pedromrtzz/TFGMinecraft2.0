@@ -55,7 +55,7 @@ public class ModBlocks {
             () -> new SartenBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> ARMARIO = registerBlock("armario",
-            () -> new ArmarioBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new ArmarioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> ESPECIAS = registerBlock("especias",
             () -> new EspeciasBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
