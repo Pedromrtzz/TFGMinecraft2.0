@@ -2,7 +2,9 @@
   "replace": false,
   "values": [
     "tfgmod:ejemploblock",
-    "tfgmod:especias"
+    "tfgmod:especias",
+    "tfgmod:mesa",
+    "tfgmod:silla"
 
   ]
 }

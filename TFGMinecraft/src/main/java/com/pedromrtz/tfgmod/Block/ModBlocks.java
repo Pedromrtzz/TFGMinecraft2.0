@@ -43,7 +43,7 @@ public class ModBlocks {
             ));
 
     public static final RegistryObject<Block> SILLA = registerBlock("silla",
-            () -> new SillaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new SillaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> VITROCERAMICA = registerBlock("vitroceramica",
             () -> new VitroceramicaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
