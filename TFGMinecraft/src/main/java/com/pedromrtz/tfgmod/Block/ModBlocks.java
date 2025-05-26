@@ -91,37 +91,37 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
-            () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> RAMEN = registerBlock("ramen_bloque",
-            () -> new RamenBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new RamenBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> RAMEN_PESCADO = registerBlock("ramenpescado_bloque",
-            () -> new RamenPescadoBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new RamenPescadoBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> RAMEN_CARNE = registerBlock("ramencarne_bloque",
-            () -> new RamenCarneBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new RamenCarneBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> RAMEN_POLLO = registerBlock("ramenpollo_bloque",
-            () -> new RamenPolloBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new RamenPolloBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> DUMPLING = registerBlock("dumpling_bloque",
-            () -> new DumplingBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new DumplingBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> TE_MATCHA = registerBlock("tematcha_bloque",
-            () -> new TeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new TeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> MOCHI_FRESA = registerBlock("mochifresa_bloque",
-            () -> new MochiFresaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new MochiFresaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> MOCHI_CHOCOLATE = registerBlock("mochichocolate_bloque",
-            () -> new MochiChocolateBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new MochiChocolateBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> MOCHI_PLATANO = registerBlock("mochiplatano_bloque",
-            () -> new MochiPlatanoBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new MochiPlatanoBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> MOCHI_MATCHA = registerBlock("mochimatcha_bloque",
-            () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
 
     public static final RegistryObject<Block> PARED_TATAMI = registerBlock("paredtatami_bloque",
             () -> new ParedTatamiBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f).requiresCorrectToolForDrops()));
