@@ -64,7 +64,7 @@ public class ModBlocks {
             () -> new BaldaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
     public static final RegistryObject<Block> BASURA = registerBlock("basura",
-            () -> new BasuraBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new BasuraBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> ENCIMERA = registerBlock("encimera",
             () -> new EncimeraBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
