@@ -76,7 +76,7 @@ public class ModBlocks {
             () -> new NeveraBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> EXTRACTOR = registerBlock("extractor",
-            () -> new ExtractorBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new ExtractorBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> MICROONDAS = registerBlock("microondas",
             () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion()));
