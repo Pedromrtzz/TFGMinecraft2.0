@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tfgmod:ejemploblock"
+    "tfgmod:ejemploblock",
+    "tfgmod:especias"
+
   ]
 }

@@ -11,6 +11,7 @@
     "tfgmod:extractor",
     "tfgmod:basura",
     "tfgmod:microondas",
-    "tfgmod:especias"
+    "tfgmod:especias",
+    "tfgmod:mesa"
   ]
 }

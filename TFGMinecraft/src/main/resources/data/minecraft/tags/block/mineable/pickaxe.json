@@ -10,7 +10,6 @@
     "tfgmod:sarten",
     "tfgmod:extractor",
     "tfgmod:basura",
-    "tfgmod:microondas",
-    "tfgmod:especias"
+    "tfgmod:microondas"
   ]
 }
