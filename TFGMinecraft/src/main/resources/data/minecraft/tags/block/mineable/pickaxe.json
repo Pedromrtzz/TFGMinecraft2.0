@@ -9,6 +9,7 @@
     "tfgmod:olla",
     "tfgmod:sarten",
     "tfgmod:extractor",
-    "tfgmod:basura"
+    "tfgmod:basura",
+    "tfgmod:microondas"
   ]
 }

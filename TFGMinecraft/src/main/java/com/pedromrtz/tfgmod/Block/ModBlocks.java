@@ -79,7 +79,7 @@ public class ModBlocks {
             () -> new ExtractorBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> MICROONDAS = registerBlock("microondas",
-            () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> MESA = registerBlock("mesa",
             () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion()));
