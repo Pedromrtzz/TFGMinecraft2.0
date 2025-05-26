@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RPR",
+    "PMP",
+    "RPR"
+  ],
+  "key": {
+    "R": { "item": "minecraft:pink_dye" },
+    "P": { "item": "minecraft:paper" },
+    "M": { "item": "minecraft:brown_dye" }
+  },
+  "result": {
+    "id": "tfgmod:paredtatamicerezo_bloque",
+    "count": 1
+  }
+}

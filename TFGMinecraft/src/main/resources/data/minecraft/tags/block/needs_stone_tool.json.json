@@ -14,6 +14,9 @@
     "tfgmod:especias",
     "tfgmod:mesa",
     "tfgmod:silla",
-    "tfgmod:armario"
+    "tfgmod:armario",
+    "tfgmod:suelotatamiarriba_bloque",
+    "tfgmod:paredtatamicerezo_bloque",
+    "tfgmod:paredtatami_bloque"
   ]
 }

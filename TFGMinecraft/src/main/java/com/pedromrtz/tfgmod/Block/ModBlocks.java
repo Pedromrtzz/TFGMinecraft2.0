@@ -124,13 +124,13 @@ public class ModBlocks {
             () -> new MochiTeMatchaBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
     public static final RegistryObject<Block> PARED_TATAMI = registerBlock("paredtatami_bloque",
-            () -> new ParedTatamiBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new ParedTatamiBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> PARED_TATAMICEREZO = registerBlock("paredtatamicerezo_bloque",
-            () -> new ParedTatamiCerezoBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new ParedTatamiCerezoBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> SUELO_TATAMIARRIBA = registerBlock("suelotatamiarriba_bloque",
-            () -> new SueloTatamiArribaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new SueloTatamiArribaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f).requiresCorrectToolForDrops()));
 
 
 
