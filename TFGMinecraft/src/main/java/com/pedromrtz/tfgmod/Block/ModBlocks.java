@@ -49,10 +49,10 @@ public class ModBlocks {
             () -> new VitroceramicaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> OLLA = registerBlock("olla",
-            () -> new OllaBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new OllaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> SARTEN = registerBlock("sarten",
-            () -> new SartenBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new SartenBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> ARMARIO = registerBlock("armario",
             () -> new ArmarioBlock(BlockBehaviour.Properties.of().noOcclusion()));
