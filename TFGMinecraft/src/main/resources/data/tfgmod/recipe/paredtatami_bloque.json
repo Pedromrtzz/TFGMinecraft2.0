@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "W P W",
-    "P W P",
-    "W P W"
+    "WPW",
+    "PWP",
+    "WPW"
   ],
   "key": {
     "W": { "item": "minecraft:spruce_planks" },
