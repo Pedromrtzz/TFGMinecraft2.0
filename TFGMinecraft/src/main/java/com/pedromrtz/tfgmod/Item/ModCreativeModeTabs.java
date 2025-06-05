@@ -100,6 +100,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHOCOLATE_POLVO.get());
 
                         output.accept(ModItems.GALLETA_SUERTE.get());
+                        output.accept(ModItems.YEN.get());
 
                     }).build());
 

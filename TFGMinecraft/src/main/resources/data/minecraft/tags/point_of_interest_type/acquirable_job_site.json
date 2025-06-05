@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tfgmod:ramen_poi",
+      "required": false
+    },
+    {
+      "id": "tfgmod:arroz_poi",
+      "required": false
+    }
+
+  ]
+}

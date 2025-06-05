@@ -6,6 +6,7 @@ import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.entity.ModEntities;
 import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
+import com.pedromrtz.tfgmod.villager.ModVillagers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -42,6 +43,7 @@ public class TFGMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModVillagers.register(modEventBus);
 
 
 

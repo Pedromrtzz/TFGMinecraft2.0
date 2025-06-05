@@ -20,8 +20,25 @@
   "block.tfgmod.sushi_bloque": "Sushi",
   "block.tfgmod.ramen_bloque": "Ramen",
   "block.tfgmod.dumpling_bloque": "Dumpling",
+  "block.tfgmod.ramenpescado_bloque": "Fish Ramen",
+  "block.tfgmod.ramencarne_bloque": "Meat Ramen",
+  "block.tfgmod.ramenpollo_bloque": "Chicken Ramen",
+  "block.tfgmod.dumpling_bloque": "Dumpling",
+  "block.tfgmod.tematcha_bloque": "Matcha Tea",
+  "block.tfgmod.mochifresa_bloque": "Strawberry Mochi",
+  "block.tfgmod.mochichocolate_bloque": "Chocolate Mochi",
+  "block.tfgmod.mochiplatano_bloque": "Banana Mochi",
+  "block.tfgmod.mochimatcha_bloque": "Green Tea Mochi",
+  "block.tfgmod.paredtatami_bloque": "Tatami Wall",
+  "block.tfgmod.paredtatamicerezo_bloque": "Cherry Tatami Wall",
+  "block.tfgmod.suelotatamiarriba_bloque": "Tatami Floor",
+
+
+  "entity.minecraft.villager.tfgmod.ramen": "Ramen Vendor",
+
 
   "item.tfgmod.mortero": "Mortar",
+  "item.tfgmod.yen": "Yen",
   "item.tfgmod.harina": "Flour",
   "item.tfgmod.sal": "Salt",
   "item.tfgmod.pasta": "Pasta",

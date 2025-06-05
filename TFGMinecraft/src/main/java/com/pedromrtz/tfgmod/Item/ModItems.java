@@ -262,6 +262,10 @@ public class ModItems {
                 () -> new GalletaSuerteItem(new Item.Properties())
         );
 
+        public static final RegistryObject<Item> YEN = ITEMS.register("yen",
+                () -> new Item(new Item.Properties().stacksTo(64))
+        );
+
 
 
 
