@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IQI",
+    "RCR",
+    "IQI"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "Q": { "item": "minecraft:quartz_block" },
+    "R": { "item": "minecraft:redstone" },
+    "C": { "item": "minecraft:chest" }
+  },
+  "result": {
+    "id": "tfgmod:nevera",
+    "count": 1
+  }
+}

@@ -1,6 +1,9 @@
 {
   "block.tfgmod.ejemploblock": "Ejemplo Block",
 
+  "entity.minecraft.villager.tfgmod.ramen": "Vendedor de Ramen",
+
+
   "block.tfgmod.silla": "Silla",
   "block.tfgmod.vitroceramica": "Vitroceramica",
   "block.tfgmod.olla": "Olla",
@@ -89,6 +92,7 @@
   "item.tfgmod.chocolate_polvo": "Chocolate en Polvo",
 
   "item.tfgmod.galleta_suerte": "Galleta de la Suerte",
+  "item.tfgmod.yen": "Yen",
 
 
 

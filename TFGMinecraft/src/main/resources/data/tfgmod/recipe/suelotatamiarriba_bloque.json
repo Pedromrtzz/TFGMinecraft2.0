@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "HHH"
+  ],
+  "key": {
+    "W": { "item": "minecraft:spruce_planks" },
+    "H": { "item": "minecraft:hay_block" }
+  },
+  "result": {
+    "id": "tfgmod:suelotatamiarriba_bloque",
+    "count": 2
+  }
+}

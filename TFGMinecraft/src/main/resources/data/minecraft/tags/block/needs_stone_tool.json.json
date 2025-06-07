@@ -10,6 +10,13 @@
     "tfgmod:sarten",
     "tfgmod:extractor",
     "tfgmod:basura",
-    "tfgmod:microondas"
+    "tfgmod:microondas",
+    "tfgmod:especias",
+    "tfgmod:mesa",
+    "tfgmod:silla",
+    "tfgmod:armario",
+    "tfgmod:suelotatamiarriba_bloque",
+    "tfgmod:paredtatamicerezo_bloque",
+    "tfgmod:paredtatami_bloque"
   ]
 }

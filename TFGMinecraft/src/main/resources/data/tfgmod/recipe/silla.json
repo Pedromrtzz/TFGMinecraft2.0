@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "PWP",
+    "P P"
+  ],
+  "key": {
+    "W": { "item": "minecraft:oak_planks" },
+    "P": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "tfgmod:silla",
+    "count": 1
+  }
+}

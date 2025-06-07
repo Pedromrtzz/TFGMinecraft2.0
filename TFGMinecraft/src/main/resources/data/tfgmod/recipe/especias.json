@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TCT",
+    "PWP",
+    "T T"
+  ],
+  "key": {
+    "T": { "item": "minecraft:oak_trapdoor" },
+    "C": { "item": "minecraft:chest" },
+    "W": { "item": "minecraft:oak_planks" },
+    "P": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "tfgmod:especias",
+    "count": 1
+  }
+}

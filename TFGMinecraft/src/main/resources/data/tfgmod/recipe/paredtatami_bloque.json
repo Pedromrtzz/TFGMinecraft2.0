@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WPW",
+    "PWP",
+    "WPW"
+  ],
+  "key": {
+    "W": { "item": "minecraft:spruce_planks" },
+    "P": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "id": "tfgmod:paredtatami_bloque",
+    "count": 1
+  }
+}
