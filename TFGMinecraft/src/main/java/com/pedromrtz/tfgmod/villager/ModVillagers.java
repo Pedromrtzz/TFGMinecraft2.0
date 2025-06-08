@@ -34,8 +34,35 @@ public class ModVillagers {
                     1,1));
 
     public static final RegistryObject<VillagerProfession> ARROZ = VILLAGER_PROFESSIONS.register("arroz",
-            () -> new VillagerProfession("ramen", holder -> holder.value() == ARROZ_POI.get(),
+            () -> new VillagerProfession("arroz", holder -> holder.value() == ARROZ_POI.get(),
                     holder -> holder.value() == ARROZ_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
+                    SoundType.AMETHYST.getBreakSound()));
+
+    public static final RegistryObject<PoiType> OKONOMIYAKI_POI = POI_TYPES.register("okonomiyaki_poi",
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.ARMARIO.get().getStateDefinition().getPossibleStates()),
+                    1,1));
+
+    public static final RegistryObject<VillagerProfession> OKONOMIYAKI = VILLAGER_PROFESSIONS.register("okonomiyaki",
+            () -> new VillagerProfession("okonomiyaki", holder -> holder.value() == OKONOMIYAKI_POI.get(),
+                    holder -> holder.value() == OKONOMIYAKI_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
+                    SoundType.AMETHYST.getBreakSound()));
+
+    public static final RegistryObject<PoiType> SUSHI_POI = POI_TYPES.register("sushi_poi",
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.SUSHI.get().getStateDefinition().getPossibleStates()),
+                    1,1));
+
+    public static final RegistryObject<VillagerProfession> SUSHI = VILLAGER_PROFESSIONS.register("sushi",
+            () -> new VillagerProfession("sushi", holder -> holder.value() == SUSHI_POI.get(),
+                    holder -> holder.value() == SUSHI_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
+                    SoundType.AMETHYST.getBreakSound()));
+
+    public static final RegistryObject<PoiType> MOCHI_POI = POI_TYPES.register("mochi_poi",
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.MOCHI_MATCHA.get().getStateDefinition().getPossibleStates()),
+                    1,1));
+
+    public static final RegistryObject<VillagerProfession> MOCHI = VILLAGER_PROFESSIONS.register("mochi",
+            () -> new VillagerProfession("mochi", holder -> holder.value() == MOCHI_POI.get(),
+                    holder -> holder.value() == MOCHI_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
                     SoundType.AMETHYST.getBreakSound()));
 
 
