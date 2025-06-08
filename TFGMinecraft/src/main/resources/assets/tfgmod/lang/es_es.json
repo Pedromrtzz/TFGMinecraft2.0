@@ -2,6 +2,12 @@
   "block.tfgmod.ejemploblock": "Ejemplo Block",
 
   "entity.minecraft.villager.tfgmod.ramen": "Vendedor de Ramen",
+  "entity.minecraft.villager.tfgmod.arroz": "Vendedor de Arroz",
+  "entity.minecraft.villager.tfgmod.okonomiyaki": "Vendedor de Okonomiyaki",
+  "entity.minecraft.villager.tfgmod.sushi": "Vendedor de Sushi",
+  "entity.minecraft.villager.tfgmod.sushi": "Vendedor de Mochi",
+
+
 
 
   "block.tfgmod.silla": "Silla",

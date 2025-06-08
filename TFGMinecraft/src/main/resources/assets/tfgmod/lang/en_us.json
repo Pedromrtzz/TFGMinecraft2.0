@@ -35,6 +35,10 @@
 
 
   "entity.minecraft.villager.tfgmod.ramen": "Ramen Vendor",
+  "entity.minecraft.villager.tfgmod.arroz": "Rice Vendor",
+  "entity.minecraft.villager.tfgmod.okonomiyaki": "Okonomiyaki Vendor",
+  "entity.minecraft.villager.tfgmod.sushi": "Sushi Vendor",
+  "entity.minecraft.villager.tfgmod.mochi": "Mochi Vendor",
 
 
   "item.tfgmod.mortero": "Mortar",
