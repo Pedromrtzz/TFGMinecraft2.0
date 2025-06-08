@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "tfgmod:ejemploblock",
+    "tfgmod:vitroceramica",
+    "tfgmod:encimera",
+    "tfgmod:fregadero",
+    "tfgmod:nevera",
+    "tfgmod:olla",
+    "tfgmod:sarten",
+    "tfgmod:extractor",
+    "tfgmod:basura",
+    "tfgmod:microondas",
+    "tfgmod:especias",
+    "tfgmod:mesa",
+    "tfgmod:silla",
+    "tfgmod:armario",
+    "tfgmod:suelotatamiarriba_bloque",
+    "tfgmod:paredtatamicerezo_bloque",
+    "tfgmod:paredtatami_bloque"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "  O",
+    "# #",
+    " # "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:mortero"
+  }
+}

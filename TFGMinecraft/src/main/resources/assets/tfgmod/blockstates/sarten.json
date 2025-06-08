@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/sarten" },
+    "facing=south": { "model": "tfgmod:block/sarten", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/sarten", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/sarten", "y": 270 }
+  }
+}

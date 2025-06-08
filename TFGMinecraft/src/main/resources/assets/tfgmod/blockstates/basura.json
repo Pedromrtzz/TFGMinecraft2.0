@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/basura" },
+    "facing=south": { "model": "tfgmod:block/basura", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/basura", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/basura", "y": 270 }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "tfgmod:ejemploblock",
+    "tfgmod:vitroceramica",
+    "tfgmod:encimera",
+    "tfgmod:fregadero",
+    "tfgmod:nevera",
+    "tfgmod:olla",
+    "tfgmod:sarten",
+    "tfgmod:extractor",
+    "tfgmod:basura",
+    "tfgmod:microondas"
+  ]
+}

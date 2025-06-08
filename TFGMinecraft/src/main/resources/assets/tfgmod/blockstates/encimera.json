@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/encimera" },
+    "facing=south": { "model": "tfgmod:block/encimera", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/encimera", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/encimera", "y": 270 }
+  }
+}

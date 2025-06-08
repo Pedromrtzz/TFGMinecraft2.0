@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "#OT"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:water_bucket"
+    },
+    "#": {
+      "item": "tfgmod:sal"
+    },
+    "T": {
+      "item": "tfgmod:harina"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:masa"
+  }
+}

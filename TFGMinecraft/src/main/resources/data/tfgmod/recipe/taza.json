@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "# #",
+    " O "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:taza"
+  }
+}

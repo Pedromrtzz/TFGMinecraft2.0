@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "OP#"
+  ],
+  "key": {
+    "O": {
+      "item": "tfgmod:arroz"
+    },
+    "#": {
+      "item": "tfgmod:mortero"
+    },
+    "P": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:pasta_arroz"
+  }
+}

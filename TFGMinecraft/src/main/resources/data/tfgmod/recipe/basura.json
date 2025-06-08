@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "ICI",
+    "SSS"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "C": { "item": "minecraft:bucket" },
+    "S": { "item": "minecraft:stone" }
+  },
+  "result": {
+    "id": "tfgmod:basura",
+    "count": 1
+  }
+}

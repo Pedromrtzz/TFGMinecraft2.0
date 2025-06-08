@@ -1,6 +1,15 @@
 package com.pedromrtz.tfgmod;
 
 import com.mojang.logging.LogUtils;
+import com.pedromrtz.tfgmod.Block.ModBlocks;
+import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
+import com.pedromrtz.tfgmod.Item.ModItems;
+import com.pedromrtz.tfgmod.entity.ModEntities;
+import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
+import com.pedromrtz.tfgmod.villager.ModVillagers;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -10,6 +19,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -28,6 +38,14 @@ public class TFGMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModVillagers.register(modEventBus);
+
+
 
 
         // Register the item to a creative tab
@@ -42,7 +60,13 @@ public class TFGMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+//        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+//            event.accept(ModItems.EJEMPLO);
+//        }
 
+//        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+//            event.accept(ModBlocks.EJEMPLO);
+//        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -54,5 +78,18 @@ public class TFGMod {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+
+            EntityRenderers.register(ModEntities.SILLA.get(), SillaRenderer::new);
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CEBOLLA_CULTIVO.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRESA_CULTIVO.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARROZ_CULTIVO.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.TEVERDE_CULTIVO.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUELO_TATAMIARRIBA.get(), RenderType.cutout());
+
+
+        }
     }
 }

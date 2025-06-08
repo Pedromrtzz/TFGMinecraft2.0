@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "O  "
+  ],
+  "key": {
+    "O": {
+      "item": "tfgmod:te"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:teverde_semilla"
+  }
+}

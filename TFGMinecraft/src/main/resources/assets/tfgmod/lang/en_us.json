@@ -1,0 +1,103 @@
+{
+  "block.tfgmod.ejemploblock": "Example Block",
+
+  "block.tfgmod.silla": "Chair",
+  "block.tfgmod.vitroceramica": "Stove",
+  "block.tfgmod.olla": "Pot",
+  "block.tfgmod.sarten": "Pan",
+  "block.tfgmod.armario": "Cabinet",
+  "block.tfgmod.especias": "Spice Shelf",
+  "block.tfgmod.balda": "Shelf",
+  "block.tfgmod.basura": "Trash Can",
+  "block.tfgmod.encimera": "Countertop",
+  "block.tfgmod.fregadero": "Sink",
+  "block.tfgmod.nevera": "Fridge",
+  "block.tfgmod.extractor": "Extractor Fan",
+  "block.tfgmod.microondas": "Microwave",
+  "block.tfgmod.mesa": "Table",
+  "block.tfgmod.bote": "Utensil Holder",
+
+  "block.tfgmod.sushi_bloque": "Sushi",
+  "block.tfgmod.ramen_bloque": "Ramen",
+  "block.tfgmod.dumpling_bloque": "Dumpling",
+  "block.tfgmod.ramenpescado_bloque": "Fish Ramen",
+  "block.tfgmod.ramencarne_bloque": "Meat Ramen",
+  "block.tfgmod.ramenpollo_bloque": "Chicken Ramen",
+  "block.tfgmod.dumpling_bloque": "Dumpling",
+  "block.tfgmod.tematcha_bloque": "Matcha Tea",
+  "block.tfgmod.mochifresa_bloque": "Strawberry Mochi",
+  "block.tfgmod.mochichocolate_bloque": "Chocolate Mochi",
+  "block.tfgmod.mochiplatano_bloque": "Banana Mochi",
+  "block.tfgmod.mochimatcha_bloque": "Green Tea Mochi",
+  "block.tfgmod.paredtatami_bloque": "Tatami Wall",
+  "block.tfgmod.paredtatamicerezo_bloque": "Cherry Tatami Wall",
+  "block.tfgmod.suelotatamiarriba_bloque": "Tatami Floor",
+
+
+  "entity.minecraft.villager.tfgmod.ramen": "Ramen Vendor",
+  "entity.minecraft.villager.tfgmod.arroz": "Rice Vendor",
+  "entity.minecraft.villager.tfgmod.okonomiyaki": "Okonomiyaki Vendor",
+  "entity.minecraft.villager.tfgmod.sushi": "Sushi Vendor",
+  "entity.minecraft.villager.tfgmod.mochi": "Mochi Vendor",
+
+
+  "item.tfgmod.mortero": "Mortar",
+  "item.tfgmod.yen": "Yen",
+  "item.tfgmod.harina": "Flour",
+  "item.tfgmod.sal": "Salt",
+  "item.tfgmod.pasta": "Pasta",
+  "item.tfgmod.fideos": "Raw Noodles",
+  "item.tfgmod.caldo": "Broth",
+  "item.tfgmod.ramen": "Ramen",
+
+  "item.tfgmod.caldo_pollo": "Chicken Broth",
+  "item.tfgmod.ramen_pollo": "Chicken Ramen",
+
+  "item.tfgmod.caldo_carne": "Beef Broth",
+  "item.tfgmod.ramen_carne": "Beef Ramen",
+
+  "item.tfgmod.caldo_pescado": "Fish Broth",
+  "item.tfgmod.ramen_pescado": "Fish Ramen",
+
+  "item.tfgmod.okonomiyaki_pollo": "Chicken Okonomiyaki",
+  "item.tfgmod.okonomiyaki_carne": "Beef Okonomiyaki",
+  "item.tfgmod.okonomiyaki_verduras": "Vegetable Okonomiyaki",
+
+  "item.tfgmod.masa": "Dough",
+  "item.tfgmod.dumpling": "Dumpling",
+
+  "item.tfgmod.arroz": "Rice",
+  "item.tfgmod.sushi": "Sushi",
+
+  "item.tfgmod.taza": "Cup",
+  "item.tfgmod.te": "Green Tea",
+  "item.tfgmod.te_matcha": "Matcha Tea",
+
+  "item.tfgmod.pasta_arroz": "Rice Noodles",
+  "item.tfgmod.mochi_verde": "Green Tea Mochi",
+  "item.tfgmod.fresa": "Strawberry",
+  "item.tfgmod.mochi_fresa": "Strawberry Mochi",
+  "item.tfgmod.chocolate": "Chocolate",
+  "item.tfgmod.mochi_chocolate": "Chocolate Mochi",
+  "item.tfgmod.platano": "Banana",
+  "item.tfgmod.mochi_platano": "Banana Mochi",
+
+  "item.tfgmod.teriyaki": "Teriyaki Sauce",
+  "item.tfgmod.cebolla": "Onion",
+  "item.tfgmod.brocheta_pollo": "Chicken Skewer",
+
+  "item.tfgmod.arroz_pollo": "Rice with Chicken",
+  "item.tfgmod.arroz_verduras": "Rice with Vegetables",
+  "item.tfgmod.arroz_frito": "Fried Rice",
+  "item.tfgmod.onigiri": "Onigiri",
+
+  "block.tfgmod.cebolla_cultivo": "Onion Seed",
+  "block.tfgmod.fresa_cultivo": "Strawberry Seed",
+  "block.tfgmod.arroz_cultivo": "Rice Seed",
+  "block.tfgmod.teverde_cultivo": "Green Tea Seed",
+  "item.tfgmod.chocolate_polvo": "Cocoa Powder",
+
+  "item.tfgmod.galleta_suerte": "Fortune Cookie",
+
+  "creativetab.tfgmod.ejemplo": "Example Tab"
+}

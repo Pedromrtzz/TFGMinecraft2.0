@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "O#O"
+  ],
+  "key": {
+    "O": {
+      "item": "tfgmod:fideos"
+    },
+    "#": {
+      "item": "tfgmod:caldo"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:ramen"
+  }
+}

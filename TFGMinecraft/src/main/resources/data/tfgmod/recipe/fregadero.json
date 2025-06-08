@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IWI",
+    "ICI",
+    "SSS"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "W": { "item": "minecraft:water_bucket" },
+    "C": { "item": "minecraft:cauldron" },
+    "S": { "item": "minecraft:stone_slab" }
+  },
+  "result": {
+    "id": "tfgmod:fregadero",
+    "count": 1
+  }
+}

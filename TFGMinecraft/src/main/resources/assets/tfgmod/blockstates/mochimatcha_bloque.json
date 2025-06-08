@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/mochimatcha_bloque" },
+    "facing=south": { "model": "tfgmod:block/mochimatcha_bloque", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/mochimatcha_bloque", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/mochimatcha_bloque", "y": 270 }
+  }
+}

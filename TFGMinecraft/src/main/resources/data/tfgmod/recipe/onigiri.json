@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "#O "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:kelp"
+    },
+    "#": {
+      "item": "tfgmod:arroz"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:onigiri"
+  }
+}

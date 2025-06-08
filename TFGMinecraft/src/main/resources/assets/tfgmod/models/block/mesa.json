@@ -1,0 +1,103 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "tfgmod:block/mesa_arriba",
+		"1": "tfgmod:block/pata_inferior01",
+		"2": "tfgmod:block/pata_inferior02",
+		"3": "tfgmod:block/pata_inferior03",
+		"4": "tfgmod:block/pata_inferior04",
+		"particle": "tfgmod:block/mesa_arriba"
+	},
+	"elements": [
+		{
+			"name": "pata inferior",
+			"from": [0, 0, 0],
+			"to": [3, 13, 3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -4, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 6], "texture": "#1"},
+				"east": {"uv": [2, 0, 4, 6], "texture": "#1"},
+				"south": {"uv": [4, 0, 6, 6], "texture": "#1"},
+				"west": {"uv": [0, 6, 2, 12], "texture": "#1"},
+				"up": {"uv": [8, 2, 6, 0], "texture": "#1"},
+				"down": {"uv": [4, 6, 2, 8], "texture": "#1"}
+			}
+		},
+		{
+			"name": "pata inferior",
+			"from": [13, 0, 13],
+			"to": [16, 13, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 0, 14]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 6], "texture": "#4"},
+				"east": {"uv": [2, 0, 4, 6], "texture": "#4"},
+				"south": {"uv": [4, 0, 6, 6], "texture": "#4"},
+				"west": {"uv": [0, 6, 2, 12], "texture": "#4"},
+				"up": {"uv": [8, 2, 6, 0], "texture": "#4"},
+				"down": {"uv": [4, 6, 2, 8], "texture": "#4"}
+			}
+		},
+		{
+			"name": "pata inferior",
+			"from": [0, 0, 13],
+			"to": [3, 13, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -4, 14]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 6], "texture": "#3"},
+				"east": {"uv": [2, 0, 4, 6], "texture": "#3"},
+				"south": {"uv": [4, 0, 6, 6], "texture": "#3"},
+				"west": {"uv": [0, 6, 2, 12], "texture": "#3"},
+				"up": {"uv": [8, 2, 6, 0], "texture": "#3"},
+				"down": {"uv": [4, 6, 2, 8], "texture": "#3"}
+			}
+		},
+		{
+			"name": "pata inferior",
+			"from": [13, 0, 0],
+			"to": [16, 13, 3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 6], "texture": "#2"},
+				"east": {"uv": [2, 0, 4, 6], "texture": "#2"},
+				"south": {"uv": [4, 0, 6, 6], "texture": "#2"},
+				"west": {"uv": [0, 6, 2, 12], "texture": "#2"},
+				"up": {"uv": [8, 2, 6, 0], "texture": "#2"},
+				"down": {"uv": [4, 6, 2, 8], "texture": "#2"}
+			}
+		},
+		{
+			"name": "Parte Arriba",
+			"from": [0, 13, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 8, 2]},
+			"faces": {
+				"north": {"uv": [6, 0, 12, 1], "texture": "#0"},
+				"east": {"uv": [6, 1, 12, 2], "texture": "#0"},
+				"south": {"uv": [6, 2, 12, 3], "texture": "#0"},
+				"west": {"uv": [6, 3, 12, 4], "texture": "#0"},
+				"up": {"uv": [6, 6, 0, 0], "texture": "#0"},
+				"down": {"uv": [6, 6, 0, 12], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [68, 0, 0],
+			"translation": [0.25, 2.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"translation": [0, -4.5, 0]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, -6.5, 0]
+		},
+		"ground": {
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [41, 0, 0],
+			"scale": [0.6, 0.6, 0.6]
+		}
+	}
+}

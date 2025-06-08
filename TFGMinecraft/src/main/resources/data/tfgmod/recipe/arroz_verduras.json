@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern": [
+    "#PB",
+    "O  "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:bowl"
+    },
+    "#": {
+      "item": "tfgmod:arroz"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "B": {
+      "item": "tfgmod:sal"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tfgmod:arroz_verduras"
+  }
+}

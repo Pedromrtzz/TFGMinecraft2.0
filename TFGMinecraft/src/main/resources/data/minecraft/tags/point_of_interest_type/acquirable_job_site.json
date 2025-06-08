@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tfgmod:ramen_poi",
+      "required": false
+    },
+    {
+      "id": "tfgmod:arroz_poi",
+      "required": false
+    },
+    {
+      "id": "tfgmod:sushi_poi",
+      "required": false
+    },
+    {
+      "id": "tfgmod:okonomiyaki_poi",
+      "required": false
+    },
+    {
+      "id": "tfgmod:mochi_poi",
+      "required": false
+    }
+
+  ]
+}
