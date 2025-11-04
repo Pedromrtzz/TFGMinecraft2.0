@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tfgmod:card",
+          "components": {
+            "minecraft:custom_data": { "card_id": "card_japan_fushimi_inari" }
+          }
+        }
+      ]
+    }
+  ]
+}

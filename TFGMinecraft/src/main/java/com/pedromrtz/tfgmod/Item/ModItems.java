@@ -266,6 +266,10 @@ public class ModItems {
                 () -> new Item(new Item.Properties().stacksTo(64))
         );
 
+    public static final RegistryObject<Item> CARD = ITEMS.register("card",
+            () -> new CardItem(new Item.Properties())
+    );
+
 
 
 
