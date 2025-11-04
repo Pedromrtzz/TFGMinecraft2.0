@@ -22,6 +22,14 @@ public class CardRegistry {
                 "gui/cards/japan/fushimi_inari_full"
         ));
 
+        ALL.add(new Card(
+                "card_japan_kinkakuji",                  // id
+                "japan",                                 // cultura (tab)
+                "Templo Kinkaku-ji",                     // título (por si luego lo muestras en grid)
+                "textures/gui/cards/japan/kinkakuji_thumb.png",  // mini
+                "textures/gui/cards/japan/kinkakuji_full.png"    // (guardamos también la grande)
+        ));
+
         // aquí irás añadiendo más cartas/culturas
     }
 

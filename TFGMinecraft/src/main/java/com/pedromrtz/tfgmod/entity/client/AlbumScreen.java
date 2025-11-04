@@ -1,4 +1,3 @@
-// com.pedromrtz.tfgmod.entity.client.AlbumScreen
 package com.pedromrtz.tfgmod.entity.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -16,10 +15,13 @@ public class AlbumScreen extends Screen {
     private final Minecraft mc = Minecraft.getInstance();
     private String activeCulture;
 
-    // Grid config
-    private static final int CELL = 128;   // tamaño de celda (antes 96)
-    private static final int PADDING = 12; // margen entre celdas
-    private static final int COLS = 4;     // 4 columnas
+    // --- Config del grid con proporción vertical 128x192 ---
+    private static final int THUMB_W = 128;      // ancho de mini
+    private static final int THUMB_H = 192;      // alto de mini
+    private static final int CELL_W  = THUMB_W;  // celda = tamaño de mini
+    private static final int CELL_H  = THUMB_H;
+    private static final int PADDING = 12;       // espacio entre celdas
+    private static final int COLS    = 4;        // columnas
 
     public AlbumScreen() {
         super(Component.literal("Álbum cultural"));
@@ -33,16 +35,18 @@ public class AlbumScreen extends Screen {
         if (p == null) return super.mouseClicked(mouseX, mouseY, button);
 
         List<CardRegistry.Card> cards = CardRegistry.byCulture(activeCulture);
-        int startX = (this.width - (COLS * CELL + (COLS - 1) * PADDING)) / 2;
+
+        int gridW = COLS * CELL_W + (COLS - 1) * PADDING;
+        int startX = (this.width - gridW) / 2;
         int startY = 60;
 
         for (int i = 0; i < cards.size(); i++) {
             int row = i / COLS;
             int col = i % COLS;
-            int x = startX + col * (CELL + PADDING);
-            int y = startY + row * (CELL + PADDING);
+            int x = startX + col * (CELL_W + PADDING);
+            int y = startY + row * (CELL_H + PADDING);
 
-            if (mouseX >= x && mouseX <= x + CELL && mouseY >= y && mouseY <= y + CELL) {
+            if (mouseX >= x && mouseX <= x + CELL_W && mouseY >= y && mouseY <= y + CELL_H) {
                 var card = cards.get(i);
                 if (CardUtils.playerHasCard(p, card.id())) {
                     mc.setScreen(new CardViewerScreen(card.id()));
@@ -57,7 +61,7 @@ public class AlbumScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         gg.fill(0, 0, this.width, this.height, 0xAA000000);
 
-        // --- tabs ---
+        // --- pestañas de culturas ---
         List<String> cultures = CardRegistry.cultures();
         int tabW = 90, tabH = 18;
         int totalW = cultures.size() * (tabW + 8) - 8;
@@ -77,12 +81,14 @@ public class AlbumScreen extends Screen {
             }
         }
 
-        // --- grid ---
+        // --- grid de cartas ---
         Player p = mc.player;
         if (p == null) { super.render(gg, mouseX, mouseY, pt); return; }
 
         List<CardRegistry.Card> cards = CardRegistry.byCulture(activeCulture);
-        int startX = (this.width - (COLS * CELL + (COLS - 1) * PADDING)) / 2;
+
+        int gridW = COLS * CELL_W + (COLS - 1) * PADDING;
+        int startX = (this.width - gridW) / 2;
         int startY = 60;
 
         for (int i = 0; i < cards.size(); i++) {
@@ -91,23 +97,25 @@ public class AlbumScreen extends Screen {
 
             int row = i / COLS;
             int col = i % COLS;
-            int x = startX + col * (CELL + PADDING);
-            int y = startY + row * (CELL + PADDING);
+            int x = startX + col * (CELL_W + PADDING);
+            int y = startY + row * (CELL_H + PADDING);
 
-            // marco
-            gg.fill(x - 2, y - 2, x + CELL + 2, y + CELL + 2, 0x66000000);
+            // marco de la celda
+            gg.fill(x - 2, y - 2, x + CELL_W + 2, y + CELL_H + 2, 0x66000000);
 
-            // miniatura 128x128, pixel-perfect
+            // miniatura 128x192, pixel perfect
             ResourceLocation tex = CardRegistry.tex("tfgmod", card.thumbTexPath());
+
             var texObj = mc.getTextureManager().getTexture(tex);
-            if (texObj != null) texObj.setFilter(false, false);
+            if (texObj != null) texObj.setFilter(false, false); // sin blur/mipmap
+
             RenderSystem.enableBlend();
-            gg.blit(tex, x, y, 0, 0, CELL, CELL, 128, 128); // ← aquí el cambio importante
+            gg.blit(tex, x, y, 0, 0, THUMB_W, THUMB_H, THUMB_W, THUMB_H);
             RenderSystem.disableBlend();
 
             if (!unlocked) {
-                gg.fill(x, y, x + CELL, y + CELL, 0xAA000000);
-                // Puedes dibujar aquí un candado si quieres
+                // overlay de bloqueo
+                gg.fill(x, y, x + CELL_W, y + CELL_H, 0xAA000000);
             }
         }
 
