@@ -101,6 +101,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.GALLETA_SUERTE.get());
                         output.accept(ModItems.YEN.get());
+                        output.accept(ModItems.CARD.get());
 
                     }).build());
 
