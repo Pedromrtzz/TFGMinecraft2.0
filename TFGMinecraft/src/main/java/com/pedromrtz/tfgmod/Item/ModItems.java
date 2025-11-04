@@ -270,6 +270,10 @@ public class ModItems {
             () -> new CardItem(new Item.Properties())
     );
 
+    // ModItems.java
+    public static final RegistryObject<Item> ALBUM = ITEMS.register("album",
+            () -> new AlbumItem(new Item.Properties().stacksTo(1)));
+
 
 
 
