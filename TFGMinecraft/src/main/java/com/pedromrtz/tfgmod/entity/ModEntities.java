@@ -1,7 +1,9 @@
 package com.pedromrtz.tfgmod.entity;
 
 import com.pedromrtz.tfgmod.TFGMod;
+import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.entity.custom.SillaEntity;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,6 +19,13 @@ public class ModEntities {
     public static final RegistryObject<EntityType<SillaEntity>> SILLA =
             ENTITY_TYPES.register("silla", () -> EntityType.Builder.of(SillaEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f) .build("silla_entity"));
+
+    public static final RegistryObject<EntityType<ChefEntity>> CHEF =
+            ENTITY_TYPES.register("chef", () ->
+                    EntityType.Builder.<ChefEntity>of(ChefEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f) // tamaño tipo jugador
+                            .build("tfgmod:chef")
+            );
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

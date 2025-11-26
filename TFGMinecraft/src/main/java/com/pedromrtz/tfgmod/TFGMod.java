@@ -5,7 +5,9 @@ import com.pedromrtz.tfgmod.Block.ModBlocks;
 import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.entity.ModEntities;
+import com.pedromrtz.tfgmod.entity.client.ChefRenderer;
 import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
+import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.villager.ModVillagers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -13,6 +15,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -89,7 +92,9 @@ public class TFGMod {
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUELO_TATAMIARRIBA.get(), RenderType.cutout());
 
+            EntityRenderers.register(ModEntities.CHEF.get(), ChefRenderer::new);
 
         }
+
     }
 }

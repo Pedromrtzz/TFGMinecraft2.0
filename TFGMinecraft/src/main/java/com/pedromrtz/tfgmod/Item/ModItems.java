@@ -286,6 +286,10 @@ public class ModItems {
                     () -> new SushiGameItem(new Item.Properties())
             );
 
+    public static final RegistryObject<Item> CHEF_BOOK = ITEMS.register(
+            "chef_book",
+            () -> new ChefBookItem(new Item.Properties())
+    );
 
 
 
