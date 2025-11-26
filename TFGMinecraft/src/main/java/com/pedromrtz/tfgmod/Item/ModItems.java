@@ -134,10 +134,6 @@ public class ModItems {
                             .food(ModFoodPropierties.SUSHI))
             );
 
-    public static final RegistryObject<Item> SUSHI_GAME =
-            ITEMS.register("sushi_game",
-                    () -> new SushiGameItem(new Item.Properties())
-            );
 
     // GREEN TEA SHOP
 
@@ -275,10 +271,20 @@ public class ModItems {
             () -> new CardItem(new Item.Properties())
     );
 
-    // ModItems.java
     public static final RegistryObject<Item> ALBUM = ITEMS.register("album",
             () -> new AlbumItem(new Item.Properties().stacksTo(1)));
 
+    // MINIJUEGOS
+
+    public static final RegistryObject<Item> SUSHI_KNIFE = ITEMS.register(
+            "sushi_knife",
+            () -> new SushiKnifeItem(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> SUSHI_GAME =
+            ITEMS.register("sushi_game",
+                    () -> new SushiGameItem(new Item.Properties())
+            );
 
 
 
