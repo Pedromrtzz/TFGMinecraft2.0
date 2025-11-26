@@ -134,6 +134,11 @@ public class ModItems {
                             .food(ModFoodPropierties.SUSHI))
             );
 
+    public static final RegistryObject<Item> SUSHI_GAME =
+            ITEMS.register("sushi_game",
+                    () -> new SushiGameItem(new Item.Properties())
+            );
+
     // GREEN TEA SHOP
 
         // TE MATCHA
