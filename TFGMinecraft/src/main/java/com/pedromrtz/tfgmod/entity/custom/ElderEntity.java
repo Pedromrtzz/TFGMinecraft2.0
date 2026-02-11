@@ -2,9 +2,7 @@ package com.pedromrtz.tfgmod.entity.custom;
 
 import com.pedromrtz.tfgmod.network.ModNetwork;
 import com.pedromrtz.tfgmod.network.OpenScreenS2CPacket;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,8 +16,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.PacketDistributor;
 
-public class ChefEntity extends PathfinderMob {
-    public ChefEntity(EntityType<? extends PathfinderMob> type, Level level) {
+public class ElderEntity extends PathfinderMob {
+
+    public ElderEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
     }
 
@@ -33,7 +32,7 @@ public class ChefEntity extends PathfinderMob {
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.25D)
+                .add(Attributes.MOVEMENT_SPEED, 0.0D)
                 .add(Attributes.FOLLOW_RANGE, 16.0D);
     }
 
@@ -42,8 +41,8 @@ public class ChefEntity extends PathfinderMob {
         if (!this.level().isClientSide && player instanceof ServerPlayer sp) {
 
             ModNetwork.CHANNEL.send(
-                    new OpenScreenS2CPacket(OpenScreenS2CPacket.ScreenType.CHEF_DIALOGUE),
-                    PacketDistributor.PLAYER.with(sp)
+                    new OpenScreenS2CPacket(OpenScreenS2CPacket.ScreenType.ELDER_DIALOGUE),
+                    net.minecraftforge.network.PacketDistributor.PLAYER.with(sp)
             );
         }
 
@@ -52,6 +51,6 @@ public class ChefEntity extends PathfinderMob {
 
     @Override
     protected Component getTypeName() {
-        return Component.literal("Chef de sushi");
+        return Component.literal("Anciano del pueblo");
     }
 }

@@ -6,6 +6,7 @@ import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.entity.ModEntities;
 import com.pedromrtz.tfgmod.entity.client.ChefRenderer;
+import com.pedromrtz.tfgmod.entity.client.ElderRenderer;
 import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
 import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.villager.ModVillagers;
@@ -41,6 +42,8 @@ public class TFGMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        com.pedromrtz.tfgmod.network.ModNetwork.register();
+
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
@@ -58,7 +61,7 @@ public class TFGMod {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(com.pedromrtz.tfgmod.network.ModNetwork::register);
     }
 
     // Add the example block item to the building blocks tab
@@ -93,7 +96,7 @@ public class TFGMod {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUELO_TATAMIARRIBA.get(), RenderType.cutout());
 
             EntityRenderers.register(ModEntities.CHEF.get(), ChefRenderer::new);
-
+            EntityRenderers.register(ModEntities.ELDER.get(), ElderRenderer::new);
         }
 
     }

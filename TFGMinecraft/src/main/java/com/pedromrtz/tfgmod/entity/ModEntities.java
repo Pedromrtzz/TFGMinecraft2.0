@@ -2,6 +2,7 @@ package com.pedromrtz.tfgmod.entity;
 
 import com.pedromrtz.tfgmod.TFGMod;
 import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
+import com.pedromrtz.tfgmod.entity.custom.ElderEntity;
 import com.pedromrtz.tfgmod.entity.custom.SillaEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +26,13 @@ public class ModEntities {
                     EntityType.Builder.<ChefEntity>of(ChefEntity::new, MobCategory.MISC)
                             .sized(0.6f, 1.8f) // tamaño tipo jugador
                             .build("tfgmod:chef")
+            );
+
+    public static final RegistryObject<EntityType<ElderEntity>> ELDER =
+            ENTITY_TYPES.register("elder", () ->
+                    EntityType.Builder.<ElderEntity>of(ElderEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .build("tfgmod:elder")
             );
 
     public static void register(IEventBus eventBus) {

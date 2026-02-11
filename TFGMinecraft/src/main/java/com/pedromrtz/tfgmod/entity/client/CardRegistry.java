@@ -18,16 +18,16 @@ public class CardRegistry {
                 "card_japan_fushimi_inari",
                 "japan",
                 "Fushimi Inari Taisha",
-                "textures/gui/cards/japan/fushimi_inari_thumb.png",           // ✅ CORRECTO
+                "textures/gui/cards/japan/fushimi_inari_thumb.png",
                 "gui/cards/japan/fushimi_inari_full"
         ));
 
         ALL.add(new Card(
-                "card_japan_kinkakuji",                  // id
-                "japan",                                 // cultura (tab)
-                "Templo Kinkaku-ji",                     // título (por si luego lo muestras en grid)
-                "textures/gui/cards/japan/kinkakuji_thumb.png",  // mini
-                "textures/gui/cards/japan/kinkakuji_full.png"    // (guardamos también la grande)
+                "card_japan_kinkakuji",
+                "japan",
+                "Templo Kinkaku-ji",
+                "textures/gui/cards/japan/kinkakuji_thumb.png",
+                "textures/gui/cards/japan/kinkakuji_full.png"
         ));
 
         // aquí irás añadiendo más cartas/culturas
