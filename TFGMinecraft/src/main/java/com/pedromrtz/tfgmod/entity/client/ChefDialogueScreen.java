@@ -190,7 +190,7 @@ public class ChefDialogueScreen extends Screen {
         // Caso especial: abrir minijuego
         if (next.equals("open_sushi_maker")) {
             Minecraft.getInstance().setScreen(
-                    new SushiGameScreen() // <- tu minijuego ya creado
+                    new OnigiriGameScreen()
             );
             return;
         }
