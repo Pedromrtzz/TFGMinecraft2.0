@@ -13,9 +13,8 @@ import java.util.Map;
 
 public class SisterDialogueScreen extends Screen {
 
-    // Temporalmente reutilizamos el retrato del anciano
     private static final ResourceLocation SISTER_PORTRAIT =
-            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/elder.png");
+            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/sister.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
