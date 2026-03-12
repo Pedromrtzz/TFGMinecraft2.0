@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.network.PacketDistributor;
 
@@ -14,6 +15,9 @@ import java.util.List;
 import java.util.Map;
 
 public class ElderDialogueScreen extends Screen {
+
+    private static final ResourceLocation ELDER_PORTRAIT =
+            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/elder.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
@@ -101,17 +105,34 @@ public class ElderDialogueScreen extends Screen {
 
         gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
 
-        gg.drawCenteredString(this.font,
+        int portraitSize = 64;
+        int portraitX = x + 12;
+        int portraitY = y + 12;
+
+        gg.fill(portraitX - 2, portraitY - 2,
+                portraitX + portraitSize + 2,
+                portraitY + portraitSize + 2,
+                0xFF111111);
+        
+        gg.blit(ELDER_PORTRAIT,
+                portraitX, portraitY,
+                0, 0,
+                portraitSize, portraitSize,
+                portraitSize, portraitSize);
+
+        int textStartX = x + 14 + portraitSize + 14;
+
+        gg.drawString(this.font,
                 currentNode.title(),
-                this.width / 2,
-                y + 12,
+                textStartX,
+                y + 14,
                 0xFFFFFF);
 
         int textY = y + 38;
         int lineHeight = 12;
 
         for (String line : currentNode.bodyLines()) {
-            gg.drawString(this.font, line, x + 14, textY, 0xEEEEEE);
+            gg.drawString(this.font, line, textStartX, textY, 0xEEEEEE);
             textY += lineHeight;
         }
 
@@ -168,9 +189,7 @@ public class ElderDialogueScreen extends Screen {
             return;
         }
 
-        // 🎯 Activar misión (en SERVIDOR)
         if (next.equals("start_mission")) {
-            // Enviar paquete al servidor usando PacketDistributor.SERVER
             ModNetwork.CHANNEL.send(new StartMission1C2SPacket(), PacketDistributor.SERVER.noArg());
             onClose();
             return;
