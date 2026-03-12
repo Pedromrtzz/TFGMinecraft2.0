@@ -40,6 +40,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MICROONDAS.get());
                         output.accept(ModBlocks.MESA.get());
                         output.accept(ModBlocks.BOTE.get());
+                        output.accept(ModBlocks.PANADERIAMEDIO.get());
 
                         output.accept(ModBlocks.PARED_TATAMI.get());
                         output.accept(ModBlocks.SUELO_TATAMIARRIBA.get());
