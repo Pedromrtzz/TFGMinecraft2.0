@@ -3,6 +3,7 @@ package com.pedromrtz.tfgmod.entity;
 import com.pedromrtz.tfgmod.TFGMod;
 import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.entity.custom.ElderEntity;
+import com.pedromrtz.tfgmod.entity.custom.FatherEntity;
 import com.pedromrtz.tfgmod.entity.custom.SillaEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -33,6 +34,15 @@ public class ModEntities {
                     EntityType.Builder.<ElderEntity>of(ElderEntity::new, MobCategory.MISC)
                             .sized(0.6f, 1.8f)
                             .build("tfgmod:elder")
+            );
+
+    public static final RegistryObject<EntityType<FatherEntity>> FATHER =
+            ENTITY_TYPES.register("father", () ->
+                    EntityType.Builder.<FatherEntity>of(FatherEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .clientTrackingRange(16)
+                            .updateInterval(1)
+                            .build("tfgmod:father")
             );
 
     public static void register(IEventBus eventBus) {
