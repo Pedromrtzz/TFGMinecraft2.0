@@ -16,16 +16,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.PacketDistributor;
 
-public class ElderEntity extends PathfinderMob {
+public class FatherEntity extends PathfinderMob {
 
-    public ElderEntity(EntityType<? extends PathfinderMob> type, Level level) {
+    public FatherEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
         this.setPersistenceRequired();
-    }
-
-    @Override
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-        return false;
     }
 
     @Override
@@ -45,18 +40,21 @@ public class ElderEntity extends PathfinderMob {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!this.level().isClientSide && player instanceof ServerPlayer sp) {
-
             ModNetwork.CHANNEL.send(
-                    new OpenScreenS2CPacket(OpenScreenS2CPacket.ScreenType.ELDER_DIALOGUE),
-                    net.minecraftforge.network.PacketDistributor.PLAYER.with(sp)
+                    new OpenScreenS2CPacket(OpenScreenS2CPacket.ScreenType.FATHER_DIALOGUE),
+                    PacketDistributor.PLAYER.with(sp)
             );
         }
-
         return InteractionResult.sidedSuccess(this.level().isClientSide);
     }
 
     @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     protected Component getTypeName() {
-        return Component.literal("Anciano del pueblo");
+        return Component.literal("Padre");
     }
 }

@@ -152,5 +152,10 @@ public class ModBlocks {
     );
 
 
+    public static final RegistryObject<Block> PANADERIAMEDIO = registerBlock("panaderiamedio",
+            () -> new PanaderiaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+
+
 
 }

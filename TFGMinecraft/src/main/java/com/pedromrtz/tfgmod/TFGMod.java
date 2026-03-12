@@ -7,6 +7,7 @@ import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.entity.ModEntities;
 import com.pedromrtz.tfgmod.entity.client.ChefRenderer;
 import com.pedromrtz.tfgmod.entity.client.ElderRenderer;
+import com.pedromrtz.tfgmod.entity.client.FatherRenderer;
 import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
 import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.villager.ModVillagers;
@@ -97,6 +98,7 @@ public class TFGMod {
 
             EntityRenderers.register(ModEntities.CHEF.get(), ChefRenderer::new);
             EntityRenderers.register(ModEntities.ELDER.get(), ElderRenderer::new);
+            EntityRenderers.register(ModEntities.FATHER.get(), FatherRenderer::new);
         }
 
     }

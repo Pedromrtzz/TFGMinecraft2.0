@@ -2,6 +2,7 @@ package com.pedromrtz.tfgmod.network;
 
 import com.pedromrtz.tfgmod.entity.client.ChefDialogueScreen;
 import com.pedromrtz.tfgmod.entity.client.ElderDialogueScreen;
+import com.pedromrtz.tfgmod.entity.client.FatherDialogueScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -10,7 +11,8 @@ public class OpenScreenS2CPacket {
     public enum ScreenType {
         CHEF_DIALOGUE,
         ELDER_DIALOGUE,
-        MOTHER_DIALOGUE
+        MOTHER_DIALOGUE,
+        FATHER_DIALOGUE
     }
 
     private final ScreenType type;
@@ -37,6 +39,8 @@ public class OpenScreenS2CPacket {
             case MOTHER_DIALOGUE -> {
                 mc.setScreen(new ChefDialogueScreen());
             }
+            case FATHER_DIALOGUE ->
+                    mc.setScreen(new FatherDialogueScreen());
         }
     }
 }
