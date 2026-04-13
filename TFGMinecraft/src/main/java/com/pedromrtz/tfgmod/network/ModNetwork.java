@@ -43,5 +43,11 @@ public class ModNetwork {
                 .decoder(StartChapter2C2SPacket::decode)
                 .consumerMainThread((msg, ctx) -> StartChapter2C2SPacket.handle(msg, ctx))
                 .add();
+
+        CHANNEL.messageBuilder(CheckChapter2IngredientsC2SPacket.class, id++)
+                .encoder(CheckChapter2IngredientsC2SPacket::encode)
+                .decoder(CheckChapter2IngredientsC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CheckChapter2IngredientsC2SPacket.handle(msg, ctx))
+                .add();
     }
 }

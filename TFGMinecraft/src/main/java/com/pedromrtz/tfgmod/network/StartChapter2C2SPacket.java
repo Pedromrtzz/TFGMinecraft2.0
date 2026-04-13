@@ -31,7 +31,7 @@ public class StartChapter2C2SPacket {
                         progress.setChapter2Completed(false);
                         progress.setChapter2Task(1);
 
-                        com.pedromrtz.tfgmod.network.ProgressSync.syncChapter1(sp);
+                        ProgressSync.syncChapter1(sp);
                     });
                 } catch (Exception ignored) {}
             });

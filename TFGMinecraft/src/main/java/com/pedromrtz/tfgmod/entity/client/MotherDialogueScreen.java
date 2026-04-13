@@ -1,5 +1,7 @@
 package com.pedromrtz.tfgmod.entity.client;
 
+import com.pedromrtz.tfgmod.client.ClientChapter1Data;
+import com.pedromrtz.tfgmod.network.CheckChapter2IngredientsC2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
 import com.pedromrtz.tfgmod.network.StartChapter2C2SPacket;
 import net.minecraft.client.Minecraft;
@@ -16,15 +18,24 @@ import java.util.Map;
 
 public class MotherDialogueScreen extends Screen {
 
-    // Si luego haces un retrato propio, cambia esta ruta
     private static final ResourceLocation MOTHER_PORTRAIT =
             ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/mother.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
 
-    private static final Map<String, DialogueNode> NODES = Map.of(
-            "intro", new DialogueNode(
+    private DialogueNode currentNode;
+    private final List<OptionArea> optionAreas = new ArrayList<>();
+    private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
+
+    public MotherDialogueScreen() {
+        super(Component.literal("Madre"));
+        this.currentNode = getInitialNode();
+    }
+
+    private DialogueNode getInitialNode() {
+        if (!ClientChapter1Data.chapter2Active) {
+            return new DialogueNode(
                     "intro",
                     "Madre",
                     List.of(
@@ -35,34 +46,52 @@ public class MotherDialogueScreen extends Screen {
                     ),
                     List.of(
                             new DialogueOption("Sí, te ayudaré", "start_chapter2"),
-                            new DialogueOption("¿Qué es Omisoka?", "omisoka"),
                             new DialogueOption("Ahora no", "exit")
                     )
-            ),
+            );
+        }
 
-            "omisoka", new DialogueNode(
-                    "omisoka",
-                    "Omisoka",
+        if (ClientChapter1Data.chapter2Task == 1 || ClientChapter1Data.chapter2Task == 2) {
+            return new DialogueNode(
+                    "ingredients",
+                    "Madre",
                     List.of(
-                            "Omisoka es la víspera de año nuevo en Japón.",
-                            "Es un momento de reflexión, familia y tradición.",
-                            "Muchas familias comen toshikoshi soba para despedir el año."
+                            "Necesitamos los ingredientes para el toshikoshi soba.",
+                            "Tráeme fideos, alga, caldo, cebolla y carne.",
+                            "Cuando los tengas, yo los revisaré."
                     ),
                     List.of(
-                            new DialogueOption("Entiendo, te ayudaré", "start_chapter2"),
-                            new DialogueOption("Volver", "intro"),
-                            new DialogueOption("Salir", "exit")
+                            new DialogueOption("Aquí tienes los ingredientes", "check_ingredients"),
+                            new DialogueOption("Volveré cuando los tenga", "exit")
                     )
-            )
-    );
+            );
+        }
 
-    private DialogueNode currentNode;
-    private final List<OptionArea> optionAreas = new ArrayList<>();
-    private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
+        if (ClientChapter1Data.chapter2Task == 3) {
+            return new DialogueNode(
+                    "ready_to_cook",
+                    "Madre",
+                    List.of(
+                            "Perfecto, ya tenemos todos los ingredientes.",
+                            "Ahora podemos empezar a cocinar el toshikoshi soba."
+                    ),
+                    List.of(
+                            new DialogueOption("Entendido", "exit")
+                    )
+            );
+        }
 
-    public MotherDialogueScreen() {
-        super(Component.literal("Madre"));
-        this.currentNode = NODES.get("intro");
+        return new DialogueNode(
+                "default",
+                "Madre",
+                List.of(
+                        "Sigamos adelante poco a poco.",
+                        "Todavía nos quedan cosas por preparar."
+                ),
+                List.of(
+                        new DialogueOption("De acuerdo", "exit")
+                )
+        );
     }
 
     @Override
@@ -76,7 +105,6 @@ public class MotherDialogueScreen extends Screen {
 
         gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
 
-        // Retrato
         int portraitSize = 64;
         int portraitX = x + 12;
         int portraitY = y + 12;
@@ -167,9 +195,10 @@ public class MotherDialogueScreen extends Screen {
             return;
         }
 
-        DialogueNode node = NODES.get(next);
-        if (node != null) {
-            this.currentNode = node;
+        if (next.equals("check_ingredients")) {
+            ModNetwork.CHANNEL.send(new CheckChapter2IngredientsC2SPacket(), PacketDistributor.SERVER.noArg());
+            onClose();
+            return;
         }
     }
 

@@ -1,64 +1,86 @@
 package com.pedromrtz.tfgmod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.network.ProgressSync;
 import com.pedromrtz.tfgmod.progress.Chapter1ProgressUtil;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 
 public class ModCommands {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+
         dispatcher.register(
                 Commands.literal("tfg")
+
+                        // ===== RESET CAPÍTULO 1 =====
                         .then(Commands.literal("chapter1")
                                 .then(Commands.literal("reset")
                                         .executes(ctx -> {
-                                            CommandSourceStack src = ctx.getSource();
-                                            Player p = src.getPlayerOrException();
-
-                                            var prog = Chapter1ProgressUtil.get(p);
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
 
                                             prog.setHasAlbum(false);
                                             prog.setMission1Active(false);
                                             prog.setHasFamilyCard(false);
                                             prog.setMission1Completed(false);
 
-                                            if (p instanceof ServerPlayer sp) {
-                                                removeChapter1Items(sp);
+                                            ProgressSync.syncChapter1(sp);
 
-                                                ProgressSync.syncChapter1(sp);
-                                            }
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 1 reseteado."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
 
-                                            src.sendSuccess(() -> Component.literal("Capítulo 1 reseteado."), false);
+                        // ===== CAPÍTULO 2 =====
+                        .then(Commands.literal("chapter2")
+
+                                // 🔁 RESET
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter2Active(false);
+                                            prog.setChapter2Completed(false);
+                                            prog.setChapter2Task(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 2 reseteado."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                // ▶️ START
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter2Active(true);
+                                            prog.setChapter2Completed(false);
+                                            prog.setChapter2Task(1);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 2 iniciado."),
+                                                    false
+                                            );
                                             return 1;
                                         })
                                 )
                         )
         );
-    }
-
-    private static void removeChapter1Items(ServerPlayer sp) {
-        var inv = sp.getInventory();
-
-        for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack stack = inv.getItem(i);
-
-            if (stack.is(ModItems.ALBUM.get())) {
-                inv.setItem(i, ItemStack.EMPTY);
-                continue;
-            }
-
-            if (stack.is(ModItems.CARD.get())) {
-                inv.setItem(i, ItemStack.EMPTY);
-            }
-        }
-
-        inv.setChanged();
     }
 }
