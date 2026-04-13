@@ -19,7 +19,7 @@ public class ModCreativeModeTabs {
         CREATIVE_MODE_TABS.register(eventBus);
     }
 
-    public static final RegistryObject<CreativeModeTab> ALEXANDRITE_ITEMS_TAB = CREATIVE_MODE_TABS.register("alexanderite_items_tab",
+    public static final RegistryObject<CreativeModeTab> MOD_ITEMS_TAB = CREATIVE_MODE_TABS.register("alexanderite_items_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ARROZ.get()))
                     .title(Component.translatable("creativetab.tfgmod.ejemplo"))
                     .displayItems((itemDisplayParameters, output) -> {
@@ -105,5 +105,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CARD.get());
 
                     }).build());
+
+
 
 }

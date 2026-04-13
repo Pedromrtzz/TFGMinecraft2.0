@@ -15,6 +15,16 @@ public interface IChapter1Progress {
     boolean hasFamilyCard();
     void setHasFamilyCard(boolean v);
 
+    // ===== CAPÍTULO 2 =====
+    boolean isChapter2Active();
+    void setChapter2Active(boolean v);
+
+    boolean isChapter2Completed();
+    void setChapter2Completed(boolean v);
+
+    int getChapter2Task();
+    void setChapter2Task(int task);
+
     CompoundTag serializeNBT();
     void deserializeNBT(CompoundTag tag);
 }

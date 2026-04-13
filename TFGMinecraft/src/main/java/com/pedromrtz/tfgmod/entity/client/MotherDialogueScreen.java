@@ -1,20 +1,24 @@
 package com.pedromrtz.tfgmod.entity.client;
 
+import com.pedromrtz.tfgmod.network.ModNetwork;
+import com.pedromrtz.tfgmod.network.StartChapter2C2SPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraftforge.network.PacketDistributor;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FatherDialogueScreen extends Screen {
+public class MotherDialogueScreen extends Screen {
 
-    private static final ResourceLocation FATHER_PORTRAIT =
-            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/father.png");
+    // Si luego haces un retrato propio, cambia esta ruta
+    private static final ResourceLocation MOTHER_PORTRAIT =
+            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/mother.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
@@ -22,29 +26,32 @@ public class FatherDialogueScreen extends Screen {
     private static final Map<String, DialogueNode> NODES = Map.of(
             "intro", new DialogueNode(
                     "intro",
-                    "Padre",
+                    "Madre",
                     List.of(
-                            "Me alegra verte por aquí.",
-                            "Aún quedan muchas cosas por descubrir en Sakura Town.",
-                            "Cuando estés listo, podremos continuar."
+                            "Hoy es Omisoka, la nochevieja japonesa.",
+                            "Para nuestra familia es un día muy especial.",
+                            "Antes de cenar toshikoshi soba, necesitamos preparar varias cosas.",
+                            "¿Me ayudarías?"
                     ),
                     List.of(
-                            new DialogueOption("¿Qué deberíamos hacer ahora?", "next"),
-                            new DialogueOption("Luego hablamos", "exit")
+                            new DialogueOption("Sí, te ayudaré", "start_chapter2"),
+                            new DialogueOption("¿Qué es Omisoka?", "omisoka"),
+                            new DialogueOption("Ahora no", "exit")
                     )
             ),
 
-            "next", new DialogueNode(
-                    "next",
-                    "Siguiente paso",
+            "omisoka", new DialogueNode(
+                    "omisoka",
+                    "Omisoka",
                     List.of(
-                            "Cada lugar tiene una historia.",
-                            "Observa bien lo que te rodea y aprende de ello.",
-                            "Pronto comenzará una nueva etapa."
+                            "Omisoka es la víspera de año nuevo en Japón.",
+                            "Es un momento de reflexión, familia y tradición.",
+                            "Muchas familias comen toshikoshi soba para despedir el año."
                     ),
                     List.of(
-                            new DialogueOption("Entendido", "exit"),
-                            new DialogueOption("Volver", "intro")
+                            new DialogueOption("Entiendo, te ayudaré", "start_chapter2"),
+                            new DialogueOption("Volver", "intro"),
+                            new DialogueOption("Salir", "exit")
                     )
             )
     );
@@ -53,8 +60,8 @@ public class FatherDialogueScreen extends Screen {
     private final List<OptionArea> optionAreas = new ArrayList<>();
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
-    public FatherDialogueScreen() {
-        super(Component.literal("Padre"));
+    public MotherDialogueScreen() {
+        super(Component.literal("Madre"));
         this.currentNode = NODES.get("intro");
     }
 
@@ -62,8 +69,8 @@ public class FatherDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 340;
-        int boxH = 260;
+        int boxW = 360;
+        int boxH = 270;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -79,7 +86,7 @@ public class FatherDialogueScreen extends Screen {
                 portraitY + portraitSize + 2,
                 0xFF111111);
 
-        gg.blit(FATHER_PORTRAIT,
+        gg.blit(MOTHER_PORTRAIT,
                 portraitX, portraitY,
                 0, 0,
                 portraitSize, portraitSize,
@@ -150,6 +157,12 @@ public class FatherDialogueScreen extends Screen {
         if (next == null) return;
 
         if (next.equals("exit")) {
+            onClose();
+            return;
+        }
+
+        if (next.equals("start_chapter2")) {
+            ModNetwork.CHANNEL.send(new StartChapter2C2SPacket(), PacketDistributor.SERVER.noArg());
             onClose();
             return;
         }

@@ -2,9 +2,7 @@ package com.pedromrtz.tfgmod.event;
 
 import com.pedromrtz.tfgmod.TFGMod;
 import com.pedromrtz.tfgmod.entity.ModEntities;
-import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
-import com.pedromrtz.tfgmod.entity.custom.ElderEntity;
-import com.pedromrtz.tfgmod.entity.custom.FatherEntity;
+import com.pedromrtz.tfgmod.entity.custom.*;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,5 +15,8 @@ public class ModEntityAttributes {
         event.put(ModEntities.CHEF.get(), ChefEntity.createAttributes().build());
         event.put(ModEntities.ELDER.get(), ElderEntity.createAttributes().build());
         event.put(ModEntities.FATHER.get(), FatherEntity.createAttributes().build());
+        event.put(ModEntities.SISTER.get(), SisterEntity.createAttributes().build());
+        event.put(ModEntities.AMBIENT_NPC.get(), AmbientNPCEntity.createAttributes().build());
+        event.put(ModEntities.MOTHER.get(), MotherEntity.createAttributes().build());
     }
 }

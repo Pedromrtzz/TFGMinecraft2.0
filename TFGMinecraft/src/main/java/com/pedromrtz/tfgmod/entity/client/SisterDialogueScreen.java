@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FatherDialogueScreen extends Screen {
+public class SisterDialogueScreen extends Screen {
 
-    private static final ResourceLocation FATHER_PORTRAIT =
-            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/father.png");
+    private static final ResourceLocation SISTER_PORTRAIT =
+            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/sister.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
@@ -22,25 +22,25 @@ public class FatherDialogueScreen extends Screen {
     private static final Map<String, DialogueNode> NODES = Map.of(
             "intro", new DialogueNode(
                     "intro",
-                    "Padre",
+                    "Hermana",
                     List.of(
-                            "Me alegra verte por aquí.",
-                            "Aún quedan muchas cosas por descubrir en Sakura Town.",
-                            "Cuando estés listo, podremos continuar."
+                            "¡Hola! Qué bien verte por aquí.",
+                            "Siempre hay algo interesante que aprender en el pueblo.",
+                            "A veces, solo hay que fijarse en los pequeños detalles."
                     ),
                     List.of(
-                            new DialogueOption("¿Qué deberíamos hacer ahora?", "next"),
+                            new DialogueOption("¿Qué quieres decir?", "details"),
                             new DialogueOption("Luego hablamos", "exit")
                     )
             ),
 
-            "next", new DialogueNode(
-                    "next",
-                    "Siguiente paso",
+            "details", new DialogueNode(
+                    "details",
+                    "Pequeños detalles",
                     List.of(
-                            "Cada lugar tiene una historia.",
-                            "Observa bien lo que te rodea y aprende de ello.",
-                            "Pronto comenzará una nueva etapa."
+                            "Las tradiciones están en todas partes:",
+                            "en la comida, en las casas y en la forma de vivir.",
+                            "Si observas bien, aprenderás muchísimo."
                     ),
                     List.of(
                             new DialogueOption("Entendido", "exit"),
@@ -53,8 +53,8 @@ public class FatherDialogueScreen extends Screen {
     private final List<OptionArea> optionAreas = new ArrayList<>();
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
-    public FatherDialogueScreen() {
-        super(Component.literal("Padre"));
+    public SisterDialogueScreen() {
+        super(Component.literal("Hermana"));
         this.currentNode = NODES.get("intro");
     }
 
@@ -69,7 +69,6 @@ public class FatherDialogueScreen extends Screen {
 
         gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
 
-        // Retrato
         int portraitSize = 64;
         int portraitX = x + 12;
         int portraitY = y + 12;
@@ -79,7 +78,7 @@ public class FatherDialogueScreen extends Screen {
                 portraitY + portraitSize + 2,
                 0xFF111111);
 
-        gg.blit(FATHER_PORTRAIT,
+        gg.blit(SISTER_PORTRAIT,
                 portraitX, portraitY,
                 0, 0,
                 portraitSize, portraitSize,

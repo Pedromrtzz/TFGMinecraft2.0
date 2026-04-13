@@ -37,5 +37,11 @@ public class ModNetwork {
                 .decoder(SyncChapter1ProgressS2CPacket::decode)
                 .consumerMainThread((msg, ctx) -> SyncChapter1ProgressS2CPacket.handleClient(msg))
                 .add();
+
+        CHANNEL.messageBuilder(StartChapter2C2SPacket.class, id++)
+                .encoder(StartChapter2C2SPacket::encode)
+                .decoder(StartChapter2C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> StartChapter2C2SPacket.handle(msg, ctx))
+                .add();
     }
 }
