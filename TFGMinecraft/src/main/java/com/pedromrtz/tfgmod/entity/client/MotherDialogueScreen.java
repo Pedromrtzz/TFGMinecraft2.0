@@ -1,5 +1,6 @@
 package com.pedromrtz.tfgmod.entity.client;
 
+import com.pedromrtz.tfgmod.chapter2.CookingGameScreen;
 import com.pedromrtz.tfgmod.client.ClientChapter1Data;
 import com.pedromrtz.tfgmod.network.CheckChapter2IngredientsC2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
@@ -14,12 +15,11 @@ import net.minecraftforge.network.PacketDistributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class MotherDialogueScreen extends Screen {
 
     private static final ResourceLocation MOTHER_PORTRAIT =
-            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/mother.png");
+            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/elder.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
@@ -73,7 +73,23 @@ public class MotherDialogueScreen extends Screen {
                     "Madre",
                     List.of(
                             "Perfecto, ya tenemos todos los ingredientes.",
-                            "Ahora podemos empezar a cocinar el toshikoshi soba."
+                            "Ahora debemos cocinar el toshikoshi soba.",
+                            "Hazlo en el orden correcto para que salga bien."
+                    ),
+                    List.of(
+                            new DialogueOption("Empezar a cocinar", "open_cooking_game"),
+                            new DialogueOption("Luego lo hago", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter2Task == 4) {
+            return new DialogueNode(
+                    "after_cooking",
+                    "Madre",
+                    List.of(
+                            "¡Ha quedado perfecto!",
+                            "Ahora debemos preparar la mesa para la cena familiar."
                     ),
                     List.of(
                             new DialogueOption("Entendido", "exit")
@@ -198,6 +214,11 @@ public class MotherDialogueScreen extends Screen {
         if (next.equals("check_ingredients")) {
             ModNetwork.CHANNEL.send(new CheckChapter2IngredientsC2SPacket(), PacketDistributor.SERVER.noArg());
             onClose();
+            return;
+        }
+
+        if (next.equals("open_cooking_game")) {
+            Minecraft.getInstance().setScreen(new CookingGameScreen());
             return;
         }
     }
