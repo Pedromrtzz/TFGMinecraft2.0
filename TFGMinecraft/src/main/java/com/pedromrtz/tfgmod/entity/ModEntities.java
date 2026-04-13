@@ -60,6 +60,15 @@ public class ModEntities {
                             .build("tfgmod:ambient_npc")
             );
 
+    public static final RegistryObject<EntityType<MotherEntity>> MOTHER =
+            ENTITY_TYPES.register("mother", () ->
+                    EntityType.Builder.<MotherEntity>of(MotherEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .clientTrackingRange(16)
+                            .updateInterval(1)
+                            .build("tfgmod:mother")
+            );
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

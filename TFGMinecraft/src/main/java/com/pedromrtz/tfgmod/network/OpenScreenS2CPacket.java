@@ -4,6 +4,7 @@ import com.pedromrtz.tfgmod.entity.client.AmbientDialogueScreen;
 import com.pedromrtz.tfgmod.entity.client.ChefDialogueScreen;
 import com.pedromrtz.tfgmod.entity.client.ElderDialogueScreen;
 import com.pedromrtz.tfgmod.entity.client.FatherDialogueScreen;
+import com.pedromrtz.tfgmod.entity.client.MotherDialogueScreen;
 import com.pedromrtz.tfgmod.entity.client.SisterDialogueScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
@@ -22,12 +23,10 @@ public class OpenScreenS2CPacket {
     private final ScreenType type;
     private final String npcId;
 
-    // Constructor normal para pantallas que no necesitan npcId
     public OpenScreenS2CPacket(ScreenType type) {
         this(type, "");
     }
 
-    // Constructor para ambient NPC
     public OpenScreenS2CPacket(ScreenType type, String npcId) {
         this.type = type;
         this.npcId = npcId;
@@ -50,15 +49,10 @@ public class OpenScreenS2CPacket {
 
         switch (msg.type) {
             case CHEF_DIALOGUE -> mc.setScreen(new ChefDialogueScreen());
-
             case ELDER_DIALOGUE -> mc.setScreen(new ElderDialogueScreen());
-
-            case MOTHER_DIALOGUE -> mc.setScreen(new ChefDialogueScreen());
-
+            case MOTHER_DIALOGUE -> mc.setScreen(new MotherDialogueScreen());
             case FATHER_DIALOGUE -> mc.setScreen(new FatherDialogueScreen());
-
             case SISTER_DIALOGUE -> mc.setScreen(new SisterDialogueScreen());
-
             case AMBIENT_DIALOGUE -> mc.setScreen(new AmbientDialogueScreen(msg.npcId));
         }
     }

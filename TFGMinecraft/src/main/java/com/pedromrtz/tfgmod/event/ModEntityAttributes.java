@@ -17,5 +17,6 @@ public class ModEntityAttributes {
         event.put(ModEntities.FATHER.get(), FatherEntity.createAttributes().build());
         event.put(ModEntities.SISTER.get(), SisterEntity.createAttributes().build());
         event.put(ModEntities.AMBIENT_NPC.get(), AmbientNPCEntity.createAttributes().build());
+        event.put(ModEntities.MOTHER.get(), MotherEntity.createAttributes().build());
     }
 }

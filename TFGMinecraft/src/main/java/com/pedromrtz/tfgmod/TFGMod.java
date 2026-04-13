@@ -98,6 +98,7 @@ public class TFGMod {
             EntityRenderers.register(ModEntities.FATHER.get(), FatherRenderer::new);
             EntityRenderers.register(ModEntities.SISTER.get(), SisterRenderer::new);
             EntityRenderers.register(ModEntities.AMBIENT_NPC.get(), AmbientNPCRenderer::new);
+            EntityRenderers.register(ModEntities.MOTHER.get(), MotherRenderer::new);
         }
 
     }

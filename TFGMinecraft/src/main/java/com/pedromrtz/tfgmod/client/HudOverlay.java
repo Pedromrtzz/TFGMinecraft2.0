@@ -13,18 +13,28 @@ public class HudOverlay {
 
     @SubscribeEvent
     public static void onRenderGui(CustomizeGuiOverlayEvent event) {
-
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         GuiGraphics gg = event.getGuiGraphics();
 
-        String status;
-        if (ClientChapter1Data.mission1Completed) status = "Completada §a✔";
-        else if (ClientChapter1Data.mission1Active) status = "Activa §e●";
-        else status = "No iniciada §7○";
+        String text;
 
-        String text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — " + status;
+        if (ClientChapter1Data.chapter2Completed) {
+            text = "Capítulo 2 (Omisoka) — Completado §a✔";
+        } else if (ClientChapter1Data.chapter2Active) {
+            text = "Capítulo 2 (Omisoka) — Tarea "
+                    + ClientChapter1Data.chapter2Task
+                    + "/8: "
+                    + Chapter2TaskTexts.getTaskText(ClientChapter1Data.chapter2Task)
+                    + " §e●";
+        } else if (ClientChapter1Data.mission1Completed) {
+            text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — Completada §a✔";
+        } else if (ClientChapter1Data.mission1Active) {
+            text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — Activa §e●";
+        } else {
+            text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — No iniciada §7○";
+        }
 
         int screenWidth = mc.getWindow().getGuiScaledWidth();
         int x = (screenWidth - mc.font.width(text)) / 2;
