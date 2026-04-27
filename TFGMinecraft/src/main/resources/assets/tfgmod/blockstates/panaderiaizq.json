@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/panaderiaizq" },
+    "facing=south": { "model": "tfgmod:block/panaderiaizq", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/panaderiaizq", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/panaderiaizq", "y": 270 }
+  }
+}

@@ -155,6 +155,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> PANADERIAMEDIO = registerBlock("panaderiamedio",
             () -> new PanaderiaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
 
+    public static final RegistryObject<Block> PANADERIADCH = registerBlock("panaderiadch",
+            () -> new PanaderiaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PANADERIAIZQ = registerBlock("panaderiaizq",
+            () -> new PanaderiaIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
 
 
 

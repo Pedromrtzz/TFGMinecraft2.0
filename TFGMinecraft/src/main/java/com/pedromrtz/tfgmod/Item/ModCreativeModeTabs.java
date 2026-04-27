@@ -105,6 +105,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CARD.get());
 
                         output.accept(ModItems.EMA.get());
+                        output.accept(ModBlocks.PANADERIADCH.get());
+                        output.accept(ModBlocks.PANADERIAIZQ.get());
+                        output.accept(ModBlocks.PANADERIAMEDIO.get());
 
                     }).build());
 
