@@ -1,11 +1,6 @@
 package com.pedromrtz.tfgmod.network;
 
-import com.pedromrtz.tfgmod.entity.client.AmbientDialogueScreen;
-import com.pedromrtz.tfgmod.entity.client.ChefDialogueScreen;
-import com.pedromrtz.tfgmod.entity.client.ElderDialogueScreen;
-import com.pedromrtz.tfgmod.entity.client.FatherDialogueScreen;
-import com.pedromrtz.tfgmod.entity.client.MotherDialogueScreen;
-import com.pedromrtz.tfgmod.entity.client.SisterDialogueScreen;
+import com.pedromrtz.tfgmod.entity.client.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -17,7 +12,9 @@ public class OpenScreenS2CPacket {
         MOTHER_DIALOGUE,
         FATHER_DIALOGUE,
         SISTER_DIALOGUE,
-        AMBIENT_DIALOGUE
+        AMBIENT_DIALOGUE,
+        MONK_DIALOGUE,
+        DESIRE_SCREEN
     }
 
     private final ScreenType type;
@@ -54,6 +51,8 @@ public class OpenScreenS2CPacket {
             case FATHER_DIALOGUE -> mc.setScreen(new FatherDialogueScreen());
             case SISTER_DIALOGUE -> mc.setScreen(new SisterDialogueScreen());
             case AMBIENT_DIALOGUE -> mc.setScreen(new AmbientDialogueScreen(msg.npcId));
+            case MONK_DIALOGUE -> mc.setScreen(new MonkDialogueScreen());
+            case DESIRE_SCREEN -> mc.setScreen(new DesireScreen());
         }
     }
 }

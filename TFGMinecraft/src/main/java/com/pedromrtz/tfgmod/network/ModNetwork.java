@@ -55,5 +55,19 @@ public class ModNetwork {
                 .decoder(CompleteChapter2CookingC2SPacket::decode)
                 .consumerMainThread((msg, ctx) -> CompleteChapter2CookingC2SPacket.handle(msg, ctx))
                 .add();
+
+        CHANNEL.messageBuilder(AdvanceChapter2TaskC2SPacket.class, id++)
+                .encoder(AdvanceChapter2TaskC2SPacket::encode)
+                .decoder(AdvanceChapter2TaskC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> AdvanceChapter2TaskC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(SaveWishC2SPacket.class, id++)
+                .encoder(SaveWishC2SPacket::encode)
+                .decoder(SaveWishC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> SaveWishC2SPacket.handle(msg, ctx))
+                .add();
+
+
     }
 }

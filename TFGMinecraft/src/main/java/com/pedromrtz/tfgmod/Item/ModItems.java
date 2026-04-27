@@ -291,7 +291,8 @@ public class ModItems {
             () -> new ChefBookItem(new Item.Properties())
     );
 
-
+    public static final RegistryObject<Item> EMA = ITEMS.register("ema",
+            () -> new EmaItem(new Item.Properties().stacksTo(1)));
 
 
 

@@ -69,6 +69,15 @@ public class ModEntities {
                             .build("tfgmod:mother")
             );
 
+    public static final RegistryObject<EntityType<MonkEntity>> MONK =
+            ENTITY_TYPES.register("monk", () ->
+                    EntityType.Builder.<MonkEntity>of(MonkEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .clientTrackingRange(16)
+                            .updateInterval(1)
+                            .build("tfgmod:monk")
+            );
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

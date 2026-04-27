@@ -13,9 +13,10 @@ public class Chapter1Progress implements IChapter1Progress {
     private boolean chapter2Active;
     private boolean chapter2Completed;
     private int chapter2Task;
-
-    // 🔥 NUEVO: progreso de la mesa
     private int chapter2TableStage;
+
+    // ===== TAREA 7: DESEO =====
+    private String wish = "";
 
     // ===== CAPÍTULO 1 =====
     @Override
@@ -89,7 +90,6 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter2Task = task;
     }
 
-    // 🔥 NUEVO: MESA
     @Override
     public int getChapter2TableStage() {
         return chapter2TableStage;
@@ -98,6 +98,17 @@ public class Chapter1Progress implements IChapter1Progress {
     @Override
     public void setChapter2TableStage(int stage) {
         this.chapter2TableStage = stage;
+    }
+
+    // ===== DESEO =====
+    @Override
+    public String getWish() {
+        return wish;
+    }
+
+    @Override
+    public void setWish(String wish) {
+        this.wish = wish;
     }
 
     // ===== NBT =====
@@ -110,13 +121,13 @@ public class Chapter1Progress implements IChapter1Progress {
         tag.putBoolean("mission1Completed", mission1Completed);
         tag.putBoolean("hasFamilyCard", hasFamilyCard);
 
-        // ===== CAPÍTULO 2 =====
         tag.putBoolean("chapter2Active", chapter2Active);
         tag.putBoolean("chapter2Completed", chapter2Completed);
         tag.putInt("chapter2Task", chapter2Task);
-
-        // 🔥 IMPORTANTE: guardar progreso de la mesa
         tag.putInt("chapter2TableStage", chapter2TableStage);
+
+        // Guardar deseo
+        tag.putString("wish", wish);
 
         return tag;
     }
@@ -128,12 +139,12 @@ public class Chapter1Progress implements IChapter1Progress {
         this.mission1Completed = tag.getBoolean("mission1Completed");
         this.hasFamilyCard = tag.getBoolean("hasFamilyCard");
 
-        // ===== CAPÍTULO 2 =====
         this.chapter2Active = tag.getBoolean("chapter2Active");
         this.chapter2Completed = tag.getBoolean("chapter2Completed");
         this.chapter2Task = tag.getInt("chapter2Task");
-
-        // 🔥 IMPORTANTE: cargar progreso de la mesa
         this.chapter2TableStage = tag.getInt("chapter2TableStage");
+
+        // Cargar deseo
+        this.wish = tag.getString("wish");
     }
 }

@@ -104,6 +104,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.YEN.get());
                         output.accept(ModItems.CARD.get());
 
+                        output.accept(ModItems.EMA.get());
+
                     }).build());
 
 
