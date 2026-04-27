@@ -51,6 +51,7 @@ public class ModCommands {
                                             prog.setChapter2Completed(false);
                                             prog.setChapter2Task(0);
                                             prog.setChapter2TableStage(0);
+                                            prog.setWish("");
 
                                             ProgressSync.syncChapter1(sp);
 

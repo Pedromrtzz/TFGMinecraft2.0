@@ -87,8 +87,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BOTE = registerBlock("bote",
             () -> new BoteBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
-
-
+    public static final RegistryObject<Block> WISH_HANGER = registerBlock("wish_hanger",
+            () -> new WishHangerBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f)));
 
     public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
             () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
