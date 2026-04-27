@@ -14,6 +14,7 @@ public class SyncChapter1ProgressS2CPacket {
     private final boolean chapter2Active;
     private final boolean chapter2Completed;
     private final int chapter2Task;
+    private final int chapter2TableStage;
 
     public SyncChapter1ProgressS2CPacket(
             boolean hasAlbum,
@@ -22,7 +23,8 @@ public class SyncChapter1ProgressS2CPacket {
             boolean mission1Completed,
             boolean chapter2Active,
             boolean chapter2Completed,
-            int chapter2Task
+            int chapter2Task,
+            int chapter2TableStage
     ) {
         this.hasAlbum = hasAlbum;
         this.mission1Active = mission1Active;
@@ -31,6 +33,7 @@ public class SyncChapter1ProgressS2CPacket {
         this.chapter2Active = chapter2Active;
         this.chapter2Completed = chapter2Completed;
         this.chapter2Task = chapter2Task;
+        this.chapter2TableStage = chapter2TableStage;
     }
 
     public static void encode(SyncChapter1ProgressS2CPacket msg, FriendlyByteBuf buf) {
@@ -42,6 +45,7 @@ public class SyncChapter1ProgressS2CPacket {
         buf.writeBoolean(msg.chapter2Active);
         buf.writeBoolean(msg.chapter2Completed);
         buf.writeInt(msg.chapter2Task);
+        buf.writeInt(msg.chapter2TableStage);
     }
 
     public static SyncChapter1ProgressS2CPacket decode(FriendlyByteBuf buf) {
@@ -52,6 +56,7 @@ public class SyncChapter1ProgressS2CPacket {
                 buf.readBoolean(),
                 buf.readBoolean(),
                 buf.readBoolean(),
+                buf.readInt(),
                 buf.readInt()
         );
     }
@@ -65,7 +70,8 @@ public class SyncChapter1ProgressS2CPacket {
                     msg.mission1Completed,
                     msg.chapter2Active,
                     msg.chapter2Completed,
-                    msg.chapter2Task
+                    msg.chapter2Task,
+                    msg.chapter2TableStage
             );
         });
     }

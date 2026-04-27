@@ -3,6 +3,7 @@ package com.pedromrtz.tfgmod.progress;
 import net.minecraft.nbt.CompoundTag;
 
 public class Chapter1Progress implements IChapter1Progress {
+
     private boolean hasAlbum;
     private boolean mission1Active;
     private boolean mission1Completed;
@@ -13,6 +14,10 @@ public class Chapter1Progress implements IChapter1Progress {
     private boolean chapter2Completed;
     private int chapter2Task;
 
+    // 🔥 NUEVO: progreso de la mesa
+    private int chapter2TableStage;
+
+    // ===== CAPÍTULO 1 =====
     @Override
     public boolean hasAlbum() {
         return hasAlbum;
@@ -84,6 +89,18 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter2Task = task;
     }
 
+    // 🔥 NUEVO: MESA
+    @Override
+    public int getChapter2TableStage() {
+        return chapter2TableStage;
+    }
+
+    @Override
+    public void setChapter2TableStage(int stage) {
+        this.chapter2TableStage = stage;
+    }
+
+    // ===== NBT =====
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
@@ -97,6 +114,9 @@ public class Chapter1Progress implements IChapter1Progress {
         tag.putBoolean("chapter2Active", chapter2Active);
         tag.putBoolean("chapter2Completed", chapter2Completed);
         tag.putInt("chapter2Task", chapter2Task);
+
+        // 🔥 IMPORTANTE: guardar progreso de la mesa
+        tag.putInt("chapter2TableStage", chapter2TableStage);
 
         return tag;
     }
@@ -112,5 +132,8 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter2Active = tag.getBoolean("chapter2Active");
         this.chapter2Completed = tag.getBoolean("chapter2Completed");
         this.chapter2Task = tag.getInt("chapter2Task");
+
+        // 🔥 IMPORTANTE: cargar progreso de la mesa
+        this.chapter2TableStage = tag.getInt("chapter2TableStage");
     }
 }

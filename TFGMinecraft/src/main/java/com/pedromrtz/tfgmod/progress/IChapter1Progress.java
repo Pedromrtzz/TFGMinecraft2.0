@@ -25,6 +25,9 @@ public interface IChapter1Progress {
     int getChapter2Task();
     void setChapter2Task(int task);
 
+    int getChapter2TableStage();
+    void setChapter2TableStage(int stage);
+
     CompoundTag serializeNBT();
     void deserializeNBT(CompoundTag tag);
 }

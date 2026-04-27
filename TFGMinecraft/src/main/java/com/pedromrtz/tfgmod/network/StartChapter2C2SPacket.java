@@ -30,6 +30,7 @@ public class StartChapter2C2SPacket {
                         progress.setChapter2Active(true);
                         progress.setChapter2Completed(false);
                         progress.setChapter2Task(1);
+                        progress.setChapter2TableStage(0);
 
                         ProgressSync.syncChapter1(sp);
                     });

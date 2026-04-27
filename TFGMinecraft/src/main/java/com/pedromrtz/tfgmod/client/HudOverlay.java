@@ -23,11 +23,16 @@ public class HudOverlay {
         if (ClientChapter1Data.chapter2Completed) {
             text = "Capítulo 2 (Omisoka) — Completado §a✔";
         } else if (ClientChapter1Data.chapter2Active) {
-            text = "Capítulo 2 (Omisoka) — Tarea "
-                    + ClientChapter1Data.chapter2Task
-                    + "/8: "
-                    + Chapter2TaskTexts.getTaskText(ClientChapter1Data.chapter2Task)
-                    + " §e●";
+            if (ClientChapter1Data.chapter2Task == 4) {
+                text = "Capítulo 2 (Omisoka) — Tarea 4/8: Pon la mesa para la cena ("
+                        + ClientChapter1Data.chapter2TableStage + "/4) §e●";
+            } else {
+                text = "Capítulo 2 (Omisoka) — Tarea "
+                        + ClientChapter1Data.chapter2Task
+                        + "/8: "
+                        + Chapter2TaskTexts.getTaskText(ClientChapter1Data.chapter2Task)
+                        + " §e●";
+            }
         } else if (ClientChapter1Data.mission1Completed) {
             text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — Completada §a✔";
         } else if (ClientChapter1Data.mission1Active) {

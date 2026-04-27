@@ -50,6 +50,7 @@ public class ModCommands {
                                             prog.setChapter2Active(false);
                                             prog.setChapter2Completed(false);
                                             prog.setChapter2Task(0);
+                                            prog.setChapter2TableStage(0);
 
                                             ProgressSync.syncChapter1(sp);
 
@@ -70,6 +71,7 @@ public class ModCommands {
                                             prog.setChapter2Active(true);
                                             prog.setChapter2Completed(false);
                                             prog.setChapter2Task(1);
+                                            prog.setChapter2TableStage(0);
 
                                             ProgressSync.syncChapter1(sp);
 

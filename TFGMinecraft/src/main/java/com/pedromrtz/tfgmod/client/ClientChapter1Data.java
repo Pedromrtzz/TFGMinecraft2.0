@@ -10,6 +10,7 @@ public class ClientChapter1Data {
     public static boolean chapter2Active = false;
     public static boolean chapter2Completed = false;
     public static int chapter2Task = 0;
+    public static int chapter2TableStage = 0;
 
     public static void apply(
             boolean a,
@@ -18,7 +19,8 @@ public class ClientChapter1Data {
             boolean done,
             boolean c2Active,
             boolean c2Completed,
-            int c2Task
+            int c2Task,
+            int c2TableStage
     ) {
         hasAlbum = a;
         mission1Active = m1;
@@ -28,5 +30,6 @@ public class ClientChapter1Data {
         chapter2Active = c2Active;
         chapter2Completed = c2Completed;
         chapter2Task = c2Task;
+        chapter2TableStage = c2TableStage;
     }
 }
