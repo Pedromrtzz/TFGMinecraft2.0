@@ -117,6 +117,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CARNICERIAIZQ.get());
                         output.accept(ModBlocks.CARNICERIAMEDIO.get());
 
+                        output.accept(ModBlocks.PESCADERIADCH.get());
+                        output.accept(ModBlocks.PESCADERIAIZQ.get());
+                        output.accept(ModBlocks.PESCADERIAMEDIO.get());
+
                     }).build());
 
 

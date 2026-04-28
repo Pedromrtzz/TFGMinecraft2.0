@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/pescaderiadch" },
+    "facing=south": { "model": "tfgmod:block/pescaderiadch", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/pescaderiadch", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/pescaderiadch", "y": 270 }
+  }
+}
