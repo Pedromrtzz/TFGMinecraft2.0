@@ -14,7 +14,7 @@
 		"10": "tfgmod:block/manzana23",
 		"13": "tfgmod:block/manzana42",
 		"15": "tfgmod:block/palocartel",
-		"16": "tfgmod:block/texture",
+		"16": "tfgmod:block/texture64",
 		"particle": "tfgmod:block/base1"
 	},
 	"elements": [

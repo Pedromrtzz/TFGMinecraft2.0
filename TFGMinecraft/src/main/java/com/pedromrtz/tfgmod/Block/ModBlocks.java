@@ -170,6 +170,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> FRUTERIAIZQ = registerBlock("fruteriaizq",
             () -> new FruteriaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
 
+    public static final RegistryObject<Block> CARNICERIADCH = registerBlock("carniceriadch",
+            () -> new FruteriaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> CARNICERIAIZQ = registerBlock("carniceriaizq",
+            () -> new FruteriaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> CARNICERIAMEDIO = registerBlock("carniceriamedio",
+            () -> new FruteriaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
 
 
 }

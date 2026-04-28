@@ -113,6 +113,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.FRUTERIAMEDIO.get());
                         output.accept(ModBlocks.FRUTERIAIZQ.get());
 
+                        output.accept(ModBlocks.CARNICERIADCH.get());
+                        output.accept(ModBlocks.CARNICERIAIZQ.get());
+                        output.accept(ModBlocks.CARNICERIAMEDIO.get());
+
                     }).build());
 
 
