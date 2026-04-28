@@ -109,6 +109,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PANADERIAIZQ.get());
                         output.accept(ModBlocks.PANADERIAMEDIO.get());
 
+                        output.accept(ModBlocks.FRUTERIADCH.get());
+                        output.accept(ModBlocks.FRUTERIAMEDIO.get());
+                        output.accept(ModBlocks.FRUTERIAIZQ.get());
+
                     }).build());
 
 
