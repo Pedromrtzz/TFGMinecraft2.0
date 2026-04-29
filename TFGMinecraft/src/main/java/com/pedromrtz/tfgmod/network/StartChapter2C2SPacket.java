@@ -1,8 +1,10 @@
 package com.pedromrtz.tfgmod.network;
 
+import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.progress.Chapter1ProgressProvider;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 
 public class StartChapter2C2SPacket {
 
@@ -31,6 +33,8 @@ public class StartChapter2C2SPacket {
                         progress.setChapter2Completed(false);
                         progress.setChapter2Task(1);
                         progress.setChapter2TableStage(0);
+
+                        sp.addItem(new ItemStack(ModItems.YEN.get(), 40));
 
                         ProgressSync.syncChapter1(sp);
                     });

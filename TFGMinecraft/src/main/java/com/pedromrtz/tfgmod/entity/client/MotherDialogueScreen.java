@@ -19,7 +19,7 @@ import java.util.List;
 public class MotherDialogueScreen extends Screen {
 
     private static final ResourceLocation MOTHER_PORTRAIT =
-            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/elder.png");
+            ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/mother.png");
 
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}

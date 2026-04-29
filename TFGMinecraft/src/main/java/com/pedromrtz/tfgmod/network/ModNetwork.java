@@ -68,6 +68,12 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> SaveWishC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(BuyIngredientC2SPacket.class, id++)
+                .encoder(BuyIngredientC2SPacket::encode)
+                .decoder(BuyIngredientC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> BuyIngredientC2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

@@ -14,7 +14,8 @@ public class OpenScreenS2CPacket {
         SISTER_DIALOGUE,
         AMBIENT_DIALOGUE,
         MONK_DIALOGUE,
-        DESIRE_SCREEN
+        DESIRE_SCREEN,
+        MERCHANT_SHOP
     }
 
     private final ScreenType type;
@@ -53,6 +54,7 @@ public class OpenScreenS2CPacket {
             case AMBIENT_DIALOGUE -> mc.setScreen(new AmbientDialogueScreen(msg.npcId));
             case MONK_DIALOGUE -> mc.setScreen(new MonkDialogueScreen());
             case DESIRE_SCREEN -> mc.setScreen(new DesireScreen());
+            case MERCHANT_SHOP -> mc.setScreen(new MerchantShopScreen());
         }
     }
 }

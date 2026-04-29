@@ -78,6 +78,15 @@ public class ModEntities {
                             .build("tfgmod:monk")
             );
 
+    public static final RegistryObject<EntityType<MerchantEntity>> MERCHANT =
+            ENTITY_TYPES.register("merchant", () ->
+                    EntityType.Builder.<MerchantEntity>of(MerchantEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .clientTrackingRange(16)
+                            .updateInterval(1)
+                            .build("tfgmod:merchant")
+            );
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
