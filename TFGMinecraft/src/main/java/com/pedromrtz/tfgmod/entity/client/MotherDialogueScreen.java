@@ -1,6 +1,6 @@
 package com.pedromrtz.tfgmod.entity.client;
 
-import com.pedromrtz.tfgmod.chapter2.CookingGameScreen;
+import com.pedromrtz.tfgmod.capitulo2.CookingGameScreen;
 import com.pedromrtz.tfgmod.client.ClientChapter1Data;
 import com.pedromrtz.tfgmod.network.CheckChapter2IngredientsC2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
@@ -26,6 +26,7 @@ public class MotherDialogueScreen extends Screen {
 
     private DialogueNode currentNode;
     private final List<OptionArea> optionAreas = new ArrayList<>();
+
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
     public MotherDialogueScreen() {
@@ -41,8 +42,8 @@ public class MotherDialogueScreen extends Screen {
                     List.of(
                             "Hoy es Omisoka, la nochevieja japonesa.",
                             "Para nuestra familia es un día muy especial.",
-                            "Antes de cenar toshikoshi soba, necesitamos preparar varias cosas.",
-                            "¿Me ayudarías?"
+                            "Antes de cenar toshikoshi soba, necesitamos",
+                            "preparar varias cosas. ¿Me ayudarías?"
                     ),
                     List.of(
                             new DialogueOption("Sí, te ayudaré", "start_chapter2"),
@@ -51,14 +52,32 @@ public class MotherDialogueScreen extends Screen {
             );
         }
 
-        if (ClientChapter1Data.chapter2Task == 1 || ClientChapter1Data.chapter2Task == 2) {
+        if (ClientChapter1Data.chapter2Task == 1) {
             return new DialogueNode(
-                    "ingredients",
+                    "go_market",
                     "Madre",
                     List.of(
-                            "Necesitamos los ingredientes para el toshikoshi soba.",
-                            "Tráeme fideos, alga, caldo, cebolla y carne.",
-                            "Cuando los tengas, yo los revisaré."
+                            "Necesitamos ingredientes para el toshikoshi soba.",
+                            "Ve al mercado que está a las afueras del pueblo.",
+                            "Compra fideos, alga, caldo, cebolla y carne.",
+                            "Te he dado yenes para que puedas comprarlos."
+                    ),
+                    List.of(
+                            new DialogueOption("Revisar ingredientes", "check_ingredients"),
+                            new DialogueOption("Voy al mercado", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter2Task == 2) {
+            return new DialogueNode(
+                    "check_market",
+                    "Madre",
+                    List.of(
+                            "¿Ya has vuelto del mercado?",
+                            "Recuerda que necesitamos fideos, alga, caldo,",
+                            "cebolla y carne para preparar el toshikoshi soba.",
+                            "Si te falta algo, vuelve al mercado de las afueras."
                     ),
                     List.of(
                             new DialogueOption("Aquí tienes los ingredientes", "check_ingredients"),
@@ -89,10 +108,41 @@ public class MotherDialogueScreen extends Screen {
                     "Madre",
                     List.of(
                             "¡Ha quedado perfecto!",
-                            "Ahora debemos preparar la mesa para la cena familiar."
+                            "Ahora debemos preparar la mesa",
+                            "para la cena familiar de Omisoka."
                     ),
                     List.of(
                             new DialogueOption("Entendido", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter2Task == 5) {
+            return new DialogueNode(
+                    "dinner",
+                    "Madre",
+                    List.of(
+                            "La mesa ya está preparada.",
+                            "Ahora podemos cenar todos juntos",
+                            "y compartir este momento en familia."
+                    ),
+                    List.of(
+                            new DialogueOption("Vamos a cenar", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter2Task == 6) {
+            return new DialogueNode(
+                    "temple",
+                    "Madre",
+                    List.of(
+                            "Después de cenar, debemos ir al templo.",
+                            "Está a las afueras del pueblo.",
+                            "Allí escucharás el significado de las 108 campanadas."
+                    ),
+                    List.of(
+                            new DialogueOption("Iré al templo", "exit")
                     )
             );
         }
@@ -114,16 +164,16 @@ public class MotherDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 360;
-        int boxH = 270;
+        int boxW = 430;
+        int boxH = 285;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
-        gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
+        gg.fill(x, y, x + boxW, y + boxH, 0xDD000000);
 
         int portraitSize = 64;
-        int portraitX = x + 12;
-        int portraitY = y + 12;
+        int portraitX = x + 14;
+        int portraitY = y + 14;
 
         gg.fill(portraitX - 2, portraitY - 2,
                 portraitX + portraitSize + 2,
@@ -136,16 +186,16 @@ public class MotherDialogueScreen extends Screen {
                 portraitSize, portraitSize,
                 portraitSize, portraitSize);
 
-        int textStartX = x + 14 + portraitSize + 14;
+        int textStartX = x + 14 + portraitSize + 18;
 
         gg.drawString(this.font,
                 currentNode.title(),
                 textStartX,
-                y + 14,
+                y + 16,
                 0xFFFFFF);
 
-        int textY = y + 38;
-        int lineHeight = 12;
+        int textY = y + 42;
+        int lineHeight = 13;
 
         for (String line : currentNode.bodyLines()) {
             gg.drawString(this.font, line, textStartX, textY, 0xEEEEEE);
@@ -154,16 +204,16 @@ public class MotherDialogueScreen extends Screen {
 
         optionAreas.clear();
 
-        int optionHeight = 18;
+        int optionHeight = 20;
         int optionWidth = boxW - 28;
         int optionX = x + 14;
 
-        int optionsBlockHeight = currentNode.options().size() * (optionHeight + 6) - 6;
+        int optionsBlockHeight = currentNode.options().size() * (optionHeight + 7) - 7;
         int optionYStart = y + boxH - optionsBlockHeight - 16;
 
         int idx = 0;
         for (DialogueOption opt : currentNode.options()) {
-            int oy = optionYStart + idx * (optionHeight + 6);
+            int oy = optionYStart + idx * (optionHeight + 7);
 
             int bgColor = isMouseOver(mouseX, mouseY, optionX, oy, optionWidth, optionHeight)
                     ? 0xFF555555 : 0xFF333333;
@@ -173,7 +223,7 @@ public class MotherDialogueScreen extends Screen {
             gg.drawCenteredString(this.font,
                     opt.text(),
                     optionX + optionWidth / 2,
-                    oy + 5,
+                    oy + 6,
                     0xFFFFFF);
 
             optionAreas.add(new OptionArea(optionX, oy, optionWidth, optionHeight, opt));
@@ -191,6 +241,7 @@ public class MotherDialogueScreen extends Screen {
                 return true;
             }
         }
+
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
@@ -219,7 +270,6 @@ public class MotherDialogueScreen extends Screen {
 
         if (next.equals("open_cooking_game")) {
             Minecraft.getInstance().setScreen(new CookingGameScreen());
-            return;
         }
     }
 

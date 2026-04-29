@@ -1,4 +1,3 @@
-// com.pedromrtz.tfgmod.entity.client.CardUtils
 package com.pedromrtz.tfgmod.entity.client;
 
 import com.pedromrtz.tfgmod.Item.CardItem;

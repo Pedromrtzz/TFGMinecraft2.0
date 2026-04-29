@@ -33,7 +33,6 @@ public class AmbientDialogueScreen extends Screen {
 
         gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
 
-        // Retrato
         int portraitSize = 64;
         int portraitX = x + 12;
         int portraitY = y + 12;

@@ -2,6 +2,7 @@ package com.pedromrtz.tfgmod.network;
 
 import com.pedromrtz.tfgmod.progress.Chapter1ProgressProvider;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
 public class SaveWishC2SPacket {
@@ -33,9 +34,37 @@ public class SaveWishC2SPacket {
                     if (sp == null) return;
 
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
+                        if (!progress.isChapter2Active()) return;
 
-                        progress.setWish(msg.wish);
+                        if (progress.getChapter2Task() != 7) {
+                            sp.displayClientMessage(
+                                    Component.literal("§cAhora no puedes escribir el deseo."),
+                                    false
+                            );
+                            return;
+                        }
+
+                        String cleanWish = msg.wish.trim();
+
+                        if (cleanWish.isEmpty()) {
+                            sp.displayClientMessage(
+                                    Component.literal("§cNo puedes dejar el deseo vacío."),
+                                    false
+                            );
+                            return;
+                        }
+
+                        if (cleanWish.length() > 60) {
+                            cleanWish = cleanWish.substring(0, 60);
+                        }
+
+                        progress.setWish(cleanWish);
                         progress.setChapter2Task(8);
+
+                        sp.displayClientMessage(
+                                Component.literal("§7Te susurran: §fPrueba a colgar el deseo en el árbol de afuera."),
+                                false
+                        );
 
                         ProgressSync.syncChapter1(sp);
                     });

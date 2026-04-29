@@ -28,11 +28,14 @@ public interface IChapter1Progress {
     int getChapter2TableStage();
     void setChapter2TableStage(int stage);
 
-    // ===== DESEO =====
     String getWish();
 
     void setWish(String wish);
 
     CompoundTag serializeNBT();
     void deserializeNBT(CompoundTag tag);
+
+    int getChapter2BellCount();
+    void setChapter2BellCount(int count);
+
 }

@@ -27,7 +27,7 @@ public class SushiCutScreen extends Screen {
     private int buttonX, buttonY;
 
     private boolean hasCut = false;
-    private int cutX; // x donde el jugador ha cortado
+    private int cutX;
 
     private Component resultMessage = Component.empty();
     private int resultColor = 0xFFFFFF;
@@ -43,15 +43,12 @@ public class SushiCutScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Tatami centrado 256x256
         matX = centerX - 128;
         matY = centerY - 128;
 
-        // Maki centrado dentro del tatami
         makiX = matX + (256 - MAKI_W) / 2;
         makiY = matY + (256 - MAKI_H) / 2;
 
-        // Botón arriba a la derecha del tatami
         buttonX = matX + 256 - BUTTON_W - 8;
         buttonY = matY + 8;
     }
@@ -60,36 +57,29 @@ public class SushiCutScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        // --- Tatami ---
         RenderSystem.enableBlend();
         gg.blit(BG, matX, matY, 0, 0, 256, 256, 256, 256);
 
-        // --- Maki entero ---
         gg.blit(MAKI, makiX, makiY, 0, 0, MAKI_W, MAKI_H, MAKI_W, MAKI_H);
 
-        // --- Línea de PREVIEW mientras mueves el ratón sobre el maki ---
         if (!hasCut && isInside(mouseX, mouseY, makiX, makiY, MAKI_W, MAKI_H)) {
             drawCutLine(gg, mouseX, 0x66FFFFFF);
         }
 
-        // --- Línea DEFINITIVA cuando ya has cortado ---
         if (hasCut) {
             drawCutLine(gg, cutX, 0xFFFF5555);
         }
 
         RenderSystem.disableBlend();
 
-        // --- Botón ---
         gg.fill(buttonX, buttonY, buttonX + BUTTON_W, buttonY + BUTTON_H, 0xFF444444);
         String label = hasCut ? "REINTENTAR" : "SALIR";
         gg.drawCenteredString(this.font, label,
                 buttonX + BUTTON_W / 2, buttonY + 4, 0xFFFFFF);
 
-        // --- Título ---
         gg.drawCenteredString(this.font, "CORTE DE SUSHI",
                 this.width / 2, matY - 16, 0xFFFFFF);
 
-        // --- Mensaje ---
         Component text;
         if (hasCut && !resultMessage.getString().isEmpty()) {
             text = resultMessage;
@@ -112,22 +102,18 @@ public class SushiCutScreen extends Screen {
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button != 0) return super.mouseClicked(mouseX, mouseY, button);
 
-        // 1) Botón
         if (isInside(mouseX, mouseY, buttonX, buttonY, BUTTON_W, BUTTON_H)) {
             if (hasCut) {
-                // Reintentar
                 hasCut = false;
                 resultMessage = Component.empty();
                 resultColor = 0xFFFFFF;
                 playClick();
             } else {
-                // Salir
                 onClose();
             }
             return true;
         }
 
-        // 2) Corte sobre el maki
         if (!hasCut && isInside(mouseX, mouseY, makiX, makiY, MAKI_W, MAKI_H)) {
             hasCut = true;
             cutX = (int) mouseX;
@@ -154,7 +140,6 @@ public class SushiCutScreen extends Screen {
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    // --------- sonidos ----------
     private void playClick() {
         var player = Minecraft.getInstance().player;
         if (player != null) {

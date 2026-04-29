@@ -1,4 +1,3 @@
-// com.pedromrtz.tfgmod.entity.client.CardRegistry
 package com.pedromrtz.tfgmod.entity.client;
 
 import net.minecraft.resources.ResourceLocation;
@@ -15,22 +14,38 @@ public class CardRegistry {
     static {
         // JAPÓN
         ALL.add(new Card(
-                "card_japan_fushimi_inari",
+                "card_japan_family_house",
                 "japan",
-                "Fushimi Inari Taisha",
-                "textures/gui/cards/japan/fushimi_inari_thumb.png",
-                "gui/cards/japan/fushimi_inari_full"
+                "Family House Sakura Town",
+                "textures/gui/cards/japan/family_house_thumb.png",
+                "gui/cards/japan/family_house_full"
         ));
 
         ALL.add(new Card(
-                "card_japan_kinkakuji",
+                "card_japan_toshikoshi_soba",
                 "japan",
-                "Templo Kinkaku-ji",
-                "textures/gui/cards/japan/kinkakuji_thumb.png",
-                "textures/gui/cards/japan/kinkakuji_full.png"
+                "Toshikoshi Soba",
+                "textures/gui/cards/japan/toshikoshi_soba_thumb.png",
+                "gui/cards/japan/toshikoshi_soba_thumb"
         ));
 
-        // aquí irás añadiendo más cartas/culturas
+        ALL.add(new Card(
+                "card_japan_omisoka_dinner",
+                "japan",
+                "Omisoka Dinner",
+                "textures/gui/cards/japan/omisoka_dinner_full.png",
+                "gui/cards/japan/omisoka_dinner_thumb"
+        ));
+
+        ALL.add(new Card(
+                "card_japan_ema_wish",
+                "japan",
+                "Ema Wish at the Temple",
+                "textures/gui/cards/japan/ema_wish_full.png",
+                "gui/cards/japan/ema_wish_thumb"
+        ));
+
+        // aquí ire añadiendo más cartas/culturas
     }
 
     public static List<Card> byCulture(String culture) {

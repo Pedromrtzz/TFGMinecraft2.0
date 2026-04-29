@@ -9,16 +9,14 @@ public class Chapter1Progress implements IChapter1Progress {
     private boolean mission1Completed;
     private boolean hasFamilyCard;
 
-    // ===== CAPÍTULO 2 =====
     private boolean chapter2Active;
     private boolean chapter2Completed;
     private int chapter2Task;
     private int chapter2TableStage;
 
-    // ===== TAREA 7: DESEO =====
     private String wish = "";
+    private int chapter2BellCount;
 
-    // ===== CAPÍTULO 1 =====
     @Override
     public boolean hasAlbum() {
         return hasAlbum;
@@ -59,7 +57,6 @@ public class Chapter1Progress implements IChapter1Progress {
         this.hasFamilyCard = v;
     }
 
-    // ===== CAPÍTULO 2 =====
     @Override
     public boolean isChapter2Active() {
         return chapter2Active;
@@ -100,7 +97,6 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter2TableStage = stage;
     }
 
-    // ===== DESEO =====
     @Override
     public String getWish() {
         return wish;
@@ -109,6 +105,16 @@ public class Chapter1Progress implements IChapter1Progress {
     @Override
     public void setWish(String wish) {
         this.wish = wish;
+    }
+
+    @Override
+    public int getChapter2BellCount() {
+        return chapter2BellCount;
+    }
+
+    @Override
+    public void setChapter2BellCount(int count) {
+        this.chapter2BellCount = count;
     }
 
     // ===== NBT =====
@@ -126,8 +132,8 @@ public class Chapter1Progress implements IChapter1Progress {
         tag.putInt("chapter2Task", chapter2Task);
         tag.putInt("chapter2TableStage", chapter2TableStage);
 
-        // Guardar deseo
         tag.putString("wish", wish);
+        tag.putInt("chapter2BellCount", chapter2BellCount);
 
         return tag;
     }
@@ -144,7 +150,7 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter2Task = tag.getInt("chapter2Task");
         this.chapter2TableStage = tag.getInt("chapter2TableStage");
 
-        // Cargar deseo
         this.wish = tag.getString("wish");
+        this.chapter2BellCount = tag.getInt("chapter2BellCount");
     }
 }

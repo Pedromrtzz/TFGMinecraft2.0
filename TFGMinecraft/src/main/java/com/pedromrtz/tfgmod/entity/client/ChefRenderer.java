@@ -14,7 +14,6 @@ public class ChefRenderer extends MobRenderer<ChefEntity, PlayerModel<ChefEntity
             ResourceLocation.fromNamespaceAndPath(TFGMod.MOD_ID, "textures/entity/chef/chef.png");
 
     public ChefRenderer(EntityRendererProvider.Context ctx) {
-        // false = modelo "Steve" (brazos normales). true = "Alex" (brazos finos)
         super(ctx, new PlayerModel<>(ctx.bakeLayer(ModelLayers.PLAYER), false), 0.5f);
     }
 

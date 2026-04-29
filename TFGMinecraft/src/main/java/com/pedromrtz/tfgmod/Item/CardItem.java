@@ -23,11 +23,9 @@ public class CardItem extends Item {
 
 
     public static void setCardId(ItemStack stack, String cardId) {
-        // Creamos un nuevo CompoundTag
         CompoundTag tag = new CompoundTag();
         tag.putString(CARD_ID_KEY, cardId);
 
-        // Lo metemos en el componente CustomData
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
     }
 

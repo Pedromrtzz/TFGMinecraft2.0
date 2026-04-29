@@ -1,5 +1,6 @@
-package com.pedromrtz.tfgmod.chapter2;
+package com.pedromrtz.tfgmod.capitulo2;
 
+import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.network.CompleteChapter2CookingC2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
 import net.minecraft.client.Minecraft;
@@ -7,6 +8,8 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.network.PacketDistributor;
 
 import java.util.ArrayList;
@@ -20,10 +23,11 @@ public class CookingGameScreen extends Screen {
     private final List<ButtonArea> ingredientButtons = new ArrayList<>();
     private final List<ButtonArea> actionButtons = new ArrayList<>();
 
-    private String feedbackMessage = "";
-    private int feedbackColor = 0xFFFFFF;
+    private String feedbackMessage = "Prepara el soba siguiendo el orden correcto.";
+    private int feedbackColor = 0xEEEEEE;
+    private int errorCount = 0;
 
-    private record ButtonArea(int x, int y, int w, int h, String id, String label) {}
+    private record ButtonArea(int x, int y, int w, int h, String id, String label, ItemStack icon) {}
 
     public CookingGameScreen() {
         super(Component.literal("Cocinar Toshikoshi Soba"));
@@ -33,91 +37,119 @@ public class CookingGameScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 420;
-        int boxH = 300;
+        int boxW = 470;
+        int boxH = 330;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
         gg.fill(x, y, x + boxW, y + boxH, 0xDD000000);
 
-        gg.drawCenteredString(this.font,
-                "Minijuego: Cocina el Toshikoshi Soba",
+        gg.drawCenteredString(
+                this.font,
+                "Minijuego: Toshikoshi Soba",
                 this.width / 2,
                 y + 12,
-                0xFFFFFF);
+                0xFFFFFF
+        );
 
-        gg.drawString(this.font,
-                "Selecciona los ingredientes en el orden correcto:",
-                x + 14,
-                y + 34,
-                0xEEEEEE);
+        gg.drawCenteredString(
+                this.font,
+                "Selecciona los ingredientes en el orden correcto.",
+                this.width / 2,
+                y + 32,
+                0xDDDDDD
+        );
 
         ingredientButtons.clear();
 
-        int btnW = 120;
-        int btnH = 20;
-        int gap = 8;
+        int btnW = 135;
+        int btnH = 34;
+        int gap = 10;
 
-        int row1Y = y + 60;
-        int row2Y = y + 88;
+        int row1Y = y + 58;
+        int row2Y = y + 102;
 
-        addIngredientButton(ingredientButtons, x + 14, row1Y, btnW, btnH, "caldo", "Caldo");
-        addIngredientButton(ingredientButtons, x + 14 + btnW + gap, row1Y, btnW, btnH, "fideos", "Fideos");
-        addIngredientButton(ingredientButtons, x + 14 + (btnW + gap) * 2, row1Y, btnW, btnH, "carne", "Carne");
+        addIngredientButton(ingredientButtons, x + 22, row1Y, btnW, btnH, "caldo", "Caldo", new ItemStack(ModItems.CALDO.get()));
+        addIngredientButton(ingredientButtons, x + 22 + btnW + gap, row1Y, btnW, btnH, "fideos", "Fideos", new ItemStack(ModItems.FIDEOS.get()));
+        addIngredientButton(ingredientButtons, x + 22 + (btnW + gap) * 2, row1Y, btnW, btnH, "carne", "Carne", new ItemStack(Items.BEEF));
 
-        addIngredientButton(ingredientButtons, x + 14 + 60, row2Y, btnW, btnH, "cebolla", "Cebolla");
-        addIngredientButton(ingredientButtons, x + 14 + 60 + btnW + gap, row2Y, btnW, btnH, "alga", "Alga");
+        addIngredientButton(ingredientButtons, x + 92, row2Y, btnW, btnH, "cebolla", "Cebolla", new ItemStack(ModItems.CEBOLLA.get()));
+        addIngredientButton(ingredientButtons, x + 92 + btnW + gap, row2Y, btnW, btnH, "alga", "Alga", new ItemStack(Items.KELP));
 
         for (ButtonArea btn : ingredientButtons) {
             int color = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
                     ? 0xFF666666 : 0xFF333333;
 
             gg.fill(btn.x, btn.y, btn.x + btn.w, btn.y + btn.h, color);
-            gg.drawCenteredString(this.font, btn.label, btn.x + btn.w / 2, btn.y + 6, 0xFFFFFF);
+
+            gg.renderItem(btn.icon, btn.x + 8, btn.y + 9);
+
+            gg.drawString(
+                    this.font,
+                    btn.label,
+                    btn.x + 32,
+                    btn.y + 13,
+                    0xFFFFFF
+            );
         }
 
-        gg.drawString(this.font,
-                "Tu orden:",
-                x + 14,
-                y + 125,
-                0xFFFFFF);
+        gg.drawString(this.font, "Tu receta:", x + 22, y + 150, 0xFFFFFF);
 
-        int orderBoxX = x + 14;
-        int orderBoxY = y + 140;
-        int orderBoxW = boxW - 28;
-        int orderBoxH = 70;
+        int orderBoxX = x + 22;
+        int orderBoxY = y + 165;
+        int orderBoxW = boxW - 44;
+        int orderBoxH = 78;
 
         gg.fill(orderBoxX, orderBoxY, orderBoxX + orderBoxW, orderBoxY + orderBoxH, 0xAA111111);
 
-        int lineY = orderBoxY + 10;
-        for (int i = 0; i < selectedOrder.size(); i++) {
-            String ingredient = formatIngredient(selectedOrder.get(i));
-            gg.drawString(this.font, (i + 1) + ". " + ingredient, orderBoxX + 10, lineY, 0xEEEEEE);
-            lineY += 12;
+        int slotSize = 42;
+        int slotGap = 9;
+        int startX = orderBoxX + 18;
+        int slotY = orderBoxY + 18;
+
+        for (int i = 0; i < correctOrder.size(); i++) {
+            int sx = startX + i * (slotSize + slotGap);
+
+            gg.fill(sx, slotY, sx + slotSize, slotY + slotSize, 0xFF222222);
+            gg.drawCenteredString(this.font, String.valueOf(i + 1), sx + slotSize / 2, slotY - 12, 0xAAAAAA);
+
+            if (i < selectedOrder.size()) {
+                ItemStack icon = getIcon(selectedOrder.get(i));
+                gg.renderItem(icon, sx + 13, slotY + 8);
+
+                gg.drawCenteredString(
+                        this.font,
+                        formatIngredient(selectedOrder.get(i)),
+                        sx + slotSize / 2,
+                        slotY + slotSize + 4,
+                        0xEEEEEE
+                );
+            }
         }
 
         if (!feedbackMessage.isEmpty()) {
-            gg.drawCenteredString(this.font,
+            gg.drawCenteredString(
+                    this.font,
                     feedbackMessage,
                     this.width / 2,
-                    y + 220,
-                    feedbackColor);
+                    y + 255,
+                    feedbackColor
+            );
         }
 
         actionButtons.clear();
 
-        int actionY = y + boxH - 34;
-
-        addActionButton(actionButtons, x + 14, actionY, 120, 20, "clear", "Limpiar");
-        addActionButton(actionButtons, x + (boxW - 120) / 2, actionY, 120, 20, "confirm", "Confirmar");
-        addActionButton(actionButtons, x + boxW - 14 - 120, actionY, 120, 20, "exit", "Salir");
+        int actionY = y + boxH - 36;
+        addActionButton(actionButtons, x + 22, actionY, 120, 22, "clear", "Limpiar", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + (boxW - 120) / 2, actionY, 120, 22, "confirm", "Confirmar", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + boxW - 22 - 120, actionY, 120, 22, "exit", "Salir", ItemStack.EMPTY);
 
         for (ButtonArea btn : actionButtons) {
             int color = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
                     ? 0xFF666666 : 0xFF333333;
 
             gg.fill(btn.x, btn.y, btn.x + btn.w, btn.y + btn.h, color);
-            gg.drawCenteredString(this.font, btn.label, btn.x + btn.w / 2, btn.y + 6, 0xFFFFFF);
+            gg.drawCenteredString(this.font, btn.label, btn.x + btn.w / 2, btn.y + 7, 0xFFFFFF);
         }
 
         super.render(gg, mouseX, mouseY, pt);
@@ -152,7 +184,8 @@ public class CookingGameScreen extends Screen {
         }
 
         selectedOrder.add(ingredientId);
-        feedbackMessage = "";
+        feedbackMessage = "Ingrediente añadido: " + formatIngredient(ingredientId);
+        feedbackColor = 0xEEEEEE;
     }
 
     private void handleActionClick(String actionId) {
@@ -161,12 +194,13 @@ public class CookingGameScreen extends Screen {
         switch (actionId) {
             case "clear" -> {
                 selectedOrder.clear();
-                feedbackMessage = "Selección reiniciada.";
+                feedbackMessage = "Has limpiado la receta. Inténtalo de nuevo.";
                 feedbackColor = 0xFFCCCCCC;
             }
+
             case "confirm" -> {
                 if (selectedOrder.size() != correctOrder.size()) {
-                    feedbackMessage = "Aún no has añadido todos los ingredientes.";
+                    feedbackMessage = "Te faltan ingredientes. Debes colocar 5 en total.";
                     feedbackColor = 0xFFFF5555;
                     return;
                 }
@@ -182,20 +216,49 @@ public class CookingGameScreen extends Screen {
 
                     onClose();
                 } else {
-                    feedbackMessage = "El orden no es correcto. Inténtalo de nuevo.";
-                    feedbackColor = 0xFFFF5555;
+                    errorCount++;
+                    selectedOrder.clear();
+
+                    if (errorCount % 2 == 0) {
+                        feedbackMessage = getHint();
+                        feedbackColor = 0xFFFFAA00;
+                    } else {
+                        feedbackMessage = "El orden no es correcto. La receta se ha reiniciado.";
+                        feedbackColor = 0xFFFF5555;
+                    }
                 }
             }
+
             case "exit" -> onClose();
         }
     }
 
-    private void addIngredientButton(List<ButtonArea> list, int x, int y, int w, int h, String id, String label) {
-        list.add(new ButtonArea(x, y, w, h, id, label));
+    private String getHint() {
+        return switch (errorCount) {
+            case 2 -> "Pista: primero se prepara la base líquida.";
+            case 4 -> "Pista: después del caldo van los fideos.";
+            case 6 -> "Pista: el alga se coloca al final como acompañamiento.";
+            default -> "Pista: piensa en base, fideos, proteína y toppings.";
+        };
     }
 
-    private void addActionButton(List<ButtonArea> list, int x, int y, int w, int h, String id, String label) {
-        list.add(new ButtonArea(x, y, w, h, id, label));
+    private ItemStack getIcon(String id) {
+        return switch (id) {
+            case "caldo" -> new ItemStack(ModItems.CALDO.get());
+            case "fideos" -> new ItemStack(ModItems.FIDEOS.get());
+            case "carne" -> new ItemStack(Items.BEEF);
+            case "cebolla" -> new ItemStack(ModItems.CEBOLLA.get());
+            case "alga" -> new ItemStack(Items.KELP);
+            default -> ItemStack.EMPTY;
+        };
+    }
+
+    private void addIngredientButton(List<ButtonArea> list, int x, int y, int w, int h, String id, String label, ItemStack icon) {
+        list.add(new ButtonArea(x, y, w, h, id, label, icon));
+    }
+
+    private void addActionButton(List<ButtonArea> list, int x, int y, int w, int h, String id, String label, ItemStack icon) {
+        list.add(new ButtonArea(x, y, w, h, id, label, icon));
     }
 
     private String formatIngredient(String id) {

@@ -108,7 +108,6 @@ public class MerchantShopScreen extends Screen {
             visibleButtons.add(new ButtonArea(btnX, btnY, btnW, btnH, item.id()));
         }
 
-        // Scroll visual
         int scrollBarX = x + boxW - 20;
         int scrollBarY = listY;
         int scrollBarH = VISIBLE_ITEMS * (btnH + gap) - gap;
@@ -123,7 +122,6 @@ public class MerchantShopScreen extends Screen {
             gg.fill(scrollBarX, handleY, scrollBarX + 6, handleY + handleH, 0xFFAAAAAA);
         }
 
-        // Botón cerrar
         int closeW = boxW - 28;
         int closeH = 20;
         int closeX = x + 14;

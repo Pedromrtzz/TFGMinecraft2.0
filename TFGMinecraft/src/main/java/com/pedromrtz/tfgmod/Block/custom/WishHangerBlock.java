@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -48,16 +49,18 @@ public class WishHangerBlock extends Block {
         String wish = progress.getWish();
 
         if (wish == null || wish.isBlank()) {
-            sp.displayClientMessage(Component.literal("§cPrimero debes escribir tu deseo en el ema."), false);
+            sp.displayClientMessage(Component.literal("§cPrimero debes escribir tu deseo en el ema."), true);
             return InteractionResult.SUCCESS;
         }
+
+        spawnFloatingWishText(level, pos, wish);
 
         progress.setChapter2Completed(true);
         progress.setChapter2Active(false);
         progress.setChapter2Task(8);
 
         ItemStack finalCard = new ItemStack(ModItems.CARD.get());
-        CardItem.setCardId(finalCard, "card_japan_fushimi_inari");
+        CardItem.setCardId(finalCard, "card_japan_ema_wish");
         sp.addItem(finalCard);
 
         sp.displayClientMessage(Component.literal("§6Has colgado tu deseo en el templo."), false);
@@ -74,6 +77,40 @@ public class WishHangerBlock extends Block {
         );
 
         ProgressSync.syncChapter1(sp);
+
+        new Thread(() -> {
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException ignored) {}
+
+            if (level.getServer() != null) {
+                level.getServer().execute(() -> {
+                    level.getServer().overworld().setDayTime(1000);
+                });
+            }
+        }).start();
+
         return InteractionResult.SUCCESS;
+    }
+
+    private void spawnFloatingWishText(Level level, BlockPos pos, String wish) {
+        ArmorStand text = new ArmorStand(
+                level,
+                pos.getX() + 0.5,
+                pos.getY() + 1.4,
+                pos.getZ() + 0.5
+        );
+
+        text.setInvisible(true);
+        text.setNoGravity(true);
+        text.setCustomName(Component.literal("§e\"" + wish + "\""));
+        text.setCustomNameVisible(true);
+        text.setSilent(true);
+
+        text.setInvulnerable(true);
+
+        text.addTag("tfg_wish_text");
+
+        level.addFreshEntity(text);
     }
 }

@@ -66,9 +66,8 @@ public class CompleteChapter2CookingC2SPacket {
 
                         progress.setChapter2Task(4);
 
-                        // Cromo de prueba. Luego cambias el ID por el definitivo de gastronomía.
                         ItemStack cardStack = new ItemStack(ModItems.CARD.get());
-                        CardItem.setCardId(cardStack, "card_japan_fushimi_inari");
+                        CardItem.setCardId(cardStack, "card_japan_toshikoshi_soba");
                         sp.addItem(cardStack);
 
                         sp.displayClientMessage(

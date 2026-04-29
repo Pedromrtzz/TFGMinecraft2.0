@@ -6,7 +6,6 @@ public class ClientChapter1Data {
     public static boolean hasFamilyCard = false;
     public static boolean mission1Completed = false;
 
-    // ===== CAPÍTULO 2 =====
     public static boolean chapter2Active = false;
     public static boolean chapter2Completed = false;
     public static int chapter2Task = 0;

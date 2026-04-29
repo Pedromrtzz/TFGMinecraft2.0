@@ -23,15 +23,12 @@ public class CardViewerScreen extends Screen {
         CardData data = DataMvp.get(id);
 
         if (data != null) {
-            // Tamaño real de la textura (ancho x alto) definido en CardData
             final int texW = data.texW();
             final int texH = data.texH();
 
-            // Márgenes para que no pegue a los bordes
             final int maxW = this.width - 40;
             final int maxH = this.height - 100;
 
-            // Elegimos una escala "nítida" (1.0, 0.5, 0.25) que quepa
             float scale = pickPixelPerfectScale(texW, texH, maxW, maxH);
 
             int targetW = Math.round(texW * scale);
@@ -42,7 +39,6 @@ public class CardViewerScreen extends Screen {
 
             ResourceLocation tex = ResourceLocation.fromNamespaceAndPath("tfgmod", data.texturePath());
 
-            // Desactivar blur y mipmaps para nitidez
             var tm = net.minecraft.client.Minecraft.getInstance().getTextureManager();
             var texObj = tm.getTexture(tex);
             if (texObj != null) texObj.setFilter(false, false);
@@ -53,13 +49,11 @@ public class CardViewerScreen extends Screen {
             pose.pushPose();
             pose.translate(x, y, 0);
             pose.scale(scale, scale, 1f);
-            // Dibujo 1:1 en espacio escalado → mantiene proporción y nitidez
             gg.blit(tex, 0, 0, 0, 0, texW, texH, texW, texH);
             pose.popPose();
 
             RenderSystem.disableBlend();
 
-            // Título arriba y subtítulo abajo del rectángulo renderizado
             gg.drawCenteredString(this.font, data.title(), this.width / 2, y - 18, 0xFFFFFF);
             gg.drawCenteredString(this.font, data.subtitle(), this.width / 2, y + targetH + 8, 0xCCCCCC);
         }
@@ -67,10 +61,7 @@ public class CardViewerScreen extends Screen {
         super.render(gg, mouseX, mouseY, pt);
     }
 
-    /**
-     * Escalas discretas para evitar blur: 1.0, 0.5, 0.25 (puedes añadir 0.125 si quieres).
-     * Elige la mayor que quepa dentro de maxW x maxH.
-     */
+
     private static float pickPixelPerfectScale(int texW, int texH, int maxW, int maxH) {
         float[] candidates = new float[]{1.0f, 0.5f, 0.25f};
         for (float s : candidates) {
@@ -78,13 +69,11 @@ public class CardViewerScreen extends Screen {
                 return s;
             }
         }
-        // Si ni 0.25 cabe, caemos a un escalado continuo (puede perder algo de nitidez pero evita desbordes)
         float sx = maxW / (float) texW;
         float sy = maxH / (float) texH;
         return Math.max(0.01f, Math.min(sx, sy));
     }
 
-    // --- Data embebida (MVP). Ahora incluye tamaño real (texW, texH).
     public record CardData(String title, String subtitle, String texturePath, int texW, int texH) {}
 
     public static class DataMvp {
@@ -105,6 +94,42 @@ public class CardViewerScreen extends Screen {
                         512, 768
                 );
             }
+            if ("card_japan_family_house".equals(id)) {
+                return new CardData(
+                        "Family House in Sakura Town",
+                        "",
+                        "textures/gui/cards/japan/family_house_full.png",
+                        512, 768
+                );
+            }
+
+            if ("card_japan_toshikoshi_soba".equals(id)) {
+                return new CardData(
+                        "Toshikoshi Soba",
+                        "",
+                        "textures/gui/cards/japan/toshikoshi_soba_full.png",
+                        512, 768
+                );
+            }
+
+            if ("card_japan_omisoka_dinner".equals(id)) {
+                return new CardData(
+                        "Omisoka Dinner",
+                        "",
+                        "textures/gui/cards/japan/omisoka_dinner_full.png",
+                        512, 768
+                );
+            }
+
+            if ("card_japan_ema_wish".equals(id)) {
+                return new CardData(
+                        "Ema Wish at the Temple",
+                        "",
+                        "textures/gui/cards/japan/ema_wish_full.png",
+                        512, 768
+                );
+            }
+
             return null;
         }
     }

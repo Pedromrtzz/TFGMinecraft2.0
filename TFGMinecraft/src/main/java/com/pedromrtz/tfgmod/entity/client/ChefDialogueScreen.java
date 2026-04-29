@@ -14,11 +14,9 @@ import java.util.Map;
 
 public class ChefDialogueScreen extends Screen {
 
-    // --- NODO DE DIÁLOGO ---
     public record DialogueOption(String text, String nextId) {}
     public record DialogueNode(String id, String title, List<String> bodyLines, List<DialogueOption> options) {}
 
-    // --- "Base de datos" de diálogos ---
     private static final Map<String, DialogueNode> NODES = Map.of(
             "intro", new DialogueNode(
                     "intro",
@@ -83,10 +81,8 @@ public class ChefDialogueScreen extends Screen {
             )
     );
 
-    // Nodo actual
     private DialogueNode currentNode;
 
-    // Datos para pintar las opciones y detectar clics
     private final List<OptionArea> optionAreas = new ArrayList<>();
 
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
@@ -98,26 +94,21 @@ public class ChefDialogueScreen extends Screen {
 
     @Override
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
-        // Fondo oscuro desenfocado
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        // --- MEDIDAS DEL CUADRO ---
         int boxW = 340;
         int boxH = 260; // <- un poco más alto
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
-        // Fondo del cuadro de diálogo
         gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
 
-        // --- TÍTULO ---
         gg.drawCenteredString(this.font,
                 currentNode.title(),
                 this.width / 2,
                 y + 12,
                 0xFFFFFF);
 
-        // --- TEXTO DEL CUERPO ---
         int textY = y + 38;
         int lineHeight = 12;
 
@@ -126,17 +117,14 @@ public class ChefDialogueScreen extends Screen {
             textY += lineHeight;
         }
 
-        // --- OPCIONES ---
         optionAreas.clear();
 
         int optionHeight = 18;
         int optionWidth = boxW - 28;
         int optionX = x + 14;
 
-        // Altura total que ocuparán las opciones
         int optionsBlockHeight = currentNode.options().size() * (optionHeight + 6) - 6;
 
-        // Las colocamos pegadas a la parte de abajo del cuadro, con un margen
         int optionYStart = y + boxH - optionsBlockHeight - 16;
 
         int idx = 0;
@@ -181,13 +169,11 @@ public class ChefDialogueScreen extends Screen {
 
         if (next == null) return;
 
-        // Caso especial: salir
         if (next.equals("exit")) {
             onClose();
             return;
         }
 
-        // Caso especial: abrir minijuego
         if (next.equals("open_sushi_maker")) {
             Minecraft.getInstance().setScreen(
                     new OnigiriGameScreen()
@@ -195,7 +181,6 @@ public class ChefDialogueScreen extends Screen {
             return;
         }
 
-        // Resto de nodos de diálogo
         DialogueNode node = NODES.get(next);
         if (node != null) {
             this.currentNode = node;

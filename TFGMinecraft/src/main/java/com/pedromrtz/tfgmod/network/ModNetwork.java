@@ -74,6 +74,18 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> BuyIngredientC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(OpenFamilyDinnerScreenS2CPacket.class, id++)
+                .encoder(OpenFamilyDinnerScreenS2CPacket::encode)
+                .decoder(OpenFamilyDinnerScreenS2CPacket::decode)
+                .consumerMainThread((msg, ctx) -> OpenFamilyDinnerScreenS2CPacket.handleClient(msg))
+                .add();
+
+        CHANNEL.messageBuilder(GiveEmaAndAdvanceTaskC2SPacket.class, id++)
+                .encoder(GiveEmaAndAdvanceTaskC2SPacket::encode)
+                .decoder(GiveEmaAndAdvanceTaskC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> GiveEmaAndAdvanceTaskC2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

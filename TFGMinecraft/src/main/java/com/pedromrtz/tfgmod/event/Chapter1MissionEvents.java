@@ -42,7 +42,7 @@ public class Chapter1MissionEvents {
         if (!inside) return;
 
         ItemStack cardStack = new ItemStack(ModItems.CARD.get());
-        CardItem.setCardId(cardStack, "card_japan_fushimi_inari");
+        CardItem.setCardId(cardStack, "card_japan_family_house");
 
         sp.addItem(cardStack);
 

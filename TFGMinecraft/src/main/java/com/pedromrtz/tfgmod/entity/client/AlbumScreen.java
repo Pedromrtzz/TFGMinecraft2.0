@@ -15,13 +15,12 @@ public class AlbumScreen extends Screen {
     private final Minecraft mc = Minecraft.getInstance();
     private String activeCulture;
 
-    // --- Config del grid con proporción vertical 128x192 ---
-    private static final int THUMB_W = 128;      // ancho de mini
-    private static final int THUMB_H = 192;      // alto de mini
-    private static final int CELL_W  = THUMB_W;  // celda = tamaño de mini
+    private static final int THUMB_W = 128;
+    private static final int THUMB_H = 192;
+    private static final int CELL_W  = THUMB_W;
     private static final int CELL_H  = THUMB_H;
-    private static final int PADDING = 12;       // espacio entre celdas
-    private static final int COLS    = 4;        // columnas
+    private static final int PADDING = 12;
+    private static final int COLS    = 4;
 
     public AlbumScreen() {
         super(Component.literal("Álbum cultural"));
@@ -61,7 +60,6 @@ public class AlbumScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         gg.fill(0, 0, this.width, this.height, 0xAA000000);
 
-        // --- pestañas de culturas ---
         List<String> cultures = CardRegistry.cultures();
         int tabW = 90, tabH = 18;
         int totalW = cultures.size() * (tabW + 8) - 8;
@@ -81,7 +79,6 @@ public class AlbumScreen extends Screen {
             }
         }
 
-        // --- grid de cartas ---
         Player p = mc.player;
         if (p == null) { super.render(gg, mouseX, mouseY, pt); return; }
 
@@ -100,10 +97,8 @@ public class AlbumScreen extends Screen {
             int x = startX + col * (CELL_W + PADDING);
             int y = startY + row * (CELL_H + PADDING);
 
-            // marco de la celda
             gg.fill(x - 2, y - 2, x + CELL_W + 2, y + CELL_H + 2, 0x66000000);
 
-            // miniatura 128x192, pixel perfect
             ResourceLocation tex = CardRegistry.tex("tfgmod", card.thumbTexPath());
 
             var texObj = mc.getTextureManager().getTexture(tex);
@@ -114,7 +109,6 @@ public class AlbumScreen extends Screen {
             RenderSystem.disableBlend();
 
             if (!unlocked) {
-                // overlay de bloqueo
                 gg.fill(x, y, x + CELL_W, y + CELL_H, 0xAA000000);
             }
         }

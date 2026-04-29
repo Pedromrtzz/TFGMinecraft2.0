@@ -15,7 +15,6 @@ public class ModCommands {
         dispatcher.register(
                 Commands.literal("tfg")
 
-                        // ===== RESET CAPÍTULO 1 =====
                         .then(Commands.literal("chapter1")
                                 .then(Commands.literal("reset")
                                         .executes(ctx -> {
@@ -38,10 +37,8 @@ public class ModCommands {
                                 )
                         )
 
-                        // ===== CAPÍTULO 2 =====
                         .then(Commands.literal("chapter2")
 
-                                // 🔁 RESET
                                 .then(Commands.literal("reset")
                                         .executes(ctx -> {
                                             ServerPlayer sp = ctx.getSource().getPlayerOrException();
@@ -52,6 +49,7 @@ public class ModCommands {
                                             prog.setChapter2Task(0);
                                             prog.setChapter2TableStage(0);
                                             prog.setWish("");
+                                            prog.setChapter2BellCount(0);
 
                                             ProgressSync.syncChapter1(sp);
 
@@ -63,7 +61,6 @@ public class ModCommands {
                                         })
                                 )
 
-                                // ▶️ START
                                 .then(Commands.literal("start")
                                         .executes(ctx -> {
                                             ServerPlayer sp = ctx.getSource().getPlayerOrException();
@@ -73,6 +70,8 @@ public class ModCommands {
                                             prog.setChapter2Completed(false);
                                             prog.setChapter2Task(1);
                                             prog.setChapter2TableStage(0);
+                                            prog.setChapter2BellCount(0);
+
 
                                             ProgressSync.syncChapter1(sp);
 

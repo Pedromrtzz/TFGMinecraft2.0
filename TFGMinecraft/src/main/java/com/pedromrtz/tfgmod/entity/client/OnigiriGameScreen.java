@@ -9,12 +9,9 @@ import net.minecraft.resources.ResourceLocation;
 
 public class OnigiriGameScreen extends Screen {
 
-    // ---------- TEXTURAS ----------
-    // Reutiliza si quieres el mismo fondo del otro minijuego
     private static final ResourceLocation BG =
             ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/sushigame_bg.png");
 
-    // Pon aquí las rutas que tú crees en assets/tfgmod/textures/gui/onigiri/
     private static final ResourceLocation RICE_ICON =
             ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/onigiri/rice.png");
     private static final ResourceLocation SALT_ICON =
@@ -31,25 +28,22 @@ public class OnigiriGameScreen extends Screen {
     private static final ResourceLocation BOWL_RICE_SALT_FILLING =
             ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/onigiri/bowl_full.png");
 
-    // ---------- CONSTANTES ----------
     private static final int ICON_SIZE = 32;
     private static final int BOWL_SIZE = 96;
 
-    // ---------- ESTADO DEL JUEGO ----------
-    private int riceAmount = 0;         // veces que se ha pulsado el arroz
+    private int riceAmount = 0;
     private boolean saltAdded = false;
     private boolean fillingAdded = false;
 
-    private boolean isForming = false;  // si estamos formando el onigiri
+    private boolean isForming = false;
     private int formingProgress = 0;    // 0-100
 
-    private String resultMessage = "";  // mensaje de resultado (perfecto, mal, etc.)
+    private String resultMessage = "";
 
     public OnigiriGameScreen() {
         super(Component.literal("Onigiri Maker"));
     }
 
-    // ---------- CICLO DE VIDA ----------
     @Override
     public void tick() {
         super.tick();
@@ -63,7 +57,6 @@ public class OnigiriGameScreen extends Screen {
         }
     }
 
-    // ---------- RENDER ----------
     @Override
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
@@ -71,15 +64,13 @@ public class OnigiriGameScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Fondo tatami centrado (256x256)
         int matX = centerX - 128;
         int matY = centerY - 128;
         RenderSystem.enableBlend();
         gg.blit(BG, matX, matY, 0, 0, 256, 256, 256, 256);
         RenderSystem.disableBlend();
 
-        // ----- ICONOS DE INGREDIENTES (columna izquierda) -----
-        int iconsX = matX - 40; // un poco a la izquierda del tatami
+        int iconsX = matX - 40;
         int riceY = matY + 40;
         int saltY = riceY + 40;
         int fillingY = saltY + 40;
@@ -88,7 +79,6 @@ public class OnigiriGameScreen extends Screen {
         drawIcon(gg, SALT_ICON, iconsX, saltY);
         drawIcon(gg, FILLING_ICON, iconsX, fillingY);
 
-        // ----- BOL CENTRADO EN EL TATAMI -----
         int bowlX = centerX - BOWL_SIZE / 2;
         int bowlY = centerY - BOWL_SIZE / 2;
 
@@ -103,7 +93,6 @@ public class OnigiriGameScreen extends Screen {
 
         drawBowl(gg, bowlTex, bowlX, bowlY);
 
-        // ----- BOTÓN "FORMAR ONIGIRI" -----
         int buttonWidth = 140;
         int buttonHeight = 20;
         int buttonX = centerX - buttonWidth / 2;
@@ -114,21 +103,17 @@ public class OnigiriGameScreen extends Screen {
         gg.drawCenteredString(this.font, "Formar onigiri",
                 buttonX + buttonWidth / 2, buttonY + 6, 0xFFFFFF);
 
-        // ----- BARRA DE PROGRESO -----
         if (isForming) {
             int barWidth = 120;
             int barHeight = 8;
             int barX = centerX - barWidth / 2;
             int barY = buttonY - 16;
 
-            // fondo
             gg.fill(barX, barY, barX + barWidth, barY + barHeight, 0xFF222222);
-            // relleno
             int filled = (barWidth * formingProgress) / 100;
             gg.fill(barX, barY, barX + filled, barY + barHeight, 0xFF88C57F);
         }
 
-        // ----- TÍTULO Y MENSAJE -----
         gg.drawCenteredString(this.font, "ONIGIRI MAKER", this.width / 2, matY - 10, 0xFFFFFF);
 
         if (!resultMessage.isEmpty() && !isForming) {
@@ -139,7 +124,6 @@ public class OnigiriGameScreen extends Screen {
         super.render(gg, mouseX, mouseY, pt);
     }
 
-    // ---------- CLICK DEL RATÓN ----------
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         int centerX = this.width / 2;
@@ -147,47 +131,39 @@ public class OnigiriGameScreen extends Screen {
         int matX = centerX - 128;
         int matY = centerY - 128;
 
-        // Posición de iconos
         int iconsX = matX - 40;
         int riceY = matY + 40;
         int saltY = riceY + 40;
         int fillingY = saltY + 40;
 
-        // Botón formar
         int buttonWidth = 140;
         int buttonHeight = 20;
         int buttonX = centerX - buttonWidth / 2;
         int buttonY = matY + 256 - 40;
 
-        // Si estamos formando, ignoramos clicks
         if (isForming) {
             return super.mouseClicked(mouseX, mouseY, button);
         }
 
-        // Click en arroz
         if (inside(mouseX, mouseY, iconsX, riceY, ICON_SIZE, ICON_SIZE)) {
             riceAmount = Math.min(riceAmount + 1, 4); // limite 4
             resultMessage = "";
             return true;
         }
 
-        // Click en sal
         if (inside(mouseX, mouseY, iconsX, saltY, ICON_SIZE, ICON_SIZE)) {
             saltAdded = true;
             resultMessage = "";
             return true;
         }
 
-        // Click en relleno
         if (inside(mouseX, mouseY, iconsX, fillingY, ICON_SIZE, ICON_SIZE)) {
             fillingAdded = true;
             resultMessage = "";
             return true;
         }
 
-        // Click en "Formar onigiri"
         if (inside(mouseX, mouseY, buttonX, buttonY, buttonWidth, buttonHeight)) {
-            // Solo si hay algo de arroz
             if (riceAmount > 0) {
                 isForming = true;
                 formingProgress = 0;
@@ -201,9 +177,7 @@ public class OnigiriGameScreen extends Screen {
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    // ---------- LÓGICA DE EVALUACIÓN ----------
     private void evaluarOnigiri() {
-        // Evaluamos combinación muy simple. Puedes refinarlo luego.
         if (riceAmount < 2) {
             resultMessage = "Hay muy poco arroz, el onigiri se deshace.";
         } else if (riceAmount > 3) {
@@ -219,13 +193,11 @@ public class OnigiriGameScreen extends Screen {
             // Aquí más adelante: dar recompensa (item/cromo)
         }
 
-        // Después de evaluar, reseteamos para que pueda intentar otra vez
         riceAmount = 0;
         saltAdded = false;
         fillingAdded = false;
     }
 
-    // ---------- HELPERS ----------
     private void drawIcon(GuiGraphics gg, ResourceLocation tex, int x, int y) {
         RenderSystem.enableBlend();
         gg.blit(tex, x, y, 0, 0, ICON_SIZE, ICON_SIZE, ICON_SIZE, ICON_SIZE);

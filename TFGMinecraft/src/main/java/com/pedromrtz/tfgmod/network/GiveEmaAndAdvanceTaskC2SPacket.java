@@ -3,20 +3,21 @@ package com.pedromrtz.tfgmod.network;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.progress.Chapter1ProgressProvider;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 
-public class StartChapter2C2SPacket {
+public class GiveEmaAndAdvanceTaskC2SPacket {
 
-    public StartChapter2C2SPacket() {}
+    public GiveEmaAndAdvanceTaskC2SPacket() {}
 
-    public static void encode(StartChapter2C2SPacket msg, FriendlyByteBuf buf) {}
+    public static void encode(GiveEmaAndAdvanceTaskC2SPacket msg, FriendlyByteBuf buf) {}
 
-    public static StartChapter2C2SPacket decode(FriendlyByteBuf buf) {
-        return new StartChapter2C2SPacket();
+    public static GiveEmaAndAdvanceTaskC2SPacket decode(FriendlyByteBuf buf) {
+        return new GiveEmaAndAdvanceTaskC2SPacket();
     }
 
-    public static void handle(StartChapter2C2SPacket msg, Object ctxObj) {
+    public static void handle(GiveEmaAndAdvanceTaskC2SPacket msg, Object ctxObj) {
         try {
             var ctx = ctxObj;
             var enqueueWork = ctx.getClass().getMethod("enqueueWork", Runnable.class);
@@ -29,20 +30,27 @@ public class StartChapter2C2SPacket {
                     if (sp == null) return;
 
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
-                        progress.setChapter2Active(true);
-                        progress.setChapter2Completed(false);
-                        progress.setChapter2Task(1);
-                        progress.setChapter2TableStage(0);
-                        progress.setChapter2BellCount(0);
+                        if (!progress.isChapter2Active()) return;
+                        if (progress.getChapter2Task() != 6) return;
 
-                        sp.addItem(new ItemStack(ModItems.YEN.get(), 40));
+                        progress.setChapter2Task(7);
+
+                        ItemStack ema = new ItemStack(ModItems.EMA.get());
+                        sp.addItem(ema);
+
+                        sp.displayClientMessage(
+                                Component.literal("§6El monje te ha dado un ema para escribir tu deseo."),
+                                false
+                        );
 
                         ProgressSync.syncChapter1(sp);
                     });
+
                 } catch (Exception ignored) {}
             });
 
             setHandled.invoke(ctx, true);
+
         } catch (Exception ignored) {}
     }
 }
