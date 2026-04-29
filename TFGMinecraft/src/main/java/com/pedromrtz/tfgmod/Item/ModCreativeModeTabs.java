@@ -121,6 +121,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PESCADERIAIZQ.get());
                         output.accept(ModBlocks.PESCADERIAMEDIO.get());
 
+                        output.accept(ModBlocks.MINERALESDCH.get());
+                        output.accept(ModBlocks.MINERALESMEDIO.get());
+                        output.accept(ModBlocks.MINERALESIZQ.get());
+
                     }).build());
 
 

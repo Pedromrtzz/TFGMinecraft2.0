@@ -188,6 +188,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> PESCADERIAMEDIO = registerBlock("pescaderiamedio",
             () -> new PescaderiaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
 
+    public static final RegistryObject<Block> MINERALESDCH = registerBlock("mineralesdch",
+            () -> new MineralesDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> MINERALESMEDIO = registerBlock("mineralesmedio",
+            () -> new MineralesMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> MINERALESIZQ = registerBlock("mineralesizq",
+            () -> new MineralesIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
 
 
 }

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/mineralesdch" },
+    "facing=south": { "model": "tfgmod:block/mineralesdch", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/mineralesdch", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/mineralesdch", "y": 270 }
+  }
+}
