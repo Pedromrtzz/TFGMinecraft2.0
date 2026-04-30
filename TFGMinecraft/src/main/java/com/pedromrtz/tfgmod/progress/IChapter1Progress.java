@@ -15,7 +15,6 @@ public interface IChapter1Progress {
     boolean hasFamilyCard();
     void setHasFamilyCard(boolean v);
 
-    // ===== CAPÍTULO 2 =====
     boolean isChapter2Active();
     void setChapter2Active(boolean v);
 
@@ -37,5 +36,14 @@ public interface IChapter1Progress {
 
     int getChapter2BellCount();
     void setChapter2BellCount(int count);
+
+    boolean isChapter3Active();
+    void setChapter3Active(boolean v);
+
+    boolean isChapter3Completed();
+    void setChapter3Completed(boolean v);
+
+    int getChapter3Task();
+    void setChapter3Task(int task);
 
 }

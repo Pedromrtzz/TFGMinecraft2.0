@@ -101,6 +101,8 @@ public class TFGMod {
             EntityRenderers.register(ModEntities.MOTHER.get(), MotherRenderer::new);
             EntityRenderers.register(ModEntities.MONK.get(), MonkRenderer::new);
             EntityRenderers.register(ModEntities.MERCHANT.get(), MerchantRenderer::new);
+            EntityRenderers.register(ModEntities.ITAMAE.get(), ItamaeRenderer::new);
+            EntityRenderers.register(ModEntities.FISH_MERCHANT.get(), FishMerchantRenderer::new);
         }
 
     }

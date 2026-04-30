@@ -83,6 +83,48 @@ public class ModCommands {
                                         })
                                 )
                         )
+
+
+                        .then(Commands.literal("chapter3")
+
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter3Active(true);
+                                            prog.setChapter3Completed(false);
+                                            prog.setChapter3Task(1);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 3 iniciado."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter3Active(false);
+                                            prog.setChapter3Completed(false);
+                                            prog.setChapter3Task(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 3 reseteado."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
         );
     }
 }

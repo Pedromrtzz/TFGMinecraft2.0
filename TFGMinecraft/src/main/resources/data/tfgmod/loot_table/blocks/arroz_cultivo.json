@@ -1,23 +1,22 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "rolls": 1.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "tfgmod:arroz_semilla"
         }
       ],
-      "rolls": 1.0
+      "functions": [
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ]
     },
     {
-      "bonus_rolls": 0.0,
+      "rolls": 1.0,
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
@@ -31,15 +30,15 @@
         {
           "type": "minecraft:item",
           "name": "tfgmod:arroz",
-            "functions": [
-                {
-                "function": "minecraft:set_count",
-                "count": {
-                    "min": 1,
-                    "max": 2
-                }
-                }
-            ]
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0
+              }
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -47,16 +46,17 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
+              "count": 1.0
             }
           ]
         }
       ],
-      "rolls": 1.0
+      "functions": [
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ]
     }
   ],
-  "random_sequence": "minecraft:blocks/arroz"
+  "random_sequence": "tfgmod:blocks/arroz_cultivo"
 }

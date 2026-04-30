@@ -20,5 +20,7 @@ public class ModEntityAttributes {
         event.put(ModEntities.MOTHER.get(), MotherEntity.createAttributes().build());
         event.put(ModEntities.MONK.get(), MonkEntity.createAttributes().build());
         event.put(ModEntities.MERCHANT.get(), MerchantEntity.createAttributes().build());
+        event.put(ModEntities.ITAMAE.get(), ItamaeEntity.createAttributes().build());
+        event.put(ModEntities.FISH_MERCHANT.get(), FishMerchantEntity.createAttributes().build());
     }
 }

@@ -86,6 +86,24 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> GiveEmaAndAdvanceTaskC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(StartChapter3C2SPacket.class, id++)
+                .encoder(StartChapter3C2SPacket::encode)
+                .decoder(StartChapter3C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> StartChapter3C2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CheckChapter3IngredientsC2SPacket.class, id++)
+                .encoder(CheckChapter3IngredientsC2SPacket::encode)
+                .decoder(CheckChapter3IngredientsC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CheckChapter3IngredientsC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(BuyFishC2SPacket.class, id++)
+                .encoder(BuyFishC2SPacket::encode)
+                .decoder(BuyFishC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> BuyFishC2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

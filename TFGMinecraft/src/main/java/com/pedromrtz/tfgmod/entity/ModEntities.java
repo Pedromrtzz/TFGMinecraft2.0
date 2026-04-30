@@ -87,6 +87,24 @@ public class ModEntities {
                             .build("tfgmod:merchant")
             );
 
+    public static final RegistryObject<EntityType<ItamaeEntity>> ITAMAE =
+            ENTITY_TYPES.register("itamae", () ->
+                    EntityType.Builder.<ItamaeEntity>of(ItamaeEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .clientTrackingRange(16)
+                            .updateInterval(1)
+                            .build("tfgmod:itamae")
+            );
+
+    public static final RegistryObject<EntityType<FishMerchantEntity>> FISH_MERCHANT =
+            ENTITY_TYPES.register("fish_merchant", () ->
+                    EntityType.Builder.<FishMerchantEntity>of(FishMerchantEntity::new, MobCategory.MISC)
+                            .sized(0.6f, 1.8f)
+                            .clientTrackingRange(16)
+                            .updateInterval(1)
+                            .build("tfgmod:fish_merchant")
+            );
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

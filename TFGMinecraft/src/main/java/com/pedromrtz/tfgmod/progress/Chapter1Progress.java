@@ -17,6 +17,10 @@ public class Chapter1Progress implements IChapter1Progress {
     private String wish = "";
     private int chapter2BellCount;
 
+    private boolean chapter3Active;
+    private boolean chapter3Completed;
+    private int chapter3Task;
+
     @Override
     public boolean hasAlbum() {
         return hasAlbum;
@@ -117,7 +121,36 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter2BellCount = count;
     }
 
-    // ===== NBT =====
+    @Override
+    public boolean isChapter3Active() {
+        return chapter3Active;
+    }
+
+    @Override
+    public void setChapter3Active(boolean v) {
+        this.chapter3Active = v;
+    }
+
+    @Override
+    public boolean isChapter3Completed() {
+        return chapter3Completed;
+    }
+
+    @Override
+    public void setChapter3Completed(boolean v) {
+        this.chapter3Completed = v;
+    }
+
+    @Override
+    public int getChapter3Task() {
+        return chapter3Task;
+    }
+
+    @Override
+    public void setChapter3Task(int task) {
+        this.chapter3Task = task;
+    }
+
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
@@ -134,6 +167,10 @@ public class Chapter1Progress implements IChapter1Progress {
 
         tag.putString("wish", wish);
         tag.putInt("chapter2BellCount", chapter2BellCount);
+
+        tag.putBoolean("chapter3Active", chapter3Active);
+        tag.putBoolean("chapter3Completed", chapter3Completed);
+        tag.putInt("chapter3Task", chapter3Task);
 
         return tag;
     }
@@ -152,5 +189,9 @@ public class Chapter1Progress implements IChapter1Progress {
 
         this.wish = tag.getString("wish");
         this.chapter2BellCount = tag.getInt("chapter2BellCount");
+
+        this.chapter3Active = tag.getBoolean("chapter3Active");
+        this.chapter3Completed = tag.getBoolean("chapter3Completed");
+        this.chapter3Task = tag.getInt("chapter3Task");
     }
 }

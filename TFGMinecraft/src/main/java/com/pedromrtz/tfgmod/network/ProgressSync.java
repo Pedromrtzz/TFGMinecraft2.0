@@ -14,10 +14,15 @@ public class ProgressSync {
                             p.isMission1Active(),
                             p.hasFamilyCard(),
                             p.isMission1Completed(),
+
                             p.isChapter2Active(),
                             p.isChapter2Completed(),
                             p.getChapter2Task(),
-                            p.getChapter2TableStage()
+                            p.getChapter2TableStage(),
+
+                            p.isChapter3Active(),
+                            p.isChapter3Completed(),
+                            p.getChapter3Task()
                     ),
                     PacketDistributor.PLAYER.with(sp)
             );
