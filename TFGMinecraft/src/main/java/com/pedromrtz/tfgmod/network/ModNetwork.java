@@ -104,6 +104,18 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> BuyFishC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(CompleteChapter3RiceWashC2SPacket.class, id++)
+                .encoder(CompleteChapter3RiceWashC2SPacket::encode)
+                .decoder(CompleteChapter3RiceWashC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter3RiceWashC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CompleteChapter3SalmonCutC2SPacket.class, id++)
+                .encoder(CompleteChapter3SalmonCutC2SPacket::encode)
+                .decoder(CompleteChapter3SalmonCutC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter3SalmonCutC2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

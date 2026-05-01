@@ -73,11 +73,31 @@ public class ItamaeDialogueScreen extends Screen {
                     "Maestro Itamae",
                     List.of(
                             "Buen trabajo. Ya tenemos arroz y pescado.",
-                            "Antes de cocinar, el arroz debe lavarse con cuidado.",
-                            "Un buen sushi empieza con un arroz limpio y bien preparado."
+                            "Antes de preparar sushi, el arroz debe lavarse.",
+                            "Este paso elimina el exceso de almidón",
+                            "y ayuda a conseguir una textura más limpia.",
+                            "Lávalo con calma hasta que el agua quede clara."
                     ),
                     List.of(
-                            new DialogueOption("Entendido", "exit")
+                            new DialogueOption("Lavar arroz", "open_rice_washing"),
+                            new DialogueOption("Luego lo hago", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 3) {
+            return new DialogueNode(
+                    "Maestro Itamae",
+                    List.of(
+                            "Ahora trabajaremos el salmón.",
+                            "En la cocina japonesa, el corte debe ser preciso.",
+                            "No se trata solo de dividir el pescado,",
+                            "sino de respetar su textura y presentación.",
+                            "Corta el salmón con calma y buen pulso."
+                    ),
+                    List.of(
+                            new DialogueOption("Cortar salmón", "open_salmon_cutting"),
+                            new DialogueOption("Luego lo hago", "exit")
                     )
             );
         }
@@ -188,6 +208,15 @@ public class ItamaeDialogueScreen extends Screen {
                 ModNetwork.CHANNEL.send(new CheckChapter3IngredientsC2SPacket(), PacketDistributor.SERVER.noArg());
                 onClose();
             }
+
+            case "open_rice_washing" -> {
+                Minecraft.getInstance().setScreen(new RiceWashingGameScreen());
+            }
+
+            case "open_salmon_cutting" -> {
+                Minecraft.getInstance().setScreen(new SalmonCuttingGameScreen());
+            }
+
         }
     }
 
