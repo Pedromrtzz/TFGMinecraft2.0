@@ -196,11 +196,13 @@ public class SushiAssemblyGameScreen extends Screen {
                 }
 
                 if (selectedOrder.equals(correctOrder)) {
+
                     ModNetwork.CHANNEL.send(
                             new CompleteChapter3SushiAssemblyC2SPacket(),
                             PacketDistributor.SERVER.noArg()
                     );
-                    onClose();
+
+                    Minecraft.getInstance().setScreen(new SushiResultScreen());
                 } else {
                     errors++;
                     selectedOrder.clear();

@@ -19,6 +19,8 @@ public class SalmonCuttingGameScreen extends Screen {
     private String message = "Corta el salmón cuando el indicador esté en la zona verde.";
     private int messageColor = 0xEEEEEE;
 
+    private int cutAnimationTicks = 0;
+
     private static final int REQUIRED_CUTS = 5;
 
     public SalmonCuttingGameScreen() {
@@ -26,11 +28,20 @@ public class SalmonCuttingGameScreen extends Screen {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+
+        if (cutAnimationTicks > 0) {
+            cutAnimationTicks--;
+        }
+    }
+
+    @Override
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 460;
-        int boxH = 280;
+        int boxW = 480;
+        int boxH = 300;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -46,23 +57,49 @@ public class SalmonCuttingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "El corte debe ser limpio y preciso, como haría un itamae.",
+                "Un buen itamae corta con calma, precisión y respeto por el pescado.",
                 this.width / 2,
                 y + 36,
                 0xDDDDDD
         );
 
-        gg.renderItem(new ItemStack(Items.SALMON), this.width / 2 - 8, y + 58);
+        // Iconos visuales
+        gg.renderItem(new ItemStack(Items.IRON_SWORD), this.width / 2 - 34, y + 62);
+        gg.renderItem(new ItemStack(Items.SALMON), this.width / 2 + 18, y + 62);
+
+        gg.drawCenteredString(
+                this.font,
+                "Cuchillo   +   Salmón",
+                this.width / 2,
+                y + 84,
+                0xAAAAAA
+        );
+
+        // Animación simple de corte limpio
+        if (cutAnimationTicks > 0) {
+            int animX = this.width / 2 - 65;
+            int animY = y + 102;
+
+            gg.drawCenteredString(
+                    this.font,
+                    "✦ Corte limpio ✦",
+                    this.width / 2,
+                    animY,
+                    0x55FF55
+            );
+
+            gg.fill(animX, animY + 14, animX + 130, animY + 16, 0xFF55FF55);
+        }
 
         int barX = x + 55;
-        int barY = y + 105;
+        int barY = y + 130;
         int barW = boxW - 110;
         int barH = 18;
 
         gg.fill(barX, barY, barX + barW, barY + barH, 0xFF222222);
 
-        int targetStart = 45;
-        int targetEnd = 60;
+        int targetStart = getTargetStart();
+        int targetEnd = getTargetEnd();
 
         int targetX1 = barX + (barW * targetStart / 100);
         int targetX2 = barX + (barW * targetEnd / 100);
@@ -78,15 +115,23 @@ public class SalmonCuttingGameScreen extends Screen {
                 this.font,
                 "Cortes correctos: " + successfulCuts + " / " + REQUIRED_CUTS,
                 this.width / 2,
-                y + 138,
+                y + 162,
                 0xFFFFFF
+        );
+
+        gg.drawCenteredString(
+                this.font,
+                "La zona verde se reduce con cada corte correcto.",
+                this.width / 2,
+                y + 178,
+                0xAAAAAA
         );
 
         gg.drawCenteredString(
                 this.font,
                 message,
                 this.width / 2,
-                y + 165,
+                y + 205,
                 messageColor
         );
 
@@ -103,9 +148,29 @@ public class SalmonCuttingGameScreen extends Screen {
         super.render(gg, mouseX, mouseY, pt);
     }
 
+    private int getTargetStart() {
+        return switch (successfulCuts) {
+            case 0 -> 42;
+            case 1 -> 44;
+            case 2 -> 46;
+            case 3 -> 48;
+            default -> 50;
+        };
+    }
+
+    private int getTargetEnd() {
+        return switch (successfulCuts) {
+            case 0 -> 62;
+            case 1 -> 60;
+            case 2 -> 58;
+            case 3 -> 56;
+            default -> 55;
+        };
+    }
+
     private int getMarkerValue() {
-        long time = System.currentTimeMillis() % 2000L;
-        float progress = time / 2000.0f;
+        long time = System.currentTimeMillis() % 1800L;
+        float progress = time / 1800.0f;
 
         if (progress <= 0.5f) {
             return (int) (progress * 2.0f * 100.0f);
@@ -124,8 +189,8 @@ public class SalmonCuttingGameScreen extends Screen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        int boxW = 460;
-        int boxH = 280;
+        int boxW = 480;
+        int boxH = 300;
         int y = (this.height - boxH) / 2;
 
         int btnW = 150;
@@ -154,15 +219,17 @@ public class SalmonCuttingGameScreen extends Screen {
 
         int marker = getMarkerValue();
 
-        if (marker >= 45 && marker <= 60) {
+        if (marker >= getTargetStart() && marker <= getTargetEnd()) {
             successfulCuts++;
+            cutAnimationTicks = 18;
 
-            message = "¡Corte limpio! Sigue así.";
+            message = "¡Corte limpio! La precisión mejora.";
             messageColor = 0xFF55FF55;
 
             var player = Minecraft.getInstance().player;
             if (player != null) {
-                player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.2f);
+                player.playSound(SoundEvents.PLAYER_ATTACK_SWEEP, 1.0f, 1.2f);
+                player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.8f, 1.4f);
             }
 
             if (successfulCuts >= REQUIRED_CUTS) {
@@ -178,10 +245,10 @@ public class SalmonCuttingGameScreen extends Screen {
             mistakes++;
 
             if (mistakes % 2 == 0) {
-                message = "Pista: espera a que la línea blanca entre en la zona verde.";
+                message = "Pista: espera a que la línea blanca entre por completo en la zona verde.";
                 messageColor = 0xFFFFAA00;
             } else {
-                message = "El corte no fue preciso. Inténtalo de nuevo.";
+                message = "El corte no fue preciso. Respira y espera el momento correcto.";
                 messageColor = 0xFFFF5555;
             }
 

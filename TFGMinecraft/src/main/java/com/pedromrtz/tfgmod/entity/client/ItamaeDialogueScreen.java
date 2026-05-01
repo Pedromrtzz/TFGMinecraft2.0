@@ -257,8 +257,7 @@ public class ItamaeDialogueScreen extends Screen {
             }
 
             case "complete_chapter3" -> {
-                ModNetwork.CHANNEL.send(new CompleteChapter3C2SPacket(), PacketDistributor.SERVER.noArg());
-                onClose();
+                Minecraft.getInstance().setScreen(new ItamaeFinalSceneScreen());
             }
 
         }
