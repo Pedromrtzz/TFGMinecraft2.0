@@ -2,6 +2,7 @@ package com.pedromrtz.tfgmod.entity.client;
 
 import com.pedromrtz.tfgmod.client.ClientChapter1Data;
 import com.pedromrtz.tfgmod.network.CheckChapter3IngredientsC2SPacket;
+import com.pedromrtz.tfgmod.network.CompleteChapter3C2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
 import com.pedromrtz.tfgmod.network.StartChapter3C2SPacket;
 import net.minecraft.client.Minecraft;
@@ -98,6 +99,40 @@ public class ItamaeDialogueScreen extends Screen {
                     List.of(
                             new DialogueOption("Cortar salmón", "open_salmon_cutting"),
                             new DialogueOption("Luego lo hago", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 4) {
+            return new DialogueNode(
+                    "Maestro Itamae",
+                    List.of(
+                            "Ya tenemos el arroz lavado y el salmón cortado.",
+                            "Ahora toca montar el sushi.",
+                            "Recuerda mi acertijo:",
+                            "primero la base blanca, después el alga,",
+                            "luego el corte del mar, y al final la forma."
+                    ),
+                    List.of(
+                            new DialogueOption("Montar sushi", "open_sushi_assembly"),
+                            new DialogueOption("Luego lo hago", "exit")
+                    )
+            );
+        }
+
+        if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 5) {
+            return new DialogueNode(
+                    "Maestro Itamae",
+                    List.of(
+                            "Has completado todos los pasos.",
+                            "Ahora entrégame el sushi que has preparado.",
+                            "Un buen sushi no solo depende del sabor,",
+                            "también de la paciencia, la precisión",
+                            "y el respeto por cada ingrediente."
+                    ),
+                    List.of(
+                            new DialogueOption("Entregar sushi", "complete_chapter3"),
+                            new DialogueOption("Todavía no", "exit")
                     )
             );
         }
@@ -215,6 +250,15 @@ public class ItamaeDialogueScreen extends Screen {
 
             case "open_salmon_cutting" -> {
                 Minecraft.getInstance().setScreen(new SalmonCuttingGameScreen());
+            }
+
+            case "open_sushi_assembly" -> {
+                Minecraft.getInstance().setScreen(new SushiAssemblyGameScreen());
+            }
+
+            case "complete_chapter3" -> {
+                ModNetwork.CHANNEL.send(new CompleteChapter3C2SPacket(), PacketDistributor.SERVER.noArg());
+                onClose();
             }
 
         }

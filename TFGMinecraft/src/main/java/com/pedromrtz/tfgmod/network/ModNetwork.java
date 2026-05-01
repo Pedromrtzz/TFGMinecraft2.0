@@ -116,6 +116,18 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> CompleteChapter3SalmonCutC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(CompleteChapter3SushiAssemblyC2SPacket.class, id++)
+                .encoder(CompleteChapter3SushiAssemblyC2SPacket::encode)
+                .decoder(CompleteChapter3SushiAssemblyC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter3SushiAssemblyC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CompleteChapter3C2SPacket.class, id++)
+                .encoder(CompleteChapter3C2SPacket::encode)
+                .decoder(CompleteChapter3C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter3C2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }
