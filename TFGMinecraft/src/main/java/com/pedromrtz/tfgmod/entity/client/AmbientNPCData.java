@@ -81,6 +81,54 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor4.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor4.png")
+            ),
+
+            "nami_fisherman1", new AmbientNPCInfo(
+                    "nami_fisherman1",
+                    "Pescador",
+                    new String[]{
+                            "En Nami No Ura salimos al mar muy temprano.",
+                            "El pescado fresco es esencial para preparar buen sushi.",
+                            "En Japón se valora mucho respetar lo que ofrece el mar."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman1.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman1.png")
+            ),
+
+            "nami_fisherman2", new AmbientNPCInfo(
+                    "nami_fisherman2",
+                    "Vecina del puerto",
+                    new String[]{
+                            "El sushi no depende solo del pescado.",
+                            "El arroz es igual de importante.",
+                            "Debe lavarse y prepararse con mucho cuidado."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman2.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman2.png")
+            ),
+
+            "nami_fisherman3", new AmbientNPCInfo(
+                    "nami_fisherman3",
+                    "Habitante costero",
+                    new String[]{
+                            "Nami No Ura es un pueblo unido al mar.",
+                            "Aquí muchas familias viven de la pesca",
+                            "y del mercado que llega cada mañana al puerto."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman3.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman3.png")
+            ),
+
+            "nami_fisherman4", new AmbientNPCInfo(
+                    "nami_fisherman4",
+                    "Aprendiz de cocina",
+                    new String[]{
+                            "Un itamae aprende durante años.",
+                            "El corte del pescado debe ser limpio y preciso.",
+                            "La presentación también forma parte del arte del sushi."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman4.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman4.png")
             )
     );
 

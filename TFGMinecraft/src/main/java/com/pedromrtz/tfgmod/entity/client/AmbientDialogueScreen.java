@@ -26,7 +26,7 @@ public class AmbientDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 340;
+        int boxW = 400;
         int boxH = 220;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
