@@ -130,6 +130,24 @@ public class CardViewerScreen extends Screen {
                 );
             }
 
+            if ("card_japan_salmon".equals(id)) {
+                return new CardData(
+                        "Itamae Knife Technique",
+                        "",
+                        "textures/gui/cards/japan/salmon_full.png",
+                        512, 768
+                );
+            }
+
+            if ("card_japan_sushi_master".equals(id)) {
+                return new CardData(
+                        "Balance in Sushi",
+                        "",
+                        "textures/gui/cards/japan/sushi_master_full.png",
+                        512, 768
+                );
+            }
+
             return null;
         }
     }

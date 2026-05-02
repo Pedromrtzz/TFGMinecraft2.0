@@ -1,9 +1,12 @@
 package com.pedromrtz.tfgmod.network;
 
+import com.pedromrtz.tfgmod.Item.CardItem;
+import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.progress.Chapter1ProgressProvider;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 
 public class CompleteChapter3SalmonCutC2SPacket {
 
@@ -37,6 +40,10 @@ public class CompleteChapter3SalmonCutC2SPacket {
                         }
 
                         progress.setChapter3Task(4);
+
+                        ItemStack cardStack = new ItemStack(ModItems.CARD.get());
+                        CardItem.setCardId(cardStack, "card_japan_salmon");
+                        sp.addItem(cardStack);
 
                         sp.displayClientMessage(
                                 Component.literal("§6Has cortado el salmón correctamente. Ahora prepara el sushi."),

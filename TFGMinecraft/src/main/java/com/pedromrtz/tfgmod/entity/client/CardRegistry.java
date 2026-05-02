@@ -45,6 +45,22 @@ public class CardRegistry {
                 "gui/cards/japan/ema_wish_thumb"
         ));
 
+        ALL.add(new Card(
+                "card_japan_salmon",
+                "japan",
+                "Itamae Knife Technique",
+                "textures/gui/cards/japan/salmon_full.png",
+                "gui/cards/japan/salmon_thumb"
+        ));
+
+        ALL.add(new Card(
+                "card_japan_sushi_master",
+                "japan",
+                "Balance in Sushi",
+                "textures/gui/cards/japan/sushi_master_full.png",
+                "gui/cards/japan/sushi_master_thumb"
+        ));
+
         // aquí ire añadiendo más cartas/culturas
     }
 

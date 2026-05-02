@@ -41,10 +41,6 @@ public class CompleteChapter3RiceWashC2SPacket {
                         ItemStack rice = new ItemStack(ModItems.ARROZ.get(), 1);
                         sp.addItem(rice);
 
-                        ItemStack cardStack = new ItemStack(ModItems.CARD.get());
-                        CardItem.setCardId(cardStack, "card_japan_rice_culture");
-                        sp.addItem(cardStack);
-
                         sp.displayClientMessage(
                                 Component.literal("§6Has lavado el arroz correctamente. Has recibido un cromo."),
                                 false
