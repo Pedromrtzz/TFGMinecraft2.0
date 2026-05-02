@@ -22,7 +22,11 @@ public class ProgressSync {
 
                             p.isChapter3Active(),
                             p.isChapter3Completed(),
-                            p.getChapter3Task()
+                            p.getChapter3Task(),
+
+                            p.isChapter4Active(),
+                            p.isChapter4Completed(),
+                            p.getChapter4Task()
                     ),
                     PacketDistributor.PLAYER.with(sp)
             );

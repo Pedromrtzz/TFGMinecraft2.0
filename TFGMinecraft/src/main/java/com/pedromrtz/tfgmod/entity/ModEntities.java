@@ -105,6 +105,18 @@ public class ModEntities {
                             .build("tfgmod:fish_merchant")
             );
 
+    public static final RegistryObject<EntityType<FestivalOrganizerEntity>> FESTIVAL_ORGANIZER =
+            ENTITY_TYPES.register("festival_organizer",
+                    () -> EntityType.Builder.of(FestivalOrganizerEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("festival_organizer"));
+
+    public static final RegistryObject<EntityType<ElectricianEntity>> ELECTRICIAN =
+            ENTITY_TYPES.register("electrician",
+                    () -> EntityType.Builder.of(ElectricianEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("electrician"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

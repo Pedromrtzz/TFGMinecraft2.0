@@ -20,7 +20,17 @@ public class HudOverlay {
 
         String text;
 
-        if (ClientChapter1Data.chapter3Completed) {
+        if (ClientChapter1Data.chapter4Completed) {
+            text = "Chapter 4 (Matsuri) — Completed §a✔";
+        } else if (ClientChapter1Data.chapter4Active) {
+            text = "Chapter 4 (Matsuri) — Task "
+                    + ClientChapter1Data.chapter4Task
+                    + "/4: "
+                    + getChapter4Text(ClientChapter1Data.chapter4Task)
+                    + " §d●";
+        }
+
+        else if (ClientChapter1Data.chapter3Completed){
             text = "Chapter 3 (Sushi) — Completed §a✔";
         } else if (ClientChapter1Data.chapter3Active) {
             text = "Chapter 3 (Sushi) — Task "
@@ -68,6 +78,16 @@ public class HudOverlay {
             case 4 -> "Prepare the sushi";
             case 5 -> "Deliver the sushi";
             default -> "Begin the sushi experience";
+        };
+    }
+
+    private static String getChapter4Text(int task) {
+        return switch (task) {
+            case 1 -> "Repair the festival lanterns";
+            case 2 -> "Test the goldfish scooping stall";
+            case 3 -> "Test the target shooting stall";
+            case 4 -> "Release the floating lanterns";
+            default -> "Prepare the Matsuri festival";
         };
     }
 }

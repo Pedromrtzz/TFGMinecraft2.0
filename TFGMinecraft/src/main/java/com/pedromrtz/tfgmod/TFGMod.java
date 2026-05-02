@@ -103,7 +103,8 @@ public class TFGMod {
             EntityRenderers.register(ModEntities.MERCHANT.get(), MerchantRenderer::new);
             EntityRenderers.register(ModEntities.ITAMAE.get(), ItamaeRenderer::new);
             EntityRenderers.register(ModEntities.FISH_MERCHANT.get(), FishMerchantRenderer::new);
-        }
+            EntityRenderers.register(ModEntities.FESTIVAL_ORGANIZER.get(), FestivalOrganizerRenderer::new);
+            EntityRenderers.register(ModEntities.ELECTRICIAN.get(), ElectricianRenderer::new);}
 
     }
 }

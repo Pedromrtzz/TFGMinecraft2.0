@@ -17,7 +17,9 @@ public class OpenScreenS2CPacket {
         DESIRE_SCREEN,
         MERCHANT_SHOP,
         ITAMAE_DIALOGUE,
-        FISH_MERCHANT_SHOP
+        FISH_MERCHANT_SHOP,
+        FESTIVAL_ORGANIZER_DIALOGUE,
+        ELECTRICIAN_DIALOGUE
     }
 
     private final ScreenType type;
@@ -59,6 +61,8 @@ public class OpenScreenS2CPacket {
             case MERCHANT_SHOP -> mc.setScreen(new MerchantShopScreen());
             case ITAMAE_DIALOGUE -> mc.setScreen(new ItamaeDialogueScreen());
             case FISH_MERCHANT_SHOP -> mc.setScreen(new FishMerchantShopScreen());
+            case FESTIVAL_ORGANIZER_DIALOGUE -> mc.setScreen(new FestivalOrganizerDialogueScreen());
+            case ELECTRICIAN_DIALOGUE -> mc.setScreen(new ElectricianDialogueScreen());
         }
     }
 }

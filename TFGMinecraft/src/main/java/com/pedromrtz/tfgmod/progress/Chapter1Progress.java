@@ -21,6 +21,10 @@ public class Chapter1Progress implements IChapter1Progress {
     private boolean chapter3Completed;
     private int chapter3Task;
 
+    private boolean chapter4Active;
+    private boolean chapter4Completed;
+    private int chapter4Task;
+
     @Override
     public boolean hasAlbum() {
         return hasAlbum;
@@ -152,6 +156,36 @@ public class Chapter1Progress implements IChapter1Progress {
     }
 
     @Override
+    public boolean isChapter4Active() {
+        return chapter4Active;
+    }
+
+    @Override
+    public void setChapter4Active(boolean v) {
+        this.chapter4Active = v;
+    }
+
+    @Override
+    public boolean isChapter4Completed() {
+        return chapter4Completed;
+    }
+
+    @Override
+    public void setChapter4Completed(boolean v) {
+        this.chapter4Completed = v;
+    }
+
+    @Override
+    public int getChapter4Task() {
+        return chapter4Task;
+    }
+
+    @Override
+    public void setChapter4Task(int task) {
+        this.chapter4Task = task;
+    }
+
+    @Override
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
 
@@ -171,6 +205,10 @@ public class Chapter1Progress implements IChapter1Progress {
         tag.putBoolean("chapter3Active", chapter3Active);
         tag.putBoolean("chapter3Completed", chapter3Completed);
         tag.putInt("chapter3Task", chapter3Task);
+
+        tag.putBoolean("chapter4Active", chapter4Active);
+        tag.putBoolean("chapter4Completed", chapter4Completed);
+        tag.putInt("chapter4Task", chapter4Task);
 
         return tag;
     }
@@ -193,5 +231,9 @@ public class Chapter1Progress implements IChapter1Progress {
         this.chapter3Active = tag.getBoolean("chapter3Active");
         this.chapter3Completed = tag.getBoolean("chapter3Completed");
         this.chapter3Task = tag.getInt("chapter3Task");
+
+        this.chapter4Active = tag.getBoolean("chapter4Active");
+        this.chapter4Completed = tag.getBoolean("chapter4Completed");
+        this.chapter4Task = tag.getInt("chapter4Task");
     }
 }

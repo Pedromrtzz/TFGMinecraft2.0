@@ -46,4 +46,13 @@ public interface IChapter1Progress {
     int getChapter3Task();
     void setChapter3Task(int task);
 
+    boolean isChapter4Active();
+    void setChapter4Active(boolean v);
+
+    boolean isChapter4Completed();
+    void setChapter4Completed(boolean v);
+
+    int getChapter4Task();
+    void setChapter4Task(int task);
+
 }

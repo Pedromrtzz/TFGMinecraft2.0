@@ -20,6 +20,10 @@ public class SyncChapter1ProgressS2CPacket {
     private final boolean chapter3Completed;
     private final int chapter3Task;
 
+    private final boolean chapter4Active;
+    private final boolean chapter4Completed;
+    private final int chapter4Task;
+
     public SyncChapter1ProgressS2CPacket(
             boolean hasAlbum,
             boolean mission1Active,
@@ -31,7 +35,10 @@ public class SyncChapter1ProgressS2CPacket {
             int chapter2TableStage,
             boolean chapter3Active,
             boolean chapter3Completed,
-            int chapter3Task
+            int chapter3Task,
+            boolean chapter4Active,
+            boolean chapter4Completed,
+            int chapter4Task
     ) {
         this.hasAlbum = hasAlbum;
         this.mission1Active = mission1Active;
@@ -46,6 +53,10 @@ public class SyncChapter1ProgressS2CPacket {
         this.chapter3Active = chapter3Active;
         this.chapter3Completed = chapter3Completed;
         this.chapter3Task = chapter3Task;
+
+        this.chapter4Active = chapter4Active;
+        this.chapter4Completed = chapter4Completed;
+        this.chapter4Task = chapter4Task;
     }
 
     public static void encode(SyncChapter1ProgressS2CPacket msg, FriendlyByteBuf buf) {
@@ -62,6 +73,10 @@ public class SyncChapter1ProgressS2CPacket {
         buf.writeBoolean(msg.chapter3Active);
         buf.writeBoolean(msg.chapter3Completed);
         buf.writeInt(msg.chapter3Task);
+
+        buf.writeBoolean(msg.chapter4Active);
+        buf.writeBoolean(msg.chapter4Completed);
+        buf.writeInt(msg.chapter4Task);
     }
 
     public static SyncChapter1ProgressS2CPacket decode(FriendlyByteBuf buf) {
@@ -74,6 +89,10 @@ public class SyncChapter1ProgressS2CPacket {
                 buf.readBoolean(),
                 buf.readBoolean(),
                 buf.readInt(),
+                buf.readInt(),
+
+                buf.readBoolean(),
+                buf.readBoolean(),
                 buf.readInt(),
 
                 buf.readBoolean(),
@@ -97,7 +116,11 @@ public class SyncChapter1ProgressS2CPacket {
 
                     msg.chapter3Active,
                     msg.chapter3Completed,
-                    msg.chapter3Task
+                    msg.chapter3Task,
+
+                    msg.chapter4Active,
+                    msg.chapter4Completed,
+                    msg.chapter4Task
             );
         });
     }

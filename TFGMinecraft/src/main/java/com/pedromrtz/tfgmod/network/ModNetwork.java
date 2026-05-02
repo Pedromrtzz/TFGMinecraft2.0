@@ -128,6 +128,18 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> CompleteChapter3C2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(StartChapter4C2SPacket.class, id++)
+                .encoder(StartChapter4C2SPacket::encode)
+                .decoder(StartChapter4C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> StartChapter4C2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CompleteChapter4LanternsC2SPacket.class, id++)
+                .encoder(CompleteChapter4LanternsC2SPacket::encode)
+                .decoder(CompleteChapter4LanternsC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter4LanternsC2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

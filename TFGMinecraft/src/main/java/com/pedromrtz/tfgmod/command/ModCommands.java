@@ -29,7 +29,7 @@ public class ModCommands {
                                             ProgressSync.syncChapter1(sp);
 
                                             ctx.getSource().sendSuccess(
-                                                    () -> Component.literal("Capítulo 1 reseteado."),
+                                                    () -> Component.literal("Capítulo 1 reset."),
                                                     false
                                             );
                                             return 1;
@@ -54,7 +54,7 @@ public class ModCommands {
                                             ProgressSync.syncChapter1(sp);
 
                                             ctx.getSource().sendSuccess(
-                                                    () -> Component.literal("Capítulo 2 reseteado."),
+                                                    () -> Component.literal("Capítulo 2 reset."),
                                                     false
                                             );
                                             return 1;
@@ -76,7 +76,7 @@ public class ModCommands {
                                             ProgressSync.syncChapter1(sp);
 
                                             ctx.getSource().sendSuccess(
-                                                    () -> Component.literal("Capítulo 2 iniciado."),
+                                                    () -> Component.literal("Capítulo 2 started."),
                                                     false
                                             );
                                             return 1;
@@ -99,7 +99,7 @@ public class ModCommands {
                                             ProgressSync.syncChapter1(sp);
 
                                             ctx.getSource().sendSuccess(
-                                                    () -> Component.literal("Capítulo 3 iniciado."),
+                                                    () -> Component.literal("Capítulo 3 started."),
                                                     false
                                             );
                                             return 1;
@@ -118,13 +118,56 @@ public class ModCommands {
                                             ProgressSync.syncChapter1(sp);
 
                                             ctx.getSource().sendSuccess(
-                                                    () -> Component.literal("Capítulo 3 reseteado."),
+                                                    () -> Component.literal("Capítulo 3 reset."),
                                                     false
                                             );
                                             return 1;
                                         })
                                 )
                         )
+
+                        .then(Commands.literal("chapter4")
+
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter4Active(true);
+                                            prog.setChapter4Completed(false);
+                                            prog.setChapter4Task(1);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Chapter 4 started."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter4Active(false);
+                                            prog.setChapter4Completed(false);
+                                            prog.setChapter4Task(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Chapter 4 reset."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
+
+
         );
     }
 }

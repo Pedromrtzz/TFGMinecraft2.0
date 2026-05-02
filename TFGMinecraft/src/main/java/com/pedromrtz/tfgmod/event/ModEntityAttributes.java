@@ -22,5 +22,7 @@ public class ModEntityAttributes {
         event.put(ModEntities.MERCHANT.get(), MerchantEntity.createAttributes().build());
         event.put(ModEntities.ITAMAE.get(), ItamaeEntity.createAttributes().build());
         event.put(ModEntities.FISH_MERCHANT.get(), FishMerchantEntity.createAttributes().build());
+        event.put(ModEntities.FESTIVAL_ORGANIZER.get(), FestivalOrganizerEntity.createAttributes().build());
+        event.put(ModEntities.ELECTRICIAN.get(), ElectricianEntity.createAttributes().build());
     }
 }
