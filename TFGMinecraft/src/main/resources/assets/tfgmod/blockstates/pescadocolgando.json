@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/pescadocolgando" },
+    "facing=south": { "model": "tfgmod:block/pescadocolgando", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/pescadocolgando", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/pescadocolgando", "y": 270 }
+  }
+}
