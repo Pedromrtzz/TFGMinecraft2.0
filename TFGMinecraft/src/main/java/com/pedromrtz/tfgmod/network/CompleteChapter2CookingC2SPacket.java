@@ -58,7 +58,7 @@ public class CompleteChapter2CookingC2SPacket {
 
                         if (!msg.selectedOrder.equals(correctOrder)) {
                             sp.displayClientMessage(
-                                    Component.literal("§cEl orden de ingredientes no era correcto."),
+                                    Component.literal("§cThe ingredient order was not correct."),
                                     false
                             );
                             return;
@@ -71,7 +71,7 @@ public class CompleteChapter2CookingC2SPacket {
                         sp.addItem(cardStack);
 
                         sp.displayClientMessage(
-                                Component.literal("§6¡Has cocinado el toshikoshi soba! Has conseguido un cromo."),
+                                Component.literal("§6You have cooked the toshikoshi soba! You earned a card."),
                                 false
                         );
 

@@ -33,7 +33,7 @@ public class CompleteChapter3SalmonCutC2SPacket {
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter3Active() || progress.getChapter3Task() != 3) {
                             sp.displayClientMessage(
-                                    Component.literal("§cAhora no puedes cortar el salmón."),
+                                    Component.literal("§cYou cannot cut the salmon right now."),
                                     false
                             );
                             return;
@@ -46,7 +46,7 @@ public class CompleteChapter3SalmonCutC2SPacket {
                         sp.addItem(cardStack);
 
                         sp.displayClientMessage(
-                                Component.literal("§6Has cortado el salmón correctamente. Ahora prepara el sushi."),
+                                Component.literal("§6You have cut the salmon correctly. Now prepare the sushi."),
                                 false
                         );
 

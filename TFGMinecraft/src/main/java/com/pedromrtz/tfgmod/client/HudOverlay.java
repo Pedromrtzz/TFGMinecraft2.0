@@ -21,9 +21,9 @@ public class HudOverlay {
         String text;
 
         if (ClientChapter1Data.chapter3Completed) {
-            text = "Capítulo 3 (Sushi) — Completado §a✔";
+            text = "Chapter 3 (Sushi) — Completed §a✔";
         } else if (ClientChapter1Data.chapter3Active) {
-            text = "Capítulo 3 (Sushi) — Tarea "
+            text = "Chapter 3 (Sushi) — Task "
                     + ClientChapter1Data.chapter3Task
                     + "/5: "
                     + getChapter3Text(ClientChapter1Data.chapter3Task)
@@ -31,13 +31,13 @@ public class HudOverlay {
         }
 
         else if (ClientChapter1Data.chapter2Completed) {
-            text = "Capítulo 2 (Omisoka) — Completado §a✔";
+            text = "Chapter 2 (Omisoka) — Completed §a✔";
         } else if (ClientChapter1Data.chapter2Active) {
             if (ClientChapter1Data.chapter2Task == 4) {
-                text = "Capítulo 2 (Omisoka) — Tarea 4/8: Pon la mesa ("
+                text = "Chapter 2 (Omisoka) — Task 4/8: Set the table ("
                         + ClientChapter1Data.chapter2TableStage + "/4) §e●";
             } else {
-                text = "Capítulo 2 (Omisoka) — Tarea "
+                text = "Chapter 2 (Omisoka) — Task "
                         + ClientChapter1Data.chapter2Task
                         + "/8: "
                         + Chapter2TaskTexts.getTaskText(ClientChapter1Data.chapter2Task)
@@ -46,11 +46,11 @@ public class HudOverlay {
         }
 
         else if (ClientChapter1Data.mission1Completed) {
-            text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — Completada §a✔";
+            text = "Chapter 1: Discovering Japan — Mission 1: Explore the village — Completed §a✔";
         } else if (ClientChapter1Data.mission1Active) {
-            text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — Activa §e●";
+            text = "Chapter 1: Discovering Japan — Mission 1: Explore the village — Started §e●";
         } else {
-            text = "Capítulo 1 (Japón) — Misión 1: Explorar el pueblo — No iniciada §7○";
+            text = "Chapter 1: Discovering Japan — Mission 1: Explore the village — Not Started §7○";
         }
 
         int screenWidth = mc.getWindow().getGuiScaledWidth();
@@ -62,12 +62,12 @@ public class HudOverlay {
 
     private static String getChapter3Text(int task) {
         return switch (task) {
-            case 1 -> "Consigue arroz y pescado";
-            case 2 -> "Lava el arroz";
-            case 3 -> "Corta el salmón";
-            case 4 -> "Prepara el sushi";
-            case 5 -> "Entrega el sushi";
-            default -> "Comienza la experiencia sushi";
+            case 1 -> "Collect rice and fish";
+            case 2 -> "Wash the rice";
+            case 3 -> "Cut the salmon";
+            case 4 -> "Prepare the sushi";
+            case 5 -> "Deliver the sushi";
+            default -> "Begin the sushi experience";
         };
     }
 }

@@ -16,7 +16,7 @@ public class SalmonCuttingGameScreen extends Screen {
     private int successfulCuts = 0;
     private int mistakes = 0;
 
-    private String message = "Corta el salmón cuando el indicador esté en la zona verde.";
+    private String message = "Cut the salmon when the indicator is inside the green zone.";
     private int messageColor = 0xEEEEEE;
 
     private int cutAnimationTicks = 0;
@@ -24,7 +24,7 @@ public class SalmonCuttingGameScreen extends Screen {
     private static final int REQUIRED_CUTS = 5;
 
     public SalmonCuttingGameScreen() {
-        super(Component.literal("Cortar salmón"));
+        super(Component.literal("Salmon Cutting"));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class SalmonCuttingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Minijuego: Corte del salmón",
+                "Minigame: Salmon Cutting",
                 this.width / 2,
                 y + 14,
                 0xFFFFFF
@@ -57,32 +57,32 @@ public class SalmonCuttingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Un buen itamae corta con calma, precisión y respeto por el pescado.",
+                "A good itamae cuts with calm, precision and respect for the fish.",
                 this.width / 2,
                 y + 36,
                 0xDDDDDD
         );
 
-        // Iconos visuales
+        // Visual icons
         gg.renderItem(new ItemStack(Items.IRON_SWORD), this.width / 2 - 34, y + 62);
         gg.renderItem(new ItemStack(Items.SALMON), this.width / 2 + 18, y + 62);
 
         gg.drawCenteredString(
                 this.font,
-                "Cuchillo   +   Salmón",
+                "Knife   +   Salmon",
                 this.width / 2,
                 y + 84,
                 0xAAAAAA
         );
 
-        // Animación simple de corte limpio
+        // Simple clean cut animation
         if (cutAnimationTicks > 0) {
             int animX = this.width / 2 - 65;
             int animY = y + 102;
 
             gg.drawCenteredString(
                     this.font,
-                    "✦ Corte limpio ✦",
+                    "✦ Clean Cut ✦",
                     this.width / 2,
                     animY,
                     0x55FF55
@@ -113,7 +113,7 @@ public class SalmonCuttingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Cortes correctos: " + successfulCuts + " / " + REQUIRED_CUTS,
+                "Successful cuts: " + successfulCuts + " / " + REQUIRED_CUTS,
                 this.width / 2,
                 y + 162,
                 0xFFFFFF
@@ -121,7 +121,7 @@ public class SalmonCuttingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "La zona verde se reduce con cada corte correcto.",
+                "The green zone becomes smaller after each successful cut.",
                 this.width / 2,
                 y + 178,
                 0xAAAAAA
@@ -142,8 +142,8 @@ public class SalmonCuttingGameScreen extends Screen {
         int cutBtnX = this.width / 2 - btnW - 10;
         int exitBtnX = this.width / 2 + 10;
 
-        drawButton(gg, mouseX, mouseY, cutBtnX, btnY, btnW, btnH, "Cortar");
-        drawButton(gg, mouseX, mouseY, exitBtnX, btnY, btnW, btnH, "Salir");
+        drawButton(gg, mouseX, mouseY, cutBtnX, btnY, btnW, btnH, "Cut");
+        drawButton(gg, mouseX, mouseY, exitBtnX, btnY, btnW, btnH, "Exit");
 
         super.render(gg, mouseX, mouseY, pt);
     }
@@ -223,7 +223,7 @@ public class SalmonCuttingGameScreen extends Screen {
             successfulCuts++;
             cutAnimationTicks = 18;
 
-            message = "¡Corte limpio! La precisión mejora.";
+            message = "Clean cut! Your precision is improving.";
             messageColor = 0xFF55FF55;
 
             var player = Minecraft.getInstance().player;
@@ -245,10 +245,10 @@ public class SalmonCuttingGameScreen extends Screen {
             mistakes++;
 
             if (mistakes % 2 == 0) {
-                message = "Pista: espera a que la línea blanca entre por completo en la zona verde.";
+                message = "Hint: wait until the white line is fully inside the green zone.";
                 messageColor = 0xFFFFAA00;
             } else {
-                message = "El corte no fue preciso. Respira y espera el momento correcto.";
+                message = "The cut was not precise. Breathe and wait for the right moment.";
                 messageColor = 0xFFFF5555;
             }
 

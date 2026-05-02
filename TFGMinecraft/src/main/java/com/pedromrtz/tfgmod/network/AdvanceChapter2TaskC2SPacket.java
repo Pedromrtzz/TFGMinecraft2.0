@@ -39,7 +39,7 @@ public class AdvanceChapter2TaskC2SPacket {
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter2Active()) return;
                         if (progress.getChapter2Task() != msg.expectedTask) {
-                            sp.displayClientMessage(Component.literal("§cNo puedes avanzar esta tarea todavía."), false);
+                            sp.displayClientMessage(Component.literal("§cYou cannot advance this task yet."), false);
                             return;
                         }
 
@@ -47,7 +47,7 @@ public class AdvanceChapter2TaskC2SPacket {
                         ProgressSync.syncChapter1(sp);
 
                         sp.displayClientMessage(
-                                Component.literal("§6Nueva tarea desbloqueada."),
+                                Component.literal("§6New task unlocked."),
                                 true
                         );
                     });

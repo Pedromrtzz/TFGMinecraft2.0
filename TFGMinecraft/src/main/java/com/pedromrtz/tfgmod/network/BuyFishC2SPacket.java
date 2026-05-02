@@ -39,7 +39,7 @@ public class BuyFishC2SPacket {
 
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter3Active() || progress.getChapter3Task() != 1) {
-                            sp.displayClientMessage(Component.literal("§7Ahora no necesitas comprar pescado."), false);
+                            sp.displayClientMessage(Component.literal("§7You don't need to buy fish right now."), false);
                             return;
                         }
 
@@ -48,17 +48,17 @@ public class BuyFishC2SPacket {
                         int price = getPrice(msg.itemId);
 
                         if (itemToBuy == null) {
-                            sp.displayClientMessage(Component.literal("§cEse producto no existe."), false);
+                            sp.displayClientMessage(Component.literal("§cThat product does not exist."), false);
                             return;
                         }
 
                         if (!removeYen(sp, price)) {
-                            sp.displayClientMessage(Component.literal("§cNo tienes suficientes yenes."), false);
+                            sp.displayClientMessage(Component.literal("§cYou don't have enough yen."), false);
                             return;
                         }
 
                         sp.addItem(new ItemStack(itemToBuy, 1));
-                        sp.displayClientMessage(Component.literal("§6Has comprado: " + itemName), false);
+                        sp.displayClientMessage(Component.literal("§6You bought: " + itemName), false);
                     });
 
                 } catch (Exception ignored) {}
@@ -82,12 +82,12 @@ public class BuyFishC2SPacket {
 
     private static String getItemName(String id) {
         return switch (id) {
-            case "salmon" -> "Salmón fresco";
-            case "cod" -> "Bacalao";
-            case "tropical_fish" -> "Pez tropical";
-            case "pufferfish" -> "Pez globo";
-            case "kelp" -> "Alga marina";
-            case "ink" -> "Saco de tinta";
+            case "salmon" -> "Fresh salmon";
+            case "cod" -> "Cod";
+            case "tropical_fish" -> "Tropical fish";
+            case "pufferfish" -> "Pufferfish";
+            case "kelp" -> "Seaweed";
+            case "ink" -> "Ink sac";
             default -> id;
         };
     }

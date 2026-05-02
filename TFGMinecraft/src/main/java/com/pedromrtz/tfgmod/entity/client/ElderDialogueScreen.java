@@ -25,17 +25,17 @@ public class ElderDialogueScreen extends Screen {
     private static final Map<String, DialogueNode> NODES = Map.of(
             "intro", new DialogueNode(
                     "intro",
-                    "Anciano del pueblo",
+                    "Village Elder",
                     List.of(
-                            "Bienvenido a Sakura Town, viajero.",
-                            "Este lugar guarda tradiciones, historia y respeto por la cultura.",
-                            "Si quieres aprender de Japón, primero debes explorar y escuchar."
+                            "Welcome to Sakura Town, a peaceful place surrounded by nature.",
+                            "This place preserves traditions, history and respect for culture.",
+                            "If you want to learn about Japan, you must first explore and listen."
                     ),
                     List.of(
-                            new DialogueOption("¿Qué es Sakura Town?", "town"),
-                            new DialogueOption("¿Cuál es mi misión?", "mission"),
-                            new DialogueOption("¿Qué es el Álbum Cultural?", "album"),
-                            new DialogueOption("Gracias, me iré a explorar", "exit")
+                            new DialogueOption("What is Sakura Town?", "town"),
+                            new DialogueOption("What is my mission?", "mission"),
+                            new DialogueOption("What is the Cultural Album?", "album"),
+                            new DialogueOption("Thank you, I will explore", "exit")
                     )
             ),
 
@@ -43,44 +43,44 @@ public class ElderDialogueScreen extends Screen {
                     "town",
                     "Sakura Town",
                     List.of(
-                            "Sakura Town es un pueblo inspirado en la vida tradicional japonesa.",
-                            "Aquí encontrarás casas, templos y lugares cotidianos.",
-                            "Cada zona es una oportunidad para aprender algo real."
+                            "Sakura Town is a village inspired by traditional Japanese life.",
+                            "Here you will find houses, temples and everyday places.",
+                            "Each area is an opportunity to learn something real."
                     ),
                     List.of(
-                            new DialogueOption("¿Cuál es mi misión?", "mission"),
-                            new DialogueOption("¿Qué es el Álbum Cultural?", "album"),
-                            new DialogueOption("Volver", "intro")
+                            new DialogueOption("What is my mission?", "mission"),
+                            new DialogueOption("What is the Cultural Album?", "album"),
+                            new DialogueOption("Back", "intro")
                     )
             ),
 
             "mission", new DialogueNode(
                     "mission",
-                    "Misión 1: Explorar el pueblo",
+                    "Mission 1: Explore the village",
                     List.of(
-                            "Tu primera misión es sencilla:",
-                            "Explora Sakura Town y encuentra la casa de la familia.",
-                            "Cuando entres en la casa, obtendrás un cromo cultural."
+                            "Your first mission is simple:",
+                            "Explore Sakura Town and find the family house.",
+                            "When you enter the house, you will obtain a cultural card."
                     ),
                     List.of(
-                            new DialogueOption("Entendido. ¿Qué es el Álbum Cultural?", "album"),
-                            new DialogueOption("Volver", "intro"),
-                            new DialogueOption("Salir", "exit")
+                            new DialogueOption("Understood. What is the Cultural Album?", "album"),
+                            new DialogueOption("Back", "intro"),
+                            new DialogueOption("Exit", "exit")
                     )
             ),
 
             "album", new DialogueNode(
                     "album",
-                    "Álbum Cultural",
+                    "Cultural Album",
                     List.of(
-                            "El Álbum Cultural guarda los cromos que desbloqueas.",
-                            "Cada cromo representa una parte de la cultura: gastronomía, historia, festividades…",
-                            "Completa misiones para conseguirlos."
+                            "The Cultural Album stores the cards you unlock.",
+                            "Each card represents a part of the culture: gastronomy, history, traditions…",
+                            "Complete missions to collect them."
                     ),
                     List.of(
-                            new DialogueOption("Perfecto, empezaré la misión", "start_mission"),
-                            new DialogueOption("Volver", "intro"),
-                            new DialogueOption("Salir", "exit")
+                            new DialogueOption("Perfect, I will start the mission", "start_mission"),
+                            new DialogueOption("Back", "intro"),
+                            new DialogueOption("Exit", "exit")
                     )
             )
     );
@@ -98,7 +98,7 @@ public class ElderDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 340;
+        int boxW = 430;
         int boxH = 260;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;

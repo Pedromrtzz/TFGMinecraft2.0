@@ -52,7 +52,7 @@ public class Chapter1MissionEvents {
         com.pedromrtz.tfgmod.network.ProgressSync.syncChapter1(sp);
 
         sp.displayClientMessage(
-                Component.literal("§6¡Misión completada! Has desbloqueado un nuevo cromo cultural."),
+                Component.literal("§6Mission completed! You have unlocked a new cultural card."),
                 false
         );
 

@@ -38,7 +38,7 @@ public class SaveWishC2SPacket {
 
                         if (progress.getChapter2Task() != 7) {
                             sp.displayClientMessage(
-                                    Component.literal("§cAhora no puedes escribir el deseo."),
+                                    Component.literal("§cYou cannot write the wish right now."),
                                     false
                             );
                             return;
@@ -48,7 +48,7 @@ public class SaveWishC2SPacket {
 
                         if (cleanWish.isEmpty()) {
                             sp.displayClientMessage(
-                                    Component.literal("§cNo puedes dejar el deseo vacío."),
+                                    Component.literal("§cYou cannot leave the wish empty."),
                                     false
                             );
                             return;
@@ -62,7 +62,7 @@ public class SaveWishC2SPacket {
                         progress.setChapter2Task(8);
 
                         sp.displayClientMessage(
-                                Component.literal("§7Te susurran: §fPrueba a colgar el deseo en el árbol de afuera."),
+                                Component.literal("§7A whisper tells you: §fTry hanging the wish on the tree outside."),
                                 false
                         );
 

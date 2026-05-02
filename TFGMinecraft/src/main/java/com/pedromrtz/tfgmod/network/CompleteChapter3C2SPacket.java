@@ -35,7 +35,7 @@ public class CompleteChapter3C2SPacket {
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter3Active() || progress.getChapter3Task() != 5) {
                             sp.displayClientMessage(
-                                    Component.literal("§cAhora no puedes entregar el sushi."),
+                                    Component.literal("§cYou cannot deliver the sushi right now."),
                                     false
                             );
                             return;
@@ -43,7 +43,7 @@ public class CompleteChapter3C2SPacket {
 
                         if (!hasItem(sp, ModItems.SUSHI.get(), 1)) {
                             sp.displayClientMessage(
-                                    Component.literal("§cNecesitas tener el sushi para entregarlo."),
+                                    Component.literal("§cYou need to have the sushi to deliver it."),
                                     false
                             );
                             return;
@@ -60,12 +60,12 @@ public class CompleteChapter3C2SPacket {
                         sp.addItem(cardStack);
 
                         sp.displayClientMessage(
-                                Component.literal("§6El Maestro Itamae prueba tu sushi y sonríe."),
+                                Component.literal("§6The Itamae Master tastes your sushi and smiles."),
                                 false
                         );
 
                         sp.displayClientMessage(
-                                Component.literal("§aCapítulo 3 completado. Has recibido un cromo final."),
+                                Component.literal("§aChapter 3 completed. You have received a final card."),
                                 false
                         );
 

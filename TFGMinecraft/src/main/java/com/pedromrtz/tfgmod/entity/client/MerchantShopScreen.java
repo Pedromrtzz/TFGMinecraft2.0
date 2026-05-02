@@ -19,16 +19,16 @@ public class MerchantShopScreen extends Screen {
             ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/merchant.png");
 
     private final List<ShopItem> shopItems = List.of(
-            new ShopItem("fideos", "Fideos", 1),
-            new ShopItem("alga", "Alga", 1),
-            new ShopItem("caldo", "Caldo", 1),
-            new ShopItem("cebolla", "Cebolla", 1),
-            new ShopItem("carne", "Carne", 1),
-            new ShopItem("pollo", "Pollo", 2),
-            new ShopItem("hierro", "Lingote de hierro", 2),
-            new ShopItem("oro", "Lingote de oro", 3),
-            new ShopItem("pan", "Pan", 4),
-            new ShopItem("manzana", "Manzana", 2)
+            new ShopItem("fideos", "Noodles", 1),
+            new ShopItem("alga", "Seaweed", 1),
+            new ShopItem("caldo", "Broth", 1),
+            new ShopItem("cebolla", "Onion", 1),
+            new ShopItem("carne", "Meat", 1),
+            new ShopItem("pollo", "Chicken", 2),
+            new ShopItem("hierro", "Iron Ingot", 2),
+            new ShopItem("oro", "Gold Ingot", 3),
+            new ShopItem("pan", "Bread", 4),
+            new ShopItem("manzana", "Apple", 2)
     );
 
     private final List<ButtonArea> visibleButtons = new ArrayList<>();
@@ -40,7 +40,7 @@ public class MerchantShopScreen extends Screen {
     private record ButtonArea(int x, int y, int w, int h, String itemId) {}
 
     public MerchantShopScreen() {
-        super(Component.literal("Mercader"));
+        super(Component.literal("Merchant"));
     }
 
     @Override
@@ -71,9 +71,9 @@ public class MerchantShopScreen extends Screen {
 
         int textX = x + 14 + portraitSize + 14;
 
-        gg.drawString(this.font, "Mercado de Sakura", textX, y + 14, 0xFFFFAA00);
-        gg.drawString(this.font, "Selecciona un producto.", textX, y + 38, 0xEEEEEE);
-        gg.drawString(this.font, "Usa la rueda del ratón para ver más.", textX, y + 52, 0xAAAAAA);
+        gg.drawString(this.font, "Sakura Market", textX, y + 14, 0xFFFFAA00);
+        gg.drawString(this.font, "Select a product.", textX, y + 38, 0xEEEEEE);
+        gg.drawString(this.font, "Use the mouse wheel to scroll.", textX, y + 52, 0xAAAAAA);
 
         int listX = x + 14;
         int listY = y + 90;
@@ -97,7 +97,7 @@ public class MerchantShopScreen extends Screen {
 
             gg.fill(btnX, btnY, btnX + btnW, btnY + btnH, color);
 
-            String label = item.name() + " - " + item.price() + (item.price() == 1 ? " yen" : " yenes");
+            String label = item.name() + " - " + item.price() + " yen";
 
             gg.drawCenteredString(this.font,
                     label,
@@ -131,7 +131,7 @@ public class MerchantShopScreen extends Screen {
                 ? 0xFF555555 : 0xFF333333;
 
         gg.fill(closeX, closeY, closeX + closeW, closeY + closeH, closeColor);
-        gg.drawCenteredString(this.font, "Cerrar", closeX + closeW / 2, closeY + 6, 0xFFFFFF);
+        gg.drawCenteredString(this.font, "Close", closeX + closeW / 2, closeY + 6, 0xFFFFFF);
 
         visibleButtons.add(new ButtonArea(closeX, closeY, closeW, closeH, "exit"));
 

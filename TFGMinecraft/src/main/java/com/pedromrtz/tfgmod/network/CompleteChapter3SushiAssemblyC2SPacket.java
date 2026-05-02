@@ -32,7 +32,7 @@ public class CompleteChapter3SushiAssemblyC2SPacket {
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter3Active() || progress.getChapter3Task() != 4) {
                             sp.displayClientMessage(
-                                    Component.literal("§cAhora no puedes montar sushi."),
+                                    Component.literal("§cYou cannot assemble sushi right now."),
                                     false
                             );
                             return;
@@ -44,7 +44,7 @@ public class CompleteChapter3SushiAssemblyC2SPacket {
                         sp.addItem(sushi);
 
                         sp.displayClientMessage(
-                                Component.literal("§6Has montado el sushi correctamente. Entrégaselo al Maestro Itamae."),
+                                Component.literal("§6You have assembled the sushi correctly. Deliver it to the Itamae Master."),
                                 false
                         );
 

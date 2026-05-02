@@ -22,12 +22,12 @@ public class ItamaeFinalSceneScreen extends Screen {
     private boolean completed = false;
 
     private final List<DialogueLine> dialogue = List.of(
-            new DialogueLine("Maestro Itamae", "Déjame probar el sushi que has preparado.", 0xFF66CCFF),
-            new DialogueLine("Maestro Itamae", "El arroz está limpio y bien tratado.", 0xFF66CCFF),
-            new DialogueLine("Maestro Itamae", "El salmón tiene un corte preciso y respetuoso.", 0xFF66CCFF),
-            new DialogueLine("Maestro Itamae", "Has entendido que el sushi no es solo comida.", 0xFF66CCFF),
-            new DialogueLine("Maestro Itamae", "Es equilibrio entre técnica, paciencia y estética.", 0xFF66CCFF),
-            new DialogueLine("Maestro Itamae", "Has completado tu aprendizaje en Nami No Ura.", 0xFF66CCFF)
+            new DialogueLine("Itamae Master", "Let me taste the sushi you have prepared.", 0xFF66CCFF),
+            new DialogueLine("Itamae Master", "The rice is clean and well treated.", 0xFF66CCFF),
+            new DialogueLine("Itamae Master", "The salmon has been cut with precision and respect.", 0xFF66CCFF),
+            new DialogueLine("Itamae Master", "You have understood that sushi is not just food.", 0xFF66CCFF),
+            new DialogueLine("Itamae Master", "It is a balance of technique, patience and aesthetics.", 0xFF66CCFF),
+            new DialogueLine("Itamae Master", "You have completed your training in Nami No Ura.", 0xFF66CCFF)
     );
 
     private final List<OptionArea> options = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ItamaeFinalSceneScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, String action) {}
 
     public ItamaeFinalSceneScreen() {
-        super(Component.literal("Entrega del sushi"));
+        super(Component.literal("Sushi Delivery"));
     }
 
     @Override
@@ -76,8 +76,8 @@ public class ItamaeFinalSceneScreen extends Screen {
 
         int textX = x + 14 + portraitSize + 18;
 
-        gg.drawString(this.font, "Entrega final del sushi", textX, y + 16, 0xFFFFFF);
-        gg.drawString(this.font, "Capítulo 3: Maestro del sushi", textX, y + 32, 0xFFAAAAAA);
+        gg.drawString(this.font, "Final Sushi Delivery", textX, y + 16, 0xFFFFFF);
+        gg.drawString(this.font, "Chapter 3: Sushi Master", textX, y + 32, 0xFFAAAAAA);
 
         int startY = y + 85;
         int lineHeight = 18;
@@ -103,8 +103,8 @@ public class ItamaeFinalSceneScreen extends Screen {
         gg.fill(btnX, btnY, btnX + btnW, btnY + btnH, bgColor);
 
         String buttonText = step < dialogue.size() - 1
-                ? "Continuar"
-                : "Completar capítulo";
+                ? "Continue"
+                : "Complete chapter";
 
         gg.drawCenteredString(
                 this.font,

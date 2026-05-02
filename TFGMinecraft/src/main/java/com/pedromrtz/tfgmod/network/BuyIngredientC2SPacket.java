@@ -39,7 +39,7 @@ public class BuyIngredientC2SPacket {
 
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter2Active() || progress.getChapter2Task() > 2) {
-                            sp.displayClientMessage(Component.literal("§7Ahora no necesitas comprar ingredientes."), false);
+                            sp.displayClientMessage(Component.literal("§7You don't need to buy ingredients right now."), false);
                             return;
                         }
 
@@ -47,19 +47,19 @@ public class BuyIngredientC2SPacket {
                         String itemName = getItemName(msg.itemId);
 
                         if (itemToBuy == null) {
-                            sp.displayClientMessage(Component.literal("§cEse producto no existe."), false);
+                            sp.displayClientMessage(Component.literal("§cThat product does not exist."), false);
                             return;
                         }
 
                         int price = getPrice(msg.itemId);
 
                         if (!removeYen(sp, price)) {
-                            sp.displayClientMessage(Component.literal("§cNo tienes suficientes yenes (" + price + ")."), false);
+                            sp.displayClientMessage(Component.literal("§cYou don't have enough yen (" + price + ")."), false);
                             return;
                         }
 
                         sp.addItem(new ItemStack(itemToBuy, 1));
-                        sp.displayClientMessage(Component.literal("§6Has comprado: " + itemName), false);
+                        sp.displayClientMessage(Component.literal("§6You bought: " + itemName), false);
                     });
 
                 } catch (Exception ignored) {}
@@ -88,16 +88,16 @@ public class BuyIngredientC2SPacket {
 
     private static String getItemName(String id) {
         return switch (id) {
-            case "fideos" -> "Fideos";
-            case "alga" -> "Alga";
-            case "caldo" -> "Caldo";
-            case "cebolla" -> "Cebolla";
-            case "carne" -> "Carne";
-            case "pollo" -> "Pollo";
-            case "hierro" -> "Lingote de hierro";
-            case "oro" -> "Lingote de oro";
-            case "pan" -> "Pan";
-            case "manzana" -> "Manzana";
+            case "fideos" -> "Noodles";
+            case "alga" -> "Seaweed";
+            case "caldo" -> "Broth";
+            case "cebolla" -> "Onion";
+            case "carne" -> "Meat";
+            case "pollo" -> "Chicken";
+            case "hierro" -> "Iron ingot";
+            case "oro" -> "Gold ingot";
+            case "pan" -> "Bread";
+            case "manzana" -> "Apple";
             default -> id;
         };
     }
@@ -114,7 +114,6 @@ public class BuyIngredientC2SPacket {
             case "caldo" -> 1;
             case "cebolla" -> 1;
             case "carne" -> 1;
-
             default -> 1;
         };
     }

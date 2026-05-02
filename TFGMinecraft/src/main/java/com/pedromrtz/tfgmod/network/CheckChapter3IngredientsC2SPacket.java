@@ -33,7 +33,7 @@ public class CheckChapter3IngredientsC2SPacket {
 
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter3Active() || progress.getChapter3Task() != 1) {
-                            sp.displayClientMessage(Component.literal("§cNo puedes entregar esto ahora."), false);
+                            sp.displayClientMessage(Component.literal("§cYou cannot deliver this now."), false);
                             return;
                         }
 
@@ -43,11 +43,11 @@ public class CheckChapter3IngredientsC2SPacket {
                         if (!hasRice || !hasFish) {
                             String missing = "";
 
-                            if (!hasRice) missing += "arroz ";
-                            if (!hasFish) missing += "salmón ";
+                            if (!hasRice) missing += "rice ";
+                            if (!hasFish) missing += "salmon ";
 
                             sp.displayClientMessage(
-                                    Component.literal("§cTe falta: " + missing),
+                                    Component.literal("§cYou are missing: " + missing),
                                     false
                             );
                             return;
@@ -59,7 +59,7 @@ public class CheckChapter3IngredientsC2SPacket {
                         progress.setChapter3Task(2);
 
                         sp.displayClientMessage(
-                                Component.literal("§6Perfecto. Ya tenemos arroz y pescado para preparar sushi."),
+                                Component.literal("§6Perfect. We now have rice and fish to prepare sushi."),
                                 false
                         );
 

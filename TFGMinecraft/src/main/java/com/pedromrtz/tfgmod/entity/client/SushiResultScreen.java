@@ -13,7 +13,7 @@ public class SushiResultScreen extends Screen {
     private int ticks = 0;
 
     public SushiResultScreen() {
-        super(Component.literal("Sushi completado"));
+        super(Component.literal("Sushi completed"));
     }
 
     @Override
@@ -21,7 +21,6 @@ public class SushiResultScreen extends Screen {
         super.tick();
         ticks++;
 
-        // se cierra solo después de 2.5 segundos
         if (ticks > 50) {
             onClose();
         }
@@ -38,23 +37,21 @@ public class SushiResultScreen extends Screen {
 
         gg.fill(x, y, x + boxW, y + boxH, 0xDD000000);
 
-        // título
         gg.drawCenteredString(
                 this.font,
-                "✦ Nigiri completado ✦",
+                "✦ Nigiri completed ✦",
                 this.width / 2,
                 y + 20,
                 0xFF55FF55
         );
 
-        // item sushi
         ItemStack sushi = new ItemStack(ModItems.SUSHI.get());
 
         gg.renderItem(sushi, this.width / 2 - 8, y + 80);
 
         gg.drawCenteredString(
                 this.font,
-                "Has preparado un sushi perfecto.",
+                "You have prepared a perfect sushi.",
                 this.width / 2,
                 y + 110,
                 0xEEEEEE
@@ -62,7 +59,7 @@ public class SushiResultScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Precisión, equilibrio y respeto.",
+                "Precision, balance and respect.",
                 this.width / 2,
                 y + 125,
                 0xAAAAAA

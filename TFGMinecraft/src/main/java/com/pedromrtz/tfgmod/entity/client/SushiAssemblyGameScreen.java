@@ -23,14 +23,14 @@ public class SushiAssemblyGameScreen extends Screen {
     private final List<ButtonArea> optionButtons = new ArrayList<>();
     private final List<ButtonArea> actionButtons = new ArrayList<>();
 
-    private String message = "Pista: base, envoltorio, pescado y forma final.";
+    private String message = "Hint: base, wrapping, fish, and final shape.";
     private int messageColor = 0xEEEEEE;
     private int errors = 0;
 
     private record ButtonArea(int x, int y, int w, int h, String id, String label, ItemStack icon) {}
 
     public SushiAssemblyGameScreen() {
-        super(Component.literal("Montar sushi"));
+        super(Component.literal("Assemble Sushi"));
     }
 
     @Override
@@ -44,11 +44,11 @@ public class SushiAssemblyGameScreen extends Screen {
 
         gg.fill(x, y, x + boxW, y + boxH, 0xDD000000);
 
-        gg.drawCenteredString(this.font, "Minijuego: Montar Sushi", this.width / 2, y + 14, 0xFFFFFF);
+        gg.drawCenteredString(this.font, "Minigame: Assemble Sushi", this.width / 2, y + 14, 0xFFFFFF);
 
         gg.drawCenteredString(
                 this.font,
-                "Ordena los pasos correctos para preparar el sushi.",
+                "Arrange the correct steps to prepare sushi.",
                 this.width / 2,
                 y + 36,
                 0xDDDDDD
@@ -56,7 +56,7 @@ public class SushiAssemblyGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Acertijo: base blanca, alga, corte del mar y forma final.",
+                "Riddle: white base, seaweed, cut from the sea, and final shape.",
                 this.width / 2,
                 y + 52,
                 0xFFFFAA00
@@ -71,16 +71,16 @@ public class SushiAssemblyGameScreen extends Screen {
         int startX = x + 18;
 
         addOptionButton(optionButtons, startX, btnY, btnW, btnH,
-                "arroz", "Arroz", new ItemStack(ModItems.ARROZ.get()));
+                "arroz", "Rice", new ItemStack(ModItems.ARROZ.get()));
 
         addOptionButton(optionButtons, startX + btnW + gap, btnY, btnW, btnH,
-                "alga", "Alga", new ItemStack(Items.KELP));
+                "alga", "Seaweed", new ItemStack(Items.KELP));
 
         addOptionButton(optionButtons, startX + (btnW + gap) * 2, btnY, btnW, btnH,
-                "salmon", "Salmón", new ItemStack(Items.SALMON));
+                "salmon", "Salmon", new ItemStack(Items.SALMON));
 
         addOptionButton(optionButtons, startX + (btnW + gap) * 3, btnY, btnW, btnH,
-                "forma", "Dar forma", new ItemStack(Items.BOWL));
+                "forma", "Shape", new ItemStack(Items.BOWL));
 
         for (ButtonArea btn : optionButtons) {
             int color = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
@@ -96,7 +96,7 @@ public class SushiAssemblyGameScreen extends Screen {
         int recipeW = boxW - 70;
         int recipeH = 78;
 
-        gg.drawString(this.font, "Tu montaje:", recipeX, recipeY - 16, 0xFFFFFF);
+        gg.drawString(this.font, "Your assembly:", recipeX, recipeY - 16, 0xFFFFFF);
         gg.fill(recipeX, recipeY, recipeX + recipeW, recipeY + recipeH, 0xAA111111);
 
         int slotSize = 46;
@@ -130,9 +130,9 @@ public class SushiAssemblyGameScreen extends Screen {
 
         int actionY = y + boxH - 38;
 
-        addActionButton(actionButtons, x + 25, actionY, 120, 22, "clear", "Limpiar", ItemStack.EMPTY);
-        addActionButton(actionButtons, x + (boxW - 120) / 2, actionY, 120, 22, "confirm", "Confirmar", ItemStack.EMPTY);
-        addActionButton(actionButtons, x + boxW - 145, actionY, 120, 22, "exit", "Salir", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + 25, actionY, 120, 22, "clear", "Clear", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + (boxW - 120) / 2, actionY, 120, 22, "confirm", "Confirm", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + boxW - 145, actionY, 120, 22, "exit", "Exit", ItemStack.EMPTY);
 
         for (ButtonArea btn : actionButtons) {
             int color = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
@@ -168,13 +168,13 @@ public class SushiAssemblyGameScreen extends Screen {
         playClickSound();
 
         if (selectedOrder.size() >= 4) {
-            message = "Ya has colocado los cuatro pasos.";
+            message = "You have already placed all four steps.";
             messageColor = 0xFFFFAA00;
             return;
         }
 
         selectedOrder.add(id);
-        message = "Añadido: " + formatName(id);
+        message = "Added: " + formatName(id);
         messageColor = 0xEEEEEE;
     }
 
@@ -184,13 +184,13 @@ public class SushiAssemblyGameScreen extends Screen {
         switch (id) {
             case "clear" -> {
                 selectedOrder.clear();
-                message = "Has reiniciado el montaje.";
+                message = "Assembly reset.";
                 messageColor = 0xCCCCCC;
             }
 
             case "confirm" -> {
                 if (selectedOrder.size() < 4) {
-                    message = "Te faltan pasos. Debes elegir 4.";
+                    message = "Missing steps. You must choose 4.";
                     messageColor = 0xFFFF5555;
                     return;
                 }
@@ -208,10 +208,10 @@ public class SushiAssemblyGameScreen extends Screen {
                     selectedOrder.clear();
 
                     if (errors % 2 == 0) {
-                        message = "Pista: el arroz va primero y el salmón no va antes del alga.";
+                        message = "Hint: rice goes first and salmon does not come before seaweed.";
                         messageColor = 0xFFFFAA00;
                     } else {
-                        message = "El orden no es correcto. Inténtalo otra vez.";
+                        message = "Incorrect order. Try again.";
                         messageColor = 0xFFFF5555;
                     }
                 }
@@ -233,10 +233,10 @@ public class SushiAssemblyGameScreen extends Screen {
 
     private String formatName(String id) {
         return switch (id) {
-            case "arroz" -> "Arroz";
-            case "alga" -> "Alga";
-            case "salmon" -> "Salmón";
-            case "forma" -> "Forma";
+            case "arroz" -> "Rice";
+            case "alga" -> "Seaweed";
+            case "salmon" -> "Salmon";
+            case "forma" -> "Shape";
             default -> id;
         };
     }

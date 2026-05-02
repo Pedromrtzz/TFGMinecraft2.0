@@ -39,7 +39,7 @@ public class GiveEmaAndAdvanceTaskC2SPacket {
                         sp.addItem(ema);
 
                         sp.displayClientMessage(
-                                Component.literal("§6El monje te ha dado un ema para escribir tu deseo."),
+                                Component.literal("§6The monk has given you an ema to write your wish."),
                                 false
                         );
 

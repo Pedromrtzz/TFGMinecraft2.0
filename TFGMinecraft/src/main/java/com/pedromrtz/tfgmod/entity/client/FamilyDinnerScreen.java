@@ -14,12 +14,12 @@ public class FamilyDinnerScreen extends Screen {
     private int step = 0;
 
     private final List<DialogueLine> dialogue = List.of(
-            new DialogueLine("Madre", "Gracias por ayudar a preparar la cena.", 0xFFFF99CC),
-            new DialogueLine("Padre", "El toshikoshi soba simboliza dejar atrás el año anterior.", 0xFF99CCFF),
-            new DialogueLine("Hermana", "¡Está buenísimo! Me alegra que cenemos juntos.", 0xFFFFFF99),
-            new DialogueLine("Madre", "En Omisoka, la familia comparte este momento antes del año nuevo.", 0xFFFF99CC),
-            new DialogueLine("Padre", "Después de cenar, muchas personas van al templo.", 0xFF99CCFF),
-            new DialogueLine("Madre", "Ahora debemos ir al templo que está a las afueras del pueblo.", 0xFFFF99CC)
+            new DialogueLine("Mother", "Thank you for helping prepare dinner.", 0xFFFF99CC),
+            new DialogueLine("Father", "Toshikoshi Soba symbolises leaving the past year behind.", 0xFF99CCFF),
+            new DialogueLine("Sister", "It's delicious! I'm happy we're having dinner together.", 0xFFFFFF99),
+            new DialogueLine("Mother", "During Omisoka, families share this moment before the new year.", 0xFFFF99CC),
+            new DialogueLine("Father", "After dinner, many people go to the temple.", 0xFF99CCFF),
+            new DialogueLine("Mother", "Now we should go to the temple outside the village.", 0xFFFF99CC)
     );
 
     private final List<OptionArea> options = new ArrayList<>();
@@ -28,7 +28,7 @@ public class FamilyDinnerScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, String action) {}
 
     public FamilyDinnerScreen() {
-        super(Component.literal("Cena familiar"));
+        super(Component.literal("Family Dinner"));
     }
 
     @Override
@@ -43,7 +43,7 @@ public class FamilyDinnerScreen extends Screen {
         gg.fill(x, y, x + boxW, y + boxH, 0xDD000000);
 
         gg.drawCenteredString(this.font,
-                "Cena familiar de Omisoka",
+                "Omisoka Family Dinner",
                 this.width / 2,
                 y + 14,
                 0xFFFFFF);
@@ -82,8 +82,8 @@ public class FamilyDinnerScreen extends Screen {
         gg.fill(btnX, btnY, btnX + btnW, btnY + btnH, bgColor);
 
         String buttonText = step < dialogue.size() - 1
-                ? "Continuar"
-                : "Ir al templo";
+                ? "Continue"
+                : "Go to the temple";
 
         gg.drawCenteredString(this.font,
                 buttonText,

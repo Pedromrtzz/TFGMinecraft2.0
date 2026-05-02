@@ -30,7 +30,7 @@ public class MotherDialogueScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
     public MotherDialogueScreen() {
-        super(Component.literal("Madre"));
+        super(Component.literal("Mother"));
         this.currentNode = getInitialNode();
     }
 
@@ -38,16 +38,16 @@ public class MotherDialogueScreen extends Screen {
         if (!ClientChapter1Data.chapter2Active) {
             return new DialogueNode(
                     "intro",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "Hoy es Omisoka, la nochevieja japonesa.",
-                            "Para nuestra familia es un día muy especial.",
-                            "Antes de cenar toshikoshi soba, necesitamos",
-                            "preparar varias cosas. ¿Me ayudarías?"
+                            "Today is Omisoka, the Japanese New Year's Eve.",
+                            "For our family, it is a very special day.",
+                            "Before eating Toshikoshi Soba,",
+                            "we need to prepare several things. Will you help me?"
                     ),
                     List.of(
-                            new DialogueOption("Sí, te ayudaré", "start_chapter2"),
-                            new DialogueOption("Ahora no", "exit")
+                            new DialogueOption("Yes, I will help you", "start_chapter2"),
+                            new DialogueOption("Not now", "exit")
                     )
             );
         }
@@ -55,16 +55,16 @@ public class MotherDialogueScreen extends Screen {
         if (ClientChapter1Data.chapter2Task == 1) {
             return new DialogueNode(
                     "go_market",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "Necesitamos ingredientes para el toshikoshi soba.",
-                            "Ve al mercado que está a las afueras del pueblo.",
-                            "Compra fideos, alga, caldo, cebolla y carne.",
-                            "Te he dado yenes para que puedas comprarlos."
+                            "We need ingredients for Toshikoshi Soba.",
+                            "Go to the market outside the village.",
+                            "Buy noodles, seaweed, broth, onion and meat.",
+                            "I have given you yen so you can buy them."
                     ),
                     List.of(
-                            new DialogueOption("Revisar ingredientes", "check_ingredients"),
-                            new DialogueOption("Voy al mercado", "exit")
+                            new DialogueOption("Check ingredients", "check_ingredients"),
+                            new DialogueOption("I'll go to the market", "exit")
                     )
             );
         }
@@ -72,16 +72,16 @@ public class MotherDialogueScreen extends Screen {
         if (ClientChapter1Data.chapter2Task == 2) {
             return new DialogueNode(
                     "check_market",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "¿Ya has vuelto del mercado?",
-                            "Recuerda que necesitamos fideos, alga, caldo,",
-                            "cebolla y carne para preparar el toshikoshi soba.",
-                            "Si te falta algo, vuelve al mercado de las afueras."
+                            "Have you returned from the market?",
+                            "Remember we need noodles, seaweed, broth,",
+                            "onion and meat to prepare Toshikoshi Soba.",
+                            "If you are missing something, go back to the market."
                     ),
                     List.of(
-                            new DialogueOption("Aquí tienes los ingredientes", "check_ingredients"),
-                            new DialogueOption("Volveré cuando los tenga", "exit")
+                            new DialogueOption("Here are the ingredients", "check_ingredients"),
+                            new DialogueOption("I'll come back when I have them", "exit")
                     )
             );
         }
@@ -89,15 +89,15 @@ public class MotherDialogueScreen extends Screen {
         if (ClientChapter1Data.chapter2Task == 3) {
             return new DialogueNode(
                     "ready_to_cook",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "Perfecto, ya tenemos todos los ingredientes.",
-                            "Ahora debemos cocinar el toshikoshi soba.",
-                            "Hazlo en el orden correcto para que salga bien."
+                            "Perfect, we now have all the ingredients.",
+                            "Now we must cook the Toshikoshi Soba.",
+                            "Do it in the correct order so it turns out well."
                     ),
                     List.of(
-                            new DialogueOption("Empezar a cocinar", "open_cooking_game"),
-                            new DialogueOption("Luego lo hago", "exit")
+                            new DialogueOption("Start cooking", "open_cooking_game"),
+                            new DialogueOption("I'll do it later", "exit")
                     )
             );
         }
@@ -105,14 +105,14 @@ public class MotherDialogueScreen extends Screen {
         if (ClientChapter1Data.chapter2Task == 4) {
             return new DialogueNode(
                     "after_cooking",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "¡Ha quedado perfecto!",
-                            "Ahora debemos preparar la mesa",
-                            "para la cena familiar de Omisoka."
+                            "It turned out perfectly!",
+                            "Now we need to prepare the table",
+                            "for the Omisoka family dinner."
                     ),
                     List.of(
-                            new DialogueOption("Entendido", "exit")
+                            new DialogueOption("Understood", "exit")
                     )
             );
         }
@@ -120,14 +120,14 @@ public class MotherDialogueScreen extends Screen {
         if (ClientChapter1Data.chapter2Task == 5) {
             return new DialogueNode(
                     "dinner",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "La mesa ya está preparada.",
-                            "Ahora podemos cenar todos juntos",
-                            "y compartir este momento en familia."
+                            "The table is ready.",
+                            "Now we can eat together",
+                            "and share this moment as a family."
                     ),
                     List.of(
-                            new DialogueOption("Vamos a cenar", "exit")
+                            new DialogueOption("Let's have dinner", "exit")
                     )
             );
         }
@@ -135,27 +135,27 @@ public class MotherDialogueScreen extends Screen {
         if (ClientChapter1Data.chapter2Task == 6) {
             return new DialogueNode(
                     "temple",
-                    "Madre",
+                    "Mother",
                     List.of(
-                            "Después de cenar, debemos ir al templo.",
-                            "Está a las afueras del pueblo.",
-                            "Allí escucharás el significado de las 108 campanadas."
+                            "After dinner, we must go to the temple.",
+                            "It is located outside the village.",
+                            "There you will learn the meaning of the 108 bell chimes."
                     ),
                     List.of(
-                            new DialogueOption("Iré al templo", "exit")
+                            new DialogueOption("I will go to the temple", "exit")
                     )
             );
         }
 
         return new DialogueNode(
                 "default",
-                "Madre",
+                "Mother",
                 List.of(
-                        "Sigamos adelante poco a poco.",
-                        "Todavía nos quedan cosas por preparar."
+                        "Let's continue step by step.",
+                        "There are still things to prepare."
                 ),
                 List.of(
-                        new DialogueOption("De acuerdo", "exit")
+                        new DialogueOption("Alright", "exit")
                 )
         );
     }

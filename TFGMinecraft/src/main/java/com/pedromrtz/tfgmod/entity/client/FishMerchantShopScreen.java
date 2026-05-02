@@ -19,12 +19,12 @@ public class FishMerchantShopScreen extends Screen {
             ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fish_merchant.png");
 
     private final List<ShopItem> shopItems = List.of(
-            new ShopItem("salmon", "Salmón fresco", 2),
-            new ShopItem("cod", "Bacalao", 1),
-            new ShopItem("tropical_fish", "Pez tropical", 3),
-            new ShopItem("pufferfish", "Pez globo", 4),
-            new ShopItem("kelp", "Alga marina", 1),
-            new ShopItem("ink", "Saco de tinta", 2)
+            new ShopItem("salmon", "Fresh Salmon", 2),
+            new ShopItem("cod", "Cod", 1),
+            new ShopItem("tropical_fish", "Tropical Fish", 3),
+            new ShopItem("pufferfish", "Pufferfish", 4),
+            new ShopItem("kelp", "Seaweed", 1),
+            new ShopItem("ink", "Ink Sac", 2)
     );
 
     private final List<ButtonArea> visibleButtons = new ArrayList<>();
@@ -36,7 +36,7 @@ public class FishMerchantShopScreen extends Screen {
     private record ButtonArea(int x, int y, int w, int h, String itemId) {}
 
     public FishMerchantShopScreen() {
-        super(Component.literal("Mercado de pescado"));
+        super(Component.literal("Fish Market"));
     }
 
     @Override
@@ -67,9 +67,9 @@ public class FishMerchantShopScreen extends Screen {
 
         int textX = x + 14 + portraitSize + 14;
 
-        gg.drawString(this.font, "Mercado de Nami No Ura", textX, y + 14, 0xFF66CCFF);
-        gg.drawString(this.font, "Pescado fresco de la costa.", textX, y + 38, 0xEEEEEE);
-        gg.drawString(this.font, "Para la misión necesitas salmón.", textX, y + 52, 0xFFFFAA00);
+        gg.drawString(this.font, "Nami No Ura Market", textX, y + 14, 0xFF66CCFF);
+        gg.drawString(this.font, "Fresh fish from the coast.", textX, y + 38, 0xEEEEEE);
+        gg.drawString(this.font, "You need salmon for your mission.", textX, y + 52, 0xFFFFAA00);
 
         int listX = x + 14;
         int listY = y + 92;
@@ -93,7 +93,7 @@ public class FishMerchantShopScreen extends Screen {
 
             gg.fill(btnX, btnY, btnX + btnW, btnY + btnH, color);
 
-            String label = item.name() + " - " + item.price() + (item.price() == 1 ? " yen" : " yenes");
+            String label = item.name() + " - " + item.price() + " yen";
 
             gg.drawCenteredString(this.font,
                     label,
@@ -127,7 +127,7 @@ public class FishMerchantShopScreen extends Screen {
                 ? 0xFF555555 : 0xFF333333;
 
         gg.fill(closeX, closeY, closeX + closeW, closeY + closeH, closeColor);
-        gg.drawCenteredString(this.font, "Cerrar", closeX + closeW / 2, closeY + 7, 0xFFFFFF);
+        gg.drawCenteredString(this.font, "Close", closeX + closeW / 2, closeY + 7, 0xFFFFFF);
 
         visibleButtons.add(new ButtonArea(closeX, closeY, closeW, closeH, "exit"));
 

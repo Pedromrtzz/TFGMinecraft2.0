@@ -33,7 +33,7 @@ public class SushiCutScreen extends Screen {
     private int resultColor = 0xFFFFFF;
 
     public SushiCutScreen() {
-        super(Component.literal("Corte de sushi"));
+        super(Component.literal("Sushi Cutting"));
     }
 
     @Override
@@ -73,19 +73,20 @@ public class SushiCutScreen extends Screen {
         RenderSystem.disableBlend();
 
         gg.fill(buttonX, buttonY, buttonX + BUTTON_W, buttonY + BUTTON_H, 0xFF444444);
-        String label = hasCut ? "REINTENTAR" : "SALIR";
+        String label = hasCut ? "RETRY" : "EXIT";
         gg.drawCenteredString(this.font, label,
                 buttonX + BUTTON_W / 2, buttonY + 4, 0xFFFFFF);
 
-        gg.drawCenteredString(this.font, "CORTE DE SUSHI",
+        gg.drawCenteredString(this.font, "SUSHI CUTTING",
                 this.width / 2, matY - 16, 0xFFFFFF);
 
         Component text;
         if (hasCut && !resultMessage.getString().isEmpty()) {
             text = resultMessage;
         } else {
-            text = Component.literal("Haz clic sobre el maki para cortarlo por la mitad.");
+            text = Component.literal("Click on the maki to cut it in half.");
         }
+
         gg.drawCenteredString(this.font, text,
                 this.width / 2, matY + 256 + 8, resultColor);
 
@@ -122,15 +123,15 @@ public class SushiCutScreen extends Screen {
             int dist = Math.abs(cutX - idealX);
 
             if (dist <= 2) {
-                resultMessage = Component.literal("¡Corte PERFECTO! \uD83C\uDF63");
+                resultMessage = Component.literal("PERFECT CUT! 🍣");
                 resultColor = 0xFF55FF55;
                 playSuccess();
             } else if (dist <= 5) {
-                resultMessage = Component.literal("¡Muy bien! Casi perfecto.");
+                resultMessage = Component.literal("Very good! Almost perfect.");
                 resultColor = 0xFFFFFF55;
                 playClick();
             } else {
-                resultMessage = Component.literal("Corte torcido... inténtalo otra vez.");
+                resultMessage = Component.literal("Crooked cut... try again.");
                 resultColor = 0xFFFF5555;
                 playFail();
             }

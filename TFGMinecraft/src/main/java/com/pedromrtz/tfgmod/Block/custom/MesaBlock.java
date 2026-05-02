@@ -84,7 +84,7 @@ public class MesaBlock extends Block {
         var progress = Chapter1ProgressUtil.get(sp);
 
         if (!progress.isChapter2Active()) {
-            sp.displayClientMessage(Component.literal("§7Ahora mismo no necesitas interactuar con la mesa."), true);
+            sp.displayClientMessage(Component.literal("§7You don't need to interact with the table right now."), true);
             return InteractionResult.SUCCESS;
         }
 
@@ -94,13 +94,13 @@ public class MesaBlock extends Block {
             if (stage == 0) {
                 level.setBlock(pos, state.setValue(STAGE, 1), 3);
                 progress.setChapter2TableStage(1);
-                sp.displayClientMessage(Component.literal("§6Has colocado el cuenco principal."), true);
+                sp.displayClientMessage(Component.literal("§6You placed the main bowl."), true);
                 playStepSound(level, pos, sp);
 
             } else if (stage == 1) {
                 level.setBlock(pos, state.setValue(STAGE, 2), 3);
                 progress.setChapter2TableStage(2);
-                sp.displayClientMessage(Component.literal("§6Has colocado los palillos."), true);
+                sp.displayClientMessage(Component.literal("§6You placed the chopsticks."), true);
                 playStepSound(level, pos, sp);
 
             } else if (stage == 2) {
@@ -108,7 +108,7 @@ public class MesaBlock extends Block {
                 progress.setChapter2TableStage(3);
                 progress.setChapter2Task(5);
 
-                sp.displayClientMessage(Component.literal("§6¡La mesa está lista para la cena familiar!"), true);
+                sp.displayClientMessage(Component.literal("§6The table is ready for the family dinner!"), true);
 
                 level.playSound(
                         null,
@@ -120,7 +120,7 @@ public class MesaBlock extends Block {
                 );
 
             } else {
-                sp.displayClientMessage(Component.literal("§7La mesa ya está preparada."), true);
+                sp.displayClientMessage(Component.literal("§7The table is already prepared."), true);
             }
 
             ProgressSync.syncChapter1(sp);
@@ -142,7 +142,7 @@ public class MesaBlock extends Block {
             CardItem.setCardId(cardStack, "card_japan_omisoka_dinner");
             sp.addItem(cardStack);
 
-            sp.displayClientMessage(Component.literal("§6Has cenado con la familia. Has conseguido un nuevo cromo."), true);
+            sp.displayClientMessage(Component.literal("§6You had dinner with the family. You earned a new card."), true);
 
             level.playSound(
                     null,
@@ -158,7 +158,7 @@ public class MesaBlock extends Block {
             }
 
             sp.displayClientMessage(
-                    Component.literal("§7La noche cae sobre Sakura Town. Es hora de ir al templo."),
+                    Component.literal("§7Night falls over Sakura Town. It's time to go to the temple."),
                     false
             );
 
@@ -166,7 +166,7 @@ public class MesaBlock extends Block {
             return InteractionResult.SUCCESS;
         }
 
-        sp.displayClientMessage(Component.literal("§7Ahora mismo no necesitas preparar la mesa."), true);
+        sp.displayClientMessage(Component.literal("§7You don't need to prepare the table right now."), true);
         return InteractionResult.SUCCESS;
     }
 

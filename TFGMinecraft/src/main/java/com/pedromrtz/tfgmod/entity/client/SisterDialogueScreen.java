@@ -22,29 +22,29 @@ public class SisterDialogueScreen extends Screen {
     private static final Map<String, DialogueNode> NODES = Map.of(
             "intro", new DialogueNode(
                     "intro",
-                    "Hermana",
+                    "Sister",
                     List.of(
-                            "¡Hola! Qué bien verte por aquí.",
-                            "Siempre hay algo interesante que aprender en el pueblo.",
-                            "A veces, solo hay que fijarse en los pequeños detalles."
+                            "Hi! It's great to see you here.",
+                            "There is always something interesting to learn in the village.",
+                            "Sometimes, you only need to notice the small details."
                     ),
                     List.of(
-                            new DialogueOption("¿Qué quieres decir?", "details"),
-                            new DialogueOption("Luego hablamos", "exit")
+                            new DialogueOption("What do you mean?", "details"),
+                            new DialogueOption("We can talk later", "exit")
                     )
             ),
 
             "details", new DialogueNode(
                     "details",
-                    "Pequeños detalles",
+                    "Small Details",
                     List.of(
-                            "Las tradiciones están en todas partes:",
-                            "en la comida, en las casas y en la forma de vivir.",
-                            "Si observas bien, aprenderás muchísimo."
+                            "Traditions are everywhere:",
+                            "in food, in houses and in the way people live.",
+                            "If you observe carefully, you will learn a lot."
                     ),
                     List.of(
-                            new DialogueOption("Entendido", "exit"),
-                            new DialogueOption("Volver", "intro")
+                            new DialogueOption("Understood", "exit"),
+                            new DialogueOption("Back", "intro")
                     )
             )
     );
@@ -54,7 +54,7 @@ public class SisterDialogueScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
     public SisterDialogueScreen() {
-        super(Component.literal("Hermana"));
+        super(Component.literal("Sister"));
         this.currentNode = NODES.get("intro");
     }
 
@@ -62,7 +62,7 @@ public class SisterDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 340;
+        int boxW = 430;
         int boxH = 260;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;

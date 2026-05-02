@@ -34,7 +34,7 @@ public class Chapter2BellEvent {
 
         if (current >= 108) {
             sp.displayClientMessage(
-                    Component.literal("§7Ya has completado las 108 campanadas."),
+                    Component.literal("§7You have already completed the 108 bell chimes."),
                     true
             );
             return;
@@ -53,7 +53,7 @@ public class Chapter2BellEvent {
         );
 
         sp.displayClientMessage(
-                Component.literal("§6Campanadas: " + next + " / 108"),
+                Component.literal("§6Bell chimes: " + next + " / 108"),
                 true
         );
 
@@ -64,12 +64,12 @@ public class Chapter2BellEvent {
             sp.addItem(ema);
 
             sp.displayClientMessage(
-                    Component.literal("§6Has completado las 108 campanadas. El monje te entrega un ema."),
+                    Component.literal("§6You have completed the 108 bell chimes. The monk gives you an ema."),
                     false
             );
 
             sp.displayClientMessage(
-                    Component.literal("§7Escribe tu deseo y luego cuélgalo en el árbol de afuera."),
+                    Component.literal("§7Write your wish and then hang it on the tree outside."),
                     false
             );
         }

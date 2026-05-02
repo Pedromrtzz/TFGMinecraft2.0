@@ -19,9 +19,9 @@ public class AmbientNPCData {
                     "chef",
                     "Chef",
                     new String[]{
-                            "El sushi no es solo comida.",
-                            "También representa técnica, equilibrio",
-                            "y respeto por los ingredientes."
+                            "Sushi is not just food.",
+                            "It also represents technique, balance",
+                            "and respect for the ingredients."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/chef.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/chef.png")
@@ -29,11 +29,11 @@ public class AmbientNPCData {
 
             "fisherman", new AmbientNPCInfo(
                     "fisherman",
-                    "Pescador",
+                    "Fisherman",
                     new String[]{
-                            "Los peces koi son muy importantes en Japón.",
-                            "Simbolizan perseverancia, esfuerzo",
-                            "y buena fortuna."
+                            "Koi fish are very important in Japan.",
+                            "They symbolise perseverance, effort",
+                            "and good fortune."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman.png")
@@ -41,10 +41,10 @@ public class AmbientNPCData {
 
             "neighbor1", new AmbientNPCInfo(
                     "neighbor1",
-                    "Vecino",
+                    "Villager",
                     new String[]{
-                            "Los cerezos sakura florecen solo",
-                            "durante un tiempo muy corto del año."
+                            "Sakura cherry trees bloom",
+                            "only for a short time each year."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor.png")
@@ -52,10 +52,10 @@ public class AmbientNPCData {
 
             "neighbor2", new AmbientNPCInfo(
                     "neighbor2",
-                    "Vecina",
+                    "Villager",
                     new String[]{
-                            "En Japón, quitarse los zapatos al entrar",
-                            "en casa es una muestra de respeto."
+                            "In Japan, removing your shoes before",
+                            "entering a home is a sign of respect."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor2.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor2.png")
@@ -63,10 +63,10 @@ public class AmbientNPCData {
 
             "neighbor3", new AmbientNPCInfo(
                     "neighbor3",
-                    "Vecino",
+                    "Villager",
                     new String[]{
-                            "Muchas casas tradicionales japonesas",
-                            "usan tatami en el suelo."
+                            "Many traditional Japanese houses",
+                            "use tatami mats on the floor."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor3.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor3.png")
@@ -74,10 +74,10 @@ public class AmbientNPCData {
 
             "neighbor4", new AmbientNPCInfo(
                     "neighbor4",
-                    "Vecina",
+                    "Villager",
                     new String[]{
-                            "La vida cotidiana también enseña cultura:",
-                            "comida, casas y costumbres."
+                            "Everyday life also teaches culture:",
+                            "food, homes and traditions."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor4.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor4.png")
@@ -85,11 +85,11 @@ public class AmbientNPCData {
 
             "nami_fisherman1", new AmbientNPCInfo(
                     "nami_fisherman1",
-                    "Pescador",
+                    "Fisherman",
                     new String[]{
-                            "En Nami No Ura salimos al mar muy temprano.",
-                            "El pescado fresco es esencial para preparar buen sushi.",
-                            "En Japón se valora mucho respetar lo que ofrece el mar."
+                            "In Nami No Ura, we go out to sea very early.",
+                            "Fresh fish is essential for making good sushi.",
+                            "In Japan, we deeply respect what the sea provides."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman1.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman1.png")
@@ -97,11 +97,11 @@ public class AmbientNPCData {
 
             "nami_fisherman2", new AmbientNPCInfo(
                     "nami_fisherman2",
-                    "Vecina del puerto",
+                    "Harbour Resident",
                     new String[]{
-                            "El sushi no depende solo del pescado.",
-                            "El arroz es igual de importante.",
-                            "Debe lavarse y prepararse con mucho cuidado."
+                            "Sushi does not depend only on fish.",
+                            "Rice is just as important.",
+                            "It must be washed and prepared with great care."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman2.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman2.png")
@@ -109,11 +109,11 @@ public class AmbientNPCData {
 
             "nami_fisherman3", new AmbientNPCInfo(
                     "nami_fisherman3",
-                    "Habitante costero",
+                    "Coastal Resident",
                     new String[]{
-                            "Nami No Ura es un pueblo unido al mar.",
-                            "Aquí muchas familias viven de la pesca",
-                            "y del mercado que llega cada mañana al puerto."
+                            "Nami No Ura is a village connected to the sea.",
+                            "Many families here live from fishing",
+                            "and the market that arrives at the harbour each morning."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman3.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman3.png")
@@ -121,11 +121,11 @@ public class AmbientNPCData {
 
             "nami_fisherman4", new AmbientNPCInfo(
                     "nami_fisherman4",
-                    "Aprendiz de cocina",
+                    "Apprentice Cook",
                     new String[]{
-                            "Un itamae aprende durante años.",
-                            "El corte del pescado debe ser limpio y preciso.",
-                            "La presentación también forma parte del arte del sushi."
+                            "An itamae trains for many years.",
+                            "The fish must be cut cleanly and precisely.",
+                            "Presentation is also part of the art of sushi."
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman4.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman4.png")

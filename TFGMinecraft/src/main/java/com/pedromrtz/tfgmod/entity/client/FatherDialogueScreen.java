@@ -22,29 +22,29 @@ public class FatherDialogueScreen extends Screen {
     private static final Map<String, DialogueNode> NODES = Map.of(
             "intro", new DialogueNode(
                     "intro",
-                    "Padre",
+                    "Father",
                     List.of(
-                            "Me alegra verte por aquí.",
-                            "Aún quedan muchas cosas por descubrir en Sakura Town.",
-                            "Cuando estés listo, podremos continuar."
+                            "I'm glad to see you here.",
+                            "There are still many things to discover in Sakura Town.",
+                            "When you're ready, we can continue."
                     ),
                     List.of(
-                            new DialogueOption("¿Qué deberíamos hacer ahora?", "next"),
-                            new DialogueOption("Luego hablamos", "exit")
+                            new DialogueOption("What should we do next?", "next"),
+                            new DialogueOption("We can talk later", "exit")
                     )
             ),
 
             "next", new DialogueNode(
                     "next",
-                    "Siguiente paso",
+                    "Next Step",
                     List.of(
-                            "Cada lugar tiene una historia.",
-                            "Observa bien lo que te rodea y aprende de ello.",
-                            "Pronto comenzará una nueva etapa."
+                            "Every place has a story.",
+                            "Observe your surroundings carefully and learn from them.",
+                            "A new stage will begin soon."
                     ),
                     List.of(
-                            new DialogueOption("Entendido", "exit"),
-                            new DialogueOption("Volver", "intro")
+                            new DialogueOption("Understood", "exit"),
+                            new DialogueOption("Back", "intro")
                     )
             )
     );
@@ -54,7 +54,7 @@ public class FatherDialogueScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
     public FatherDialogueScreen() {
-        super(Component.literal("Padre"));
+        super(Component.literal("Father"));
         this.currentNode = NODES.get("intro");
     }
 
@@ -62,14 +62,13 @@ public class FatherDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 340;
+        int boxW = 430;
         int boxH = 260;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
         gg.fill(x, y, x + boxW, y + boxH, 0xCC000000);
 
-        // Retrato
         int portraitSize = 64;
         int portraitX = x + 12;
         int portraitY = y + 12;

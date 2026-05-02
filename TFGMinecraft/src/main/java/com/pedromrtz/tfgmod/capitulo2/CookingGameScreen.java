@@ -23,14 +23,14 @@ public class CookingGameScreen extends Screen {
     private final List<ButtonArea> ingredientButtons = new ArrayList<>();
     private final List<ButtonArea> actionButtons = new ArrayList<>();
 
-    private String feedbackMessage = "Prepara el soba siguiendo el orden correcto.";
+    private String feedbackMessage = "Prepare the soba by following the correct order.";
     private int feedbackColor = 0xEEEEEE;
     private int errorCount = 0;
 
     private record ButtonArea(int x, int y, int w, int h, String id, String label, ItemStack icon) {}
 
     public CookingGameScreen() {
-        super(Component.literal("Cocinar Toshikoshi Soba"));
+        super(Component.literal("Cooking Toshikoshi Soba"));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class CookingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Minijuego: Toshikoshi Soba",
+                "Minigame: Toshikoshi Soba",
                 this.width / 2,
                 y + 12,
                 0xFFFFFF
@@ -54,7 +54,7 @@ public class CookingGameScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Selecciona los ingredientes en el orden correcto.",
+                "Select the ingredients in the correct order.",
                 this.width / 2,
                 y + 32,
                 0xDDDDDD
@@ -69,12 +69,12 @@ public class CookingGameScreen extends Screen {
         int row1Y = y + 58;
         int row2Y = y + 102;
 
-        addIngredientButton(ingredientButtons, x + 22, row1Y, btnW, btnH, "caldo", "Caldo", new ItemStack(ModItems.CALDO.get()));
-        addIngredientButton(ingredientButtons, x + 22 + btnW + gap, row1Y, btnW, btnH, "fideos", "Fideos", new ItemStack(ModItems.FIDEOS.get()));
-        addIngredientButton(ingredientButtons, x + 22 + (btnW + gap) * 2, row1Y, btnW, btnH, "carne", "Carne", new ItemStack(Items.BEEF));
+        addIngredientButton(ingredientButtons, x + 22, row1Y, btnW, btnH, "caldo", "Broth", new ItemStack(ModItems.CALDO.get()));
+        addIngredientButton(ingredientButtons, x + 22 + btnW + gap, row1Y, btnW, btnH, "fideos", "Noodles", new ItemStack(ModItems.FIDEOS.get()));
+        addIngredientButton(ingredientButtons, x + 22 + (btnW + gap) * 2, row1Y, btnW, btnH, "carne", "Meat", new ItemStack(Items.BEEF));
 
-        addIngredientButton(ingredientButtons, x + 92, row2Y, btnW, btnH, "cebolla", "Cebolla", new ItemStack(ModItems.CEBOLLA.get()));
-        addIngredientButton(ingredientButtons, x + 92 + btnW + gap, row2Y, btnW, btnH, "alga", "Alga", new ItemStack(Items.KELP));
+        addIngredientButton(ingredientButtons, x + 92, row2Y, btnW, btnH, "cebolla", "Onion", new ItemStack(ModItems.CEBOLLA.get()));
+        addIngredientButton(ingredientButtons, x + 92 + btnW + gap, row2Y, btnW, btnH, "alga", "Seaweed", new ItemStack(Items.KELP));
 
         for (ButtonArea btn : ingredientButtons) {
             int color = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
@@ -93,7 +93,7 @@ public class CookingGameScreen extends Screen {
             );
         }
 
-        gg.drawString(this.font, "Tu receta:", x + 22, y + 150, 0xFFFFFF);
+        gg.drawString(this.font, "Your recipe:", x + 22, y + 150, 0xFFFFFF);
 
         int orderBoxX = x + 22;
         int orderBoxY = y + 165;
@@ -140,9 +140,9 @@ public class CookingGameScreen extends Screen {
         actionButtons.clear();
 
         int actionY = y + boxH - 36;
-        addActionButton(actionButtons, x + 22, actionY, 120, 22, "clear", "Limpiar", ItemStack.EMPTY);
-        addActionButton(actionButtons, x + (boxW - 120) / 2, actionY, 120, 22, "confirm", "Confirmar", ItemStack.EMPTY);
-        addActionButton(actionButtons, x + boxW - 22 - 120, actionY, 120, 22, "exit", "Salir", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + 22, actionY, 120, 22, "clear", "Clear", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + (boxW - 120) / 2, actionY, 120, 22, "confirm", "Confirm", ItemStack.EMPTY);
+        addActionButton(actionButtons, x + boxW - 22 - 120, actionY, 120, 22, "exit", "Exit", ItemStack.EMPTY);
 
         for (ButtonArea btn : actionButtons) {
             int color = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
@@ -178,13 +178,13 @@ public class CookingGameScreen extends Screen {
         playClickSound();
 
         if (selectedOrder.size() >= correctOrder.size()) {
-            feedbackMessage = "Ya has seleccionado todos los ingredientes.";
+            feedbackMessage = "You have already selected all ingredients.";
             feedbackColor = 0xFFFFAA00;
             return;
         }
 
         selectedOrder.add(ingredientId);
-        feedbackMessage = "Ingrediente añadido: " + formatIngredient(ingredientId);
+        feedbackMessage = "Ingredient added: " + formatIngredient(ingredientId);
         feedbackColor = 0xEEEEEE;
     }
 
@@ -194,19 +194,19 @@ public class CookingGameScreen extends Screen {
         switch (actionId) {
             case "clear" -> {
                 selectedOrder.clear();
-                feedbackMessage = "Has limpiado la receta. Inténtalo de nuevo.";
+                feedbackMessage = "Recipe cleared. Try again.";
                 feedbackColor = 0xFFCCCCCC;
             }
 
             case "confirm" -> {
                 if (selectedOrder.size() != correctOrder.size()) {
-                    feedbackMessage = "Te faltan ingredientes. Debes colocar 5 en total.";
+                    feedbackMessage = "Missing ingredients. You must place all 5.";
                     feedbackColor = 0xFFFF5555;
                     return;
                 }
 
                 if (selectedOrder.equals(correctOrder)) {
-                    feedbackMessage = "¡Perfecto! Has cocinado correctamente el soba.";
+                    feedbackMessage = "Perfect! You cooked the soba correctly.";
                     feedbackColor = 0xFF55FF55;
 
                     ModNetwork.CHANNEL.send(
@@ -223,7 +223,7 @@ public class CookingGameScreen extends Screen {
                         feedbackMessage = getHint();
                         feedbackColor = 0xFFFFAA00;
                     } else {
-                        feedbackMessage = "El orden no es correcto. La receta se ha reiniciado.";
+                        feedbackMessage = "Incorrect order. Recipe reset.";
                         feedbackColor = 0xFFFF5555;
                     }
                 }
@@ -235,10 +235,10 @@ public class CookingGameScreen extends Screen {
 
     private String getHint() {
         return switch (errorCount) {
-            case 2 -> "Pista: primero se prepara la base líquida.";
-            case 4 -> "Pista: después del caldo van los fideos.";
-            case 6 -> "Pista: el alga se coloca al final como acompañamiento.";
-            default -> "Pista: piensa en base, fideos, proteína y toppings.";
+            case 2 -> "Hint: start with the liquid base.";
+            case 4 -> "Hint: noodles go after the broth.";
+            case 6 -> "Hint: seaweed is added at the end.";
+            default -> "Hint: think base, noodles, protein, toppings.";
         };
     }
 
@@ -263,11 +263,11 @@ public class CookingGameScreen extends Screen {
 
     private String formatIngredient(String id) {
         return switch (id) {
-            case "caldo" -> "Caldo";
-            case "fideos" -> "Fideos";
-            case "carne" -> "Carne";
-            case "cebolla" -> "Cebolla";
-            case "alga" -> "Alga";
+            case "caldo" -> "Broth";
+            case "fideos" -> "Noodles";
+            case "carne" -> "Meat";
+            case "cebolla" -> "Onion";
+            case "alga" -> "Seaweed";
             default -> id;
         };
     }

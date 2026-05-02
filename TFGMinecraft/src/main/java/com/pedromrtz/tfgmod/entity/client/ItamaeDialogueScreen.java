@@ -2,7 +2,6 @@ package com.pedromrtz.tfgmod.entity.client;
 
 import com.pedromrtz.tfgmod.client.ClientChapter1Data;
 import com.pedromrtz.tfgmod.network.CheckChapter3IngredientsC2SPacket;
-import com.pedromrtz.tfgmod.network.CompleteChapter3C2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
 import com.pedromrtz.tfgmod.network.StartChapter3C2SPacket;
 import net.minecraft.client.Minecraft;
@@ -30,121 +29,121 @@ public class ItamaeDialogueScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, DialogueOption option) {}
 
     public ItamaeDialogueScreen() {
-        super(Component.literal("Maestro Itamae"));
+        super(Component.literal("Itamae Master"));
         this.currentNode = getInitialNode();
     }
 
     private DialogueNode getInitialNode() {
         if (!ClientChapter1Data.chapter3Active && !ClientChapter1Data.chapter3Completed) {
             return new DialogueNode(
-                    "Maestro Itamae",
+                    "Itamae Master",
                     List.of(
-                            "Bienvenido a Nami No Ura, la villa junto al mar.",
-                            "Aquí el sushi no es solo comida: es técnica, calma y respeto.",
-                            "El arroz es la base, el cuchillo requiere precisión",
-                            "y la presentación refleja la estética japonesa.",
-                            "¿Quieres aprender a preparar sushi conmigo?"
+                            "Welcome to Nami No Ura, the village by the sea.",
+                            "Here, sushi is not just food: it is technique, calm and respect.",
+                            "Rice is the foundation, the knife requires precision,",
+                            "and presentation reflects Japanese aesthetics.",
+                            "Would you like to learn how to prepare sushi with me?"
                     ),
                     List.of(
-                            new DialogueOption("Sí, quiero aprender", "start_chapter3"),
-                            new DialogueOption("Ahora no", "exit")
+                            new DialogueOption("Yes, I want to learn", "start_chapter3"),
+                            new DialogueOption("Not now", "exit")
                     )
             );
         }
 
         if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 1) {
             return new DialogueNode(
-                    "Tarea 1: Arroz y pescado",
+                    "Task 1: Rice and Fish",
                     List.of(
-                            "Para preparar sushi necesitamos dos ingredientes básicos.",
-                            "En Nami No Ura hay un pequeño arrozal cerca de la costa.",
-                            "Ve allí y recolecta arroz fresco.",
-                            "Después, compra salmón en el mercado de pescado.",
-                            "Cuando tengas arroz y salmón, vuelve conmigo."
+                            "To prepare sushi, we need two essential ingredients.",
+                            "In Nami No Ura, there is a small rice field near the coast.",
+                            "Go there and collect fresh rice.",
+                            "Then, buy salmon at the fish market.",
+                            "When you have both, return to me."
                     ),
                     List.of(
-                            new DialogueOption("Tengo arroz y pescado", "check_ingredients"),
-                            new DialogueOption("Voy a buscarlos", "exit")
+                            new DialogueOption("I have rice and fish", "check_ingredients"),
+                            new DialogueOption("I'll go get them", "exit")
                     )
             );
         }
 
         if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 2) {
             return new DialogueNode(
-                    "Maestro Itamae",
+                    "Itamae Master",
                     List.of(
-                            "Buen trabajo. Ya tenemos arroz y pescado.",
-                            "Antes de preparar sushi, el arroz debe lavarse.",
-                            "Este paso elimina el exceso de almidón",
-                            "y ayuda a conseguir una textura más limpia.",
-                            "Lávalo con calma hasta que el agua quede clara."
+                            "Good work. We now have rice and fish.",
+                            "Before preparing sushi, the rice must be washed.",
+                            "This step removes excess starch",
+                            "and helps achieve a cleaner texture.",
+                            "Wash it carefully until the water becomes clear."
                     ),
                     List.of(
-                            new DialogueOption("Lavar arroz", "open_rice_washing"),
-                            new DialogueOption("Luego lo hago", "exit")
+                            new DialogueOption("Wash rice", "open_rice_washing"),
+                            new DialogueOption("I'll do it later", "exit")
                     )
             );
         }
 
         if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 3) {
             return new DialogueNode(
-                    "Maestro Itamae",
+                    "Itamae Master",
                     List.of(
-                            "Ahora trabajaremos el salmón.",
-                            "En la cocina japonesa, el corte debe ser preciso.",
-                            "No se trata solo de dividir el pescado,",
-                            "sino de respetar su textura y presentación.",
-                            "Corta el salmón con calma y buen pulso."
+                            "Now we will work with the salmon.",
+                            "In Japanese cuisine, cutting must be precise.",
+                            "It is not just about dividing the fish,",
+                            "but respecting its texture and presentation.",
+                            "Cut the salmon calmly and with steady hands."
                     ),
                     List.of(
-                            new DialogueOption("Cortar salmón", "open_salmon_cutting"),
-                            new DialogueOption("Luego lo hago", "exit")
+                            new DialogueOption("Cut salmon", "open_salmon_cutting"),
+                            new DialogueOption("I'll do it later", "exit")
                     )
             );
         }
 
         if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 4) {
             return new DialogueNode(
-                    "Maestro Itamae",
+                    "Itamae Master",
                     List.of(
-                            "Ya tenemos el arroz lavado y el salmón cortado.",
-                            "Ahora toca montar el sushi.",
-                            "Recuerda mi acertijo:",
-                            "primero la base blanca, después el alga,",
-                            "luego el corte del mar, y al final la forma."
+                            "We now have the rice prepared and the salmon cut.",
+                            "It is time to assemble the sushi.",
+                            "Remember my riddle:",
+                            "first the white base, then the seaweed,",
+                            "then the cut from the sea, and finally the form."
                     ),
                     List.of(
-                            new DialogueOption("Montar sushi", "open_sushi_assembly"),
-                            new DialogueOption("Luego lo hago", "exit")
+                            new DialogueOption("Assemble sushi", "open_sushi_assembly"),
+                            new DialogueOption("I'll do it later", "exit")
                     )
             );
         }
 
         if (ClientChapter1Data.chapter3Active && ClientChapter1Data.chapter3Task == 5) {
             return new DialogueNode(
-                    "Maestro Itamae",
+                    "Itamae Master",
                     List.of(
-                            "Has completado todos los pasos.",
-                            "Ahora entrégame el sushi que has preparado.",
-                            "Un buen sushi no solo depende del sabor,",
-                            "también de la paciencia, la precisión",
-                            "y el respeto por cada ingrediente."
+                            "You have completed all the steps.",
+                            "Now, give me the sushi you have prepared.",
+                            "Good sushi depends not only on taste,",
+                            "but also on patience, precision",
+                            "and respect for every ingredient."
                     ),
                     List.of(
-                            new DialogueOption("Entregar sushi", "complete_chapter3"),
-                            new DialogueOption("Todavía no", "exit")
+                            new DialogueOption("Deliver sushi", "complete_chapter3"),
+                            new DialogueOption("Not yet", "exit")
                     )
             );
         }
 
         return new DialogueNode(
-                "Maestro Itamae",
+                "Itamae Master",
                 List.of(
-                        "Sigue practicando con paciencia.",
-                        "La cocina japonesa valora la precisión y el respeto por cada ingrediente."
+                        "Keep practising with patience.",
+                        "Japanese cuisine values precision and respect for each ingredient."
                 ),
                 List.of(
-                        new DialogueOption("Entendido", "exit")
+                        new DialogueOption("Understood", "exit")
                 )
         );
     }
@@ -259,7 +258,6 @@ public class ItamaeDialogueScreen extends Screen {
             case "complete_chapter3" -> {
                 Minecraft.getInstance().setScreen(new ItamaeFinalSceneScreen());
             }
-
         }
     }
 

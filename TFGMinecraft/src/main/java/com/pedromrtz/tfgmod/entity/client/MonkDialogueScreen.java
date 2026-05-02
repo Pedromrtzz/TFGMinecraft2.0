@@ -21,7 +21,7 @@ public class MonkDialogueScreen extends Screen {
     private record OptionArea(int x, int y, int w, int h, String action) {}
 
     public MonkDialogueScreen() {
-        super(Component.literal("Monje"));
+        super(Component.literal("Monk"));
     }
 
     @Override
@@ -61,7 +61,7 @@ public class MonkDialogueScreen extends Screen {
 
         int textX = x + 14 + portraitSize + 18;
 
-        gg.drawString(this.font, "Monje del templo", textX, y + 16, 0xFFFFFF);
+        gg.drawString(this.font, "Temple Monk", textX, y + 16, 0xFFFFFF);
 
         List<String> lines = getLines();
 
@@ -99,28 +99,28 @@ public class MonkDialogueScreen extends Screen {
     private List<String> getLines() {
         if (!ClientChapter1Data.chapter2Active || ClientChapter1Data.chapter2Task != 6) {
             return List.of(
-                    "Bienvenido al templo.",
-                    "Cuando llegue el momento adecuado,",
-                    "te explicaré el significado de las campanadas."
+                    "Welcome to the temple.",
+                    "When the right moment comes,",
+                    "I will explain the meaning of the bell chimes."
             );
         }
 
         return List.of(
-                "Has llegado en la noche de Omisoka.",
-                "En Japón, muchos templos realizan el Joya no Kane.",
-                "Durante este ritual, la campana suena 108 veces.",
-                "Cada campanada simboliza dejar atrás deseos,",
-                "preocupaciones e impurezas humanas.",
-                "Haz sonar la campana del templo para completar el ritual."
+                "You have arrived on the night of Omisoka.",
+                "In Japan, many temples perform the Joya no Kane ritual.",
+                "During this ritual, the bell is rung 108 times.",
+                "Each chime represents letting go of desires,",
+                "worries, and human imperfections.",
+                "Ring the temple bell to complete the ritual."
         );
     }
 
     private String getButtonText() {
         if (!ClientChapter1Data.chapter2Active || ClientChapter1Data.chapter2Task != 6) {
-            return "Entendido";
+            return "Understood";
         }
 
-        return "Entendido, tocaré la campana";
+        return "Understood, I will ring the bell";
     }
 
     @Override

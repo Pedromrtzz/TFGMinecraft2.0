@@ -32,7 +32,7 @@ public class CompleteChapter3RiceWashC2SPacket {
 
                     sp.getCapability(Chapter1ProgressProvider.CHAPTER1_PROGRESS).ifPresent(progress -> {
                         if (!progress.isChapter3Active() || progress.getChapter3Task() != 2) {
-                            sp.displayClientMessage(Component.literal("§cAhora no puedes lavar arroz."), false);
+                            sp.displayClientMessage(Component.literal("§cYou cannot wash rice right now."), false);
                             return;
                         }
 
@@ -42,7 +42,7 @@ public class CompleteChapter3RiceWashC2SPacket {
                         sp.addItem(rice);
 
                         sp.displayClientMessage(
-                                Component.literal("§6Has lavado el arroz correctamente. Has recibido un cromo."),
+                                Component.literal("§6You have washed the rice correctly. You received a card."),
                                 false
                         );
 

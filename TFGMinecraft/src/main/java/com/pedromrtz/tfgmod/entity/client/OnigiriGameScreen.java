@@ -48,7 +48,7 @@ public class OnigiriGameScreen extends Screen {
     public void tick() {
         super.tick();
         if (isForming) {
-            formingProgress += 3; // velocidad de llenado de la barra
+            formingProgress += 3;
             if (formingProgress >= 100) {
                 formingProgress = 100;
                 isForming = false;
@@ -190,7 +190,6 @@ public class OnigiriGameScreen extends Screen {
             resultMessage = "Te falta el relleno dentro del onigiri.";
         } else {
             resultMessage = "¡Onigiri perfecto! 🍙";
-            // Aquí más adelante: dar recompensa (item/cromo)
         }
 
         riceAmount = 0;

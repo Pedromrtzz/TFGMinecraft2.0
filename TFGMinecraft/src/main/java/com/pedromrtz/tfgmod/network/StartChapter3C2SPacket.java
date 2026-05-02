@@ -37,7 +37,7 @@ public class StartChapter3C2SPacket {
                         sp.addItem(new ItemStack(ModItems.YEN.get(), 3));
 
                         sp.displayClientMessage(
-                                Component.literal("§6El maestro te ha dado 3 yenes para comprar pescado."),
+                                Component.literal("§6The master has given you 3 yen to buy fish."),
                                 false
                         );
 

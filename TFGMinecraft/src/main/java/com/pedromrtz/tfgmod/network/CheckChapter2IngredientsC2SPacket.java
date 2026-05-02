@@ -40,7 +40,7 @@ public class CheckChapter2IngredientsC2SPacket {
                             progress.setChapter2Task(3);
 
                             sp.displayClientMessage(
-                                    Component.literal("§6Perfecto. Ya tenemos todo para cocinar el toshikoshi soba."),
+                                    Component.literal("§6Perfect. We now have everything to cook the toshikoshi soba."),
                                     false
                             );
 
@@ -52,7 +52,7 @@ public class CheckChapter2IngredientsC2SPacket {
                             String missingText = String.join(", ", missing);
 
                             sp.displayClientMessage(
-                                    Component.literal("§cAún faltan ingredientes: " + missingText),
+                                    Component.literal("§cStill missing ingredients: " + missingText),
                                     false
                             );
 

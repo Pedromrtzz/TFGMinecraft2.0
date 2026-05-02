@@ -37,12 +37,12 @@ public class SushiGameScreen extends Screen {
     private static final int CLEAR_W = 60;
     private static final int CLEAR_H = 18;
 
-    private static final List<String> RECETA_CORRECTA = List.of("arroz", "alga", "salmon");
+    private static final List<String> CORRECT_RECIPE = List.of("arroz", "alga", "salmon");
 
-    private final List<String> ingredientes = new ArrayList<>();
+    private final List<String> ingredients = new ArrayList<>();
 
-    private String hudMensaje = "";
-    private long hudMensajeExpire = 0L;   // ms
+    private String hudMessage = "";
+    private long hudMessageExpire = 0L;
 
     public SushiGameScreen() {
         super(Component.literal("Sushi Maker"));
@@ -73,17 +73,17 @@ public class SushiGameScreen extends Screen {
         }
 
         drawIngredientIcon(gg, ARROZ_ICON, ARROZ_X, ARROZ_Y);
-        drawIngredientIcon(gg, ALGA_ICON,  ALGA_X,  ALGA_Y);
+        drawIngredientIcon(gg, ALGA_ICON, ALGA_X, ALGA_Y);
         drawIngredientIcon(gg, SALMON_ICON, SALMON_X, SALMON_Y);
 
-        int totalWidth = ingredientes.size() * (ICON_SIZE + 8) - 8;
+        int totalWidth = ingredients.size() * (ICON_SIZE + 8) - 8;
         if (totalWidth < 0) totalWidth = 0;
 
         int barX = matX + (256 - totalWidth) / 2;
         int barY = matY + 256 / 2 - ICON_SIZE / 2;
 
         int offset = 0;
-        for (String ing : ingredientes) {
+        for (String ing : ingredients) {
             ResourceLocation tex = switch (ing) {
                 case "arroz"  -> ARROZ_ICON;
                 case "alga"   -> ALGA_ICON;
@@ -104,17 +104,18 @@ public class SushiGameScreen extends Screen {
         } else {
             gg.fill(clearX, clearY, clearX + CLEAR_W, clearY + CLEAR_H, 0xFF444444);
         }
-        gg.drawCenteredString(this.font, "LIMPIAR",
+
+        gg.drawCenteredString(this.font, "CLEAR",
                 clearX + CLEAR_W / 2, clearY + 5, 0xFFFFFF);
 
         gg.drawCenteredString(this.font, "SUSHI MAKER", this.width / 2, 10, 0xFFFFFF);
 
-        String pasoTexto = "Paso " + ingredientes.size() + " / " + RECETA_CORRECTA.size();
+        String stepText = "Step " + ingredients.size() + " / " + CORRECT_RECIPE.size();
 
-        gg.drawCenteredString(this.font, pasoTexto, this.width / 2, 34, 0xCCCCCC);
+        gg.drawCenteredString(this.font, stepText, this.width / 2, 34, 0xCCCCCC);
 
-        if (!hudMensaje.isEmpty() && System.currentTimeMillis() < hudMensajeExpire) {
-            gg.drawCenteredString(this.font, hudMensaje, this.width / 2, 50, 0xFFFFFF);
+        if (!hudMessage.isEmpty() && System.currentTimeMillis() < hudMessageExpire) {
+            gg.drawCenteredString(this.font, hudMessage, this.width / 2, 50, 0xFFFFFF);
         }
 
         super.render(gg, mouseX, mouseY, pt);
@@ -131,35 +132,35 @@ public class SushiGameScreen extends Screen {
         int clearY = matY + 8;
 
         if (isInside(mouseX, mouseY, clearX, clearY, CLEAR_W, CLEAR_H)) {
-            ingredientes.clear();
+            ingredients.clear();
             playClick();
-            showHudMensaje("Ingredientes borrados");
+            showHudMessage("Ingredients cleared");
             return true;
         }
 
         if (isInside(mouseX, mouseY, ARROZ_X, ARROZ_Y, ICON_SIZE, ICON_SIZE)) {
-            if (puedeAñadirIngrediente()) {
-                ingredientes.add("arroz");
+            if (canAddIngredient()) {
+                ingredients.add("arroz");
                 playClick();
-                checkReceta();
+                checkRecipe();
             }
             return true;
         }
 
         if (isInside(mouseX, mouseY, ALGA_X, ALGA_Y, ICON_SIZE, ICON_SIZE)) {
-            if (puedeAñadirIngrediente()) {
-                ingredientes.add("alga");
+            if (canAddIngredient()) {
+                ingredients.add("alga");
                 playClick();
-                checkReceta();
+                checkRecipe();
             }
             return true;
         }
 
         if (isInside(mouseX, mouseY, SALMON_X, SALMON_Y, ICON_SIZE, ICON_SIZE)) {
-            if (puedeAñadirIngrediente()) {
-                ingredientes.add("salmon");
+            if (canAddIngredient()) {
+                ingredients.add("salmon");
                 playClick();
-                checkReceta();
+                checkRecipe();
             }
             return true;
         }
@@ -167,40 +168,39 @@ public class SushiGameScreen extends Screen {
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    private boolean puedeAñadirIngrediente() {
-        // No dejamos añadir más si ya hay el tamaño de la receta
-        return ingredientes.size() < RECETA_CORRECTA.size();
+    private boolean canAddIngredient() {
+        return ingredients.size() < CORRECT_RECIPE.size();
     }
 
-    private void checkReceta() {
+    private void checkRecipe() {
         Minecraft mc = Minecraft.getInstance();
         var player = mc.player;
         if (player == null) return;
 
-        if (ingredientes.size() == RECETA_CORRECTA.size()) {
+        if (ingredients.size() == CORRECT_RECIPE.size()) {
             boolean ok = true;
-            for (int i = 0; i < RECETA_CORRECTA.size(); i++) {
-                if (!RECETA_CORRECTA.get(i).equals(ingredientes.get(i))) {
+            for (int i = 0; i < CORRECT_RECIPE.size(); i++) {
+                if (!CORRECT_RECIPE.get(i).equals(ingredients.get(i))) {
                     ok = false;
                     break;
                 }
             }
 
             if (ok) {
-                showHudMensaje("¡Sushi perfecto! \uD83C\uDF63");
+                showHudMessage("Perfect sushi! 🍣");
                 player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
             } else {
-                showHudMensaje("La receta no es correcta...");
+                showHudMessage("The recipe is not correct...");
                 player.playSound(SoundEvents.VILLAGER_NO, 1.0f, 1.0f);
             }
 
-            ingredientes.clear();
+            ingredients.clear();
         }
     }
 
-    private void showHudMensaje(String txt) {
-        this.hudMensaje = txt;
-        this.hudMensajeExpire = System.currentTimeMillis() + 2500; // 2.5 s
+    private void showHudMessage(String txt) {
+        this.hudMessage = txt;
+        this.hudMessageExpire = System.currentTimeMillis() + 2500;
     }
 
     private void playClick() {
