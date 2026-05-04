@@ -28,8 +28,8 @@ public class LanternKeeperDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 460;
-        int boxH = 285;
+        int boxW = 500;
+        int boxH = 315;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -89,7 +89,8 @@ public class LanternKeeperDialogueScreen extends Screen {
         if (!ClientChapter1Data.chapter4Active || ClientChapter1Data.chapter4Task != 4) {
             return List.of(
                     "The river is calm tonight.",
-                    "Floating lanterns are released at special moments.",
+                    "My family has watched over this place for generations.",
+                    "Floating lanterns are released during special moments.",
                     "Come back when the festival is ready."
             );
         }
@@ -97,9 +98,10 @@ public class LanternKeeperDialogueScreen extends Screen {
         return List.of(
                 "You have helped prepare the Matsuri.",
                 "Now only the final moment remains.",
-                "Floating lanterns create a peaceful atmosphere",
-                "and represent reflection, hope and gratitude.",
-                "Release the lantern gently into the river."
+                "Floating lanterns carry wishes, memories and gratitude.",
+                "People release them to reflect, to remember, or to hope.",
+                "The river carries those lights into the night.",
+                "Write your wish and release the lantern gently."
         );
     }
 

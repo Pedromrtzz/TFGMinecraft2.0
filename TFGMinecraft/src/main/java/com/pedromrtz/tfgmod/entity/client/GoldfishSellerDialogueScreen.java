@@ -28,8 +28,8 @@ public class GoldfishSellerDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 460;
-        int boxH = 285;
+        int boxW = 500;
+        int boxH = 315;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -89,17 +89,19 @@ public class GoldfishSellerDialogueScreen extends Screen {
         if (!ClientChapter1Data.chapter4Active || ClientChapter1Data.chapter4Task != 2) {
             return List.of(
                     "Welcome to the goldfish scooping stall.",
-                    "This game is often seen at Japanese festivals.",
+                    "My family has run this small game for many summers.",
+                    "Goldfish scooping is a classic Matsuri activity.",
                     "Come back when the organizer asks you to test it."
             );
         }
 
         return List.of(
                 "Perfect timing! We need to test this stall.",
-                "Goldfish scooping is a traditional Matsuri game.",
-                "Players use a small paper scoop to catch fish.",
-                "The challenge is to be gentle and precise",
-                "before the scoop breaks."
+                "Goldfish scooping, or kingyo-sukui, is a traditional festival game.",
+                "Players use a small paper scoop to catch fish gently.",
+                "It looks simple, but it requires patience and careful movement.",
+                "The game teaches that skill matters more than strength.",
+                "Try to catch enough fish before the paper scoop breaks."
         );
     }
 
@@ -108,7 +110,7 @@ public class GoldfishSellerDialogueScreen extends Screen {
             return "Understood";
         }
 
-        return "Test the game";
+        return "Test the goldfish game";
     }
 
     @Override

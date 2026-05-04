@@ -28,8 +28,8 @@ public class ElectricianDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 450;
-        int boxH = 285;
+        int boxW = 500;
+        int boxH = 315;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -80,7 +80,7 @@ public class ElectricianDialogueScreen extends Screen {
                 0xFFFFFF
         );
 
-        optionAreas.add(new OptionArea(btnX, btnY, btnW, btnH, "exit"));
+        optionAreas.add(new OptionArea(btnX, btnY, btnW, btnH, "continue"));
 
         super.render(gg, mouseX, mouseY, pt);
     }
@@ -88,17 +88,20 @@ public class ElectricianDialogueScreen extends Screen {
     private List<String> getLines() {
         if (!ClientChapter1Data.chapter4Active || ClientChapter1Data.chapter4Task != 1) {
             return List.of(
-                    "The festival lanterns are already under control.",
-                    "Enjoy the atmosphere of the Matsuri."
+                    "The lantern circuit is stable now.",
+                    "My family has cared for these festival lights for years.",
+                    "Every Matsuri needs light, warmth and a safe path for visitors.",
+                    "Enjoy the atmosphere of the festival."
             );
         }
 
         return List.of(
                 "Good timing! The festival lanterns are not working.",
-                "Lanterns are very important during a Matsuri.",
-                "They create a warm atmosphere and guide visitors",
-                "through the festival at night.",
-                "Please check the lanterns nearby and restore the light."
+                "I grew up helping my grandfather repair these lights.",
+                "Lanterns are important because they guide visitors",
+                "and create the warm night atmosphere of a Matsuri.",
+                "They can also symbolize guidance, hope and protection.",
+                "Please reconnect the wires and bring the lights back."
         );
     }
 
@@ -107,7 +110,7 @@ public class ElectricianDialogueScreen extends Screen {
             return "Understood";
         }
 
-        return "I will repair the lanterns";
+        return "Repair the lanterns";
     }
 
     @Override

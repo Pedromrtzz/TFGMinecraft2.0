@@ -37,9 +37,11 @@ public class FestivalOrganizerDialogueScreen extends Screen {
             return new DialogueNode(
                     "Festival Organizer",
                     List.of(
-                            "The Matsuri was a success thanks to you.",
-                            "The lanterns, games and floating lights are ready.",
-                            "Festivals like this celebrate community, tradition and joy."
+                            "You did it. The Matsuri was a success because of your help.",
+                            "The lanterns guided the visitors, the stalls were full of life,",
+                            "and the floating lights carried wishes across the river.",
+                            "A Matsuri is not only a celebration.",
+                            "It is a moment where people share tradition, community and joy."
                     ),
                     List.of(
                             new DialogueOption("I'm glad I could help.", "exit")
@@ -51,14 +53,16 @@ public class FestivalOrganizerDialogueScreen extends Screen {
             return new DialogueNode(
                     "Festival Organizer",
                     List.of(
-                            "Hello! Welcome to Sakura Town's Matsuri.",
+                            "Welcome! You arrived just in time.",
+                            "Tonight, Sakura Town celebrates its Matsuri.",
                             "A Matsuri is a traditional Japanese festival",
-                            "with food, games, lanterns and cultural activities.",
-                            "But we still need to prepare a few things.",
-                            "Could you help us before the festival begins?"
+                            "often connected to shrines, seasons and local community.",
+                            "People gather to enjoy food, games, music and light.",
+                            "But before the festival begins, we need your help."
                     ),
                     List.of(
-                            new DialogueOption("Yes, I will help.", "start_chapter4"),
+                            new DialogueOption("What is a Matsuri?", "explain_matsuri"),
+                            new DialogueOption("How can I help?", "start_chapter4"),
                             new DialogueOption("Maybe later.", "exit")
                     )
             );
@@ -68,9 +72,11 @@ public class FestivalOrganizerDialogueScreen extends Screen {
             case 1 -> new DialogueNode(
                     "Festival Organizer",
                     List.of(
-                            "First, the festival lanterns are not working.",
+                            "The first problem is with the festival lanterns.",
+                            "Lanterns are important because they create the warm",
+                            "night atmosphere that makes a Matsuri feel alive.",
                             "Please speak with the electrician near the entrance.",
-                            "He will help you restore the lights."
+                            "He knows the old wiring system better than anyone."
                     ),
                     List.of(
                             new DialogueOption("I'll speak with him.", "exit")
@@ -80,8 +86,10 @@ public class FestivalOrganizerDialogueScreen extends Screen {
             case 2 -> new DialogueNode(
                     "Festival Organizer",
                     List.of(
-                            "The lanterns are ready now.",
+                            "The lanterns are shining again. Wonderful work.",
                             "Next, we need to test the goldfish scooping stall.",
+                            "Festival games are not only entertainment;",
+                            "they also bring families and visitors together.",
                             "Please speak with the stall owner near the games area."
                     ),
                     List.of(
@@ -92,9 +100,11 @@ public class FestivalOrganizerDialogueScreen extends Screen {
             case 3 -> new DialogueNode(
                     "Festival Organizer",
                     List.of(
-                            "Good work with the fishing game.",
-                            "Now we need to test the target shooting stall.",
-                            "Please speak with the game attendant."
+                            "The fishing stall is ready now.",
+                            "Next, we must test the target shooting game.",
+                            "Games like this reward focus, timing and precision.",
+                            "Please speak with the game attendant.",
+                            "Make sure the stall is ready before visitors arrive."
                     ),
                     List.of(
                             new DialogueOption("I'll test it.", "exit")
@@ -105,8 +115,9 @@ public class FestivalOrganizerDialogueScreen extends Screen {
                     "Festival Organizer",
                     List.of(
                             "Only one final activity remains.",
-                            "At the river, people release floating lanterns",
-                            "as a peaceful and symbolic moment of the festival.",
+                            "At the river, people release floating lanterns.",
+                            "They can represent wishes, memories, hope or gratitude.",
+                            "It is a quiet moment after the noise of the festival.",
                             "Please speak with the lantern keeper near the river."
                     ),
                     List.of(
@@ -118,7 +129,8 @@ public class FestivalOrganizerDialogueScreen extends Screen {
                     "Festival Organizer",
                     List.of(
                             "Please continue helping the festival staff.",
-                            "The Matsuri cannot begin until everything is ready."
+                            "The Matsuri cannot begin until everything is ready.",
+                            "Every small task helps the whole community celebrate."
                     ),
                     List.of(
                             new DialogueOption("Understood.", "exit")
@@ -131,8 +143,8 @@ public class FestivalOrganizerDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 460;
-        int boxH = 300;
+        int boxW = 500;
+        int boxH = 315;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -213,6 +225,24 @@ public class FestivalOrganizerDialogueScreen extends Screen {
 
         switch (option.action()) {
             case "exit" -> onClose();
+
+            case "explain_matsuri" -> {
+                this.currentNode = new DialogueNode(
+                        "What is a Matsuri?",
+                        List.of(
+                                "Matsuri festivals have existed for centuries in Japan.",
+                                "Many are linked to Shinto shrines, local legends or seasonal events.",
+                                "They can celebrate harvests, honour spirits or bring communities together.",
+                                "Food stalls, lanterns and games make the festival enjoyable,",
+                                "but preparation and respect are just as important.",
+                                "That is why I need help before the celebration begins."
+                        ),
+                        List.of(
+                                new DialogueOption("I understand. How can I help?", "start_chapter4"),
+                                new DialogueOption("Maybe later.", "exit")
+                        )
+                );
+            }
 
             case "start_chapter4" -> {
                 ModNetwork.CHANNEL.send(

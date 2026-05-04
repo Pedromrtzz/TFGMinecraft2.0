@@ -28,8 +28,8 @@ public class TargetAttendantDialogueScreen extends Screen {
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 460;
-        int boxH = 285;
+        int boxW = 500;
+        int boxH = 315;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
@@ -89,6 +89,7 @@ public class TargetAttendantDialogueScreen extends Screen {
         if (!ClientChapter1Data.chapter4Active || ClientChapter1Data.chapter4Task != 3) {
             return List.of(
                     "This is the target shooting stall.",
+                    "I learned this game from my father, who ran this stall before me.",
                     "Festival games test focus, timing and precision.",
                     "Come back when the organizer asks you to test it."
             );
@@ -97,9 +98,10 @@ public class TargetAttendantDialogueScreen extends Screen {
         return List.of(
                 "Great, you are here!",
                 "This stall needs to be tested before the Matsuri begins.",
-                "Aim carefully and hit the targets.",
-                "Festival games are designed to be simple,",
-                "but they reward patience and precision."
+                "Target games may look simple, but they reward concentration.",
+                "In Japanese culture, precision appears in many arts:",
+                "calligraphy, archery, tea ceremony and even festival games.",
+                "Aim carefully, control your timing and keep your focus."
         );
     }
 

@@ -14,12 +14,22 @@ import java.util.List;
 
 public class LanternWiringGameScreen extends Screen {
 
-    private final List<String> connectedOrder = new ArrayList<>();
-    private final List<String> correctOrder = List.of("red", "blue", "yellow", "green");
+    private enum Difficulty {
+        EASY,
+        HARD
+    }
 
-    private String message = "Connect the wires to restore the festival lanterns.";
+    private Difficulty difficulty = null;
+
+    private final List<String> connectedOrder = new ArrayList<>();
+    private List<String> correctOrder = new ArrayList<>();
+
+    private String message = "Choose a difficulty to repair the festival lanterns.";
     private int messageColor = 0xEEEEEE;
+
     private int mistakes = 0;
+    private int sparkTicks = 0;
+    private int successGlowTicks = 0;
 
     private record ButtonArea(int x, int y, int w, int h, String id, String label, int color) {}
 
@@ -31,69 +41,169 @@ public class LanternWiringGameScreen extends Screen {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+
+        if (sparkTicks > 0) {
+            sparkTicks--;
+        }
+
+        if (successGlowTicks > 0) {
+            successGlowTicks--;
+        }
+    }
+
+    @Override
     public void render(GuiGraphics gg, int mouseX, int mouseY, float pt) {
         this.renderBackground(gg, mouseX, mouseY, pt);
 
-        int boxW = 500;
-        int boxH = 330;
+        int boxW = 540;
+        int boxH = 355;
         int x = (this.width - boxW) / 2;
         int y = (this.height - boxH) / 2;
 
         gg.fill(x, y, x + boxW, y + boxH, 0xDD000000);
 
-        gg.drawCenteredString(this.font, "Minigame: Festival Lantern Wiring", this.width / 2, y + 14, 0xFFFFFF);
+        gg.drawCenteredString(
+                this.font,
+                "Minigame: Festival Lantern Wiring",
+                this.width / 2,
+                y + 14,
+                0xFFFFFF
+        );
 
         gg.drawCenteredString(
                 this.font,
-                "Connect the wires in the correct order to light the Matsuri lanterns.",
+                "Connect the wires in the correct order to restore the Matsuri lights.",
                 this.width / 2,
-                y + 36,
+                y + 35,
                 0xDDDDDD
         );
 
-        gg.drawCenteredString(
-                this.font,
-                "Hint: warm light begins with red and ends with green.",
-                this.width / 2,
-                y + 52,
-                0xFFFFAA00
-        );
+        if (difficulty == null) {
+            drawDifficultySelection(gg, mouseX, mouseY, x, y, boxW, boxH);
+        } else {
+            drawPuzzle(gg, mouseX, mouseY, x, y, boxW, boxH);
+        }
 
-        drawLanterns(gg, x, y);
+        super.render(gg, mouseX, mouseY, pt);
+    }
 
+    private void drawDifficultySelection(GuiGraphics gg, int mouseX, int mouseY, int x, int y, int boxW, int boxH) {
+        actionButtons.clear();
         wireButtons.clear();
 
-        int btnW = 100;
-        int btnH = 28;
-        int gap = 16;
-        int btnY = y + 150;
-        int startX = x + 34;
+        gg.drawCenteredString(
+                this.font,
+                "Easy mode uses 4 wires. Hard mode uses 6 wires.",
+                this.width / 2,
+                y + 70,
+                0xAAAAAA
+        );
 
-        addWireButton(startX, btnY, btnW, btnH, "red", "Red Wire", 0xFFFF5555);
-        addWireButton(startX + (btnW + gap), btnY, btnW, btnH, "blue", "Blue Wire", 0xFF55AAFF);
-        addWireButton(startX + (btnW + gap) * 2, btnY, btnW, btnH, "yellow", "Yellow Wire", 0xFFFFFF55);
-        addWireButton(startX + (btnW + gap) * 3, btnY, btnW, btnH, "green", "Green Wire", 0xFF55FF55);
+        int btnW = 190;
+        int btnH = 30;
+        int btnY = y + 125;
 
-        for (ButtonArea btn : wireButtons) {
+        addActionButton(this.width / 2 - btnW - 15, btnY, btnW, btnH, "easy", "Easy: 4 wires");
+        addActionButton(this.width / 2 + 15, btnY, btnW, btnH, "hard", "Hard: 6 wires");
+
+        addActionButton(this.width / 2 - 95, y + boxH - 42, 190, 24, "exit", "Exit");
+
+        for (ButtonArea btn : actionButtons) {
             int bg = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
                     ? 0xFF666666 : 0xFF333333;
 
             gg.fill(btn.x, btn.y, btn.x + btn.w, btn.y + btn.h, bg);
-            gg.fill(btn.x + 6, btn.y + 8, btn.x + 20, btn.y + 20, btn.color);
-            gg.drawString(this.font, btn.label, btn.x + 26, btn.y + 10, 0xFFFFFF);
+            gg.drawCenteredString(this.font, btn.label, btn.x + btn.w / 2, btn.y + 10, 0xFFFFFF);
         }
 
-        drawConnectionPanel(gg, x, y);
+        gg.drawCenteredString(this.font, message, this.width / 2, y + 205, messageColor);
+    }
 
-        gg.drawCenteredString(this.font, message, this.width / 2, y + 252, messageColor);
+    private void drawPuzzle(GuiGraphics gg, int mouseX, int mouseY, int x, int y, int boxW, int boxH) {
+        int totalWires = correctOrder.size();
+
+        gg.drawCenteredString(
+                this.font,
+                difficulty == Difficulty.EASY
+                        ? "Difficulty: Easy"
+                        : "Difficulty: Hard",
+                this.width / 2,
+                y + 55,
+                difficulty == Difficulty.EASY ? 0xFF55FF55 : 0xFFFFAA00
+        );
+
+        gg.drawCenteredString(
+                this.font,
+                difficulty == Difficulty.EASY
+                        ? "Hint: red begins the circuit, green completes it."
+                        : "Hint: start warm, then cold, then finish with festival light.",
+                this.width / 2,
+                y + 72,
+                0xFFFFAA00
+        );
+
+        drawLanterns(gg, x, y, totalWires);
+        drawSparks(gg, x, y);
+
+        wireButtons.clear();
+
+        int btnW = difficulty == Difficulty.EASY ? 100 : 78;
+        int btnH = 28;
+        int gap = difficulty == Difficulty.EASY ? 16 : 10;
+        int btnY = y + 165;
+
+        int totalButtonsWidth = totalWires * btnW + (totalWires - 1) * gap;
+        int startX = x + (boxW - totalButtonsWidth) / 2;
+
+        for (int i = 0; i < totalWires; i++) {
+            String id = getWireIdByIndex(i);
+            addWireButton(
+                    startX + i * (btnW + gap),
+                    btnY,
+                    btnW,
+                    btnH,
+                    id,
+                    getShortWireLabel(id),
+                    getWireColor(id)
+            );
+        }
+
+        for (ButtonArea btn : wireButtons) {
+            boolean alreadyConnected = connectedOrder.contains(btn.id);
+
+            int bg;
+            if (alreadyConnected) {
+                bg = 0xFF222222;
+            } else {
+                bg = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
+                        ? 0xFF666666 : 0xFF333333;
+            }
+
+            gg.fill(btn.x, btn.y, btn.x + btn.w, btn.y + btn.h, bg);
+            gg.fill(btn.x + 5, btn.y + 8, btn.x + 18, btn.y + 20, btn.color);
+
+            gg.drawCenteredString(
+                    this.font,
+                    btn.label,
+                    btn.x + btn.w / 2 + 8,
+                    btn.y + 10,
+                    alreadyConnected ? 0xFF777777 : 0xFFFFFF
+            );
+        }
+
+        drawConnectionPanel(gg, x, y, totalWires);
+
+        gg.drawCenteredString(this.font, message, this.width / 2, y + 275, messageColor);
 
         actionButtons.clear();
 
         int actionY = y + boxH - 38;
 
-        addActionButton(x + 40, actionY, 120, 22, "clear", "Clear");
+        addActionButton(x + 45, actionY, 120, 22, "clear", "Clear");
         addActionButton(x + (boxW - 120) / 2, actionY, 120, 22, "confirm", "Confirm");
-        addActionButton(x + boxW - 160, actionY, 120, 22, "exit", "Exit");
+        addActionButton(x + boxW - 165, actionY, 120, 22, "exit", "Exit");
 
         for (ButtonArea btn : actionButtons) {
             int bg = isMouseOver(mouseX, mouseY, btn.x, btn.y, btn.w, btn.h)
@@ -102,55 +212,78 @@ public class LanternWiringGameScreen extends Screen {
             gg.fill(btn.x, btn.y, btn.x + btn.w, btn.y + btn.h, bg);
             gg.drawCenteredString(this.font, btn.label, btn.x + btn.w / 2, btn.y + 7, 0xFFFFFF);
         }
-
-        super.render(gg, mouseX, mouseY, pt);
     }
 
-    private void drawLanterns(GuiGraphics gg, int x, int y) {
-        int lanternY = y + 82;
-        int startX = x + 95;
-        int gap = 75;
+    private void drawLanterns(GuiGraphics gg, int x, int y, int totalLanterns) {
+        int lanternY = y + 95;
+        int lanternW = 24;
+        int gap = totalLanterns == 4 ? 72 : 48;
 
-        for (int i = 0; i < 4; i++) {
-            int lx = startX + i * gap;
+        int totalWidth = totalLanterns * lanternW + (totalLanterns - 1) * gap;
+        int startX = this.width / 2 - totalWidth / 2;
+
+        for (int i = 0; i < totalLanterns; i++) {
+            int lx = startX + i * (lanternW + gap);
 
             boolean lit = i < connectedOrder.size();
+            boolean successGlow = successGlowTicks > 0 && lit;
 
             int lanternColor = lit ? 0xFFFFAA33 : 0xFF444444;
-            int glowColor = lit ? 0x55FFAA33 : 0x00000000;
+            int insideColor = lit ? 0xFFFFFF99 : 0xFF222222;
 
-            if (lit) {
-                gg.fill(lx - 8, lanternY - 8, lx + 34, lanternY + 42, glowColor);
+            if (lit || successGlow) {
+                gg.fill(lx - 10, lanternY - 10, lx + 34, lanternY + 44, 0x44FFAA33);
             }
 
-            gg.fill(lx, lanternY, lx + 26, lanternY + 34, lanternColor);
-            gg.fill(lx + 4, lanternY + 4, lx + 22, lanternY + 30, lit ? 0xFFFFFF99 : 0xFF222222);
-            gg.drawCenteredString(this.font, String.valueOf(i + 1), lx + 13, lanternY + 11, lit ? 0xFF000000 : 0xFFFFFFFF);
+            gg.fill(lx, lanternY, lx + 24, lanternY + 34, lanternColor);
+            gg.fill(lx + 4, lanternY + 4, lx + 20, lanternY + 30, insideColor);
+            gg.drawCenteredString(
+                    this.font,
+                    String.valueOf(i + 1),
+                    lx + 12,
+                    lanternY + 11,
+                    lit ? 0xFF000000 : 0xFFFFFFFF
+            );
         }
     }
 
-    private void drawConnectionPanel(GuiGraphics gg, int x, int y) {
-        int panelX = x + 55;
-        int panelY = y + 195;
-        int panelW = 390;
+    private void drawSparks(GuiGraphics gg, int x, int y) {
+        if (sparkTicks <= 0) return;
+
+        int sparkX = this.width / 2;
+        int sparkY = y + 118;
+
+        gg.drawCenteredString(this.font, "✦  ✕  ✦", sparkX, sparkY - 18, 0xFFFF5555);
+        gg.fill(sparkX - 30, sparkY, sparkX - 18, sparkY + 2, 0xFFFF5555);
+        gg.fill(sparkX + 18, sparkY, sparkX + 30, sparkY + 2, 0xFFFF5555);
+        gg.fill(sparkX - 2, sparkY - 18, sparkX + 2, sparkY - 6, 0xFFFFAA00);
+        gg.fill(sparkX - 2, sparkY + 8, sparkX + 2, sparkY + 20, 0xFFFFAA00);
+    }
+
+    private void drawConnectionPanel(GuiGraphics gg, int x, int y, int totalWires) {
+        int panelX = x + 50;
+        int panelY = y + 220;
+        int panelW = 440;
         int panelH = 42;
 
-        gg.drawString(this.font, "Connected order:", panelX, panelY - 14, 0xFFFFFF);
+        gg.drawString(this.font, "Connected circuit:", panelX, panelY - 14, 0xFFFFFF);
         gg.fill(panelX, panelY, panelX + panelW, panelY + panelH, 0xAA111111);
 
-        int slotSize = 30;
-        int gap = 18;
-        int startX = panelX + 70;
+        int slotSize = 28;
+        int gap = totalWires == 4 ? 22 : 12;
 
-        for (int i = 0; i < 4; i++) {
+        int totalWidth = totalWires * slotSize + (totalWires - 1) * gap;
+        int startX = panelX + (panelW - totalWidth) / 2;
+
+        for (int i = 0; i < totalWires; i++) {
             int sx = startX + i * (slotSize + gap);
 
-            gg.fill(sx, panelY + 6, sx + slotSize, panelY + 6 + slotSize, 0xFF222222);
+            gg.fill(sx, panelY + 7, sx + slotSize, panelY + 7 + slotSize, 0xFF222222);
             gg.drawCenteredString(this.font, String.valueOf(i + 1), sx + slotSize / 2, panelY - 8, 0xAAAAAA);
 
             if (i < connectedOrder.size()) {
                 int color = getWireColor(connectedOrder.get(i));
-                gg.fill(sx + 6, panelY + 12, sx + slotSize - 6, panelY + slotSize, color);
+                gg.fill(sx + 6, panelY + 13, sx + slotSize - 6, panelY + slotSize + 1, color);
             }
         }
     }
@@ -185,8 +318,10 @@ public class LanternWiringGameScreen extends Screen {
     private void handleWireClick(String id) {
         playClickSound();
 
-        if (connectedOrder.size() >= 4) {
-            message = "All four wires are already connected.";
+        if (difficulty == null) return;
+
+        if (connectedOrder.size() >= correctOrder.size()) {
+            message = "All wires are already connected.";
             messageColor = 0xFFFFAA00;
             return;
         }
@@ -197,25 +332,76 @@ public class LanternWiringGameScreen extends Screen {
             return;
         }
 
+        int expectedIndex = connectedOrder.size();
+        String expectedWire = correctOrder.get(expectedIndex);
+
+        if (!id.equals(expectedWire)) {
+            mistakes++;
+            sparkTicks = 22;
+
+            message = "Wrong connection! Sparks fly from the circuit.";
+            messageColor = 0xFFFF5555;
+
+            playFailSound();
+
+            if (mistakes % 2 == 0) {
+                message = getHint();
+                messageColor = 0xFFFFAA00;
+            }
+
+            return;
+        }
+
         connectedOrder.add(id);
-        message = "Connected: " + formatWireName(id);
-        messageColor = 0xEEEEEE;
+        successGlowTicks = 12;
+
+        message = "Correct connection: " + formatWireName(id);
+        messageColor = 0xFF55FF55;
+
+        playConnectSound();
+
+        if (connectedOrder.size() == correctOrder.size()) {
+            message = "All lanterns are connected. Confirm the circuit.";
+            messageColor = 0xFF55FF55;
+        }
     }
 
     private void handleActionClick(String id) {
         playClickSound();
 
         switch (id) {
+            case "easy" -> {
+                difficulty = Difficulty.EASY;
+                correctOrder = List.of("red", "blue", "yellow", "green");
+                connectedOrder.clear();
+                message = "Easy mode selected. Connect the four wires.";
+                messageColor = 0xEEEEEE;
+            }
+
+            case "hard" -> {
+                difficulty = Difficulty.HARD;
+                correctOrder = List.of("red", "orange", "blue", "purple", "yellow", "green");
+                connectedOrder.clear();
+                message = "Hard mode selected. Connect all six wires.";
+                messageColor = 0xEEEEEE;
+            }
+
             case "clear" -> {
                 connectedOrder.clear();
-                message = "Wiring reset. Try again.";
+                sparkTicks = 0;
+                successGlowTicks = 0;
+                message = "Circuit reset. Try again.";
                 messageColor = 0xFFCCCCCC;
             }
 
             case "confirm" -> {
-                if (connectedOrder.size() < 4) {
-                    message = "You must connect all four wires.";
+                if (difficulty == null) return;
+
+                if (connectedOrder.size() < correctOrder.size()) {
+                    message = "The circuit is incomplete.";
                     messageColor = 0xFFFF5555;
+                    sparkTicks = 18;
+                    playFailSound();
                     return;
                 }
 
@@ -229,17 +415,12 @@ public class LanternWiringGameScreen extends Screen {
 
                     onClose();
                 } else {
-                    mistakes++;
+                    sparkTicks = 22;
                     connectedOrder.clear();
+                    mistakes++;
 
-                    if (mistakes % 2 == 0) {
-                        message = "Hint: red comes first, and green completes the circuit.";
-                        messageColor = 0xFFFFAA00;
-                    } else {
-                        message = "The circuit failed. Check the wire order and try again.";
-                        messageColor = 0xFFFF5555;
-                    }
-
+                    message = "The circuit failed. Start again carefully.";
+                    messageColor = 0xFFFF5555;
                     playFailSound();
                 }
             }
@@ -248,20 +429,58 @@ public class LanternWiringGameScreen extends Screen {
         }
     }
 
-    private String formatWireName(String id) {
+    private String getHint() {
+        if (difficulty == Difficulty.EASY) {
+            return "Hint: red, blue, yellow, green.";
+        }
+
+        return "Hint: red, orange, blue, purple, yellow, green.";
+    }
+
+    private String getWireIdByIndex(int index) {
+        if (difficulty == Difficulty.EASY) {
+            return switch (index) {
+                case 0 -> "red";
+                case 1 -> "blue";
+                case 2 -> "yellow";
+                case 3 -> "green";
+                default -> "red";
+            };
+        }
+
+        return switch (index) {
+            case 0 -> "red";
+            case 1 -> "orange";
+            case 2 -> "blue";
+            case 3 -> "purple";
+            case 4 -> "yellow";
+            case 5 -> "green";
+            default -> "red";
+        };
+    }
+
+    private String getShortWireLabel(String id) {
         return switch (id) {
-            case "red" -> "Red Wire";
-            case "blue" -> "Blue Wire";
-            case "yellow" -> "Yellow Wire";
-            case "green" -> "Green Wire";
+            case "red" -> "Red";
+            case "orange" -> "Orange";
+            case "blue" -> "Blue";
+            case "purple" -> "Purple";
+            case "yellow" -> "Yellow";
+            case "green" -> "Green";
             default -> id;
         };
+    }
+
+    private String formatWireName(String id) {
+        return getShortWireLabel(id) + " Wire";
     }
 
     private int getWireColor(String id) {
         return switch (id) {
             case "red" -> 0xFFFF5555;
+            case "orange" -> 0xFFFFAA33;
             case "blue" -> 0xFF55AAFF;
+            case "purple" -> 0xFFAA55FF;
             case "yellow" -> 0xFFFFFF55;
             case "green" -> 0xFF55FF55;
             default -> 0xFFFFFFFF;
@@ -275,11 +494,18 @@ public class LanternWiringGameScreen extends Screen {
         }
     }
 
+    private void playConnectSound() {
+        var player = Minecraft.getInstance().player;
+        if (player != null) {
+            player.playSound(SoundEvents.REDSTONE_TORCH_BURNOUT, 0.35f, 1.6f);
+            player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.45f, 1.3f);
+        }
+    }
+
     private void playSuccessSound() {
         var player = Minecraft.getInstance().player;
         if (player != null) {
-            player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.4f);
-            player.playSound(SoundEvents.REDSTONE_TORCH_BURNOUT, 0.5f, 1.5f);
+            player.playSound(SoundEvents.PLAYER_LEVELUP, 0.8f, 1.2f);
         }
     }
 
@@ -287,6 +513,7 @@ public class LanternWiringGameScreen extends Screen {
         var player = Minecraft.getInstance().player;
         if (player != null) {
             player.playSound(SoundEvents.VILLAGER_NO, 0.8f, 1.0f);
+            player.playSound(SoundEvents.REDSTONE_TORCH_BURNOUT, 0.6f, 0.8f);
         }
     }
 
