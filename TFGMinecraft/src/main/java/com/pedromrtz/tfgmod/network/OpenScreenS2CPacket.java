@@ -19,7 +19,10 @@ public class OpenScreenS2CPacket {
         ITAMAE_DIALOGUE,
         FISH_MERCHANT_SHOP,
         FESTIVAL_ORGANIZER_DIALOGUE,
-        ELECTRICIAN_DIALOGUE
+        ELECTRICIAN_DIALOGUE,
+        GOLDFISH_SELLER_DIALOGUE,
+        TARGET_ATTENDANT_DIALOGUE,
+        LANTERN_KEEPER_DIALOGUE
     }
 
     private final ScreenType type;
@@ -63,6 +66,9 @@ public class OpenScreenS2CPacket {
             case FISH_MERCHANT_SHOP -> mc.setScreen(new FishMerchantShopScreen());
             case FESTIVAL_ORGANIZER_DIALOGUE -> mc.setScreen(new FestivalOrganizerDialogueScreen());
             case ELECTRICIAN_DIALOGUE -> mc.setScreen(new ElectricianDialogueScreen());
+            case GOLDFISH_SELLER_DIALOGUE -> mc.setScreen(new GoldfishSellerDialogueScreen());
+            case TARGET_ATTENDANT_DIALOGUE -> mc.setScreen(new TargetAttendantDialogueScreen());
+            case LANTERN_KEEPER_DIALOGUE -> mc.setScreen(new LanternKeeperDialogueScreen());
         }
     }
 }

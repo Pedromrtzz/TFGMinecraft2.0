@@ -140,6 +140,24 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> CompleteChapter4LanternsC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(CompleteChapter4GoldfishC2SPacket.class, id++)
+                .encoder(CompleteChapter4GoldfishC2SPacket::encode)
+                .decoder(CompleteChapter4GoldfishC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter4GoldfishC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CompleteChapter4TargetsC2SPacket.class, id++)
+                .encoder(CompleteChapter4TargetsC2SPacket::encode)
+                .decoder(CompleteChapter4TargetsC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter4TargetsC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CompleteChapter4C2SPacket.class, id++)
+                .encoder(CompleteChapter4C2SPacket::encode)
+                .decoder(CompleteChapter4C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter4C2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

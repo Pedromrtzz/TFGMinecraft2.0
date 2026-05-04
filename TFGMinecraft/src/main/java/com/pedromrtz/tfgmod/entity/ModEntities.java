@@ -117,6 +117,24 @@ public class ModEntities {
                             .sized(0.6f, 1.95f)
                             .build("electrician"));
 
+    public static final RegistryObject<EntityType<GoldfishSellerEntity>> GOLDFISH_SELLER =
+            ENTITY_TYPES.register("goldfish_seller",
+                    () -> EntityType.Builder.of(GoldfishSellerEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("goldfish_seller"));
+
+    public static final RegistryObject<EntityType<TargetAttendantEntity>> TARGET_ATTENDANT =
+            ENTITY_TYPES.register("target_attendant",
+                    () -> EntityType.Builder.of(TargetAttendantEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("target_attendant"));
+
+    public static final RegistryObject<EntityType<LanternKeeperEntity>> LANTERN_KEEPER =
+            ENTITY_TYPES.register("lantern_keeper",
+                    () -> EntityType.Builder.of(LanternKeeperEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("lantern_keeper"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
