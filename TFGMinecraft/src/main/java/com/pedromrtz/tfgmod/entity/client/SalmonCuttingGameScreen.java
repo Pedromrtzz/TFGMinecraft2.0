@@ -63,7 +63,6 @@ public class SalmonCuttingGameScreen extends Screen {
                 0xDDDDDD
         );
 
-        // Visual icons
         gg.renderItem(new ItemStack(Items.IRON_SWORD), this.width / 2 - 34, y + 62);
         gg.renderItem(new ItemStack(Items.SALMON), this.width / 2 + 18, y + 62);
 
@@ -75,7 +74,6 @@ public class SalmonCuttingGameScreen extends Screen {
                 0xAAAAAA
         );
 
-        // Simple clean cut animation
         if (cutAnimationTicks > 0) {
             int animX = this.width / 2 - 65;
             int animY = y + 102;

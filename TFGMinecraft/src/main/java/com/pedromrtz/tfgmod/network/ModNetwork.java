@@ -200,6 +200,13 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> StartChapter5C2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(CompleteChapter5BowTrainingC2SPacket.class, id++)
+                .encoder(CompleteChapter5BowTrainingC2SPacket::encode)
+                .decoder(CompleteChapter5BowTrainingC2SPacket::decode)
+                .consumerMainThread((msg, ctx) ->
+                        CompleteChapter5BowTrainingC2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

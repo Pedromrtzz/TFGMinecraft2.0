@@ -141,6 +141,15 @@ public class ModEntities {
                             .sized(0.6f, 1.95f)
                             .build("samurai_guard"));
 
+    public static final RegistryObject<EntityType<ArcheryInstructorEntity>> ARCHERY_INSTRUCTOR =
+            ENTITY_TYPES.register("archery_instructor",
+                    () -> EntityType.Builder.of(
+                                    ArcheryInstructorEntity::new,
+                                    MobCategory.CREATURE
+                            )
+                            .sized(0.6f, 1.95f)
+                            .build("archery_instructor"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

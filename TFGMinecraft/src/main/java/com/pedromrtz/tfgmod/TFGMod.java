@@ -109,6 +109,7 @@ public class TFGMod {
             EntityRenderers.register(ModEntities.TARGET_ATTENDANT.get(), TargetAttendantRenderer::new);
             EntityRenderers.register(ModEntities.LANTERN_KEEPER.get(), LanternKeeperRenderer::new);
             EntityRenderers.register(ModEntities.SAMURAI_GUARD.get(), SamuraiGuardRenderer::new);
+            EntityRenderers.register(ModEntities.ARCHERY_INSTRUCTOR.get(), ArcheryInstructorRenderer::new);
         }
 
 
