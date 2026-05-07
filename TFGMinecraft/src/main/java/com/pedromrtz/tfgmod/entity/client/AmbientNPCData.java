@@ -14,8 +14,8 @@ public class AmbientNPCData {
             ResourceLocation portrait
     ) {}
 
-    public static final Map<String, AmbientNPCInfo> NPCS = Map.of(
-            "chef", new AmbientNPCInfo(
+    public static final Map<String, AmbientNPCInfo> NPCS = Map.ofEntries(
+            Map.entry("chef", new AmbientNPCInfo(
                     "chef",
                     "Chef",
                     new String[]{
@@ -25,9 +25,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/chef.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/chef.png")
-            ),
+            )),
 
-            "fisherman", new AmbientNPCInfo(
+            Map.entry("fisherman", new AmbientNPCInfo(
                     "fisherman",
                     "Fisherman",
                     new String[]{
@@ -37,9 +37,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman.png")
-            ),
+            )),
 
-            "neighbor1", new AmbientNPCInfo(
+            Map.entry("neighbor1", new AmbientNPCInfo(
                     "neighbor1",
                     "Villager",
                     new String[]{
@@ -48,9 +48,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor.png")
-            ),
+            )),
 
-            "neighbor2", new AmbientNPCInfo(
+            Map.entry("neighbor2", new AmbientNPCInfo(
                     "neighbor2",
                     "Villager",
                     new String[]{
@@ -59,9 +59,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor2.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor2.png")
-            ),
+            )),
 
-            "neighbor3", new AmbientNPCInfo(
+            Map.entry("neighbor3", new AmbientNPCInfo(
                     "neighbor3",
                     "Villager",
                     new String[]{
@@ -70,9 +70,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor3.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor3.png")
-            ),
+            )),
 
-            "neighbor4", new AmbientNPCInfo(
+            Map.entry("neighbor4", new AmbientNPCInfo(
                     "neighbor4",
                     "Villager",
                     new String[]{
@@ -81,9 +81,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/neighbor4.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/neighbor4.png")
-            ),
+            )),
 
-            "nami_fisherman1", new AmbientNPCInfo(
+            Map.entry("nami_fisherman1", new AmbientNPCInfo(
                     "nami_fisherman1",
                     "Fisherman",
                     new String[]{
@@ -93,9 +93,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman1.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman1.png")
-            ),
+            )),
 
-            "nami_fisherman2", new AmbientNPCInfo(
+            Map.entry("nami_fisherman2", new AmbientNPCInfo(
                     "nami_fisherman2",
                     "Harbour Resident",
                     new String[]{
@@ -105,9 +105,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman2.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman2.png")
-            ),
+            )),
 
-            "nami_fisherman3", new AmbientNPCInfo(
+            Map.entry("nami_fisherman3", new AmbientNPCInfo(
                     "nami_fisherman3",
                     "Coastal Resident",
                     new String[]{
@@ -117,9 +117,9 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman3.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman3.png")
-            ),
+            )),
 
-            "nami_fisherman4", new AmbientNPCInfo(
+            Map.entry("nami_fisherman4", new AmbientNPCInfo(
                     "nami_fisherman4",
                     "Apprentice Cook",
                     new String[]{
@@ -129,7 +129,55 @@ public class AmbientNPCData {
                     },
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/fisherman4.png"),
                     ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/fisherman4.png")
-            )
+            )),
+
+            Map.entry("matsuri_boy1", new AmbientNPCInfo(
+                    "matsuri_boy1",
+                    "Festival Visitor",
+                    new String[]{
+                            "I love Matsuri nights!",
+                            "The lanterns, food stalls and games",
+                            "make the whole town feel alive."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/boy1.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/boy1.png")
+            )),
+
+            Map.entry("matsuri_boy2", new AmbientNPCInfo(
+                    "matsuri_boy2",
+                    "Festival Player",
+                    new String[]{
+                            "Festival games look simple,",
+                            "but they need patience and precision.",
+                            "That is what makes them so fun!"
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/boy2.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/boy2.png")
+            )),
+
+            Map.entry("matsuri_girl1", new AmbientNPCInfo(
+                    "matsuri_girl1",
+                    "Festival Visitor",
+                    new String[]{
+                            "During a Matsuri, people gather",
+                            "to celebrate tradition, food and community.",
+                            "It is one of my favourite nights of the year."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/girl1.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/girl1.png")
+            )),
+
+            Map.entry("matsuri_girl2", new AmbientNPCInfo(
+                    "matsuri_girl2",
+                    "Lantern Visitor",
+                    new String[]{
+                            "Floating lanterns feel peaceful.",
+                            "People release them with wishes, memories",
+                            "or hopes for the future."
+                    },
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/entity/ambient/girl2.png"),
+                    ResourceLocation.fromNamespaceAndPath("tfgmod", "textures/gui/portraits/girl2.png")
+            ))
     );
 
     public static AmbientNPCInfo get(String id) {
