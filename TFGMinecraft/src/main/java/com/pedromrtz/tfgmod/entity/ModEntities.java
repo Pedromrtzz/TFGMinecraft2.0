@@ -135,6 +135,12 @@ public class ModEntities {
                             .sized(0.6f, 1.95f)
                             .build("lantern_keeper"));
 
+    public static final RegistryObject<EntityType<SamuraiGuardEntity>> SAMURAI_GUARD =
+            ENTITY_TYPES.register("samurai_guard",
+                    () -> EntityType.Builder.of(SamuraiGuardEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("samurai_guard"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

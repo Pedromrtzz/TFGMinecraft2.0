@@ -194,6 +194,12 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> OpenChapter4QuizS2CPacket.handleClient(msg))
                 .add();
 
+        CHANNEL.messageBuilder(StartChapter5C2SPacket.class, id++)
+                .encoder(StartChapter5C2SPacket::encode)
+                .decoder(StartChapter5C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> StartChapter5C2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }
