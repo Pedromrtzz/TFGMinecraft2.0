@@ -120,8 +120,9 @@ public class CastleGatekeeperDialogueScreen extends Screen {
                 "Before entering the castle,",
                 "you must recognise the clan symbol.",
                 "Japanese noble families used symbols called mon.",
-                "These symbols represented identity, status",
-                "and loyalty during the Edo period."
+                "A mon represented identity, family honour and loyalty.",
+                "This castle serves the Tokugawa clan.",
+                "Choose the Tokugawa crest to prove your attention."
         );
     }
 
@@ -133,7 +134,7 @@ public class CastleGatekeeperDialogueScreen extends Screen {
             return "Understood";
         }
 
-        return "Solve the clan puzzle";
+        return "Choose the Tokugawa mon";
     }
 
     @Override

@@ -169,7 +169,7 @@ public class SamuraiBowTrainingScreen extends Screen {
 
         int centerX = width / 2;
         int centerY = panelY + panelH / 2;
-        
+
         gg.drawCenteredString(
                 font,
                 "Samurai Bow Training",
