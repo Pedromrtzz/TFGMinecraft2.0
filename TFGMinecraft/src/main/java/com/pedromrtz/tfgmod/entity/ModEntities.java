@@ -143,12 +143,15 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<ArcheryInstructorEntity>> ARCHERY_INSTRUCTOR =
             ENTITY_TYPES.register("archery_instructor",
-                    () -> EntityType.Builder.of(
-                                    ArcheryInstructorEntity::new,
-                                    MobCategory.CREATURE
-                            )
+                    () -> EntityType.Builder.of(ArcheryInstructorEntity::new, MobCategory.CREATURE)
                             .sized(0.6f, 1.95f)
                             .build("archery_instructor"));
+
+    public static final RegistryObject<EntityType<CastleGatekeeperEntity>> CASTLE_GATEKEEPER =
+            ENTITY_TYPES.register("castle_gatekeeper",
+                    () -> EntityType.Builder.of(CastleGatekeeperEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("castle_gatekeeper"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

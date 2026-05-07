@@ -203,8 +203,13 @@ public class ModNetwork {
         CHANNEL.messageBuilder(CompleteChapter5BowTrainingC2SPacket.class, id++)
                 .encoder(CompleteChapter5BowTrainingC2SPacket::encode)
                 .decoder(CompleteChapter5BowTrainingC2SPacket::decode)
-                .consumerMainThread((msg, ctx) ->
-                        CompleteChapter5BowTrainingC2SPacket.handle(msg, ctx))
+                .consumerMainThread((msg, ctx) -> CompleteChapter5BowTrainingC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(CompleteChapter5PuzzleC2SPacket.class, id++)
+                .encoder(CompleteChapter5PuzzleC2SPacket::encode)
+                .decoder(CompleteChapter5PuzzleC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter5PuzzleC2SPacket.handle(msg, ctx))
                 .add();
 
 

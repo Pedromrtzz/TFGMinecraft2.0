@@ -29,5 +29,6 @@ public class ModEntityAttributes {
         event.put(ModEntities.LANTERN_KEEPER.get(), LanternKeeperEntity.createAttributes().build());
         event.put(ModEntities.SAMURAI_GUARD.get(), SamuraiGuardEntity.createAttributes().build());
         event.put(ModEntities.ARCHERY_INSTRUCTOR.get(), ArcheryInstructorEntity.createAttributes().build());
+        event.put(ModEntities.CASTLE_GATEKEEPER.get(), CastleGatekeeperEntity.createAttributes().build());
     }
 }

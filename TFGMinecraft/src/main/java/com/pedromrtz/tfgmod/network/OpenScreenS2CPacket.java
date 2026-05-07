@@ -25,6 +25,7 @@ public class OpenScreenS2CPacket {
         LANTERN_KEEPER_DIALOGUE,
         SAMURAI_GUARD_DIALOGUE,
         ARCHERY_INSTRUCTOR_DIALOGUE,
+        CASTLE_GATEKEEPER_DIALOGUE,
     }
 
     private final ScreenType type;
@@ -73,6 +74,7 @@ public class OpenScreenS2CPacket {
             case LANTERN_KEEPER_DIALOGUE -> mc.setScreen(new LanternKeeperDialogueScreen());
             case SAMURAI_GUARD_DIALOGUE -> mc.setScreen(new SamuraiGuardDialogueScreen());
             case ARCHERY_INSTRUCTOR_DIALOGUE -> mc.setScreen(new ArcheryInstructorDialogueScreen());
+            case CASTLE_GATEKEEPER_DIALOGUE -> mc.setScreen(new CastleGatekeeperDialogueScreen());
         }
     }
 }
