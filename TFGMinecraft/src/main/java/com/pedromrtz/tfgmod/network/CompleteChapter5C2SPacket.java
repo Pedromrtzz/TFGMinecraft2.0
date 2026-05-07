@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.network.PacketDistributor;
 
 public class CompleteChapter5C2SPacket {
 
@@ -40,8 +41,9 @@ public class CompleteChapter5C2SPacket {
                             return;
                         }
 
-                        progress.setChapter5Active(false);
-                        progress.setChapter5Completed(true);
+                        // The chapter stays active until the quiz is passed.
+                        progress.setChapter5Active(true);
+                        progress.setChapter5Completed(false);
                         progress.setChapter5Task(3);
 
                         ItemStack cardStack = new ItemStack(ModItems.CARD.get());
@@ -54,7 +56,7 @@ public class CompleteChapter5C2SPacket {
                         );
 
                         sp.displayClientMessage(
-                                Component.literal("§aChapter 5 completed. You received the Daimyo Castle card."),
+                                Component.literal("§7Now answer the cultural test to complete Chapter 5."),
                                 false
                         );
 
@@ -68,6 +70,11 @@ public class CompleteChapter5C2SPacket {
                         );
 
                         ProgressSync.syncChapter1(sp);
+
+                        ModNetwork.CHANNEL.send(
+                                new OpenChapter5QuizS2CPacket(),
+                                PacketDistributor.PLAYER.with(sp)
+                        );
                     });
 
                 } catch (Exception ignored) {}

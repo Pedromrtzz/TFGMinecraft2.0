@@ -1,13 +1,7 @@
 package com.pedromrtz.tfgmod.entity.client;
 
-import com.pedromrtz.tfgmod.network.CompleteChapter2QuizC2SPacket;
-import com.pedromrtz.tfgmod.network.CompleteChapter3QuizC2SPacket;
-import com.pedromrtz.tfgmod.network.CompleteChapter4QuizC2SPacket;
-import com.pedromrtz.tfgmod.network.ModNetwork;
-import com.pedromrtz.tfgmod.quiz.Chapter2QuizData;
-import com.pedromrtz.tfgmod.quiz.Chapter3QuizData;
-import com.pedromrtz.tfgmod.quiz.Chapter4QuizData;
-import com.pedromrtz.tfgmod.quiz.QuizQuestion;
+import com.pedromrtz.tfgmod.network.*;
+import com.pedromrtz.tfgmod.quiz.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
@@ -23,7 +17,8 @@ public class ChapterQuizScreen extends Screen {
     public enum QuizChapter {
         CHAPTER_2,
         CHAPTER_3,
-        CHAPTER_4
+        CHAPTER_4,
+        CHAPTER_5
     }
 
     private final QuizChapter quizChapter;
@@ -50,7 +45,11 @@ public class ChapterQuizScreen extends Screen {
 
         this.quizChapter = quizChapter;
 
-        if (quizChapter == QuizChapter.CHAPTER_4) {
+        if (quizChapter == QuizChapter.CHAPTER_5) {
+            this.questions = Chapter5QuizData.QUESTIONS;
+            this.requiredCorrect = 6;
+            this.title = "Chapter 5 Cultural Test";
+        } else if (quizChapter == QuizChapter.CHAPTER_4) {
             this.questions = Chapter4QuizData.QUESTIONS;
             this.requiredCorrect = 6;
             this.title = "Chapter 4 Cultural Test";
@@ -237,6 +236,7 @@ public class ChapterQuizScreen extends Screen {
             case CHAPTER_2 -> "You understood the key traditions of Omisoka.";
             case CHAPTER_3 -> "You understood the sushi preparation process.";
             case CHAPTER_4 -> "You understood the meaning of Matsuri traditions.";
+            case CHAPTER_5 -> "You understood the Edo castle and samurai culture.";
         };
     }
 
@@ -284,7 +284,12 @@ public class ChapterQuizScreen extends Screen {
     }
 
     private void sendResultPacket() {
-        if (quizChapter == QuizChapter.CHAPTER_4) {
+        if (quizChapter == QuizChapter.CHAPTER_5) {
+            ModNetwork.CHANNEL.send(
+                    new CompleteChapter5QuizC2SPacket(passed),
+                    PacketDistributor.SERVER.noArg()
+            );
+        } else if (quizChapter == QuizChapter.CHAPTER_4) {
             ModNetwork.CHANNEL.send(
                     new CompleteChapter4QuizC2SPacket(passed),
                     PacketDistributor.SERVER.noArg()

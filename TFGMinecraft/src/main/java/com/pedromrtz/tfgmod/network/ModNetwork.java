@@ -218,6 +218,18 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> CompleteChapter5C2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(CompleteChapter5QuizC2SPacket.class, id++)
+                .encoder(CompleteChapter5QuizC2SPacket::encode)
+                .decoder(CompleteChapter5QuizC2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter5QuizC2SPacket.handle(msg, ctx))
+                .add();
+
+        CHANNEL.messageBuilder(OpenChapter5QuizS2CPacket.class, id++)
+                .encoder(OpenChapter5QuizS2CPacket::encode)
+                .decoder(OpenChapter5QuizS2CPacket::decode)
+                .consumerMainThread((msg, ctx) -> OpenChapter5QuizS2CPacket.handleClient(msg))
+                .add();
+
 
     }
 }
