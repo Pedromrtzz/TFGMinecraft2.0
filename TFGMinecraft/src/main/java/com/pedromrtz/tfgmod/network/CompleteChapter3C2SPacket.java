@@ -9,6 +9,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.network.PacketDistributor;
 
 public class CompleteChapter3C2SPacket {
 
@@ -51,8 +52,9 @@ public class CompleteChapter3C2SPacket {
 
                         removeItem(sp, ModItems.SUSHI.get(), 1);
 
-                        progress.setChapter3Active(false);
-                        progress.setChapter3Completed(true);
+                        // The chapter stays active until the quiz is passed.
+                        progress.setChapter3Active(true);
+                        progress.setChapter3Completed(false);
                         progress.setChapter3Task(5);
 
                         ItemStack cardStack = new ItemStack(ModItems.CARD.get());
@@ -65,7 +67,7 @@ public class CompleteChapter3C2SPacket {
                         );
 
                         sp.displayClientMessage(
-                                Component.literal("§aChapter 3 completed. You have received a final card."),
+                                Component.literal("§7Now answer the cultural test to complete Chapter 3."),
                                 false
                         );
 
@@ -79,6 +81,11 @@ public class CompleteChapter3C2SPacket {
                         );
 
                         ProgressSync.syncChapter1(sp);
+
+                        ModNetwork.CHANNEL.send(
+                                new OpenChapter3QuizS2CPacket(),
+                                PacketDistributor.PLAYER.with(sp)
+                        );
                     });
 
                 } catch (Exception ignored) {}

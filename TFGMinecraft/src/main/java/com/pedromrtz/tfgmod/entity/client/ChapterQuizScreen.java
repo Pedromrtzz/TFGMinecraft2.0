@@ -1,8 +1,10 @@
 package com.pedromrtz.tfgmod.entity.client;
 
 import com.pedromrtz.tfgmod.network.CompleteChapter2QuizC2SPacket;
+import com.pedromrtz.tfgmod.network.CompleteChapter3QuizC2SPacket;
 import com.pedromrtz.tfgmod.network.ModNetwork;
 import com.pedromrtz.tfgmod.quiz.Chapter2QuizData;
+import com.pedromrtz.tfgmod.quiz.Chapter3QuizData;
 import com.pedromrtz.tfgmod.quiz.QuizQuestion;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -16,7 +18,15 @@ import java.util.List;
 
 public class ChapterQuizScreen extends Screen {
 
+    public enum QuizChapter {
+        CHAPTER_2,
+        CHAPTER_3
+    }
+
+    private final QuizChapter quizChapter;
     private final List<QuizQuestion> questions;
+    private final int requiredCorrect;
+    private final String title;
 
     private int currentQuestion = 0;
     private int correctAnswers = 0;
@@ -32,9 +42,24 @@ public class ChapterQuizScreen extends Screen {
 
     private record ButtonArea(int x, int y, int w, int h, int answerIndex, String action) {}
 
+    public ChapterQuizScreen(QuizChapter quizChapter) {
+        super(Component.literal("Cultural Test"));
+
+        this.quizChapter = quizChapter;
+
+        if (quizChapter == QuizChapter.CHAPTER_3) {
+            this.questions = Chapter3QuizData.QUESTIONS;
+            this.requiredCorrect = 6;
+            this.title = "Chapter 3 Cultural Test";
+        } else {
+            this.questions = Chapter2QuizData.QUESTIONS;
+            this.requiredCorrect = 7;
+            this.title = "Chapter 2 Cultural Test";
+        }
+    }
+
     public ChapterQuizScreen() {
-        super(Component.literal("Chapter 2 Cultural Test"));
-        this.questions = Chapter2QuizData.QUESTIONS;
+        this(QuizChapter.CHAPTER_2);
     }
 
     @Override
@@ -50,7 +75,7 @@ public class ChapterQuizScreen extends Screen {
 
         gg.drawCenteredString(
                 this.font,
-                "Chapter 2 Cultural Test",
+                title,
                 this.width / 2,
                 y + 14,
                 0xFFFFFF
@@ -131,16 +156,10 @@ public class ChapterQuizScreen extends Screen {
     private void renderResult(GuiGraphics gg, int mouseX, int mouseY, int x, int y, int boxW, int boxH) {
         buttons.clear();
 
-        String title = passed ? "Test Passed!" : "Test Failed";
+        String resultTitle = passed ? "Test Passed!" : "Test Failed";
         int titleColor = passed ? 0xFF55FF55 : 0xFFFF5555;
 
-        gg.drawCenteredString(
-                this.font,
-                title,
-                this.width / 2,
-                y + 70,
-                titleColor
-        );
+        gg.drawCenteredString(this.font, resultTitle, this.width / 2, y + 70, titleColor);
 
         gg.drawCenteredString(
                 this.font,
@@ -150,12 +169,20 @@ public class ChapterQuizScreen extends Screen {
                 0xFFFFFF
         );
 
+        gg.drawCenteredString(
+                this.font,
+                "Required score: " + requiredCorrect + " / " + questions.size(),
+                this.width / 2,
+                y + 118,
+                0xAAAAAA
+        );
+
         if (passed) {
             gg.drawCenteredString(
                     this.font,
-                    "You understood the key traditions of Omisoka.",
+                    getPassedMessage(),
                     this.width / 2,
-                    y + 135,
+                    y + 150,
                     0xEEEEEE
             );
 
@@ -163,7 +190,7 @@ public class ChapterQuizScreen extends Screen {
                     this.font,
                     "You may keep your cultural cards.",
                     this.width / 2,
-                    y + 152,
+                    y + 168,
                     0xAAAAAA
             );
         } else {
@@ -171,7 +198,7 @@ public class ChapterQuizScreen extends Screen {
                     this.font,
                     "You missed too many questions.",
                     this.width / 2,
-                    y + 135,
+                    y + 150,
                     0xEEEEEE
             );
 
@@ -179,7 +206,7 @@ public class ChapterQuizScreen extends Screen {
                     this.font,
                     "The chapter will need to be repeated.",
                     this.width / 2,
-                    y + 152,
+                    y + 168,
                     0xAAAAAA
             );
         }
@@ -193,16 +220,16 @@ public class ChapterQuizScreen extends Screen {
                 ? 0xFF555555 : 0xFF333333;
 
         gg.fill(btnX, btnY, btnX + btnW, btnY + btnH, bg);
-
-        gg.drawCenteredString(
-                this.font,
-                "Continue",
-                btnX + btnW / 2,
-                btnY + 9,
-                0xFFFFFF
-        );
+        gg.drawCenteredString(this.font, "Continue", btnX + btnW / 2, btnY + 9, 0xFFFFFF);
 
         buttons.add(new ButtonArea(btnX, btnY, btnW, btnH, -1, "continue"));
+    }
+
+    private String getPassedMessage() {
+        return switch (quizChapter) {
+            case CHAPTER_2 -> "You understood the key traditions of Omisoka.";
+            case CHAPTER_3 -> "You understood the sushi preparation process.";
+        };
     }
 
     @Override
@@ -214,11 +241,7 @@ public class ChapterQuizScreen extends Screen {
                 if (area.action.equals("answer")) {
                     handleAnswer(area.answerIndex);
                 } else if (area.action.equals("continue")) {
-                    ModNetwork.CHANNEL.send(
-                            new CompleteChapter2QuizC2SPacket(passed),
-                            PacketDistributor.SERVER.noArg()
-                    );
-
+                    sendResultPacket();
                     onClose();
                 }
 
@@ -248,8 +271,21 @@ public class ChapterQuizScreen extends Screen {
 
         if (currentQuestion >= questions.size()) {
             finished = true;
+            passed = correctAnswers >= requiredCorrect;
+        }
+    }
 
-            passed = correctAnswers >= 7;
+    private void sendResultPacket() {
+        if (quizChapter == QuizChapter.CHAPTER_3) {
+            ModNetwork.CHANNEL.send(
+                    new CompleteChapter3QuizC2SPacket(passed),
+                    PacketDistributor.SERVER.noArg()
+            );
+        } else {
+            ModNetwork.CHANNEL.send(
+                    new CompleteChapter2QuizC2SPacket(passed),
+                    PacketDistributor.SERVER.noArg()
+            );
         }
     }
 
