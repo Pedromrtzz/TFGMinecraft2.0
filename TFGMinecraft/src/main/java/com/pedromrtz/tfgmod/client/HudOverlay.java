@@ -20,7 +20,17 @@ public class HudOverlay {
 
         String text;
 
-        if (ClientChapter1Data.chapter4Completed) {
+        if (ClientChapter1Data.chapter5Completed) {
+            text = "Chapter 5 (Edo Castle) — Completed §a✔";
+        } else if (ClientChapter1Data.chapter5Active) {
+            text = "Chapter 5 (Edo Castle) — Task "
+                    + ClientChapter1Data.chapter5Task
+                    + "/3: "
+                    + getChapter5Text(ClientChapter1Data.chapter5Task)
+                    + " §d●";
+        }
+
+        else if (ClientChapter1Data.chapter4Completed) {
             text = "Chapter 4 (Matsuri) — Completed §a✔";
         } else if (ClientChapter1Data.chapter4Active) {
             text = "Chapter 4 (Matsuri) — Task "
@@ -88,6 +98,15 @@ public class HudOverlay {
             case 3 -> "Test the target shooting stall";
             case 4 -> "Release the floating lanterns";
             default -> "Prepare the Matsuri festival";
+        };
+    }
+
+    private static String getChapter5Text(int task) {
+        return switch (task) {
+            case 1 -> "Complete samurai focus training";
+            case 2 -> "Solve the clan symbol puzzle";
+            case 3 -> "Meet the daimyo";
+            default -> "Approach the castle";
         };
     }
 }
