@@ -61,6 +61,14 @@ public class CardRegistry {
                 "gui/cards/japan/sushi_master_thumb"
         ));
 
+        ALL.add(new Card(
+                "card_japan_matsuri",
+                "japan",
+                "Matsuri Night Festival",
+                "textures/gui/cards/japan/japan_matsuri_full.png",
+                "gui/cards/japan/japan_matsuri_thumb"
+        ));
+
         // aquí ire añadiendo más cartas/culturas
     }
 

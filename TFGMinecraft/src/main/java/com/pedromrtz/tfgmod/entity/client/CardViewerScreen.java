@@ -148,6 +148,15 @@ public class CardViewerScreen extends Screen {
                 );
             }
 
+            if ("card_japan_matsuri".equals(id)) {
+                return new CardData(
+                        "Matsuri Night Festival",
+                        "",
+                        "textures/gui/cards/japan/japan_matsuri_full.png",
+                        512, 768
+                );
+            }
+
             return null;
         }
     }
