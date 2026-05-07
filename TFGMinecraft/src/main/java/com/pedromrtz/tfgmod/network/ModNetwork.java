@@ -212,6 +212,12 @@ public class ModNetwork {
                 .consumerMainThread((msg, ctx) -> CompleteChapter5PuzzleC2SPacket.handle(msg, ctx))
                 .add();
 
+        CHANNEL.messageBuilder(CompleteChapter5C2SPacket.class, id++)
+                .encoder(CompleteChapter5C2SPacket::encode)
+                .decoder(CompleteChapter5C2SPacket::decode)
+                .consumerMainThread((msg, ctx) -> CompleteChapter5C2SPacket.handle(msg, ctx))
+                .add();
+
 
     }
 }

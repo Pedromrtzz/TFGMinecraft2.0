@@ -147,6 +147,12 @@ public class ModEntities {
                             .sized(0.6f, 1.95f)
                             .build("archery_instructor"));
 
+    public static final RegistryObject<EntityType<DaimyoEntity>> DAIMYO =
+            ENTITY_TYPES.register("daimyo",
+                    () -> EntityType.Builder.of(DaimyoEntity::new, MobCategory.CREATURE)
+                            .sized(0.6f, 1.95f)
+                            .build("daimyo"));
+
     public static final RegistryObject<EntityType<CastleGatekeeperEntity>> CASTLE_GATEKEEPER =
             ENTITY_TYPES.register("castle_gatekeeper",
                     () -> EntityType.Builder.of(CastleGatekeeperEntity::new, MobCategory.CREATURE)
