@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.network.PacketDistributor;
 
 public class CompleteChapter4C2SPacket {
 
@@ -40,8 +41,8 @@ public class CompleteChapter4C2SPacket {
                             return;
                         }
 
-                        progress.setChapter4Active(false);
-                        progress.setChapter4Completed(true);
+                        progress.setChapter4Active(true);
+                        progress.setChapter4Completed(false);
                         progress.setChapter4Task(4);
 
                         ItemStack cardStack = new ItemStack(ModItems.CARD.get());
@@ -54,7 +55,7 @@ public class CompleteChapter4C2SPacket {
                         );
 
                         sp.displayClientMessage(
-                                Component.literal("§aChapter 4 completed. You have received a Matsuri cultural card."),
+                                Component.literal("§7Now answer the cultural test to complete Chapter 4."),
                                 false
                         );
 
@@ -68,6 +69,11 @@ public class CompleteChapter4C2SPacket {
                         );
 
                         ProgressSync.syncChapter1(sp);
+
+                        ModNetwork.CHANNEL.send(
+                                new OpenChapter4QuizS2CPacket(),
+                                PacketDistributor.PLAYER.with(sp)
+                        );
                     });
 
                 } catch (Exception ignored) {}
