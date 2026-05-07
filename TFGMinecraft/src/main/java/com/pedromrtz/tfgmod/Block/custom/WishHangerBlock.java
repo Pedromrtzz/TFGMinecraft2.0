@@ -2,6 +2,8 @@ package com.pedromrtz.tfgmod.Block.custom;
 
 import com.pedromrtz.tfgmod.Item.CardItem;
 import com.pedromrtz.tfgmod.Item.ModItems;
+import com.pedromrtz.tfgmod.network.ModNetwork;
+import com.pedromrtz.tfgmod.network.OpenChapter2QuizS2CPacket;
 import com.pedromrtz.tfgmod.network.ProgressSync;
 import com.pedromrtz.tfgmod.progress.Chapter1ProgressUtil;
 import net.minecraft.core.BlockPos;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.network.PacketDistributor;
 
 public class WishHangerBlock extends Block {
 
@@ -42,30 +45,28 @@ public class WishHangerBlock extends Block {
         var progress = Chapter1ProgressUtil.get(sp);
 
         if (!progress.isChapter2Active() || progress.getChapter2Task() != 8) {
-            sp.displayClientMessage(Component.literal("§7Todavía no es el momento de colgar tu deseo."), true);
+            sp.displayClientMessage(Component.literal("§7It is not the right time to hang your wish yet."), true);
             return InteractionResult.SUCCESS;
         }
 
         String wish = progress.getWish();
 
         if (wish == null || wish.isBlank()) {
-            sp.displayClientMessage(Component.literal("§cPrimero debes escribir tu deseo en el ema."), true);
+            sp.displayClientMessage(Component.literal("§cYou must write your wish on the ema first."), true);
             return InteractionResult.SUCCESS;
         }
 
         spawnFloatingWishText(level, pos, wish);
 
-        progress.setChapter2Completed(true);
-        progress.setChapter2Active(false);
         progress.setChapter2Task(8);
 
         ItemStack finalCard = new ItemStack(ModItems.CARD.get());
         CardItem.setCardId(finalCard, "card_japan_ema_wish");
         sp.addItem(finalCard);
 
-        sp.displayClientMessage(Component.literal("§6Has colgado tu deseo en el templo."), false);
-        sp.displayClientMessage(Component.literal("§eTu deseo: §f\"" + wish + "\""), false);
-        sp.displayClientMessage(Component.literal("§aCapítulo 2 completado. Has recibido un cromo final."), false);
+        sp.displayClientMessage(Component.literal("§6You hung your wish at the temple."), false);
+        sp.displayClientMessage(Component.literal("§eYour wish: §f\"" + wish + "\""), false);
+        sp.displayClientMessage(Component.literal("§7Now answer the cultural test to complete Chapter 2."), false);
 
         level.playSound(
                 null,
@@ -77,6 +78,11 @@ public class WishHangerBlock extends Block {
         );
 
         ProgressSync.syncChapter1(sp);
+
+        ModNetwork.CHANNEL.send(
+                new OpenChapter2QuizS2CPacket(),
+                PacketDistributor.PLAYER.with(sp)
+        );
 
         new Thread(() -> {
             try {
@@ -106,9 +112,7 @@ public class WishHangerBlock extends Block {
         text.setCustomName(Component.literal("§e\"" + wish + "\""));
         text.setCustomNameVisible(true);
         text.setSilent(true);
-
         text.setInvulnerable(true);
-
         text.addTag("tfg_wish_text");
 
         level.addFreshEntity(text);
