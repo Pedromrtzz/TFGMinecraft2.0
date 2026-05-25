@@ -66,5 +66,3 @@ This repository contains the main source code and assets used during the develop
 - Configuration files
 - GUI elements
 - Educational game systems
-
-Some temporary or generated files may not be included in order to reduce repository size.
