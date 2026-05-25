@@ -13,7 +13,6 @@ The aim of this project is to develop an educational Minecraft mod that:
 
 The project is mainly focused on teaching aspects of **Japanese culture** through a chapter-based learning experience.
 
----
 
 ## ⚙️ Technologies Used
 
@@ -25,7 +24,6 @@ The project is mainly focused on teaching aspects of **Japanese culture** throug
 - 💻 **IntelliJ IDEA & Visual Studio Code** – Development environments used during the project.
 - 🗂️ **Git & GitHub** – Version control and repository management.
 
----
 
 ## 🧩 Main Features
 
@@ -41,7 +39,6 @@ The mod includes different educational and interactive systems, such as:
 - Japanese-inspired buildings and cultural environments.
 - Progression and achievement mechanics integrated into gameplay.
 
----
 
 ## 📚 Academic Context
 
@@ -58,7 +55,6 @@ The development process also provided experience in:
 - Applying gamification techniques within education.
 - Combining technical development with educational objectives.
 
----
 
 ## 🚀 Repository Information
 
