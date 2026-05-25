@@ -1,31 +1,74 @@
-# 🎓 MinecraftMod - TFG
+# 🎓 Minecraft Educational Mod – Dissertation Project
 
-Este repositorio contiene el código de mi Trabajo de Fin de Grado (TFG), un mod educativo desarrollado con **Minecraft Forge**. El objetivo principal del proyecto es demostrar cómo se puede aplicar la **gamificación en el ámbito educativo** mediante una experiencia interactiva, inmersiva y divertida dentro del Minecraft.
+This repository contains the source code of my final dissertation project, an educational mod developed using **Minecraft Forge**. The main objective of the project is to explore how **gamification and Game-Based Learning** can be applied within an educational environment through an interactive and immersive experience in Minecraft.
 
-## 📌 Objetivo del Proyecto
+## 📌 Project Objective
 
-Desarrollar un mod educativo para Minecraft que:
-- Enriquezca el aprendizaje a través de la interacción con el entorno.
-- Promueva la participación activa del alumno mediante mecánicas de juego.
-- Sirva como ejemplo práctico de **educación gamificada** en el contexto académico.
+The aim of this project is to develop an educational Minecraft mod that:
 
-## ⚙️ Tecnologías Utilizadas
+- Enhances learning through interaction and exploration.
+- Encourages active student participation using game mechanics.
+- Demonstrates the educational potential of gamification within a digital environment.
+- Integrates cultural learning into gameplay through activities, NPCs, quizzes, and progression systems.
 
-- ☕ **Java** – Lenguaje principal del desarrollo.
-- 🔧 **Minecraft Forge (1.20.1)** – Entorno de desarrollo de mods.
-- 🗂️ **Git & GitHub** – Control de versiones y trabajo colaborativo.
+The project is mainly focused on teaching aspects of **Japanese culture** through a chapter-based learning experience.
 
-## 🧩 Funcionalidades del Mod
+---
 
-- Estructuras generadas automáticamente en el mundo con contenido pedagógico.
-- Eventos especiales.
+## ⚙️ Technologies Used
 
-## 📚 Contexto Académico
+- ☕ **Java** – Main programming language used for development.
+- 🔧 **Minecraft Forge** – Modding framework used to create and extend Minecraft functionality.
+- 🎮 **Minecraft Java Edition** – Base platform for the educational environment.
+- 🧱 **Blockbench** – Creation of custom 3D models.
+- 🎨 **Photoshop, Aseprite and Procreate** – Design and editing of 2D textures and graphical assets.
+- 💻 **IntelliJ IDEA & Visual Studio Code** – Development environments used during the project.
+- 🗂️ **Git & GitHub** – Version control and repository management.
 
-Este proyecto ha sido desarrollado como parte del Trabajo de Fin de Grado en Desarrollo de Aplicaciones Multiplataforma. A lo largo de su creación se han aplicado conocimientos tanto adquiridos en el ciclo como aprendidos de forma autodidacta, con el objetivo de demostrar el potencial de Minecraft como **herramienta educativa**.
+---
 
-El proyecto también me ha permitido:
-- Profundizar en el desarrollo de mods con Forge.
-- Aplicar técnicas de diseño.
-- Aprender a estructurar un proyecto de software completo.
-- Valorar el impacto de la gamificación en entornos formativos.
+## 🧩 Main Features
+
+The mod includes different educational and interactive systems, such as:
+
+- NPCs with interactive dialogue systems.
+- Chapter-based progression focused on cultural learning.
+- Multiple-choice quiz system inspired by gamified learning applications.
+- Minigames and interactive cultural activities.
+- Trading card collection and reward system.
+- Custom graphical user interfaces (GUIs).
+- Custom 3D models and 2D textures.
+- Japanese-inspired buildings and cultural environments.
+- Progression and achievement mechanics integrated into gameplay.
+
+---
+
+## 📚 Academic Context
+
+This project was developed as part of the final dissertation for the Multiplatform Application Development degree.
+
+Throughout the development process, both academic and self-taught knowledge were applied in areas such as software development, game design, interface design, and gamification. The project aims to demonstrate the educational potential of Minecraft and modding as tools for interactive learning.
+
+The development process also provided experience in:
+
+- Minecraft Forge mod development.
+- Game system design and implementation.
+- User interface and gameplay design.
+- Structuring a complete software project.
+- Applying gamification techniques within education.
+- Combining technical development with educational objectives.
+
+---
+
+## 🚀 Repository Information
+
+This repository contains the main source code and assets used during the development of the project, including:
+
+- Java source code
+- Textures and graphical assets
+- 3D models
+- Configuration files
+- GUI elements
+- Educational game systems
+
+Some temporary or generated files may not be included in order to reduce repository size.
