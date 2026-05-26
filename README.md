@@ -81,7 +81,7 @@ To run this project, you need:
 1. Clone or download this repository.
 
 ```bash
-git clone [PASTE_REPOSITORY_LINK_HERE]
+git clone https://github.com/Pedromrtzz/TFGMinecraft2.0.git
 ```
 
 2. Open the project in IntelliJ IDEA.
