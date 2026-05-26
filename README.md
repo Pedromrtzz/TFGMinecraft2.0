@@ -66,3 +66,54 @@ This repository contains the main source code and assets used during the develop
 - Configuration files
 - GUI elements
 - Educational game systems
+
+## 🚀 How to Run the Project
+
+To run this project, you need:
+
+- Minecraft Java Edition
+- Java 21
+- IntelliJ IDEA
+- Minecraft Forge / ForgeGradle environment
+
+### Steps
+
+1. Clone or download this repository.
+
+```bash
+git clone [PASTE_REPOSITORY_LINK_HERE]
+```
+
+2. Open the project in IntelliJ IDEA.
+
+3. Wait for Gradle to load and sync all the dependencies.
+
+4. Make sure that Java 21 is selected as the project SDK.
+
+5. Open the Gradle panel in IntelliJ IDEA.
+
+6. Run the following Gradle task:
+
+```bash
+gradlew runClient
+```
+
+On Mac/Linux, use:
+
+```bash
+./gradlew runClient
+```
+
+7. Minecraft will open with the mod loaded in the development environment.
+
+### Notes
+
+The project should be executed from the development environment because it is submitted as source code.
+
+The following folders are not included in the repository because they are automatically generated:
+
+- `run`
+- `build`
+- `.gradle`
+
+The repository contains the source code and assets required to build and run the mod.
