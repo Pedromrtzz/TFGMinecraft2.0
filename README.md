@@ -71,7 +71,6 @@ This repository contains the main source code and assets used during the develop
 
 To run this project, you need:
 
-- Minecraft Java Edition
 - Java 21
 - IntelliJ IDEA
 - Minecraft Forge / ForgeGradle environment
