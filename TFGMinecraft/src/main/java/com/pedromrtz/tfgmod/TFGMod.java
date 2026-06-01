@@ -5,7 +5,8 @@ import com.pedromrtz.tfgmod.Block.ModBlocks;
 import com.pedromrtz.tfgmod.Item.ModCreativeModeTabs;
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.entity.ModEntities;
-import com.pedromrtz.tfgmod.entity.client.SillaRenderer;
+import com.pedromrtz.tfgmod.entity.client.*;
+import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.villager.ModVillagers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -13,6 +14,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,6 +40,8 @@ public class TFGMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        com.pedromrtz.tfgmod.network.ModNetwork.register();
+
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
@@ -55,7 +59,7 @@ public class TFGMod {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(com.pedromrtz.tfgmod.network.ModNetwork::register);
     }
 
     // Add the example block item to the building blocks tab
@@ -89,7 +93,27 @@ public class TFGMod {
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUELO_TATAMIARRIBA.get(), RenderType.cutout());
 
-
+            EntityRenderers.register(ModEntities.CHEF.get(), ChefRenderer::new);
+            EntityRenderers.register(ModEntities.ELDER.get(), ElderRenderer::new);
+            EntityRenderers.register(ModEntities.FATHER.get(), FatherRenderer::new);
+            EntityRenderers.register(ModEntities.SISTER.get(), SisterRenderer::new);
+            EntityRenderers.register(ModEntities.AMBIENT_NPC.get(), AmbientNPCRenderer::new);
+            EntityRenderers.register(ModEntities.MOTHER.get(), MotherRenderer::new);
+            EntityRenderers.register(ModEntities.MONK.get(), MonkRenderer::new);
+            EntityRenderers.register(ModEntities.MERCHANT.get(), MerchantRenderer::new);
+            EntityRenderers.register(ModEntities.ITAMAE.get(), ItamaeRenderer::new);
+            EntityRenderers.register(ModEntities.FISH_MERCHANT.get(), FishMerchantRenderer::new);
+            EntityRenderers.register(ModEntities.FESTIVAL_ORGANIZER.get(), FestivalOrganizerRenderer::new);
+            EntityRenderers.register(ModEntities.ELECTRICIAN.get(), ElectricianRenderer::new);
+            EntityRenderers.register(ModEntities.GOLDFISH_SELLER.get(), GoldfishSellerRenderer::new);
+            EntityRenderers.register(ModEntities.TARGET_ATTENDANT.get(), TargetAttendantRenderer::new);
+            EntityRenderers.register(ModEntities.LANTERN_KEEPER.get(), LanternKeeperRenderer::new);
+            EntityRenderers.register(ModEntities.SAMURAI_GUARD.get(), SamuraiGuardRenderer::new);
+            EntityRenderers.register(ModEntities.ARCHERY_INSTRUCTOR.get(), ArcheryInstructorRenderer::new);
+            EntityRenderers.register(ModEntities.CASTLE_GATEKEEPER.get(), CastleGatekeeperRenderer::new);
+            EntityRenderers.register(ModEntities.DAIMYO.get(), DaimyoRenderer::new);
         }
+
+
     }
 }

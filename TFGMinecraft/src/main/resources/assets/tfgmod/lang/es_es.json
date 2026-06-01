@@ -5,8 +5,8 @@
   "entity.minecraft.villager.tfgmod.arroz": "Vendedor de Arroz",
   "entity.minecraft.villager.tfgmod.okonomiyaki": "Vendedor de Okonomiyaki",
   "entity.minecraft.villager.tfgmod.sushi": "Vendedor de Sushi",
-  "entity.minecraft.villager.tfgmod.sushi": "Vendedor de Mochi",
 
+  "item.tfgmod.card": "Cromo cultural",
 
 
 
@@ -99,6 +99,23 @@
 
   "item.tfgmod.galleta_suerte": "Galleta de la Suerte",
   "item.tfgmod.yen": "Yen",
+  "item.tfgmod.ema": "Ema",
+  "item.tfgmod.album": "Cultural Álbum",
+  "block.tfgmod.fruteriadch": "Fruteria Derecha",
+  "block.tfgmod.fruteriaizq": "Fruteria Izquierda",
+  "block.tfgmod.fruteriamedio": "Fruteria Central",
+  "block.tfgmod.panaderiaizq": "Panaderia Izquierda",
+  "block.tfgmod.panaderiadch": "Panaderia Derecha",
+  "block.tfgmod.carniceriadch": "Carniceria Derecha",
+  "block.tfgmod.carniceriaizq": "Carniceria Izquierda",
+  "block.tfgmod.carniceriamedio": "Carniceria Central",
+  "block.tfgmod.pescaderiadch": "Pescaderia Derecha",
+  "block.tfgmod.pescaderiaizq": "Pescaderia Izquierda",
+  "block.tfgmod.pescaderiamedio": "Pescaderia Medio",
+  "block.tfgmod.mineralesdch": "Minerales Derecha",
+  "block.tfgmod.mineralesmedio": "Minerales Medio",
+  "block.tfgmod.mineralesizq": "Minerales Izquierda",
+  "block.tfgmod.pescadocolgando": "Pescado Colgando",
 
 
 

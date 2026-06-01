@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tfgmod:block/fruteriamedio" },
+    "facing=south": { "model": "tfgmod:block/fruteriamedio", "y": 180 },
+    "facing=east":  { "model": "tfgmod:block/fruteriamedio", "y": 90 },
+    "facing=west":  { "model": "tfgmod:block/fruteriamedio", "y": 270 }
+  }
+}

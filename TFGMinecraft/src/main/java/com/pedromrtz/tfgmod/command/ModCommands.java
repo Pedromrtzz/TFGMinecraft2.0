@@ -1,0 +1,253 @@
+package com.pedromrtz.tfgmod.command;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.pedromrtz.tfgmod.network.ProgressSync;
+import com.pedromrtz.tfgmod.progress.Chapter1ProgressUtil;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+
+public class ModCommands {
+
+    public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+
+        dispatcher.register(
+                Commands.literal("tfg")
+
+                        .then(Commands.literal("resetall")
+                                .executes(ctx -> {
+                                    ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                    var prog = Chapter1ProgressUtil.get(sp);
+
+                                    prog.setHasAlbum(false);
+                                    prog.setMission1Active(false);
+                                    prog.setHasFamilyCard(false);
+                                    prog.setMission1Completed(false);
+
+                                    prog.setChapter2Active(false);
+                                    prog.setChapter2Completed(false);
+                                    prog.setChapter2Task(0);
+                                    prog.setChapter2TableStage(0);
+                                    prog.setWish("");
+                                    prog.setChapter2BellCount(0);
+
+                                    prog.setChapter3Active(false);
+                                    prog.setChapter3Completed(false);
+                                    prog.setChapter3Task(0);
+
+                                    prog.setChapter4Active(false);
+                                    prog.setChapter4Completed(false);
+                                    prog.setChapter4Task(0);
+
+                                    prog.setChapter5Active(false);
+                                    prog.setChapter5Completed(false);
+                                    prog.setChapter5Task(0);
+
+                                    ProgressSync.syncChapter1(sp);
+
+                                    ctx.getSource().sendSuccess(
+                                            () -> Component.literal("All chapters have been reset."),
+                                            false
+                                    );
+                                    return 1;
+                                })
+                        )
+
+                        .then(Commands.literal("chapter1")
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setHasAlbum(false);
+                                            prog.setMission1Active(false);
+                                            prog.setHasFamilyCard(false);
+                                            prog.setMission1Completed(false);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 1 reset."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
+
+                        .then(Commands.literal("chapter2")
+
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter2Active(false);
+                                            prog.setChapter2Completed(false);
+                                            prog.setChapter2Task(0);
+                                            prog.setChapter2TableStage(0);
+                                            prog.setWish("");
+                                            prog.setChapter2BellCount(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 2 reset."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter2Active(true);
+                                            prog.setChapter2Completed(false);
+                                            prog.setChapter2Task(1);
+                                            prog.setChapter2TableStage(0);
+                                            prog.setChapter2BellCount(0);
+
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 2 started."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
+
+
+                        .then(Commands.literal("chapter3")
+
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter3Active(true);
+                                            prog.setChapter3Completed(false);
+                                            prog.setChapter3Task(1);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 3 started."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter3Active(false);
+                                            prog.setChapter3Completed(false);
+                                            prog.setChapter3Task(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 3 reset."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
+
+                        .then(Commands.literal("chapter4")
+
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter4Active(true);
+                                            prog.setChapter4Completed(false);
+                                            prog.setChapter4Task(1);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Chapter 4 started."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter4Active(false);
+                                            prog.setChapter4Completed(false);
+                                            prog.setChapter4Task(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Chapter 4 reset."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
+
+                        .then(Commands.literal("chapter5")
+
+                                .then(Commands.literal("start")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter5Active(true);
+                                            prog.setChapter5Completed(false);
+                                            prog.setChapter5Task(1);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 5 started."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+
+                                .then(Commands.literal("reset")
+                                        .executes(ctx -> {
+                                            ServerPlayer sp = ctx.getSource().getPlayerOrException();
+                                            var prog = Chapter1ProgressUtil.get(sp);
+
+                                            prog.setChapter5Active(false);
+                                            prog.setChapter5Completed(false);
+                                            prog.setChapter5Task(0);
+
+                                            ProgressSync.syncChapter1(sp);
+
+                                            ctx.getSource().sendSuccess(
+                                                    () -> Component.literal("Capítulo 5 reset."),
+                                                    false
+                                            );
+                                            return 1;
+                                        })
+                                )
+                        )
+
+
+        );
+    }
+}

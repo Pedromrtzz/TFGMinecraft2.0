@@ -19,7 +19,7 @@ public class ModCreativeModeTabs {
         CREATIVE_MODE_TABS.register(eventBus);
     }
 
-    public static final RegistryObject<CreativeModeTab> ALEXANDRITE_ITEMS_TAB = CREATIVE_MODE_TABS.register("alexanderite_items_tab",
+    public static final RegistryObject<CreativeModeTab> MOD_ITEMS_TAB = CREATIVE_MODE_TABS.register("alexanderite_items_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ARROZ.get()))
                     .title(Component.translatable("creativetab.tfgmod.ejemplo"))
                     .displayItems((itemDisplayParameters, output) -> {
@@ -40,6 +40,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MICROONDAS.get());
                         output.accept(ModBlocks.MESA.get());
                         output.accept(ModBlocks.BOTE.get());
+                        output.accept(ModBlocks.PANADERIAMEDIO.get());
 
                         output.accept(ModBlocks.PARED_TATAMI.get());
                         output.accept(ModBlocks.SUELO_TATAMIARRIBA.get());
@@ -101,7 +102,33 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.GALLETA_SUERTE.get());
                         output.accept(ModItems.YEN.get());
+                        output.accept(ModItems.CARD.get());
+
+                        output.accept(ModItems.EMA.get());
+                        output.accept(ModBlocks.PANADERIADCH.get());
+                        output.accept(ModBlocks.PANADERIAIZQ.get());
+                        output.accept(ModBlocks.PANADERIAMEDIO.get());
+
+                        output.accept(ModBlocks.FRUTERIADCH.get());
+                        output.accept(ModBlocks.FRUTERIAMEDIO.get());
+                        output.accept(ModBlocks.FRUTERIAIZQ.get());
+
+                        output.accept(ModBlocks.CARNICERIADCH.get());
+                        output.accept(ModBlocks.CARNICERIAIZQ.get());
+                        output.accept(ModBlocks.CARNICERIAMEDIO.get());
+
+                        output.accept(ModBlocks.PESCADERIADCH.get());
+                        output.accept(ModBlocks.PESCADERIAIZQ.get());
+                        output.accept(ModBlocks.PESCADERIAMEDIO.get());
+
+                        output.accept(ModBlocks.MINERALESDCH.get());
+                        output.accept(ModBlocks.MINERALESMEDIO.get());
+                        output.accept(ModBlocks.MINERALESIZQ.get());
+
+                        output.accept(ModBlocks.PESCADOCOLGANDO.get());
 
                     }).build());
+
+
 
 }

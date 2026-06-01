@@ -134,6 +134,7 @@ public class ModItems {
                             .food(ModFoodPropierties.SUSHI))
             );
 
+
     // GREEN TEA SHOP
 
         // TE MATCHA
@@ -266,9 +267,32 @@ public class ModItems {
                 () -> new Item(new Item.Properties().stacksTo(64))
         );
 
+    public static final RegistryObject<Item> CARD = ITEMS.register("card",
+            () -> new CardItem(new Item.Properties())
+    );
 
+    public static final RegistryObject<Item> ALBUM = ITEMS.register("album",
+            () -> new AlbumItem(new Item.Properties().stacksTo(1)));
 
+    // MINIJUEGOS
 
+    public static final RegistryObject<Item> SUSHI_KNIFE = ITEMS.register(
+            "sushi_knife",
+            () -> new SushiKnifeItem(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> SUSHI_GAME =
+            ITEMS.register("sushi_game",
+                    () -> new SushiGameItem(new Item.Properties())
+            );
+
+    public static final RegistryObject<Item> CHEF_BOOK = ITEMS.register(
+            "chef_book",
+            () -> new ChefBookItem(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> EMA = ITEMS.register("ema",
+            () -> new EmaItem(new Item.Properties().stacksTo(1)));
 
 
 

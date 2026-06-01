@@ -82,13 +82,13 @@ public class ModBlocks {
             () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> MESA = registerBlock("mesa",
-            () -> new MicroondasBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
+            () -> new MesaBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> BOTE = registerBlock("bote",
             () -> new BoteBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
-
-
+    public static final RegistryObject<Block> WISH_HANGER = registerBlock("wish_hanger",
+            () -> new WishHangerBlock(BlockBehaviour.Properties.of().noOcclusion().strength(2f)));
 
     public static final RegistryObject<Block> SUSHI = registerBlock("sushi_bloque",
             () -> new SushiBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1f)));
@@ -150,6 +150,55 @@ public class ModBlocks {
     public static final RegistryObject<Block> TEVERDE_CULTIVO = BLOCKS.register("teverde_cultivo",
             () -> new TeVerdeCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().instabreak())
     );
+
+
+    public static final RegistryObject<Block> PANADERIAMEDIO = registerBlock("panaderiamedio",
+            () -> new PanaderiaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PANADERIADCH = registerBlock("panaderiadch",
+            () -> new PanaderiaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PANADERIAIZQ = registerBlock("panaderiaizq",
+            () -> new PanaderiaIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> FRUTERIADCH = registerBlock("fruteriadch",
+            () -> new FruteriaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> FRUTERIAMEDIO = registerBlock("fruteriamedio",
+            () -> new FruteriaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> FRUTERIAIZQ = registerBlock("fruteriaizq",
+            () -> new FruteriaIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> CARNICERIADCH = registerBlock("carniceriadch",
+            () -> new CarniceriaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> CARNICERIAIZQ = registerBlock("carniceriaizq",
+            () -> new CarniceriaIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> CARNICERIAMEDIO = registerBlock("carniceriamedio",
+            () -> new CarniceriaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PESCADERIADCH = registerBlock("pescaderiadch",
+            () -> new PescaderiaDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PESCADERIAIZQ = registerBlock("pescaderiaizq",
+            () -> new PescaderiaIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PESCADERIAMEDIO = registerBlock("pescaderiamedio",
+            () -> new PescaderiaMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> MINERALESDCH = registerBlock("mineralesdch",
+            () -> new MineralesDchBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> MINERALESMEDIO = registerBlock("mineralesmedio",
+            () -> new MineralesMedioBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> MINERALESIZQ = registerBlock("mineralesizq",
+            () -> new MineralesIzqBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
+
+    public static final RegistryObject<Block> PESCADOCOLGANDO = registerBlock("pescadocolgando",
+            () -> new PescadoColgandoBlock(BlockBehaviour.Properties.of().noOcclusion().strength(4f)));
 
 
 

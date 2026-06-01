@@ -56,16 +56,12 @@ public class GalletaSuerteItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 
         if (!level.isClientSide() && hand == InteractionHand.MAIN_HAND) {
-            // Elegir una frase aleatoria
             String fraseAleatoria = FRASES[random.nextInt(FRASES.length)];
-            // Enviar el mensaje al jugador
             player.sendSystemMessage(Component.translatable(fraseAleatoria));
 
-            // Quitar una unidad del ItemStack
             ItemStack itemStack = player.getItemInHand(hand);
             itemStack.shrink(1); // Reduce la cantidad en 1
 
-            // Si la cantidad es 0, se eliminará automáticamente del inventario
             if (itemStack.isEmpty()) {
                 player.setItemInHand(hand, ItemStack.EMPTY); // Remover el item del inventario
             }

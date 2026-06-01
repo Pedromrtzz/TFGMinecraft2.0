@@ -2,10 +2,13 @@ package com.pedromrtz.tfgmod.event;
 
 import com.pedromrtz.tfgmod.Item.ModItems;
 import com.pedromrtz.tfgmod.TFGMod;
+import com.pedromrtz.tfgmod.entity.ModEntities;
+import com.pedromrtz.tfgmod.entity.custom.ChefEntity;
 import com.pedromrtz.tfgmod.villager.ModVillagers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -143,6 +146,5 @@ public class ModEvents {
 
 
     }
-
 
 }
